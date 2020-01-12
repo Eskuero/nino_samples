@@ -1,0 +1,18 @@
+diff --git a/build.gradle b/build.gradle
+index b3b37027..3e420201 100644
+--- a/build.gradle
++++ b/build.gradle
+@@ -64,6 +64,13 @@ android {
+             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+         }
+     }
++
++    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
++    android.applicationVariants.all { variant ->
++        variant.outputs.all { output ->
++            output.versionCodeOverride = DateVersionCode
++        }
++    }
+ }
+ 
+ dependencies {

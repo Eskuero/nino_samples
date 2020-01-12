@@ -1,0 +1,17 @@
+diff --git a/app/build.gradle b/app/build.gradle
+index 06d1ce9..815b3cd 100644
+--- a/app/build.gradle
++++ b/app/build.gradle
+@@ -68,6 +68,12 @@ android {
+             includeAndroidResources = true
+         }
+     }
++    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
++    android.applicationVariants.all { variant ->
++        variant.outputs.all { output ->
++            output.versionCodeOverride = DateVersionCode
++        }
++    }
+ }
+ 
+ dependencies {

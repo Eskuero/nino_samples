@@ -1,0 +1,18 @@
+diff --git a/app/build.gradle b/app/build.gradle
+index e37db383..66d9a8d9 100644
+--- a/app/build.gradle
++++ b/app/build.gradle
+@@ -99,6 +99,13 @@ android {
+     kotlinOptions {
+         jvmTarget = "1.8"
+     }
++
++    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
++    android.applicationVariants.all { variant ->
++        variant.outputs.all { output ->
++            output.versionCodeOverride = DateVersionCode
++        }
++    }
+ }
+ 
+ dependencies {

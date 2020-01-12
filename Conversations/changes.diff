@@ -1,0 +1,17 @@
+diff --git a/build.gradle b/build.gradle
+index ee50e5c98..15518effd 100644
+--- a/build.gradle
++++ b/build.gradle
+@@ -252,4 +252,12 @@ android {
+         exclude 'META-INF/BCKEY.DSA'
+         exclude 'META-INF/BCKEY.SF'
+     }
++
++    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
++    android.applicationVariants.all { variant ->
++        variant.outputs.all { output ->
++            output.versionCodeOverride = DateVersionCode
++        }
++    }
++
+ }

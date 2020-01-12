@@ -1,0 +1,18 @@
+diff --git a/app/build.gradle b/app/build.gradle
+index e142ce31..286221a0 100644
+--- a/app/build.gradle
++++ b/app/build.gradle
+@@ -66,6 +66,13 @@ android {
+     packagingOptions {
+         exclude 'META-INF/library_release.kotlin_module'
+     }
++
++    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
++    android.applicationVariants.all { variant ->
++        variant.outputs.all { output ->
++            output.versionCodeOverride = DateVersionCode
++        }
++    }
+ }
+ 
+ dependencies {
