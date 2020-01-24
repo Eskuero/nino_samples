@@ -1,11 +1,11 @@
 diff --git a/OpenKeychain/build.gradle b/OpenKeychain/build.gradle
-index 6465a9951..e9d561634 100644
+index 8b4c4251d..91d4bfa15 100644
 --- a/OpenKeychain/build.gradle
 +++ b/OpenKeychain/build.gradle
-@@ -110,6 +110,13 @@ dependencies {
- 
-     // for debugging the db. don't enable by default, this will expose the database no the network!
-     // debugImplementation 'com.amitshekhar.android:debug-db:1.0.3'
+@@ -290,6 +290,13 @@ android {
+         exclude 'META-INF/NOTICE'
+         exclude '.readme'
+     }
 +
 +    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
 +    android.applicationVariants.all { variant ->
@@ -15,4 +15,4 @@ index 6465a9951..e9d561634 100644
 +    }
  }
  
- // Output of ./gradlew -q calculateChecksums
+ task jacocoTestReport(type:JacocoReport, dependsOn: "testFdroidDebugWithTestCoverageUnitTest") {

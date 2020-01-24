@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 7a1becdf1..5b38e4eee 100644
+index 79c99851f..48dacb3f5 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -4,6 +4,7 @@ import java.security.MessageDigest
@@ -10,7 +10,7 @@ index 7a1becdf1..5b38e4eee 100644
          google()
          maven {
              url "https://repo1.maven.org/maven2"
-@@ -243,10 +244,6 @@ android {
+@@ -244,10 +245,6 @@ android {
          buildConfigField "String[]", "LANGUAGES", "new String[]{\"" + autoResConfig().collect { s -> s.replace('-r', '_') }.join('", "') + '"}'
          buildConfigField "int", "CANONICAL_VERSION_CODE", "$canonicalVersionCode"
  
@@ -21,7 +21,7 @@ index 7a1becdf1..5b38e4eee 100644
          resConfigs autoResConfig()
  
          splits {
-@@ -254,7 +251,7 @@ android {
+@@ -255,7 +252,7 @@ android {
                  enable true
                  reset()
                  include 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
@@ -30,7 +30,7 @@ index 7a1becdf1..5b38e4eee 100644
              }
          }
      }
-@@ -341,7 +338,7 @@ android {
+@@ -342,7 +339,7 @@ android {
  
              if (postFix >= postFixSize) throw new AssertionError("postFix is too large")
  
@@ -39,7 +39,7 @@ index 7a1becdf1..5b38e4eee 100644
          }
      }
  
-@@ -417,10 +414,6 @@ tasks.whenTaskAdded { task ->
+@@ -418,10 +415,6 @@ tasks.whenTaskAdded { task ->
      if (task.name.equals("assemblePlayRelease")) {
          task.finalizedBy signProductionPlayRelease
      }
