@@ -1,15 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 40d4524..154352f 100644
+index 816d21c..6b381e6 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -17,13 +17,13 @@ android {
- 		minSdkVersion 16
- 		targetSdkVersion 29
- 		versionName '1.16.1'
--		versionCode 60
-+		versionCode Integer.parseInt(new Date().format("yyMMddHHmm"))
- 	}
- 
+@@ -23,7 +23,7 @@ android {
  	splits {
  		abi {
  			enable true
@@ -18,6 +11,18 @@ index 40d4524..154352f 100644
  		}
  	}
  
+@@ -48,4 +48,11 @@ android {
+ 			}
+ 		}
+ 	}
++
++	def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
++	android.applicationVariants.all { variant ->
++		variant.outputs.all { output ->
++			output.versionCodeOverride = DateVersionCode
++		}
++    	}
+ }
 diff --git a/build.gradle b/build.gradle
 index d691e44..6a9e9d9 100644
 --- a/build.gradle

@@ -1,12 +1,11 @@
 diff --git a/build.gradle b/build.gradle
-index b3b37027..3e420201 100644
+index 5960738e..bbed6a13 100644
 --- a/build.gradle
 +++ b/build.gradle
-@@ -64,6 +64,13 @@ android {
-             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+@@ -64,6 +64,12 @@ android {
+             useProguard true
          }
      }
-+
 +    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->

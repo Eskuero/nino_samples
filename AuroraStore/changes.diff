@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 5f5a4038..c52569b7 100644
+index d1ad4956..f3e3f8fa 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -56,6 +56,12 @@ android {
+@@ -71,6 +71,12 @@ android {
      lintOptions {
          warning 'MissingTranslation', 'GetLocales', 'VectorDrawableCompat'
      }

@@ -1,5 +1,5 @@
 diff --git a/build.gradle b/build.gradle
-index a53bbd1..5b0dd79 100644
+index e3fdc24c..8dd04b4c 100644
 --- a/build.gradle
 +++ b/build.gradle
 @@ -81,6 +81,13 @@ android {
@@ -17,7 +17,7 @@ index a53bbd1..5b0dd79 100644
  
  pmd {
 diff --git a/src/main/AndroidManifest.xml b/src/main/AndroidManifest.xml
-index 1c50e08..2518cf2 100644
+index fd4b2dc6..24202c0b 100644
 --- a/src/main/AndroidManifest.xml
 +++ b/src/main/AndroidManifest.xml
 @@ -18,7 +18,6 @@
