@@ -1,8 +1,8 @@
 diff --git a/build.gradle b/build.gradle
-index ead92e284..b76a7262f 100644
+index 610bc6e00..3a2974f20 100644
 --- a/build.gradle
 +++ b/build.gradle
-@@ -252,4 +252,12 @@ android {
+@@ -253,4 +253,12 @@ android {
          exclude 'META-INF/BCKEY.DSA'
          exclude 'META-INF/BCKEY.SF'
      }
