@@ -1,5 +1,5 @@
 diff --git a/twidere/build.gradle b/twidere/build.gradle
-index 9d80f9787..ed459499e 100644
+index 0de070290..ac67d9342 100644
 --- a/twidere/build.gradle
 +++ b/twidere/build.gradle
 @@ -148,6 +148,13 @@ android {
@@ -16,7 +16,7 @@ index 9d80f9787..ed459499e 100644
  }
  
  repositories {
-@@ -286,4 +293,4 @@ if (enableGoogleVariant) {
+@@ -287,4 +294,4 @@ if (enableGoogleVariant) {
  // START Non-FOSS component
      apply plugin: 'com.google.gms.google-services'
  // END Non-FOSS component

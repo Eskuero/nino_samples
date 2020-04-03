@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 76dd51f74..2c5a3b388 100644
+index 224ee0a4d..8c1104234 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -4,6 +4,7 @@ import java.security.MessageDigest
@@ -30,7 +30,7 @@ index 76dd51f74..2c5a3b388 100644
              }
          }
  
-@@ -234,7 +231,7 @@ android {
+@@ -235,7 +232,7 @@ android {
  
              if (postFix >= postFixSize) throw new AssertionError("postFix is too large")
  
@@ -39,7 +39,7 @@ index 76dd51f74..2c5a3b388 100644
          }
      }
  
-@@ -421,10 +418,6 @@ tasks.whenTaskAdded { task ->
+@@ -427,10 +424,6 @@ tasks.whenTaskAdded { task ->
      if (task.name.equals("assemblePlayRelease")) {
          task.finalizedBy signProductionPlayRelease
      }
