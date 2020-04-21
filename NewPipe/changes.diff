@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 92c00c37..88c5161a 100644
+index 62163bec..48b58d3b 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -70,6 +70,12 @@ android {
+@@ -71,6 +71,12 @@ android {
      sourceSets {
          androidTest.assets.srcDirs += files("$projectDir/schemas".toString())
      }
@@ -15,7 +15,7 @@ index 92c00c37..88c5161a 100644
  }
  
  ext {
-@@ -164,4 +170,4 @@ static String getGitWorkingBranch() {
+@@ -165,4 +171,4 @@ static String getGitWorkingBranch() {
          // git was not found
          return ""
      }

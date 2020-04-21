@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 2d7d2fea..6fe50038 100644
+index 302c1a54..caa3cf6c 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -106,6 +106,13 @@ android {
+@@ -109,6 +109,13 @@ android {
      kotlinOptions {
          jvmTarget = "1.8"
      }
@@ -15,4 +15,4 @@ index 2d7d2fea..6fe50038 100644
 +    }
  }
  
- dependencies {
+ androidExtensions {

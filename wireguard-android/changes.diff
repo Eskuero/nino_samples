@@ -1,12 +1,11 @@
-diff --git a/app/build.gradle b/app/build.gradle
-index 8b9e0eec2..b311ef48f 100644
---- a/app/build.gradle
-+++ b/app/build.gradle
-@@ -75,6 +75,13 @@ android {
-     packagingOptions {
-         exclude 'META-INF/library_release.kotlin_module'
+diff --git a/ui/build.gradle b/ui/build.gradle
+index 002981d..5860332 100644
+--- a/ui/build.gradle
++++ b/ui/build.gradle
+@@ -62,6 +62,12 @@ android {
+     lintOptions {
+         disable('LongLogTag')
      }
-+
 +    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->

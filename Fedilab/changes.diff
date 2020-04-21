@@ -1,11 +1,11 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 5d340a4ae..54cf7023d 100644
+index 6e554190e..545e04aba 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -47,6 +47,12 @@ android {
-     packagingOptions {
+@@ -48,6 +48,12 @@ android {
          exclude 'META-INF/proguard/androidx-annotations.pro'
      }
+     viewBinding.enabled = true
 +    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->
