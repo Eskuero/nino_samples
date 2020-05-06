@@ -1,7 +1,16 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index a743e23..9bfc2b2 100644
+index a743e23..e3f9e2d 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
+@@ -4,7 +4,7 @@ plugins {
+ 
+ android {
+     compileSdkVersion 28
+-    ndkVersion '21.0.6113669'
++    ndkVersion '21.1.6352462'
+ 
+     dependencies {
+         implementation "androidx.annotation:annotation:1.1.0"
 @@ -69,6 +69,12 @@ android {
              includeAndroidResources = true
          }
@@ -15,3 +24,16 @@ index a743e23..9bfc2b2 100644
  }
  
  dependencies {
+diff --git a/terminal-emulator/build.gradle b/terminal-emulator/build.gradle
+index 19128a2..b0baa94 100644
+--- a/terminal-emulator/build.gradle
++++ b/terminal-emulator/build.gradle
+@@ -18,7 +18,7 @@ ext {
+ 
+ android {
+     compileSdkVersion 28
+-    ndkVersion '21.0.6113669'
++    ndkVersion '21.1.6352462'
+ 
+     defaultConfig {
+         minSdkVersion 21

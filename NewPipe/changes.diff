@@ -1,11 +1,12 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 62163bec..48b58d3b 100644
+index 65a36bde9..eef87d959 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -71,6 +71,12 @@ android {
+@@ -76,6 +76,13 @@ android {
      sourceSets {
          androidTest.assets.srcDirs += files("$projectDir/schemas".toString())
      }
++
 +    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->
@@ -15,10 +16,3 @@ index 62163bec..48b58d3b 100644
  }
  
  ext {
-@@ -165,4 +171,4 @@ static String getGitWorkingBranch() {
-         // git was not found
-         return ""
-     }
--}
-\ No newline at end of file
-+}

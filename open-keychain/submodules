@@ -1,0 +1,24 @@
+Entering 'OpenKeychain/src/test/resources/openpgp-interop'
+https://github.com/google/openpgp-interop
+1cf03918f0ec839015b340b1a89b12114b90c469
+
+Entering 'extern/KeybaseLib'
+https://github.com/open-keychain/KeybaseLib.git
+476fc52a7e59a490d89b8e15f96f5c8535c20328
+
+Entering 'extern/bouncycastle'
+https://github.com/open-keychain/bouncycastle.git
+c260cecf0b80c986e7461f63d3c12aed72d4be4d
+
+Entering 'extern/minidns'
+https://github.com/open-keychain/minidns.git
+969ffd2951fcaa07f46b441936a0c0fd4502dafd
+
+Entering 'extern/openpgp-api-lib'
+https://github.com/open-keychain/openpgp-api.git
+3d77d941868e81ac2a5d6317c24a3df6739e187a
+
+Entering 'extern/safeslinger-exchange'
+https://github.com/open-keychain/exchange-android
+e98ff43e52a146bac8b7765473f02828816f00c4
+

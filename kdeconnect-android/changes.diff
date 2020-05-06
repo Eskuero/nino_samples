@@ -1,8 +1,8 @@
 diff --git a/build.gradle b/build.gradle
-index 35b7adbe..bf19ec9c 100644
+index 25f5f9e0..2c0f345e 100644
 --- a/build.gradle
 +++ b/build.gradle
-@@ -64,6 +64,12 @@ android {
+@@ -68,6 +68,12 @@ android {
              minifyEnabled true
          }
      }
@@ -14,4 +14,4 @@ index 35b7adbe..bf19ec9c 100644
 +    }
  }
  
- dependencies {
+ /**

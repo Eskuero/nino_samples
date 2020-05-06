@@ -1,0 +1,48 @@
+diff --git a/app/build.gradle b/app/build.gradle
+index 27849fd..07e9f74 100644
+--- a/app/build.gradle
++++ b/app/build.gradle
+@@ -202,15 +202,6 @@ android {
+         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+     }
+ 
+-    signingConfigs {
+-        release {
+-            storeFile file("../privateConfig/keystore/ProtonMail.keystore")
+-            storePassword privateProperties.keyStorePassword
+-            keyAlias "ProtonMail"
+-            keyPassword privateProperties.keyStoreKeyPassword
+-        }
+-    }
+-
+     productFlavors {
+         playstore {
+             applicationId "ch.protonmail.android"
+@@ -233,13 +224,11 @@ android {
+             minifyEnabled true
+             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+             multiDexKeepProguard file('multidex-proguard.pro')
+-            signingConfig signingConfigs.release
+         }
+         releaseBeta {
+             minifyEnabled true
+             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+             multiDexKeepProguard file('multidex-proguard.pro')
+-            signingConfig signingConfigs.release
+         }
+     }
+ 
+@@ -274,6 +263,13 @@ android {
+         sourceCompatibility JavaVersion.VERSION_1_8
+         targetCompatibility JavaVersion.VERSION_1_8
+     }
++
++    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
++    android.applicationVariants.all { variant ->
++        variant.outputs.all { output ->
++            output.versionCodeOverride = DateVersionCode
++        }
++    }
+ }
+ 
+ sentry {

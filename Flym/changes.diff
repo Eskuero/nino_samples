@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index f8a2c6f..1eb6da7 100644
+index ffa6046..ff3dfa9 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -67,6 +67,13 @@ android {
+@@ -70,6 +70,13 @@ android {
  	sourceSets {
  		main.java.srcDirs += 'src/main/kotlin'
  	}

@@ -1,8 +1,8 @@
 diff --git a/twidere/build.gradle b/twidere/build.gradle
-index ec64610eb..c8fb925d6 100644
+index 9d56b0bdc..efce41126 100644
 --- a/twidere/build.gradle
 +++ b/twidere/build.gradle
-@@ -148,6 +148,13 @@ android {
+@@ -146,6 +146,12 @@ android {
          exclude 'build-data.properties'
      }
  
@@ -12,11 +12,10 @@ index ec64610eb..c8fb925d6 100644
 +            output.versionCodeOverride = DateVersionCode
 +        }
 +    }
-+
  }
  
- repositories {
-@@ -288,4 +295,4 @@ if (enableGoogleVariant) {
+ dependencies {
+@@ -288,4 +294,4 @@ if (enableGoogleVariant) {
  // START Non-FOSS component
      apply plugin: 'com.google.gms.google-services'
  // END Non-FOSS component

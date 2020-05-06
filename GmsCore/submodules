@@ -1,0 +1,32 @@
+Entering 'extern/GmsApi'
+https://github.com/microg/android_external_GmsApi.git
+2a43448e49dc0aec0d6c53c8a27dd58245fdaba6
+
+Entering 'extern/GmsLib'
+https://github.com/microg/android_external_GmsLib.git
+15cd4491bcca57d627796b35b69bdf8c97564792
+
+Entering 'extern/GmsLib/extern/GmsApi'
+https://github.com/microg/android_external_GmsApi.git
+2a43448e49dc0aec0d6c53c8a27dd58245fdaba6
+
+Entering 'extern/RemoteDroidGuard'
+https://github.com/microg/android_packages_apps_RemoteDroidGuard.git
+47073dd7a2a039593fe556af8f9f33e325febfa7
+
+Entering 'extern/UnifiedNlp'
+https://github.com/microg/android_packages_apps_UnifiedNlp.git
+82479b79c76353f532e0c6edd0d1dee8d49c48f4
+
+Entering 'extern/UnifiedNlp/extern/MicroGUiTools'
+https://github.com/microg/android_external_MicroGUiTools.git
+0dedff974617604b61e78c22bd57a8f1b5b14512
+
+Entering 'extern/UnifiedNlp/extern/UnifiedNlpApi'
+https://github.com/microg/android_external_UnifiedNlpApi.git
+59b6741166571bfcaf64e5feec7469190c7852aa
+
+Entering 'extern/Wearable'
+https://github.com/microg/android_external_Wearable.git
+617a43e139c6470361e44015bf1964026f3107e7
+

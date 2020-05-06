@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 816d21c..6b381e6 100644
+index b6dc41d..6ff76a2 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -23,7 +23,7 @@ android {
@@ -21,28 +21,11 @@ index 816d21c..6b381e6 100644
 +		variant.outputs.all { output ->
 +			output.versionCodeOverride = DateVersionCode
 +		}
-+    	}
++	}
  }
-diff --git a/build.gradle b/build.gradle
-index d691e44..6a9e9d9 100644
---- a/build.gradle
-+++ b/build.gradle
-@@ -1,7 +1,7 @@
- buildscript {
- 	repositories {
--		jcenter()
- 		google()
-+		jcenter()
- 	}
- 	dependencies {
- 		classpath 'com.android.tools.build:gradle:3.5.0'
-@@ -13,8 +13,8 @@ allprojects {
- 		if (project.hasProperty('MAVEN_REPO')) {
- 			maven { url MAVEN_REPO }
- 		}
--		jcenter()
- 		google()
-+		jcenter()
- 		maven { url 'http://maven.ghostscript.com/' }
- 	}
- }
+diff --git a/jni b/jni
+--- a/jni
++++ b/jni
+@@ -1 +1 @@
+-Subproject commit 88714df8c7e0ae4b7d009fc7ce6e10885d31aaf6
++Subproject commit 88714df8c7e0ae4b7d009fc7ce6e10885d31aaf6-dirty

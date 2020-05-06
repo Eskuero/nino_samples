@@ -1,17 +1,32 @@
 diff --git a/build.gradle b/build.gradle
-index 610bc6e00..3a2974f20 100644
+index 462d60db0..cd944cf43 100644
 --- a/build.gradle
 +++ b/build.gradle
-@@ -253,4 +253,12 @@ android {
-         exclude 'META-INF/BCKEY.DSA'
+@@ -80,7 +80,7 @@ dependencies {
+     implementation 'com.squareup.okhttp3:okhttp:3.12.10'
+     implementation 'com.google.guava:guava:27.1-android'
+     quicksyImplementation 'io.michaelrocks:libphonenumber-android:8.11.1'
+-    implementation fileTree(include: ['libwebrtc-m81.aar'], dir: 'libs')
++    implementation 'org.webrtc:google-webrtc:1.0.+'
+ }
+ 
+ ext {
+@@ -265,15 +265,10 @@ android {
          exclude 'META-INF/BCKEY.SF'
      }
-+
+ 
 +    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
-+    android.applicationVariants.all { variant ->
+     android.applicationVariants.all { variant ->
+-        variant.outputs.each { output ->
+-            def baseAbiVersionCode = project.ext.abiCodes.get(output.getFilter(OutputFile.ABI))
+-            if (baseAbiVersionCode != null) {
+-                output.versionCodeOverride = (100 * variant.versionCode) + baseAbiVersionCode
+-            } else {
+-                output.versionCodeOverride = (100 * variant.versionCode)
+-            }
 +        variant.outputs.all { output ->
 +            output.versionCodeOverride = DateVersionCode
-+        }
-+    }
-+
+         }
+-
+     }
  }
