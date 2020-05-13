@@ -1,5 +1,5 @@
 diff --git a/twidere/build.gradle b/twidere/build.gradle
-index 9d56b0bdc..efce41126 100644
+index 0e41ee86e..2a39270ac 100644
 --- a/twidere/build.gradle
 +++ b/twidere/build.gradle
 @@ -146,6 +146,12 @@ android {
@@ -14,8 +14,8 @@ index 9d56b0bdc..efce41126 100644
 +    }
  }
  
- dependencies {
-@@ -288,4 +294,4 @@ if (enableGoogleVariant) {
+ tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+@@ -295,4 +301,4 @@ if (enableGoogleVariant) {
  // START Non-FOSS component
      apply plugin: 'com.google.gms.google-services'
  // END Non-FOSS component
