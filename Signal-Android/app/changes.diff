@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 87233b81c..a445a8996 100644
+index fafad73ae..2732d6eec 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -4,6 +4,7 @@ import java.security.MessageDigest
@@ -39,7 +39,7 @@ index 87233b81c..a445a8996 100644
          }
      }
  
-@@ -431,10 +428,6 @@ tasks.whenTaskAdded { task ->
+@@ -438,10 +435,6 @@ tasks.whenTaskAdded { task ->
      if (task.name.equals("assemblePlayRelease")) {
          task.finalizedBy signProductionPlayRelease
      }
