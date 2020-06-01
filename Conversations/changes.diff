@@ -1,9 +1,9 @@
 diff --git a/build.gradle b/build.gradle
-index 4f857c25a..c8808715b 100644
+index 702ddb0c9..2c8edd68d 100644
 --- a/build.gradle
 +++ b/build.gradle
 @@ -80,7 +80,7 @@ dependencies {
-     implementation 'com.squareup.okhttp3:okhttp:3.12.10'
+     implementation 'com.squareup.okhttp3:okhttp:3.12.12'
      implementation 'com.google.guava:guava:27.1-android'
      quicksyImplementation 'io.michaelrocks:libphonenumber-android:8.11.1'
 -    implementation fileTree(include: ['libwebrtc-m81.aar'], dir: 'libs')
@@ -11,6 +11,15 @@ index 4f857c25a..c8808715b 100644
  }
  
  ext {
+@@ -106,7 +106,7 @@ android {
+ 
+     splits {
+         abi {
+-            universalApk true
++            universalApk false
+             enable true
+         }
+     }
 @@ -265,15 +265,10 @@ android {
          exclude 'META-INF/BCKEY.SF'
      }

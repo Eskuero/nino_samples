@@ -1,8 +1,26 @@
+diff --git a/app/k9mail-jmap/build.gradle b/app/k9mail-jmap/build.gradle
+index 49fba285d..4a0ca1d20 100644
+--- a/app/k9mail-jmap/build.gradle
++++ b/app/k9mail-jmap/build.gradle
+@@ -118,6 +118,13 @@ android {
+             includeAndroidResources = true
+         }
+     }
++
++    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
++    android.applicationVariants.all { variant ->
++        variant.outputs.all { output ->
++            output.versionCodeOverride = DateVersionCode
++        }
++    }
+ }
+ 
+ androidExtensions {
 diff --git a/app/k9mail/build.gradle b/app/k9mail/build.gradle
-index ba6794aa1..351dcbfea 100644
+index c0a49a0f5..f7af435b7 100644
 --- a/app/k9mail/build.gradle
 +++ b/app/k9mail/build.gradle
-@@ -112,6 +112,13 @@ android {
+@@ -115,6 +115,13 @@ android {
              includeAndroidResources = true
          }
      }

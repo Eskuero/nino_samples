@@ -1,8 +1,8 @@
 diff --git a/OpenKeychain/build.gradle b/OpenKeychain/build.gradle
-index 8b4c4251d..91d4bfa15 100644
+index 3ea7e058d..6901ce4be 100644
 --- a/OpenKeychain/build.gradle
 +++ b/OpenKeychain/build.gradle
-@@ -290,6 +290,13 @@ android {
+@@ -270,6 +270,13 @@ android {
          exclude 'META-INF/NOTICE'
          exclude '.readme'
      }
@@ -15,4 +15,17 @@ index 8b4c4251d..91d4bfa15 100644
 +    }
  }
  
- task jacocoTestReport(type:JacocoReport, dependsOn: "testFdroidDebugWithTestCoverageUnitTest") {
+ // Fix for: No report file available: [/home/travis/build/open-keychain/open-keychain/OpenKeychain/build/reports/cobertura/coverage.xml, /home/travis/build/open-keychain/open-keychain/OpenKeychain/build/reports/jacoco/test/jacocoTestReport.xml]
+diff --git a/gradlew b/gradlew
+index fbd7c5158..df801b4f2 100755
+--- a/gradlew
++++ b/gradlew
+@@ -44,7 +44,7 @@ APP_NAME="Gradle"
+ APP_BASE_NAME=`basename "$0"`
+ 
+ # Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
+-DEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'
++DEFAULT_JVM_OPTS=""
+ 
+ # Use the maximum available, or set MAX_FD != -1 to use that value.
+ MAX_FD="maximum"
