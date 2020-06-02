@@ -1,11 +1,12 @@
 diff --git a/twidere/build.gradle b/twidere/build.gradle
-index 3aef52793..e2e738db4 100644
+index 7fce8ac33..50457b682 100644
 --- a/twidere/build.gradle
 +++ b/twidere/build.gradle
-@@ -146,6 +146,12 @@ android {
+@@ -142,6 +142,13 @@ android {
+         exclude 'sdk-version.txt'
          exclude 'build-data.properties'
      }
- 
++
 +    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->
@@ -15,7 +16,7 @@ index 3aef52793..e2e738db4 100644
  }
  
  task buildTranslationArray {
-@@ -316,4 +322,4 @@ if (enableGoogleVariant) {
+@@ -324,4 +331,4 @@ if (enableGoogleVariant) {
  // START Non-FOSS component
      apply plugin: 'com.google.gms.google-services'
  // END Non-FOSS component
