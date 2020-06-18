@@ -17,14 +17,14 @@ index e3fdc24c..8dd04b4c 100644
  
  pmd {
 diff --git a/src/main/AndroidManifest.xml b/src/main/AndroidManifest.xml
-index fd4b2dc6..24202c0b 100644
+index 3e6bf5f0..f29fc3f0 100644
 --- a/src/main/AndroidManifest.xml
 +++ b/src/main/AndroidManifest.xml
 @@ -18,7 +18,6 @@
  
  <manifest xmlns:android="http://schemas.android.com/apk/res/android"
            package="org.quantumbadger.redreader"
--          android:versionCode="89"
-           android:versionName="1.9.11"
+-          android:versionCode="90"
+           android:versionName="1.10"
            android:installLocation="auto">
  

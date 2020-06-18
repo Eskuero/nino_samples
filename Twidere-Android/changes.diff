@@ -1,5 +1,5 @@
 diff --git a/twidere/build.gradle b/twidere/build.gradle
-index 7fce8ac33..50457b682 100644
+index 9b1c20ebb..219a06243 100644
 --- a/twidere/build.gradle
 +++ b/twidere/build.gradle
 @@ -142,6 +142,13 @@ android {
@@ -16,7 +16,7 @@ index 7fce8ac33..50457b682 100644
  }
  
  task buildTranslationArray {
-@@ -324,4 +331,4 @@ if (enableGoogleVariant) {
+@@ -326,4 +333,4 @@ if (enableGoogleVariant) {
  // START Non-FOSS component
      apply plugin: 'com.google.gms.google-services'
  // END Non-FOSS component

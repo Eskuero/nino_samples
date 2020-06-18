@@ -17,17 +17,17 @@ index 915729b0..9bddc6c3 100644
  
  // keystore -------------------------------------------------
 diff --git a/app/build.properties b/app/build.properties
-index 7bf18d80..845f168c 100644
+index 7bf18d80..12b3715e 100644
 --- a/app/build.properties
 +++ b/app/build.properties
 @@ -1,7 +1,7 @@
  #Build Properties
 -#Sun Mar 29 09:12:27 EDT 2020
-+#Sun Apr 26 22:23:34 WEST 2020
++#Thu Jun 18 02:26:46 WEST 2020
  version_minor=1
  version_build=0
 -version_patch=2
 -version_store=52
-+version_patch=4
-+version_store=54
++version_patch=6
++version_store=56
  version_major=2
