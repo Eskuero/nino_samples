@@ -1,8 +1,8 @@
 diff --git a/app/k9mail-jmap/build.gradle b/app/k9mail-jmap/build.gradle
-index 49fba285d..4a0ca1d20 100644
+index 78c7707d2..7abfad8bc 100644
 --- a/app/k9mail-jmap/build.gradle
 +++ b/app/k9mail-jmap/build.gradle
-@@ -118,6 +118,13 @@ android {
+@@ -121,6 +121,13 @@ android {
              includeAndroidResources = true
          }
      }
@@ -17,10 +17,10 @@ index 49fba285d..4a0ca1d20 100644
  
  androidExtensions {
 diff --git a/app/k9mail/build.gradle b/app/k9mail/build.gradle
-index 6115da7f6..8566ed30d 100644
+index 8938f2ee1..fec8add69 100644
 --- a/app/k9mail/build.gradle
 +++ b/app/k9mail/build.gradle
-@@ -115,6 +115,13 @@ android {
+@@ -118,6 +118,13 @@ android {
              includeAndroidResources = true
          }
      }

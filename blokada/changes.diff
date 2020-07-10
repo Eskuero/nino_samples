@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 8f42b6ee..631e6df4 100644
+index 367def5e..b912179c 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -67,16 +67,6 @@ android {
+@@ -61,16 +61,6 @@ android {
          abortOnError false
      }
  
@@ -19,15 +19,15 @@ index 8f42b6ee..631e6df4 100644
      buildTypes {
          debug {
              // By default it is a 'debuggable' build, signed with a debug key.
-@@ -91,7 +81,6 @@ android {
+@@ -84,7 +74,6 @@ android {
+              */
              minifyEnabled false
-             useProguard false // We don't use Proguard for now.
              proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 -            signingConfig signingConfigs.release
          }
  
          official {
-@@ -262,6 +251,13 @@ android {
+@@ -255,6 +244,13 @@ android {
          beta.res.srcDirs += 'src/official/res'
          beta.manifest.srcFile 'src/ui-blokada/AndroidManifest.xml'
      }
@@ -41,3 +41,13 @@ index 8f42b6ee..631e6df4 100644
  }
  
  dependencies {
+diff --git a/gradle.properties b/gradle.properties
+index 00cd70e9..04243ada 100644
+--- a/gradle.properties
++++ b/gradle.properties
+@@ -19,4 +19,4 @@
+ android.enableJetifier=true
+ android.useAndroidX=true
+ kotlin.coroutines=enable
+-
++org.gradle.jvmargs=-Xmx4g -XX:MaxPermSize=2048m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8

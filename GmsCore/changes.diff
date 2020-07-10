@@ -1,25 +1,13 @@
-diff --git a/build.gradle b/build.gradle
-index b6ffdcd..7c409fe 100644
---- a/build.gradle
-+++ b/build.gradle
-@@ -45,6 +45,7 @@ def versionCode() {
-     def stdout = new ByteArrayOutputStream()
-     exec { commandLine 'git', 'rev-list', '--count', "HEAD"; standardOutput = stdout }
-     return Integer.parseInt(stdout.toString().trim())
-+
- }
- 
- def versionName() {
 diff --git a/play-services-core/build.gradle b/play-services-core/build.gradle
-index 0aef5a4..2b85c20 100644
+index b55d79e..6d4fbdb 100644
 --- a/play-services-core/build.gradle
 +++ b/play-services-core/build.gradle
-@@ -83,7 +83,7 @@ android {
+@@ -66,7 +66,7 @@ android {
  
      defaultConfig {
-         versionName ourVersionName
--        versionCode ourVersionCode
+         versionName version
+-        versionCode appVersionCode
 +        versionCode Integer.parseInt(new Date().format("yyMMddHHmm"))
  
-         minSdkVersion androidMinSdk()
-         targetSdkVersion androidTargetSdk()
+         minSdkVersion androidMinSdk
+         targetSdkVersion androidTargetSdk

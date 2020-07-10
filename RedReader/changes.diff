@@ -1,30 +1,18 @@
 diff --git a/build.gradle b/build.gradle
-index e3fdc24c..8dd04b4c 100644
+index b00dd0c2..98b79b33 100644
 --- a/build.gradle
 +++ b/build.gradle
 @@ -81,6 +81,13 @@ android {
-             assets.srcDirs = ['assets']
-         }
-     }
+ 			assets.srcDirs = ['assets']
+ 		}
+ 	}
 +
-+    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
-+    android.applicationVariants.all { variant ->
-+        variant.outputs.all { output ->
-+            output.versionCodeOverride = DateVersionCode
++        def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
++        android.applicationVariants.all { variant ->
++            variant.outputs.all { output ->
++                output.versionCodeOverride = DateVersionCode
++            }
 +        }
-+    }
  }
  
  pmd {
-diff --git a/src/main/AndroidManifest.xml b/src/main/AndroidManifest.xml
-index 3e6bf5f0..f29fc3f0 100644
---- a/src/main/AndroidManifest.xml
-+++ b/src/main/AndroidManifest.xml
-@@ -18,7 +18,6 @@
- 
- <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-           package="org.quantumbadger.redreader"
--          android:versionCode="90"
-           android:versionName="1.10"
-           android:installLocation="auto">
- 
