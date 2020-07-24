@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index da350357b..43ae9ba06 100644
+index e506b5bfd..172738408 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -48,6 +48,12 @@ android {
+@@ -81,6 +81,12 @@ android {
          exclude 'META-INF/proguard/androidx-annotations.pro'
      }
      viewBinding.enabled = true
