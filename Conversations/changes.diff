@@ -1,5 +1,5 @@
 diff --git a/build.gradle b/build.gradle
-index 636184d05..65dc2b907 100644
+index 19daa6537..b2095a927 100644
 --- a/build.gradle
 +++ b/build.gradle
 @@ -80,7 +80,7 @@ dependencies {
@@ -20,11 +20,12 @@ index 636184d05..65dc2b907 100644
              enable true
          }
      }
-@@ -265,15 +265,10 @@ android {
+@@ -265,15 +265,11 @@ android {
          exclude 'META-INF/BCKEY.SF'
      }
  
 +    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
++    project.ext.versionCodes = ['armeabi-v7a': 1, 'arm64-v8a': 2, 'x86': 3, 'x86_64': 4]
      android.applicationVariants.all { variant ->
 -        variant.outputs.each { output ->
 -            def baseAbiVersionCode = project.ext.abiCodes.get(output.getFilter(OutputFile.ABI))
@@ -34,7 +35,7 @@ index 636184d05..65dc2b907 100644
 -                output.versionCodeOverride = (100 * variant.versionCode)
 -            }
 +        variant.outputs.all { output ->
-+            output.versionCodeOverride = DateVersionCode
++            output.versionCodeOverride = project.ext.versionCodes.get(output.getFilter(com.android.build.OutputFile.ABI), 0) + DateVersionCode
          }
 -
      }

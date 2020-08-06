@@ -1,10 +1,10 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index eba282ca..e26a369d 100644
+index 3a062b60..d38ae74f 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -106,6 +106,13 @@ android {
+@@ -119,6 +119,13 @@ android {
      kotlinOptions {
-         jvmTarget = "1.8"
+         jvmTarget = JavaVersion.VERSION_1_8.toString()
      }
 +
 +    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))

@@ -1,11 +1,12 @@
 diff --git a/build.gradle b/build.gradle
-index d7e418ee..77ac4b52 100644
+index 8c3074c7..cb4f8985 100644
 --- a/build.gradle
 +++ b/build.gradle
-@@ -79,6 +79,12 @@ android {
-             minifyEnabled true
+@@ -84,6 +84,13 @@ android {
+             shrinkResources true
          }
      }
++
 +    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->

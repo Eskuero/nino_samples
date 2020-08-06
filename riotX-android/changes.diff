@@ -11,7 +11,7 @@ index 99fd9d64f..20059b79f 100644
  # This option should only be used with decoupled projects. More details, visit
  # http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sec:decoupled_projects
 diff --git a/vector/build.gradle b/vector/build.gradle
-index 2b033790b..a63c14d07 100644
+index a1b0c006c..ca16f562c 100644
 --- a/vector/build.gradle
 +++ b/vector/build.gradle
 @@ -136,11 +136,6 @@ android {
@@ -26,7 +26,7 @@ index 2b033790b..a63c14d07 100644
          // Ref: https://developer.android.com/studio/build/configure-apk-splits.html
          splits {
              // Configures multiple APKs based on ABI.
-@@ -158,18 +153,17 @@ android {
+@@ -158,16 +153,16 @@ android {
                  include "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
  
                  // Generate a universal APK that includes all ABIs, so user who install from CI tool can use this one by default.
@@ -41,13 +41,12 @@ index 2b033790b..a63c14d07 100644
 -                // Known limitation: it does not modify the value in the BuildConfig.java generated file
 -                output.versionCodeOverride = variant.versionCode * 10 + baseAbiVersionCode
 -            }
-+    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
-+    android.applicationVariants.all { variant ->
++        def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
++        project.ext.versionCodes = ['armeabi-v7a': 1, 'arm64-v8a': 2, 'x86': 3, 'x86_64': 4]
++        android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->
-+            output.versionCodeOverride = DateVersionCode
++                output.versionCodeOverride = project.ext.versionCodes.get(output.getFilter(com.android.build.OutputFile.ABI), 0) + DateVersionCode
++                }
          }
      }
-+    }
  
-     signingConfigs {
-         debug {
