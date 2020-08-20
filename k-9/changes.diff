@@ -17,7 +17,7 @@ index e87343c87..9148fa8f8 100644
  
  androidExtensions {
 diff --git a/app/k9mail/build.gradle b/app/k9mail/build.gradle
-index aba9ee820..b6c760a5f 100644
+index 795b780ba..337df599a 100644
 --- a/app/k9mail/build.gradle
 +++ b/app/k9mail/build.gradle
 @@ -125,6 +125,13 @@ android {

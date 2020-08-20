@@ -1,12 +1,11 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 915729b0..9bddc6c3 100644
+index 58c1714a..d95448fa 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -110,6 +110,13 @@ android {
-         sourceCompatibility JavaVersion.VERSION_1_8
+@@ -111,6 +111,12 @@ android {
          targetCompatibility JavaVersion.VERSION_1_8
      }
-+
+ 
 +    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->
@@ -15,19 +14,37 @@ index 915729b0..9bddc6c3 100644
 +    }
  }
  
- // keystore -------------------------------------------------
+ allOpen {
 diff --git a/app/build.properties b/app/build.properties
-index 7bf18d80..cd9dcd85 100644
+index 51517496..d18708e9 100644
 --- a/app/build.properties
 +++ b/app/build.properties
-@@ -1,7 +1,7 @@
+@@ -1,25 +1,7 @@
+-#
+-# WiFiAnalyzer
+-# Copyright (C) 2015 - 2020 VREM Software Development <VREMSoftwareDevelopment@gmail.com>
+-#
+-# This program is free software: you can redistribute it and/or modify
+-# it under the terms of the GNU General Public License as published by
+-# the Free Software Foundation, either version 3 of the License, or
+-# (at your option) any later version.
+-#
+-# This program is distributed in the hope that it will be useful,
+-# but WITHOUT ANY WARRANTY; without even the implied warranty of
+-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+-# GNU General Public License for more details.
+-#
+-# You should have received a copy of the GNU General Public License
+-# along with this program.  If not, see <http://www.gnu.org/licenses/>
+-#
+-
  #Build Properties
--#Sun Mar 29 09:12:27 EDT 2020
-+#Tue Jun 23 19:02:54 WEST 2020
- version_minor=1
+-#Sat Aug 08 16:16:49 EDT 2020
++#Sun Aug 09 02:58:47 WEST 2020
+ version_minor=0
  version_build=0
--version_patch=2
--version_store=52
-+version_patch=7
- version_major=2
-+version_store=57
+-version_patch=1
+-version_store=53
++version_patch=2
+ version_major=3
++version_store=54

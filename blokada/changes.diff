@@ -1,33 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 844b5ee4..ada89237 100644
+index 18ec34a9..64a4e4fe 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -61,16 +61,6 @@ android {
-         abortOnError false
-     }
- 
--    signingConfigs {
--        // Set the BLOKADA_* constants in your ~/.gradle/gradle.properties to point to your keystore.
--        release {
--            keyAlias 'blokada'
--            keyPassword BLOKADA_KEY_PASSWORD
--            storeFile file(BLOKADA_KEY_PATH)
--            storePassword BLOKADA_STORE_PASSWORD
--        }
--    }
--
-     buildTypes {
-         debug {
-             // By default it is a 'debuggable' build, signed with a debug key.
-@@ -84,7 +74,6 @@ android {
-              */
-             minifyEnabled false
-             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
--            signingConfig signingConfigs.release
-         }
- 
-         official {
-@@ -255,6 +244,13 @@ android {
+@@ -264,6 +264,13 @@ android {
          beta.res.srcDirs += 'src/official/res'
          beta.manifest.srcFile 'src/ui-blokada/AndroidManifest.xml'
      }
@@ -41,13 +16,3 @@ index 844b5ee4..ada89237 100644
  }
  
  dependencies {
-diff --git a/gradle.properties b/gradle.properties
-index 00cd70e9..04243ada 100644
---- a/gradle.properties
-+++ b/gradle.properties
-@@ -19,4 +19,4 @@
- android.enableJetifier=true
- android.useAndroidX=true
- kotlin.coroutines=enable
--
-+org.gradle.jvmargs=-Xmx4g -XX:MaxPermSize=2048m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
