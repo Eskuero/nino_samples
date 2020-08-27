@@ -1,0 +1,21 @@
+diff --git a/application/app/build.gradle b/application/app/build.gradle
+index 737506e2c..8342f4574 100644
+--- a/application/app/build.gradle
++++ b/application/app/build.gradle
+@@ -138,6 +138,7 @@ android {
+         }
+     }
+ 
++    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
+     def abiCodes = ['x86': 5, 'x86_64': 8, 'armeabi-v7a': 4, 'arm64-v8a': 7]
+     // make per-variant version code
+     applicationVariants.all { variant ->
+@@ -146,7 +147,7 @@ android {
+             def outputAbi = output.getFilter(com.android.build.OutputFile.ABI)
+             def abiName = System.getenv('GRADLE_ABI')?.toLowerCase() ?: "all"
+             if (outputAbi != null) abiName = outputAbi
+-            output.versionCodeOverride = 10000000 + defaultConfig.versionCode + abiCodes.get(abiName, 0)
++            output.versionCodeOverride = DateVersionCode + abiCodes.get(abiName, 0)
+             def outputName = "VLC-Android-"
+             outputName += variant.versionName.replace(" ", "-")
+             if (variant.buildType.name == "debug") outputName += "-debug"

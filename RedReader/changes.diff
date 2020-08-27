@@ -1,8 +1,8 @@
 diff --git a/build.gradle b/build.gradle
-index b00dd0c2..98b79b33 100644
+index 47fb7386..890c0dd7 100644
 --- a/build.gradle
 +++ b/build.gradle
-@@ -81,6 +81,13 @@ android {
+@@ -95,6 +95,13 @@ android {
  			assets.srcDirs = ['assets']
  		}
  	}
