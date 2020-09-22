@@ -11,7 +11,7 @@ index 99fd9d64f..20059b79f 100644
  # This option should only be used with decoupled projects. More details, visit
  # http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sec:decoupled_projects
 diff --git a/vector/build.gradle b/vector/build.gradle
-index e55ad31ef..2beb9e664 100644
+index e8ea26774..47a8df40a 100644
 --- a/vector/build.gradle
 +++ b/vector/build.gradle
 @@ -139,11 +139,6 @@ android {

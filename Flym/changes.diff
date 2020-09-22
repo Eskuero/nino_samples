@@ -1,18 +1,18 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index beb4bafa..a2f1edee 100644
+index d15b6202..b104e347 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -70,6 +70,13 @@ android {
- 	sourceSets {
- 		main.java.srcDirs += 'src/main/kotlin'
- 	}
+     sourceSets {
+         main.java.srcDirs += 'src/main/kotlin'
+     }
 +
-+        def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
-+        android.applicationVariants.all { variant ->
-+            variant.outputs.all { output ->
-+                output.versionCodeOverride = DateVersionCode
-+            }
++    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
++    android.applicationVariants.all { variant ->
++        variant.outputs.all { output ->
++            output.versionCodeOverride = DateVersionCode
 +        }
++    }
  }
  
  kapt {

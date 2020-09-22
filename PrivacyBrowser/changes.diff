@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index c00727df..e7ebf2c0 100644
+index ae709794..3d546497 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -67,6 +67,13 @@ android {
@@ -19,7 +19,7 @@ index c00727df..e7ebf2c0 100644
 @@ -97,4 +104,4 @@ dependencies {
  
      // Only compile Firebase ads for the free flavor.
-     freeImplementation 'com.google.firebase:firebase-ads:19.3.0'
+     freeImplementation 'com.google.firebase:firebase-ads:19.4.0'
 -}
 \ No newline at end of file
 +}

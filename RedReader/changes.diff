@@ -1,10 +1,10 @@
 diff --git a/build.gradle b/build.gradle
-index c9f244f2..4fc9698d 100644
+index 0e12b778..7176dea5 100644
 --- a/build.gradle
 +++ b/build.gradle
-@@ -95,6 +95,13 @@ android {
- 			assets.srcDirs = ['assets']
- 		}
+@@ -105,6 +105,13 @@ android {
+ 	testOptions {
+ 		animationsDisabled = true
  	}
 +
 +        def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
