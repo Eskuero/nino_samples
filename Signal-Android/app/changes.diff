@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index aa04d0b93..ea45d91ce 100644
+index a48439673..045c2b608 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -4,6 +4,7 @@ import java.security.MessageDigest
@@ -10,7 +10,7 @@ index aa04d0b93..ea45d91ce 100644
          google()
          maven {
              url "https://repo1.maven.org/maven2"
-@@ -140,10 +141,6 @@ android {
+@@ -141,10 +142,6 @@ android {
          buildConfigField "String[]", "LANGUAGES", "new String[]{\"" + autoResConfig().collect { s -> s.replace('-r', '_') }.join('", "') + '"}'
          buildConfigField "int", "CANONICAL_VERSION_CODE", "$canonicalVersionCode"
  
@@ -21,7 +21,7 @@ index aa04d0b93..ea45d91ce 100644
          resConfigs autoResConfig()
  
          splits {
-@@ -151,7 +148,7 @@ android {
+@@ -152,7 +149,7 @@ android {
                  enable true
                  reset()
                  include 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
@@ -30,23 +30,20 @@ index aa04d0b93..ea45d91ce 100644
              }
          }
  
-@@ -253,7 +250,7 @@ android {
+@@ -248,6 +245,7 @@ android {
+         }
+     }
+ 
++    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
+     android.applicationVariants.all { variant ->
+         variant.outputs.each { output ->
+             output.outputFileName = output.outputFileName.replace(".apk", "-${variant.versionName}.apk")
+@@ -256,7 +254,7 @@ android {
  
              if (postFix >= postFixSize) throw new AssertionError("postFix is too large")
  
 -            output.versionCodeOverride = canonicalVersionCode * postFixSize + postFix
-+            output.versionCodeOverride = Integer.parseInt(new Date().format("yyMMddHHmm")) + postFix
++            output.versionCodeOverride = DateVersionCode + postFix
          }
      }
  
-@@ -455,10 +452,6 @@ tasks.whenTaskAdded { task ->
-     if (task.name.equals("assemblePlayRelease")) {
-         task.finalizedBy signProductionPlayRelease
-     }
--
--    if (task.name.equals("assembleWebsiteRelease")) {
--        task.finalizedBy signProductionWebsiteRelease
--    }
- }
- 
- def getLastCommitTimestamp() {

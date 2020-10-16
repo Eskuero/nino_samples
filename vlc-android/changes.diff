@@ -1,8 +1,8 @@
 diff --git a/application/app/build.gradle b/application/app/build.gradle
-index 6a8d8bd65..5b3549390 100644
+index 8e00b591d..9516710b0 100644
 --- a/application/app/build.gradle
 +++ b/application/app/build.gradle
-@@ -113,6 +113,7 @@ android {
+@@ -130,6 +130,7 @@ android {
          }
      }
  
@@ -10,7 +10,7 @@ index 6a8d8bd65..5b3549390 100644
      def abiCodes = ['x86': 5, 'x86_64': 8, 'armeabi-v7a': 4, 'arm64-v8a': 7]
      // make per-variant version code
      applicationVariants.all { variant ->
-@@ -121,7 +122,7 @@ android {
+@@ -138,7 +139,7 @@ android {
              def outputAbi = output.getFilter(com.android.build.OutputFile.ABI)
              def abiName = System.getenv('GRADLE_ABI')?.toLowerCase() ?: "all"
              if (outputAbi != null) abiName = outputAbi

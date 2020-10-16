@@ -1,17 +1,5 @@
-diff --git a/gradle.properties b/gradle.properties
-index 99fd9d64f..20059b79f 100644
---- a/gradle.properties
-+++ b/gradle.properties
-@@ -9,6 +9,7 @@
- android.enableJetifier=true
- android.useAndroidX=true
- org.gradle.jvmargs=-Xmx2048m
-+android.jetifier.blacklist = kotlin-compiler-embeddable-.*\\.jar
- # When configured, Gradle will run in incubating parallel mode.
- # This option should only be used with decoupled projects. More details, visit
- # http://www.gradle.org/docs/current/userguide/multi_project_builds.html#sec:decoupled_projects
 diff --git a/vector/build.gradle b/vector/build.gradle
-index 0c7985b45..338fb9f0a 100644
+index 65e8e18e7..6caac12ca 100644
 --- a/vector/build.gradle
 +++ b/vector/build.gradle
 @@ -139,11 +139,6 @@ android {
@@ -48,5 +36,5 @@ index 0c7985b45..338fb9f0a 100644
 +                output.versionCodeOverride = project.ext.versionCodes.get(output.getFilter(com.android.build.OutputFile.ABI), 0) + DateVersionCode
 +                }
          }
-     }
  
+         // The following argument makes the Android Test Orchestrator run its

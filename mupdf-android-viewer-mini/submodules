@@ -1,10 +1,10 @@
 Entering 'jni'
 git://git.ghostscript.com/mupdf-android-fitz.git
-88714df8c7e0ae4b7d009fc7ce6e10885d31aaf6
+bc919a2b21a85b10af0c4e396e179d3d3dd0b8d5
 
 Entering 'jni/libmupdf'
 git://git.ghostscript.com/mupdf.git
-96751b25462f83d6e16a9afaf8980b0c3f979c8b
+ea5799e01730c4aa15cddd1023700e4f7b78cc27
 
 Entering 'jni/libmupdf/thirdparty/curl'
 git://git.ghostscript.com/thirdparty-curl.git
@@ -12,7 +12,7 @@ f43c6fbb2dbdf68dfdd0f0c3399e3711a621614a
 
 Entering 'jni/libmupdf/thirdparty/freeglut'
 git://git.ghostscript.com/thirdparty-freeglut.git
-21f059e4b1489d3fab3f94a65ebebc0f80886237
+9e964132a7d4117adde040291bba878af7fe90c6
 
 Entering 'jni/libmupdf/thirdparty/freetype'
 git://git.ghostscript.com/thirdparty-freetype2.git
@@ -24,11 +24,11 @@ git://git.ghostscript.com/thirdparty-harfbuzz.git
 
 Entering 'jni/libmupdf/thirdparty/jbig2dec'
 git://git.ghostscript.com/jbig2dec.git
-7e45faa81deadc4a3b4419a9e76a17782e8034f4
+429b6ab2e29b346f34da9156f423c98117fa5ae4
 
 Entering 'jni/libmupdf/thirdparty/lcms2'
 git://git.ghostscript.com/thirdparty-lcms2.git
-05db680de2d7178be21450bc0cc909460c7d4aeb
+a8e6365459383c25453c57025ca593cc93f8b51a
 
 Entering 'jni/libmupdf/thirdparty/libjpeg'
 git://git.ghostscript.com/thirdparty-libjpeg.git
@@ -36,7 +36,7 @@ git://git.ghostscript.com/thirdparty-libjpeg.git
 
 Entering 'jni/libmupdf/thirdparty/mujs'
 git://git.ghostscript.com/mujs.git
-90aca80865e28a1b9be9bc5ef1118438f62e4f8f
+6871e5b41c07558b17340f985f2af39717d3ba77
 
 Entering 'jni/libmupdf/thirdparty/openjpeg'
 git://git.ghostscript.com/thirdparty-openjpeg.git

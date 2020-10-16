@@ -1,8 +1,8 @@
 diff --git a/play-services-core/build.gradle b/play-services-core/build.gradle
-index 03a0b70..0b3862d 100644
+index f32042e..d7b3532 100644
 --- a/play-services-core/build.gradle
 +++ b/play-services-core/build.gradle
-@@ -75,7 +75,7 @@ android {
+@@ -80,7 +80,7 @@ android {
  
      defaultConfig {
          versionName version
