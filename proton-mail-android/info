@@ -1,2 +1,6 @@
 Remote: https://github.com/ProtonMail/proton-mail-android
 Branch: release
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################
