@@ -1,11 +1,11 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 58c1714a..d95448fa 100644
+index 43fb00eb..7f410dc9 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -111,6 +111,12 @@ android {
-         targetCompatibility JavaVersion.VERSION_1_8
+@@ -114,6 +114,12 @@ android {
+     kotlinOptions {
+         jvmTarget = "1.8"
      }
- 
 +    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->
@@ -16,35 +16,17 @@ index 58c1714a..d95448fa 100644
  
  allOpen {
 diff --git a/app/build.properties b/app/build.properties
-index 51517496..14fe16b7 100644
+index 1a45e9f3..f8b8d54e 100644
 --- a/app/build.properties
 +++ b/app/build.properties
-@@ -1,25 +1,7 @@
--#
--# WiFiAnalyzer
--# Copyright (C) 2015 - 2020 VREM Software Development <VREMSoftwareDevelopment@gmail.com>
--#
--# This program is free software: you can redistribute it and/or modify
--# it under the terms of the GNU General Public License as published by
--# the Free Software Foundation, either version 3 of the License, or
--# (at your option) any later version.
--#
--# This program is distributed in the hope that it will be useful,
--# but WITHOUT ANY WARRANTY; without even the implied warranty of
--# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
--# GNU General Public License for more details.
--#
--# You should have received a copy of the GNU General Public License
--# along with this program.  If not, see <http://www.gnu.org/licenses/>
--#
--
+@@ -1,7 +1,7 @@
  #Build Properties
--#Sat Aug 08 16:16:49 EDT 2020
-+#Mon Oct 26 19:18:48 WET 2020
+-#Sat Oct 31 11:05:08 EDT 2020
++#Sun Nov 01 20:13:56 WET 2020
  version_minor=0
+-version_store=54
+-version_patch=2
  version_build=0
--version_patch=1
--version_store=53
-+version_patch=7
-+version_store=59
++version_patch=3
  version_major=3
++version_store=55

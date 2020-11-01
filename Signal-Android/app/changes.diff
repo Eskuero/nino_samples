@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 6927907de..5f51f2f65 100644
+index 805b33d01..4a5fc15b5 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -4,6 +4,7 @@ import java.security.MessageDigest
