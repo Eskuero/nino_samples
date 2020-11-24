@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 13f3c1bb6..ca9f13cb1 100644
+index a9e7f39b9..52772cba2 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -77,6 +77,13 @@ android {
+@@ -85,6 +85,13 @@ android {
      sourceSets {
          androidTest.assets.srcDirs += files("$projectDir/schemas".toString())
      }

@@ -1,8 +1,8 @@
 diff --git a/build.gradle b/build.gradle
-index 379af9b2..d376a64c 100644
+index 286bcec3..c3e0e0bc 100644
 --- a/build.gradle
 +++ b/build.gradle
-@@ -84,6 +84,13 @@ android {
+@@ -86,6 +86,13 @@ android {
              shrinkResources true
          }
      }
