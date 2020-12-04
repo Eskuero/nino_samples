@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 77d08d865..44bdf64d6 100644
+index fd426310b..df7c703d8 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -4,6 +4,7 @@ import java.security.MessageDigest
@@ -10,7 +10,7 @@ index 77d08d865..44bdf64d6 100644
          google()
          maven {
              url "https://repo1.maven.org/maven2"
-@@ -162,10 +163,6 @@ android {
+@@ -148,10 +149,6 @@ android {
          buildConfigField "int", "CANONICAL_VERSION_CODE", "$canonicalVersionCode"
          buildConfigField "int", "TRACE_EVENT_MAX", "2000"
  
@@ -21,7 +21,7 @@ index 77d08d865..44bdf64d6 100644
          resConfigs autoResConfig()
  
          splits {
-@@ -173,7 +170,7 @@ android {
+@@ -159,7 +156,7 @@ android {
                  enable true
                  reset()
                  include 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
@@ -30,7 +30,7 @@ index 77d08d865..44bdf64d6 100644
              }
          }
  
-@@ -290,6 +287,7 @@ android {
+@@ -276,6 +273,7 @@ android {
          }
      }
  
@@ -38,7 +38,7 @@ index 77d08d865..44bdf64d6 100644
      android.applicationVariants.all { variant ->
          variant.outputs.each { output ->
              output.outputFileName = output.outputFileName.replace(".apk", "-${variant.versionName}.apk")
-@@ -298,7 +296,7 @@ android {
+@@ -284,7 +282,7 @@ android {
  
              if (postFix >= postFixSize) throw new AssertionError("postFix is too large")
  

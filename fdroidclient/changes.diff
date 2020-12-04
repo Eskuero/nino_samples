@@ -17,12 +17,12 @@ index d158443ea..dda7c27fd 100644
  
  dependencies {
 diff --git a/app/src/main/res/values/default_repos.xml b/app/src/main/res/values/default_repos.xml
-index 58239bb9e..4d597d154 100644
+index 58239bb9e..83dc0067b 100644
 --- a/app/src/main/res/values/default_repos.xml
 +++ b/app/src/main/res/values/default_repos.xml
 @@ -1,92 +1,4 @@
 -<?xml version="1.0" encoding="utf-8"?>
--<resources>
+ <resources>
 -
 -    <string-array name="default_repos">
 -
@@ -112,18 +112,6 @@ index 58239bb9e..4d597d154 100644
 -
 -    </string-array>
 -
--</resources>
-+ <resources>
 +     <string-array name="default_repos">
 +     </string-array>
-+ </resources>
-diff --git a/gradle.properties b/gradle.properties
-index 5465fec0e..08d992e0d 100644
---- a/gradle.properties
-+++ b/gradle.properties
-@@ -1,2 +1,3 @@
- android.enableJetifier=true
--android.useAndroidX=true
-\ No newline at end of file
-+android.useAndroidX=true
-+org.gradle.dependency.verification=lenient
+ </resources>

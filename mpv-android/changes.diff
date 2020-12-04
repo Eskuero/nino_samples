@@ -16,10 +16,10 @@ index 85d9616..179ac0d 100644
  
  dependencies {
 diff --git a/buildscripts/buildall.sh b/buildscripts/buildall.sh
-index 8e9cbfb..4fc09e4 100755
+index fe0ff63..c9c7eff 100755
 --- a/buildscripts/buildall.sh
 +++ b/buildscripts/buildall.sh
-@@ -142,6 +142,5 @@ setup_prefix
+@@ -143,6 +143,5 @@ setup_prefix
  build $target
  
  [ "$target" == "mpv-android" ] && \

@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 3fcbe08fd..f5ccb29fa 100644
+index b1524e5ca..fcf681126 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -191,6 +191,9 @@ android {
+@@ -200,6 +200,9 @@ android {
      }
  }
  
@@ -12,7 +12,7 @@ index 3fcbe08fd..f5ccb29fa 100644
  android.applicationVariants.all { variant ->
  
  // -------------------------------------------------------------------------------------------------
-@@ -229,7 +232,7 @@ android.applicationVariants.all { variant ->
+@@ -238,7 +241,7 @@ android.applicationVariants.all { variant ->
              def abi = output.getFilter(OutputFile.ABI)
              // We use the same version code generator, that we inherited from Fennec, across all channels - even on
              // channels that never shipped a Fennec build.
