@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 9b56337..c642d19 100644
+index b748fd9..e3e7520 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -16,10 +16,6 @@ android {
+@@ -15,10 +15,6 @@ android {
          vectorDrawables.useSupportLibrary true
          multiDexEnabled true
  
@@ -13,7 +13,7 @@ index 9b56337..c642d19 100644
          javaCompileOptions {
              annotationProcessorOptions {
                  arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
-@@ -55,15 +51,16 @@ android {
+@@ -54,15 +50,16 @@ android {
              enable true
              reset()
              include 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
@@ -32,7 +32,7 @@ index 9b56337..c642d19 100644
          }
      }
  
-@@ -90,6 +87,7 @@ android {
+@@ -89,6 +86,7 @@ android {
      sourceSets {
          androidTest.assets.srcDirs += files("$projectDir/schemas".toString())
      }
