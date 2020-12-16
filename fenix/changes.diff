@@ -1,18 +1,14 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index aff69a0e5..6629d93b7 100644
+index aff69a0e5..976927056 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -200,6 +200,9 @@ android {
-     }
- }
+@@ -234,11 +234,13 @@ android.applicationVariants.all { variant ->
+         // same version code. Therefore we need to have different version codes for our ARM and x86
+         // builds.
  
-+
-+def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
-+project.ext.versionCodes = ['armeabi-v7a': 1, 'arm64-v8a': 2, 'x86': 3, 'x86_64': 4]
- android.applicationVariants.all { variant ->
- 
- // -------------------------------------------------------------------------------------------------
-@@ -238,7 +241,7 @@ android.applicationVariants.all { variant ->
++        def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
++        project.ext.versionCodes = ['armeabi-v7a': 1, 'arm64-v8a': 2, 'x86': 3, 'x86_64': 4]
+         variant.outputs.each { output ->
              def abi = output.getFilter(OutputFile.ABI)
              // We use the same version code generator, that we inherited from Fennec, across all channels - even on
              // channels that never shipped a Fennec build.
@@ -21,27 +17,3 @@ index aff69a0e5..6629d93b7 100644
  
              println("versionCode for $abi = $versionCodeOverride")
  
-diff --git a/docs/metrics.md b/docs/metrics.md
-index 12b819d19..2b51f0376 100644
---- a/docs/metrics.md
-+++ b/docs/metrics.md
-@@ -134,9 +134,9 @@ The following metrics are added to the ping:
- | master_password.migration |[event](https://mozilla.github.io/glean/book/user/metrics/event.html) |Logins were successfully migrated using a master password.  |[1](https://github.com/mozilla-mobile/fenix/pull/14468#issuecomment-684114534)||2021-03-01 |2 |
- | media_notification.pause |[event](https://mozilla.github.io/glean/book/user/metrics/event.html) |A user pressed the pause icon on the media notification  |[1](https://github.com/mozilla-mobile/fenix/pull/5520), [2](https://github.com/mozilla-mobile/fenix/pull/15713#issuecomment-703972068)||2021-08-01 |2 |
- | media_notification.play |[event](https://mozilla.github.io/glean/book/user/metrics/event.html) |A user pressed the play icon on the media notification  |[1](https://github.com/mozilla-mobile/fenix/pull/5520), [2](https://github.com/mozilla-mobile/fenix/pull/15713#issuecomment-703972068)||2021-08-01 |2 |
--| media_state.fullscreen |[event](https://mozilla.github.io/glean/book/user/metrics/event.html) |Video set to fullscreen.  |[1](https://github.com/mozilla-mobile/fenix/issues/15368)||2021-08-01 |2 |
-+| media_state.fullscreen |[event](https://mozilla.github.io/glean/book/user/metrics/event.html) |Video set to fullscreen.  |[1](https://github.com/mozilla-mobile/fenix/pull/16833)||2021-08-01 |2 |
- | media_state.pause |[event](https://mozilla.github.io/glean/book/user/metrics/event.html) |Media playback was paused.  |[1](https://github.com/mozilla-mobile/fenix/pull/6463), [2](https://github.com/mozilla-mobile/fenix/pull/15713#issuecomment-703972068)||2021-08-01 |2 |
--| media_state.picture_in_picture |[event](https://mozilla.github.io/glean/book/user/metrics/event.html) |Video set to picture in picture mode.  |[1](https://github.com/mozilla-mobile/fenix/issues/15368)||2021-08-01 |2 |
-+| media_state.picture_in_picture |[event](https://mozilla.github.io/glean/book/user/metrics/event.html) |Video set to picture in picture mode.  |[1](https://github.com/mozilla-mobile/fenix/pull/16833)||2021-08-01 |2 |
- | media_state.play |[event](https://mozilla.github.io/glean/book/user/metrics/event.html) |Media started playing.  |[1](https://github.com/mozilla-mobile/fenix/pull/6463), [2](https://github.com/mozilla-mobile/fenix/pull/15713#issuecomment-703972068)||2021-08-01 |2 |
- | media_state.stop |[event](https://mozilla.github.io/glean/book/user/metrics/event.html) |Media playback has ended.  |[1](https://github.com/mozilla-mobile/fenix/pull/6463), [2](https://github.com/mozilla-mobile/fenix/pull/15713#issuecomment-703972068)||2021-08-01 |2 |
- | onboarding.finish |[event](https://mozilla.github.io/glean/book/user/metrics/event.html) |The user taps starts browsing and ends the onboarding experience. |[1](https://github.com/mozilla-mobile/fenix/pull/11867), [2](https://github.com/mozilla-mobile/fenix/pull/15713#issuecomment-703972068)||2021-08-01 |2 |
-@@ -268,6 +268,7 @@ The following metrics are added to the ping:
- | downloads_management.item_deleted |[event](https://mozilla.github.io/glean/book/user/metrics/event.html) |A counter for how often a user deletes one / more downloads at a time.  |[1](https://github.com/mozilla-mobile/fenix/pull/16728)||2021-04-01 | |
- | downloads_management.item_opened |[event](https://mozilla.github.io/glean/book/user/metrics/event.html) |A counter for how often a user tap to opens a download from inside the "Downloads" folder.  |[1](https://github.com/mozilla-mobile/fenix/pull/16728)||2021-04-01 | |
- | downloads_misc.download_added |[event](https://mozilla.github.io/glean/book/user/metrics/event.html) |A counter for how many times something is downloaded in the app. |[1](https://github.com/mozilla-mobile/fenix/pull/16730)||2021-04-01 | |
-+| events.copy_url_tapped |[event](https://mozilla.github.io/glean/book/user/metrics/event.html) |An event that indicates that a user has selected copy option when long pressing on url bar.  |[1](https://github.com/mozilla-mobile/fenix/pull/16915)||2021-05-10 |2 |
- | events.synced_tab_opened |[event](https://mozilla.github.io/glean/book/user/metrics/event.html) |An event that indicates that a synced tab was opened.  |[1](https://github.com/mozilla-mobile/fenix/pull/16727)||2021-05-10 |2 |
- | events.total_uri_count |[counter](https://mozilla.github.io/glean/book/user/metrics/counter.html) |A counter of URIs visited by the user in the current session, including page reloads. This does not include background page requests and URIs from embedded pages or private browsing but may be incremented without user interaction by website scripts that programmatically redirect to a new location.  |[1](https://github.com/mozilla-mobile/fenix/pull/1785), [2](https://github.com/mozilla-mobile/fenix/pull/8314), [3](https://github.com/mozilla-mobile/fenix/pull/15713#issuecomment-703972068)||2021-08-01 |2 |
- | metrics.adjust_ad_group |[string](https://mozilla.github.io/glean/book/user/metrics/string.html) |A string containing the Adjust ad group ID from which the user installed Fenix. This will not send on the first session the user runs. If the install is organic, this will be empty.  |[1](https://github.com/mozilla-mobile/fenix/pull/9253), [2](https://github.com/mozilla-mobile/fenix/pull/15713#issuecomment-703972068)||2021-08-01 |2 |
