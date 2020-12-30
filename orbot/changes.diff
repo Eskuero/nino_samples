@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index d0602012..ec94facd 100644
+index b7210836..0715d99c 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -61,7 +61,6 @@ android {
+@@ -65,7 +65,6 @@ android {
              minifyEnabled false
              shrinkResources false
              proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
@@ -10,7 +10,7 @@ index d0602012..ec94facd 100644
          }
      }
  
-@@ -101,7 +100,15 @@ android {
+@@ -105,7 +104,15 @@ android {
              include "x86", "armeabi-v7a", "x86_64", "arm64-v8a"
  
              // Specifies that we do not want to also generate a universal APK that includes all ABIs.
@@ -27,7 +27,7 @@ index d0602012..ec94facd 100644
          }
      }
  }
-@@ -121,20 +128,3 @@ dependencies {
+@@ -125,20 +132,3 @@ dependencies {
      implementation 'info.pluggabletransports.aptds:apt-meek-obfs4-legacy:1.0.9'
      implementation 'com.github.tladesignz:IPtProxy:0.5.2'
  }

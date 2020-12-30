@@ -1,11 +1,12 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 43fb00eb..7f410dc9 100644
+index 77ab33c4..d930d561 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -114,6 +114,12 @@ android {
+@@ -113,6 +113,13 @@ android {
      kotlinOptions {
          jvmTarget = "1.8"
      }
++
 +    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->
@@ -16,17 +17,17 @@ index 43fb00eb..7f410dc9 100644
  
  allOpen {
 diff --git a/app/build.properties b/app/build.properties
-index 1a45e9f3..f8b8d54e 100644
+index 001220d4..828a3e13 100644
 --- a/app/build.properties
 +++ b/app/build.properties
 @@ -1,7 +1,7 @@
  #Build Properties
--#Sat Oct 31 11:05:08 EDT 2020
-+#Sun Nov 01 20:13:56 WET 2020
+-#Wed Dec 23 10:55:19 EST 2020
++#Wed Dec 23 21:56:34 WET 2020
  version_minor=0
--version_store=54
--version_patch=2
+-version_store=55
+-version_patch=3
  version_build=0
-+version_patch=3
++version_patch=4
  version_major=3
-+version_store=55
++version_store=56

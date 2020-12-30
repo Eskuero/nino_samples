@@ -1,10 +1,10 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 87215b385..1dbf41bd6 100644
+index 2b7b9cdb0..351ee3604 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -85,6 +85,13 @@ android {
-     sourceSets {
-         androidTest.assets.srcDirs += files("$projectDir/schemas".toString())
+@@ -89,6 +89,13 @@ android {
+     buildFeatures {
+         viewBinding true
      }
 +
 +    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
