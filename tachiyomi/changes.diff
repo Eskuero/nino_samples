@@ -1,16 +1,22 @@
-diff --git a/app/build.gradle b/app/build.gradle
-index 673dce79..60a6905a 100644
---- a/app/build.gradle
-+++ b/app/build.gradle
-@@ -121,6 +121,13 @@ android {
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+index 4044f2b9..6a410327 100644
+--- a/app/build.gradle.kts
++++ b/app/build.gradle.kts
+@@ -1,4 +1,5 @@
+ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
++import com.android.build.gradle.internal.api.ApkVariantOutputImpl
+ import java.io.ByteArrayOutputStream
+ import java.text.SimpleDateFormat
+ import java.util.Date
+@@ -120,6 +121,13 @@ android {
      kotlinOptions {
          jvmTarget = JavaVersion.VERSION_1_8.toString()
      }
 +
-+    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
-+    android.applicationVariants.all { variant ->
-+        variant.outputs.all { output ->
-+            output.versionCodeOverride = DateVersionCode
++    val DateVersionCode = SimpleDateFormat("yyMMddHHmm").format(Date()).toInt()
++    android.applicationVariants.all {
++        outputs.forEach { output ->
++            (output as ApkVariantOutputImpl).versionCodeOverride = DateVersionCode
 +        }
 +    }
  }
