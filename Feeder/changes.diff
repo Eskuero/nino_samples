@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index acd4c2e..7d8e79a 100644
+index 0148b49..9d274c1 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -113,6 +113,13 @@ android {
+@@ -109,6 +109,13 @@ android {
    kotlinOptions {
      jvmTarget = "1.8"
    }
@@ -15,15 +15,14 @@ index acd4c2e..7d8e79a 100644
 +  }
  }
  
- play {
+ dependencies {
 diff --git a/gradle.properties b/gradle.properties
-index 70a1496..15fc148 100644
+index 70a1496..551839e 100644
 --- a/gradle.properties
 +++ b/gradle.properties
-@@ -18,5 +18,5 @@
- # org.gradle.parallel=true
+@@ -19,4 +19,5 @@
  android.enableJetifier=true
  android.useAndroidX=true
--
+ 
 +org.gradle.jvmargs=-Xmx1g
  org.gradle.caching=true

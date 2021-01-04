@@ -1,5 +1,5 @@
 diff --git a/build.gradle b/build.gradle
-index f4de663a7..442201f70 100644
+index de1c4efed..41146fdcf 100644
 --- a/build.gradle
 +++ b/build.gradle
 @@ -106,7 +106,7 @@ android {
