@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 2c348c7..0a9239f 100644
+index 0d7adb8..a299605 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -23,7 +23,7 @@ android {
+@@ -24,7 +24,7 @@ android {
  
      defaultConfig {
          versionName version
@@ -12,10 +12,10 @@ index 2c348c7..0a9239f 100644
          targetSdkVersion androidTargetSdk
      }
 diff --git a/build.gradle b/build.gradle
-index c74c3ee..bd2fe6a 100644
+index 3f27434..73d62d9 100644
 --- a/build.gradle
 +++ b/build.gradle
-@@ -52,7 +52,7 @@ allprojects {
+@@ -57,7 +57,7 @@ allprojects {
  
  subprojects {
      repositories {
