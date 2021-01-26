@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index c94ec8c59..2ef452a30 100644
+index cd7c44f2d..31263ff3f 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -234,11 +234,13 @@ android.applicationVariants.all { variant ->
+@@ -239,11 +239,13 @@ android.applicationVariants.all { variant ->
          // same version code. Therefore we need to have different version codes for our ARM and x86
          // builds.
  
