@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index cd7c44f2d..31263ff3f 100644
+index a0ad61917..bfd3b3a02 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -239,11 +239,13 @@ android.applicationVariants.all { variant ->
+@@ -248,11 +248,13 @@ android.applicationVariants.all { variant ->
          // same version code. Therefore we need to have different version codes for our ARM and x86
          // builds.
  
@@ -16,4 +16,19 @@ index cd7c44f2d..31263ff3f 100644
 +            def versionCodeOverride = project.ext.versionCodes.get(output.getFilter(com.android.build.OutputFile.ABI), 0) + DateVersionCode
  
              println("versionCode for $abi = $versionCodeOverride")
+ 
+diff --git a/docs/metrics.md b/docs/metrics.md
+index 8d0b6ea25..f0fb3a998 100644
+--- a/docs/metrics.md
++++ b/docs/metrics.md
+@@ -28,8 +28,8 @@ an hashed version of the Google Advertising ID.
+ 
+ **Bugs related to this ping:**
+ 
+-- 1538011
+-- 1501822
++- <https://bugzilla.mozilla.com/1538011/>
++- <https://bugzilla.mozilla.com/1501822/>
+ 
+ The following metrics are added to the ping:
  
