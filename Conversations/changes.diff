@@ -1,8 +1,8 @@
 diff --git a/build.gradle b/build.gradle
-index e1508f68c..6b68cb232 100644
+index a859793c1..f3f6ffdc1 100644
 --- a/build.gradle
 +++ b/build.gradle
-@@ -105,7 +105,7 @@ android {
+@@ -102,7 +102,7 @@ android {
  
      splits {
          abi {
@@ -11,7 +11,7 @@ index e1508f68c..6b68cb232 100644
              enable true
          }
      }
-@@ -274,15 +274,11 @@ android {
+@@ -271,15 +271,11 @@ android {
          exclude 'META-INF/BCKEY.SF'
      }
  

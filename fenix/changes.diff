@@ -17,16 +17,3 @@ index a0ad61917..bfd3b3a02 100644
  
              println("versionCode for $abi = $versionCodeOverride")
  
-diff --git a/app/src/main/java/org/mozilla/fenix/browser/BaseBrowserFragment.kt b/app/src/main/java/org/mozilla/fenix/browser/BaseBrowserFragment.kt
-index 6a4bcc9ff..5f3de347c 100644
---- a/app/src/main/java/org/mozilla/fenix/browser/BaseBrowserFragment.kt
-+++ b/app/src/main/java/org/mozilla/fenix/browser/BaseBrowserFragment.kt
-@@ -538,7 +538,7 @@ abstract class BaseBrowserFragment : Fragment(), UserInteractionHandler, Activit
- 
-         promptsFeature.set(
-             feature = PromptFeature(
--                fragment = this,
-+                activity = activity,
-                 store = store,
-                 customTabId = customTabSessionId,
-                 fragmentManager = parentFragmentManager,

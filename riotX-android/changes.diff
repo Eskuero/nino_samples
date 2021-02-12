@@ -1,8 +1,8 @@
 diff --git a/vector/build.gradle b/vector/build.gradle
-index 95f4238a7..5624fefc4 100644
+index cc4efb459..f5741f9c4 100644
 --- a/vector/build.gradle
 +++ b/vector/build.gradle
-@@ -135,11 +135,6 @@ android {
+@@ -138,11 +138,6 @@ android {
  
          testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
  
@@ -14,7 +14,7 @@ index 95f4238a7..5624fefc4 100644
          // Ref: https://developer.android.com/studio/build/configure-apk-splits.html
          splits {
              // Configures multiple APKs based on ABI.
-@@ -157,20 +152,16 @@ android {
+@@ -160,20 +155,16 @@ android {
                  include "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
  
                  // Generate a universal APK that includes all ABIs, so user who install from CI tool can use this one by default.
