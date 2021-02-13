@@ -12,11 +12,11 @@
 		keyalias = "key2"
 	[projects.tachiyomi-extensions]
 		[projects.tachiyomi-extensions.tasks.mangadex]
-			exec = "all-mangadex:assembleRelease"
+			exec = "individual:all:mangadex:assembleRelease"
 		[projects.tachiyomi-extensions.tasks.mangaplus]
-			exec = "all-mangaplus:assembleRelease"
+			exec = "individual:all:mangaplus:assembleRelease"
 		[projects.tachiyomi-extensions.tasks.mangahere]
-			exec = "en-mangahere:assembleRelease"
+			exec = "individual:en:mangahere:assembleRelease"
 	[projects.proton-mail-android]
 		[projects.proton-mail-android.tasks.betarelease]
 			exec = "assembleBetaRelease"
@@ -39,7 +39,7 @@
 			exec = "assembleCommunityRelease"
 	[projects.Signal-Android]
 		[projects.Signal-Android.tasks.websiterelease]
-			exec = "assembleWebsiteRelease"
+			exec = "assembleWebsiteProdRelease"
 	[projects.screenrecorder]
 		[projects.screenrecorder.tasks.fdroidrelease]
 			exec = "assembleFdroidRelease"

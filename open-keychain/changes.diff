@@ -1,5 +1,5 @@
 diff --git a/OpenKeychain/build.gradle b/OpenKeychain/build.gradle
-index cbb8ba674..aea334999 100644
+index 39b975769..60f2a97eb 100644
 --- a/OpenKeychain/build.gradle
 +++ b/OpenKeychain/build.gradle
 @@ -267,6 +267,13 @@ android {
