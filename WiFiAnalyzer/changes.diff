@@ -17,17 +17,17 @@ index 77ab33c4..d930d561 100644
  
  allOpen {
 diff --git a/app/build.properties b/app/build.properties
-index 001220d4..828a3e13 100644
+index 001220d4..31ca908a 100644
 --- a/app/build.properties
 +++ b/app/build.properties
 @@ -1,7 +1,7 @@
  #Build Properties
 -#Wed Dec 23 10:55:19 EST 2020
-+#Wed Dec 23 21:56:34 WET 2020
++#Tue Feb 16 02:35:06 WET 2021
  version_minor=0
 -version_store=55
 -version_patch=3
  version_build=0
-+version_patch=4
++version_patch=5
++version_store=57
  version_major=3
-+version_store=56

@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index a0ad61917..bfd3b3a02 100644
+index 54e1ea7b5..ed39c1473 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -248,11 +248,13 @@ android.applicationVariants.all { variant ->
+@@ -251,6 +251,8 @@ android.applicationVariants.all { variant ->
          // same version code. Therefore we need to have different version codes for our ARM and x86
          // builds.
  
@@ -11,9 +11,12 @@ index a0ad61917..bfd3b3a02 100644
          variant.outputs.each { output ->
              def abi = output.getFilter(OutputFile.ABI)
              // We use the same version code generator, that we inherited from Fennec, across all channels - even on
-             // channels that never shipped a Fennec build.
--            def versionCodeOverride = Config.generateFennecVersionCode(abi)
-+            def versionCodeOverride = project.ext.versionCodes.get(output.getFilter(com.android.build.OutputFile.ABI), 0) + DateVersionCode
- 
+@@ -260,7 +262,7 @@ android.applicationVariants.all { variant ->
              println("versionCode for $abi = $versionCodeOverride")
+ 
+             output.versionNameOverride = versionName
+-            output.versionCodeOverride = versionCodeOverride
++            output.versionCodeOverride = project.ext.versionCodes.get(output.getFilter(com.android.build.OutputFile.ABI), 0) + DateVersionCode
+         }
+     }
  
