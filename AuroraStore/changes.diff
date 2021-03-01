@@ -1,11 +1,12 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 52f2cc5a..b3cf10d1 100644
+index c258f2fe..789947d9 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -71,6 +71,12 @@ android {
-     lintOptions {
-         warning "MissingTranslation", "GetLocales", "VectorDrawableCompat"
+@@ -73,6 +73,13 @@ android {
+         sourceCompatibility JavaVersion.VERSION_1_8
+         targetCompatibility JavaVersion.VERSION_1_8
      }
++
 +    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->
@@ -15,3 +16,10 @@ index 52f2cc5a..b3cf10d1 100644
  }
  
  buildscript {
+@@ -188,4 +195,4 @@ if (propFile.canRead()) {
+ } else {
+     println "signing.properties not found"
+     android.buildTypes.release.signingConfig = null
+-}
+\ No newline at end of file
++}

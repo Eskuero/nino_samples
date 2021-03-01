@@ -1,5 +1,5 @@
 diff --git a/twidere/build.gradle b/twidere/build.gradle
-index e63e8dd14..77b2e1b6d 100644
+index b4e496e07..f30e28dfb 100644
 --- a/twidere/build.gradle
 +++ b/twidere/build.gradle
 @@ -142,6 +142,13 @@ android {

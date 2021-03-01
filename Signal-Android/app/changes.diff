@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 701e33ae4..09618b9dc 100644
+index 2b40d0281..f6e235efd 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -40,6 +40,7 @@ repositories {
