@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 2b40d0281..f6e235efd 100644
+index c3004054d..63bf3b02e 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -40,6 +40,7 @@ repositories {
+@@ -34,6 +34,7 @@ repositories {
              includeGroupByRegex "com\\.amulyakhare.*"
          }
      }
@@ -10,7 +10,7 @@ index 2b40d0281..f6e235efd 100644
      google()
      mavenCentral()
      jcenter()
-@@ -130,10 +131,6 @@ android {
+@@ -124,10 +125,6 @@ android {
          buildConfigField "String[]", "LANGUAGES", "new String[]{\"" + autoResConfig().collect { s -> s.replace('-r', '_') }.join('", "') + '"}'
          buildConfigField "int", "CANONICAL_VERSION_CODE", "$canonicalVersionCode"
  
@@ -21,7 +21,7 @@ index 2b40d0281..f6e235efd 100644
          resConfigs autoResConfig()
  
          splits {
-@@ -141,7 +138,7 @@ android {
+@@ -135,7 +132,7 @@ android {
                  enable true
                  reset()
                  include 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
@@ -30,7 +30,7 @@ index 2b40d0281..f6e235efd 100644
              }
          }
  
-@@ -260,6 +257,7 @@ android {
+@@ -271,6 +268,7 @@ android {
          }
      }
  
@@ -38,7 +38,7 @@ index 2b40d0281..f6e235efd 100644
      android.applicationVariants.all { variant ->
          variant.outputs.each { output ->
              output.outputFileName = output.outputFileName.replace(".apk", "-${variant.versionName}.apk")
-@@ -268,7 +266,7 @@ android {
+@@ -279,7 +277,7 @@ android {
  
              if (postFix >= postFixSize) throw new AssertionError("postFix is too large")
  
