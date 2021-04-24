@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 6e8c346b6..2509d3b49 100644
+index d2b3fdb20..708a4d8b8 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -74,6 +74,13 @@ android {
+@@ -75,6 +75,13 @@ android {
      packagingOptions {
          exclude 'META-INF/library_release.kotlin_module'
      }

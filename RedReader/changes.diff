@@ -1,8 +1,8 @@
 diff --git a/build.gradle b/build.gradle
-index 7a40d7b6..5de07f6e 100644
+index 4ced8e5a..04f054bb 100644
 --- a/build.gradle
 +++ b/build.gradle
-@@ -114,6 +114,13 @@ android {
+@@ -115,6 +115,13 @@ android {
  	testOptions {
  		animationsDisabled = true
  	}
