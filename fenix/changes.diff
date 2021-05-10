@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 2bac2cb33..dc1d79886 100644
+index fefc62845..8f009252f 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -247,6 +247,8 @@ android.applicationVariants.all { variant ->
