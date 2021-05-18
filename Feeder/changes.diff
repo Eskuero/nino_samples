@@ -1,10 +1,10 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 166765ac..1d5a5633 100644
+index 0275823f..f32564f8 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -110,6 +110,13 @@ android {
-   kotlinOptions {
-     jvmTarget = "1.8"
+@@ -118,6 +118,13 @@ android {
+     exclude 'META-INF/AL2.0'
+     exclude 'META-INF/LGPL2.1'
    }
 +
 +  def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
@@ -15,7 +15,7 @@ index 166765ac..1d5a5633 100644
 +  }
  }
  
- dependencies {
+ configurations.all {
 diff --git a/gradle.properties b/gradle.properties
 index 70a14964..551839ee 100644
 --- a/gradle.properties
