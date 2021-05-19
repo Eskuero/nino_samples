@@ -1,12 +1,11 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 76621a8c..91b750e6 100644
+index 2ee231ff..c90d2ea4 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -88,6 +88,13 @@ android {
-             enableSplit = false
-         }
+@@ -86,6 +86,12 @@ android {
+     kotlinOptions {
+         jvmTarget = '1.8'
      }
-+
 +    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->
@@ -15,4 +14,4 @@ index 76621a8c..91b750e6 100644
 +    }
  }
  
- project.tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+ ext.lifecycleVersion = "2.2.0"
