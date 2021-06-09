@@ -1,9 +1,13 @@
-diff --git a/src/all/mangaplus/src/eu/kanade/tachiyomi/extension/all/mangaplus/MangaPlusFactory.kt b/src/all/mangaplus/src/eu/kanade/tachiyomi/extension/all/mangaplus/MangaPlusFactory.kt
-index f775e6198..bb0f6b26b 100644
---- a/src/all/mangaplus/src/eu/kanade/tachiyomi/extension/all/mangaplus/MangaPlusFactory.kt
-+++ b/src/all/mangaplus/src/eu/kanade/tachiyomi/extension/all/mangaplus/MangaPlusFactory.kt
-@@ -18,4 +18,3 @@ class MangaPlusIndonesian : MangaPlus("id", "eng", Language.INDONESIAN)
- class MangaPlusPortuguese : MangaPlus("pt-BR", "eng", Language.PORTUGUESE_BR)
- class MangaPlusSpanish : MangaPlus("es", "esp", Language.SPANISH)
- class MangaPlusThai : MangaPlus("th", "eng", Language.THAI)
--
+diff --git a/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDex.kt b/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDex.kt
+index 7937585f7..8b0ed02fe 100644
+--- a/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDex.kt
++++ b/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDex.kt
+@@ -174,7 +174,7 @@ abstract class MangaDex(override val lang: String, val dexLang: String) :
+     }
+ 
+     override fun mangaDetailsRequest(manga: SManga): Request {
+-        //remove once redirect for /manga is fixed
++        // remove once redirect for /manga is fixed
+         return GET("${baseUrl}${manga.url.replace("manga", "title")}", headers)
+     }
+ 
