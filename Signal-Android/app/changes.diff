@@ -1,10 +1,10 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index f93a240d4..7353e686f 100644
+index a9794e29b..71b289a85 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -132,10 +132,6 @@ android {
-         buildConfigField "String", "GIPHY_API_KEY", "\"3o6ZsYH6U6Eri53TXy\""
-         buildConfigField "String", "RECAPTCHA_PROOF_URL", "\"https://signalcaptchas.org/challenge/generate.html\""
+@@ -136,10 +136,6 @@ android {
+         buildConfigField "String", "BUILD_ENVIRONMENT_TYPE", "\"unset\""
+         buildConfigField "String", "BUILD_VARIANT_TYPE", "\"unset\""
  
 -        ndk {
 -            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
@@ -13,7 +13,7 @@ index f93a240d4..7353e686f 100644
          resConfigs autoResConfig()
  
          splits {
-@@ -143,7 +139,7 @@ android {
+@@ -147,7 +143,7 @@ android {
                  enable true
                  reset()
                  include 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
@@ -22,7 +22,7 @@ index f93a240d4..7353e686f 100644
              }
          }
  
-@@ -284,6 +280,7 @@ android {
+@@ -301,6 +297,7 @@ android {
          }
      }
  
@@ -30,7 +30,7 @@ index f93a240d4..7353e686f 100644
      android.applicationVariants.all { variant ->
          variant.outputs.each { output ->
              output.outputFileName = output.outputFileName.replace(".apk", "-${variant.versionName}.apk")
-@@ -292,7 +289,7 @@ android {
+@@ -309,7 +306,7 @@ android {
  
              if (postFix >= postFixSize) throw new AssertionError("postFix is too large")
  
