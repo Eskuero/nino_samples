@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index a9794e29b..71b289a85 100644
+index 3a60fbca4..a4d9a82f8 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -136,10 +136,6 @@ android {
+@@ -141,10 +141,6 @@ android {
          buildConfigField "String", "BUILD_ENVIRONMENT_TYPE", "\"unset\""
          buildConfigField "String", "BUILD_VARIANT_TYPE", "\"unset\""
  
@@ -13,7 +13,7 @@ index a9794e29b..71b289a85 100644
          resConfigs autoResConfig()
  
          splits {
-@@ -147,7 +143,7 @@ android {
+@@ -152,7 +148,7 @@ android {
                  enable true
                  reset()
                  include 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
@@ -22,7 +22,7 @@ index a9794e29b..71b289a85 100644
              }
          }
  
-@@ -301,6 +297,7 @@ android {
+@@ -306,6 +302,7 @@ android {
          }
      }
  
@@ -30,7 +30,7 @@ index a9794e29b..71b289a85 100644
      android.applicationVariants.all { variant ->
          variant.outputs.each { output ->
              output.outputFileName = output.outputFileName.replace(".apk", "-${variant.versionName}.apk")
-@@ -309,7 +306,7 @@ android {
+@@ -314,7 +311,7 @@ android {
  
              if (postFix >= postFixSize) throw new AssertionError("postFix is too large")
  

@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index c63e735..74df5ad 100644
+index 540419b..0a86500 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -91,6 +91,13 @@ android {
+@@ -95,6 +95,13 @@ android {
              includeAndroidResources = true
          }
      }
