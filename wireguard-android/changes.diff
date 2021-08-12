@@ -1,8 +1,8 @@
 diff --git a/ui/build.gradle b/ui/build.gradle
-index 6bf39bf..6ae1410 100644
+index b0b92ba..772553b 100644
 --- a/ui/build.gradle
 +++ b/ui/build.gradle
-@@ -53,6 +53,12 @@ android {
+@@ -58,6 +58,12 @@ android {
      lintOptions {
          disable('LongLogTag')
      }

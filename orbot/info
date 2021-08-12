@@ -1,2 +1,6 @@
 Remote: https://gitlab.com/guardianproject/orbot.git
 Branch: master
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################
