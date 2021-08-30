@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index a8f11f4..f650299 100644
+index 3b4203d..c9786a1 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -69,6 +69,13 @@ android {
+@@ -49,6 +49,13 @@ android {
          sourceCompatibility 1.8
          targetCompatibility 1.8
      }

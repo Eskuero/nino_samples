@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 3485ca4b1..0c82856f3 100644
+index 1e0bff0dc..7d9a129a0 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
 @@ -1,4 +1,5 @@
@@ -8,18 +8,17 @@ index 3485ca4b1..0c82856f3 100644
  import java.io.ByteArrayOutputStream
  import java.text.SimpleDateFormat
  import java.util.Date
-@@ -39,10 +40,6 @@ android {
- 
+@@ -40,9 +41,6 @@ android {
          // Please disable ACRA or use your own instance in forked versions of the project
          buildConfigField("String", "ACRA_URI", "\"https://tachiyomi.kanade.eu/crash_report\"")
--
+ 
 -        ndk {
 -            abiFilters += SUPPORTED_ABIS
 -        }
      }
  
      splits {
-@@ -50,7 +47,7 @@ android {
+@@ -50,7 +48,7 @@ android {
              isEnable = true
              reset()
              include(*SUPPORTED_ABIS.toTypedArray())
@@ -28,7 +27,7 @@ index 3485ca4b1..0c82856f3 100644
          }
      }
  
-@@ -125,6 +122,21 @@ android {
+@@ -127,6 +125,20 @@ android {
      }
  }
  
@@ -46,7 +45,6 @@ index 3485ca4b1..0c82856f3 100644
 +    }
 +}
 +
-+
  dependencies {
- 
      implementation(kotlin("reflect", version = BuildPluginsVersion.KOTLIN))
+ 

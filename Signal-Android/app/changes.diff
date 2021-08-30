@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index bbdb66aa6..64bd18ae9 100644
+index 53e9b002e..6d0e53d25 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -141,10 +141,6 @@ android {
+@@ -180,10 +180,6 @@ android {
          buildConfigField "String", "BUILD_ENVIRONMENT_TYPE", "\"unset\""
          buildConfigField "String", "BUILD_VARIANT_TYPE", "\"unset\""
  
@@ -13,7 +13,7 @@ index bbdb66aa6..64bd18ae9 100644
          resConfigs autoResConfig()
  
          splits {
-@@ -152,7 +148,7 @@ android {
+@@ -191,7 +187,7 @@ android {
                  enable true
                  reset()
                  include 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
@@ -22,7 +22,7 @@ index bbdb66aa6..64bd18ae9 100644
              }
          }
  
-@@ -315,6 +311,7 @@ android {
+@@ -354,6 +350,7 @@ android {
          }
      }
  
@@ -30,7 +30,7 @@ index bbdb66aa6..64bd18ae9 100644
      android.applicationVariants.all { variant ->
          variant.outputs.each { output ->
              if (output.baseName.contains('nightly')) {
-@@ -330,7 +327,7 @@ android {
+@@ -369,7 +366,7 @@ android {
  
                  if (postFix >= postFixSize) throw new AssertionError("postFix is too large")
  

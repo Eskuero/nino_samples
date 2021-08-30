@@ -30,29 +30,13 @@ index 987edf1cb..a009df909 100644
      fun getCoverQualityPreferenceDefaultValue() = getCoverQualityPreferenceEntryValues()[0]
  
      const val dataSaverPref = "dataSaverV5"
-diff --git a/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDex.kt b/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDex.kt
-index 7014b0b54..a8a14d706 100644
---- a/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDex.kt
-+++ b/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDex.kt
-@@ -426,7 +426,7 @@ abstract class MangaDex(override val lang: String, val dexLang: String) :
-                 preferences.edit().putString(MDConstants.getCoverQualityPreferenceKey(dexLang), entry).commit()
-             }
-         }
--        
-+
-         val dataSaverPref = SwitchPreferenceCompat(screen.context).apply {
-             key = MDConstants.getDataSaverPreferenceKey(dexLang)
-             title = "Data saver"
 diff --git a/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDexHelper.kt b/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDexHelper.kt
-index f049ca8c6..ff1876301 100644
+index d74a8e07a..f7e4063d2 100644
 --- a/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDexHelper.kt
 +++ b/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDexHelper.kt
-@@ -170,9 +170,9 @@ class MangaDexHelper() {
-         return SManga.create().apply {
-             url = "/manga/${mangaDto.data.id}"
+@@ -172,7 +172,7 @@ class MangaDexHelper() {
              title = cleanString(mangaDto.data.attributes.title.asMdMap()["en"] ?: "")
--            
-+
+ 
              coverFileName?.let {
 -                thumbnail_url = when(coverSuffix != null && coverSuffix != "") {
 +                thumbnail_url = when (coverSuffix != null && coverSuffix != "") {
