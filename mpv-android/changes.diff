@@ -1,11 +1,12 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 6aecec9..1f1b1c4 100644
+index 6aecec9..fefee0d 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -18,6 +18,12 @@ android {
+@@ -18,6 +18,13 @@ android {
              jni.srcDirs = []
          }
      }
++
 +    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->
@@ -40,12 +41,12 @@ index 696a25c..253a38a 100755
  if [ -n "${ANDROID_SIGNING_KEY:-}" ]; then
  	cd "${MPV_ANDROID}/app/build/outputs"
 diff --git a/buildscripts/scripts/mpv.sh b/buildscripts/scripts/mpv.sh
-index 12e332a..2fec93a 100755
+index 86aa428..6365b8e 100755
 --- a/buildscripts/scripts/mpv.sh
 +++ b/buildscripts/scripts/mpv.sh
-@@ -18,6 +18,7 @@ PKG_CONFIG="pkg-config --static" \
+@@ -19,6 +19,7 @@ PKG_CONFIG="pkg-config --static" \
  	--disable-iconv --lua=52 \
- 	--enable-libmpv-shared \
+ 	--enable-libmpv-shared --enable-ffmpeg-strict-abi \
  	--disable-manpage-build \
 +	--enable-ffmpeg-strict-abi \
  	-o "`pwd`/_build$ndk_suffix"

@@ -11,35 +11,3 @@ index 42882ce0e..0b34d0649 100644
  
      <application android:icon="@mipmap/ic_launcher" android:allowBackup="false" android:label="${appName}">
  
-diff --git a/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MDConstants.kt b/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MDConstants.kt
-index 987edf1cb..a009df909 100644
---- a/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MDConstants.kt
-+++ b/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MDConstants.kt
-@@ -38,11 +38,11 @@ object MDConstants {
-     fun getCoverQualityPreferenceKey(dexLang: String): String {
-         return "${coverQualityPref}_$dexLang"
-     }
--    
-+
-     fun getCoverQualityPreferenceEntries() = arrayOf("Original", "Medium", "Low")
--    
-+
-     fun getCoverQualityPreferenceEntryValues() = arrayOf("", ".512.jpg", ".256.jpg")
--    
-+
-     fun getCoverQualityPreferenceDefaultValue() = getCoverQualityPreferenceEntryValues()[0]
- 
-     const val dataSaverPref = "dataSaverV5"
-diff --git a/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDexHelper.kt b/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDexHelper.kt
-index d74a8e07a..f7e4063d2 100644
---- a/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDexHelper.kt
-+++ b/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDexHelper.kt
-@@ -172,7 +172,7 @@ class MangaDexHelper() {
-             title = cleanString(mangaDto.data.attributes.title.asMdMap()["en"] ?: "")
- 
-             coverFileName?.let {
--                thumbnail_url = when(coverSuffix != null && coverSuffix != "") {
-+                thumbnail_url = when (coverSuffix != null && coverSuffix != "") {
-                     true -> "${MDConstants.cdnUrl}/covers/${mangaDto.data.id}/$coverFileName$coverSuffix"
-                     else -> "${MDConstants.cdnUrl}/covers/${mangaDto.data.id}/$coverFileName"
-                 }
