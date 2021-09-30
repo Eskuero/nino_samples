@@ -1,10 +1,3 @@
-diff --git a/tunnel/tools/wireguard-tools b/tunnel/tools/wireguard-tools
-index af260d5..ecb1ea2 160000
---- a/tunnel/tools/wireguard-tools
-+++ b/tunnel/tools/wireguard-tools
-@@ -1 +1 @@
--Subproject commit af260d529eaa4387632c3d8dc8b02fd11c54f6bb
-+Subproject commit ecb1ea29d71e850d245f89ac709cf77438dc7b02
 diff --git a/ui/build.gradle b/ui/build.gradle
 index b0b92ba..772553b 100644
 --- a/ui/build.gradle
