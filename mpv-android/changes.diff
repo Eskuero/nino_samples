@@ -1,10 +1,10 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index c0a4d09..196ba33 100644
+index bed5e35..a13f888 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -13,6 +13,13 @@ android {
-         versionName "2021-03-10-release"
-         vectorDrawables.useSupportLibrary = true
+@@ -16,6 +16,13 @@ android {
+     buildFeatures {
+         viewBinding = true
      }
 +
 +    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))

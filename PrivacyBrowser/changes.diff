@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 3cc3256b..da03da74 100644
+index 5ce0872c..9e6e8656 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -60,6 +60,13 @@ android {
+@@ -62,6 +62,13 @@ android {
              dimension "basic"
          }
      }
@@ -15,8 +15,8 @@ index 3cc3256b..da03da74 100644
 +    }
  }
  
- repositories {
-@@ -90,4 +97,4 @@ dependencies {
+ dependencies {
+@@ -86,4 +93,4 @@ dependencies {
  
      // Only compile AdMob ads for the free flavor.
      freeImplementation 'com.google.android.gms:play-services-ads:20.4.0'
