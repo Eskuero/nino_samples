@@ -1,10 +1,10 @@
 diff --git a/ui/build.gradle b/ui/build.gradle
-index b0b92ba..772553b 100644
+index 2bbbe53..7dbb799 100644
 --- a/ui/build.gradle
 +++ b/ui/build.gradle
-@@ -58,6 +58,12 @@ android {
-     lintOptions {
-         disable('LongLogTag')
+@@ -60,6 +60,12 @@ android {
+         warning('MissingTranslation')
+         warning('ImpliedQuantity')
      }
 +    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
 +    android.applicationVariants.all { variant ->

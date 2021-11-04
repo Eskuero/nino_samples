@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 040babc..a5b2f6d 100644
+index 590352b..25bee7a 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -36,6 +36,12 @@ android {
+@@ -33,6 +33,12 @@ android {
          // We don't really hit the broken use-cases for now
          disable 'InvalidFragmentVersionForActivityResult'
      }
