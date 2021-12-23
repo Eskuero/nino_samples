@@ -1,12 +1,12 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 8d3fd799..854bd2cd 100644
+index 2d893f9e..96911940 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -62,6 +62,13 @@ android {
              dimension "basic"
          }
      }
-+
++    
 +    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->
@@ -19,7 +19,7 @@ index 8d3fd799..854bd2cd 100644
 @@ -86,4 +93,4 @@ dependencies {
  
      // Only compile AdMob ads for the free flavor.
-     freeImplementation 'com.google.android.gms:play-services-ads:20.4.0'
+     freeImplementation 'com.google.android.gms:play-services-ads:20.5.0'
 -}
 \ No newline at end of file
 +}

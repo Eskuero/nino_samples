@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 0fb1437fd..7c3749716 100644
+index 0c511a2b3..df3270305 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -96,6 +96,13 @@ android {
+@@ -95,6 +95,13 @@ android {
      buildFeatures {
          viewBinding true
      }
