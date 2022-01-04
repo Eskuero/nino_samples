@@ -1,12 +1,17 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index bd59a39e..4a027d40 100644
+index bd59a39e..383dc6c3 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -83,6 +83,12 @@ android {
+@@ -83,6 +83,17 @@ android {
              enableSplit = false
          }
      }
-+    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
++    Calendar origin = Calendar.getInstance()
++    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++    Date d1 = origin.getTime()
++    Date d2 = new Date()
++    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++    def DateVersionCode = 2112312359 + minutes
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->
 +            output.versionCodeOverride = DateVersionCode

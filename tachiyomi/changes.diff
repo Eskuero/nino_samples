@@ -1,14 +1,19 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 8a43ecf0d..174492a45 100644
+index c7d59c166..d6e06b547 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -1,4 +1,5 @@
+@@ -1,7 +1,10 @@
  import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 +import com.android.build.api.variant.FilterConfiguration.FilterType.*
  import java.io.ByteArrayOutputStream
  import java.text.SimpleDateFormat
  import java.util.Date
-@@ -40,10 +41,6 @@ android {
++import java.time.LocalDateTime
++import java.time.Duration;
+ import java.util.TimeZone
+ 
+ plugins {
+@@ -40,10 +43,6 @@ android {
          // Please disable ACRA or use your own instance in forked versions of the project
          buildConfigField("String", "ACRA_URI", "\"https://tachiyomi.kanade.eu/crash_report\"")
  
@@ -19,7 +24,7 @@ index 8a43ecf0d..174492a45 100644
          testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
      }
  
-@@ -52,7 +49,7 @@ android {
+@@ -52,7 +51,7 @@ android {
              isEnable = true
              reset()
              include(*SUPPORTED_ABIS.toTypedArray())
@@ -28,11 +33,14 @@ index 8a43ecf0d..174492a45 100644
          }
      }
  
-@@ -136,6 +133,21 @@ android {
+@@ -135,6 +134,22 @@ android {
+         jvmTarget = JavaVersion.VERSION_1_8.toString()
      }
  }
- 
-+val DateVersionCode = SimpleDateFormat("yyMMddHHmm").format(Date()).toInt()
++val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
++val d2 = LocalDateTime.now()
++val minutes = Duration.between(d1, d2).getSeconds() / 60
++val DateVersionCode = (2112312359 + minutes).toInt()
 +val abiCodes = mapOf("armeabi-v7a" to 1, "arm64-v8a" to 2, "x86" to 3, "x86_64" to 4)
 +androidComponents {
 +    onVariants { variant ->
@@ -45,8 +53,6 @@ index 8a43ecf0d..174492a45 100644
 +        }
 +    }
 +}
-+
-+
+ 
  dependencies {
      implementation(kotlin("reflect", version = BuildPluginsVersion.KOTLIN))
- 

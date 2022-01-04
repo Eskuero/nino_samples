@@ -11,17 +11,3 @@ index 42882ce0e..0b34d0649 100644
  
      <application android:icon="@mipmap/ic_launcher" android:allowBackup="false" android:label="${appName}">
  
-diff --git a/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDex.kt b/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDex.kt
-index eaa7ed4de..dcec2f6fc 100644
---- a/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDex.kt
-+++ b/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDex.kt
-@@ -231,8 +231,7 @@ abstract class MangaDex(override val lang: String, val dexLang: String) :
-             tempUrl.apply {
-                 addQueryParameter("group", groupID)
-             }
--        }
--        else {
-+        } else {
-             tempUrl.apply {
-                 val actualQuery = query.replace(MDConstants.whitespaceRegex, " ")
-                 if (actualQuery.isNotBlank()) {
