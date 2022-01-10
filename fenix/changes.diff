@@ -1,18 +1,23 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index f78b0fd71..b120564c6 100644
+index ba6c4155c..6c93b8a88 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -263,6 +263,8 @@ android.applicationVariants.all { variant ->
+@@ -261,6 +261,13 @@ android.applicationVariants.all { variant ->
  
          println("versionName override: $versionName")
  
-+        def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
++        Calendar origin = Calendar.getInstance()
++        origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++        Date d1 = origin.getTime()
++        Date d2 = new Date()
++        long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++        def DateVersionCode = 2112312359 + minutes
 +        project.ext.versionCodes = ['armeabi-v7a': 1, 'arm64-v8a': 2, 'x86': 3, 'x86_64': 4]
          variant.outputs.each { output ->
+             def isMozillaOnline = project.hasProperty("mozillaOnline") || gradle.hasProperty("localProperties.mozillaOnline")
              def abi = output.getFilter(OutputFile.ABI)
-             // We use the same version code generator, that we inherited from Fennec, across all channels - even on
-@@ -272,7 +274,7 @@ android.applicationVariants.all { variant ->
-             println("versionCode for $abi = $versionCodeOverride")
+@@ -273,7 +280,7 @@ android.applicationVariants.all { variant ->
+             println("versionCode for $abi = $versionCodeOverride, isMozillaOnline = $isMozillaOnline")
  
              output.versionNameOverride = versionName
 -            output.versionCodeOverride = versionCodeOverride

@@ -1,16 +1,21 @@
 diff --git a/application/app/build.gradle b/application/app/build.gradle
-index 9594d60c0..78ae98209 100644
+index 9594d60c0..06a2f0aa6 100644
 --- a/application/app/build.gradle
 +++ b/application/app/build.gradle
-@@ -130,6 +130,7 @@ android {
+@@ -130,6 +130,12 @@ android {
          }
      }
  
-+    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
++    Calendar origin = Calendar.getInstance()
++    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++    Date d1 = origin.getTime()
++    Date d2 = new Date()
++    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++    def DateVersionCode = 2112312359 + minutes
      def abiCodes = ['x86': 5, 'x86_64': 8, 'armeabi-v7a': 4, 'arm64-v8a': 7]
      // make per-variant version code
      applicationVariants.all { variant ->
-@@ -138,7 +139,7 @@ android {
+@@ -138,7 +144,7 @@ android {
              def outputAbi = output.getFilter(com.android.build.OutputFile.ABI)
              def abiName = System.getenv('GRADLE_ABI')?.toLowerCase() ?: "all"
              if (outputAbi != null) abiName = outputAbi
