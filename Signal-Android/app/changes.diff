@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 57c6c419b..088e495ae 100644
+index f3315adee..c77d61f16 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -164,10 +164,6 @@ android {
+@@ -169,10 +169,6 @@ android {
          buildConfigField "String", "BADGE_STATIC_ROOT", "\"https://updates2.signal.org/static/badges/\""
          buildConfigField "String", "STRIPE_PUBLISHABLE_KEY", "\"pk_live_6cmGZopuTsV8novGgJJW9JpC00vLIgtQ1D\""
  
@@ -13,7 +13,7 @@ index 57c6c419b..088e495ae 100644
          resConfigs autoResConfig()
  
          splits {
-@@ -175,7 +171,7 @@ android {
+@@ -180,7 +176,7 @@ android {
                  enable true
                  reset()
                  include 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
@@ -22,7 +22,7 @@ index 57c6c419b..088e495ae 100644
              }
          }
  
-@@ -346,6 +342,12 @@ android {
+@@ -351,6 +347,12 @@ android {
          }
      }
  
@@ -35,7 +35,7 @@ index 57c6c419b..088e495ae 100644
      android.applicationVariants.all { variant ->
          variant.outputs.each { output ->
              if (output.baseName.contains('nightly')) {
-@@ -361,7 +363,7 @@ android {
+@@ -366,7 +368,7 @@ android {
  
                  if (postFix >= postFixSize) throw new AssertionError("postFix is too large")
  

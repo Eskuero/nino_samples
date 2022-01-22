@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 4fa587ed..427ddfc6 100644
+index a626626c..0e157072 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -15,10 +15,6 @@ android {
@@ -13,7 +13,7 @@ index 4fa587ed..427ddfc6 100644
          javaCompileOptions {
              annotationProcessorOptions {
                  arguments = ['room.schemaLocation': "$projectDir/schemas".toString()]
-@@ -65,15 +61,16 @@ android {
+@@ -65,15 +61,21 @@ android {
              enable true
              reset()
              include 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
@@ -22,7 +22,12 @@ index 4fa587ed..427ddfc6 100644
          }
      }
  
-+    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
++    Calendar origin = Calendar.getInstance()
++    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++    Date d1 = origin.getTime()
++    Date d2 = new Date()
++    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++    def DateVersionCode = 2112312359 + minutes
      project.ext.versionCodes = ['armeabi-v7a': 1, 'arm64-v8a': 2, 'x86': 3, 'x86_64': 4]
      applicationVariants.all { variant ->
          outputs.all { output ->

@@ -1,10 +1,10 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index bd59a39e..383dc6c3 100644
+index 8c444441..b8fab427 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -83,6 +83,17 @@ android {
-             enableSplit = false
-         }
+@@ -86,6 +86,17 @@ android {
+     kotlinOptions {
+         freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
      }
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
@@ -19,4 +19,4 @@ index bd59a39e..383dc6c3 100644
 +    }
  }
  
- ext.lifecycleVersion = "2.3.1"
+ ext.coroutinesVersion = "1.6.0"

@@ -1,8 +1,8 @@
 diff --git a/vector/build.gradle b/vector/build.gradle
-index 2be5fa984d..3f5e8937ac 100644
+index 9203a8ec2f..67009970a3 100644
 --- a/vector/build.gradle
 +++ b/vector/build.gradle
-@@ -152,11 +152,6 @@ android {
+@@ -155,11 +155,6 @@ android {
  
          testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
  
@@ -14,7 +14,7 @@ index 2be5fa984d..3f5e8937ac 100644
          // Ref: https://developer.android.com/studio/build/configure-apk-splits.html
          splits {
              // Configures multiple APKs based on ABI.
-@@ -174,20 +169,21 @@ android {
+@@ -177,20 +172,21 @@ android {
                  include "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
  
                  // Generate a universal APK that includes all ABIs, so user who install from CI tool can use this one by default.
@@ -47,3 +47,19 @@ index 2be5fa984d..3f5e8937ac 100644
          }
  
          // The following argument makes the Android Test Orchestrator run its
+@@ -232,7 +228,6 @@ android {
+             // Set to true if you want to enable strict mode in debug
+             buildConfigField "boolean", "ENABLE_STRICT_MODE_LOGS", "false"
+ 
+-            signingConfig signingConfigs.debug
+         }
+ 
+         release {
+@@ -250,7 +245,6 @@ android {
+                 optimizeCode true
+                 proguardFiles 'proguard-rules.pro'
+             }
+-            signingConfig signingConfigs.release
+         }
+     }
+ 

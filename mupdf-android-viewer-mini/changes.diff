@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index ce4e2d4..b0fbcfc 100644
+index f4496cf..af1195d 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -23,7 +23,7 @@ android {
+@@ -22,7 +22,7 @@ android {
  	splits {
  		abi {
  			enable true
@@ -11,7 +11,7 @@ index ce4e2d4..b0fbcfc 100644
  		}
  	}
  
-@@ -48,4 +48,12 @@ android {
+@@ -47,4 +47,12 @@ android {
  			}
  		}
  	}

@@ -1,13 +1,18 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 347f3fe1..21022d24 100644
+index 347f3fe1..ab52e7d0 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -72,6 +72,13 @@ android {
+@@ -72,6 +72,18 @@ android {
          sourceCompatibility JavaVersion.VERSION_1_8
          targetCompatibility JavaVersion.VERSION_1_8
      }
 +
-+    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
++    Calendar origin = Calendar.getInstance()
++    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++    Date d1 = origin.getTime()
++    Date d2 = new Date()
++    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++    def DateVersionCode = 2112312359 + minutes
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->
 +            output.versionCodeOverride = DateVersionCode
@@ -16,7 +21,7 @@ index 347f3fe1..21022d24 100644
  }
  
  buildscript {
-@@ -189,4 +196,4 @@ if (propFile.canRead()) {
+@@ -189,4 +201,4 @@ if (propFile.canRead()) {
  } else {
      println "signing.properties not found"
      android.buildTypes.release.signingConfig = null
