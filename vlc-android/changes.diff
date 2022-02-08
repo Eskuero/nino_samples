@@ -1,8 +1,8 @@
 diff --git a/application/app/build.gradle b/application/app/build.gradle
-index 9594d60c0..06a2f0aa6 100644
+index c3df4df12..9bd36f09a 100644
 --- a/application/app/build.gradle
 +++ b/application/app/build.gradle
-@@ -130,6 +130,12 @@ android {
+@@ -121,6 +121,12 @@ android {
          }
      }
  
@@ -13,9 +13,9 @@ index 9594d60c0..06a2f0aa6 100644
 +    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
 +    def DateVersionCode = 2112312359 + minutes
      def abiCodes = ['x86': 5, 'x86_64': 8, 'armeabi-v7a': 4, 'arm64-v8a': 7]
-     // make per-variant version code
-     applicationVariants.all { variant ->
-@@ -138,7 +144,7 @@ android {
+     lint {
+         abortOnError false
+@@ -133,7 +139,7 @@ android {
              def outputAbi = output.getFilter(com.android.build.OutputFile.ABI)
              def abiName = System.getenv('GRADLE_ABI')?.toLowerCase() ?: "all"
              if (outputAbi != null) abiName = outputAbi

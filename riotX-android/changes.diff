@@ -1,8 +1,21 @@
+diff --git a/gradle.properties b/gradle.properties
+index 5c99297107..8504158e1e 100644
+--- a/gradle.properties
++++ b/gradle.properties
+@@ -8,7 +8,7 @@
+ # The setting is particularly useful for tweaking memory settings.
+ 
+ # Build Time Optimizations
+-org.gradle.jvmargs=-Xmx3g -Xms512M -XX:MaxPermSize=2048m -XX:MaxMetaspaceSize=1g -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:+UseParallelGC
++org.gradle.jvmargs=-Xmx4g -Xms512M -XX:MaxPermSize=4096m -XX:MaxMetaspaceSize=1g -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:+UseParallelGC
+ org.gradle.configureondemand=true
+ org.gradle.parallel=true
+ org.gradle.vfs.watch=true
 diff --git a/vector/build.gradle b/vector/build.gradle
-index 9203a8ec2f..67009970a3 100644
+index c6a2636acf..adfb890179 100644
 --- a/vector/build.gradle
 +++ b/vector/build.gradle
-@@ -155,11 +155,6 @@ android {
+@@ -161,11 +161,6 @@ android {
  
          testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
  
@@ -14,7 +27,7 @@ index 9203a8ec2f..67009970a3 100644
          // Ref: https://developer.android.com/studio/build/configure-apk-splits.html
          splits {
              // Configures multiple APKs based on ABI.
-@@ -177,20 +172,21 @@ android {
+@@ -183,20 +178,21 @@ android {
                  include "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
  
                  // Generate a universal APK that includes all ABIs, so user who install from CI tool can use this one by default.
@@ -47,19 +60,3 @@ index 9203a8ec2f..67009970a3 100644
          }
  
          // The following argument makes the Android Test Orchestrator run its
-@@ -232,7 +228,6 @@ android {
-             // Set to true if you want to enable strict mode in debug
-             buildConfigField "boolean", "ENABLE_STRICT_MODE_LOGS", "false"
- 
--            signingConfig signingConfigs.debug
-         }
- 
-         release {
-@@ -250,7 +245,6 @@ android {
-                 optimizeCode true
-                 proguardFiles 'proguard-rules.pro'
-             }
--            signingConfig signingConfigs.release
-         }
-     }
- 

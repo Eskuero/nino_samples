@@ -1,13 +1,7 @@
-diff --git a/play-services-core/build.gradle b/play-services-core/build.gradle
-index f32042e..d7b3532 100644
---- a/play-services-core/build.gradle
-+++ b/play-services-core/build.gradle
-@@ -80,7 +80,7 @@ android {
- 
-     defaultConfig {
-         versionName version
--        versionCode appVersionCode
-+        versionCode Integer.parseInt(new Date().format("yyMMddHHmm"))
- 
-         minSdkVersion androidMinSdk
-         targetSdkVersion androidTargetSdk
+diff --git a/gradle.properties b/gradle.properties
+index 5bac8ac5..ce6efcfd 100644
+--- a/gradle.properties
++++ b/gradle.properties
+@@ -1 +1,2 @@
+ android.useAndroidX=true
++org.gradle.jvmargs=-Xmx4g -XX:MaxPermSize=4096m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
