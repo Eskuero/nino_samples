@@ -1,3 +1,45 @@
+diff --git a/.experimenter.json b/.experimenter.json
+index 5b32be7b9..0ef978ad8 100644
+--- a/.experimenter.json
++++ b/.experimenter.json
+@@ -1,12 +1,12 @@
+ {
+-  "homescreen": {
+-    "description": "The homescreen that the user goes to when they press home or new tab.",
++  "search-term-groups": {
++    "description": "A feature allowing the grouping of URLs around the search term that it came from.",
+     "hasExposure": true,
+     "exposureDescription": "",
+     "variables": {
+-      "sections-enabled": {
+-        "description": "This property provides a lookup table of whether or not the given section should be enabled. If the section is enabled, it should be toggleable in the settings screen, and on by default.",
+-        "type": "json"
++      "enabled": {
++        "description": "If true, the feature shows up on the homescreen and on the new tab screen.",
++        "type": "boolean"
+       }
+     }
+   },
+@@ -21,14 +21,14 @@
+       }
+     }
+   },
+-  "search-term-groups": {
+-    "description": "A feature allowing the grouping of URLs around the search term that it came from.",
++  "homescreen": {
++    "description": "The homescreen that the user goes to when they press home or new tab.",
+     "hasExposure": true,
+     "exposureDescription": "",
+     "variables": {
+-      "enabled": {
+-        "description": "If true, the feature shows up on the homescreen and on the new tab screen.",
+-        "type": "boolean"
++      "sections-enabled": {
++        "description": "This property provides a lookup table of whether or not the given section should be enabled. If the section is enabled, it should be toggleable in the settings screen, and on by default.",
++        "type": "json"
+       }
+     }
+   },
 diff --git a/app/build.gradle b/app/build.gradle
 index 56cdf0807..30d59652c 100644
 --- a/app/build.gradle

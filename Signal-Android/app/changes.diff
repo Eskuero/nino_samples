@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 4d6a1f0cd..fc933eff5 100644
+index bb8879253..0619f1253 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -171,10 +171,6 @@ android {
@@ -35,7 +35,7 @@ index 4d6a1f0cd..fc933eff5 100644
      android.applicationVariants.all { variant ->
          variant.outputs.each { output ->
              if (output.baseName.contains('nightly')) {
-@@ -353,7 +355,7 @@ android {
+@@ -356,7 +358,7 @@ android {
  
                  if (postFix >= postFixSize) throw new AssertionError("postFix is too large")
  
