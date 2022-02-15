@@ -1,45 +1,59 @@
 diff --git a/.experimenter.json b/.experimenter.json
-index 5b32be7b9..0ef978ad8 100644
+index 5b32be7b9..2c8b7da42 100644
 --- a/.experimenter.json
 +++ b/.experimenter.json
-@@ -1,12 +1,12 @@
- {
--  "homescreen": {
--    "description": "The homescreen that the user goes to when they press home or new tab.",
-+  "search-term-groups": {
-+    "description": "A feature allowing the grouping of URLs around the search term that it came from.",
+@@ -10,6 +10,25 @@
+       }
+     }
+   },
++  "nimbus-validation": {
++    "description": "A feature that does not correspond to an application feature suitable for showing that Nimbus is working. This should never be used in production.",
++    "hasExposure": true,
++    "exposureDescription": "",
++    "variables": {
++      "settings-icon": {
++        "description": "The drawable displayed in the app menu for Settings",
++        "type": "string"
++      },
++      "settings-punctuation": {
++        "description": "The emoji displayed in the Settings screen title.",
++        "type": "string"
++      },
++      "settings-title": {
++        "description": "The title of displayed in the Settings screen and app menu.",
++        "type": "string"
++      }
++    }
++  },
+   "default-browser-message": {
+     "description": "A small feature allowing experiments on the placement of a default browser message.",
      "hasExposure": true,
-     "exposureDescription": "",
-     "variables": {
--      "sections-enabled": {
--        "description": "This property provides a lookup table of whether or not the given section should be enabled. If the section is enabled, it should be toggleable in the settings screen, and on by default.",
--        "type": "json"
-+      "enabled": {
-+        "description": "If true, the feature shows up on the homescreen and on the new tab screen.",
-+        "type": "boolean"
+@@ -31,24 +50,5 @@
+         "type": "boolean"
        }
      }
-   },
-@@ -21,14 +21,14 @@
-       }
-     }
-   },
--  "search-term-groups": {
--    "description": "A feature allowing the grouping of URLs around the search term that it came from.",
-+  "homescreen": {
-+    "description": "The homescreen that the user goes to when they press home or new tab.",
-     "hasExposure": true,
-     "exposureDescription": "",
-     "variables": {
--      "enabled": {
--        "description": "If true, the feature shows up on the homescreen and on the new tab screen.",
--        "type": "boolean"
-+      "sections-enabled": {
-+        "description": "This property provides a lookup table of whether or not the given section should be enabled. If the section is enabled, it should be toggleable in the settings screen, and on by default.",
-+        "type": "json"
-       }
-     }
-   },
+-  },
+-  "nimbus-validation": {
+-    "description": "A feature that does not correspond to an application feature suitable for showing that Nimbus is working. This should never be used in production.",
+-    "hasExposure": true,
+-    "exposureDescription": "",
+-    "variables": {
+-      "settings-icon": {
+-        "description": "The drawable displayed in the app menu for Settings",
+-        "type": "string"
+-      },
+-      "settings-punctuation": {
+-        "description": "The emoji displayed in the Settings screen title.",
+-        "type": "string"
+-      },
+-      "settings-title": {
+-        "description": "The title of displayed in the Settings screen and app menu.",
+-        "type": "string"
+-      }
+-    }
+   }
+ }
+\ No newline at end of file
 diff --git a/app/build.gradle b/app/build.gradle
 index 56cdf0807..30d59652c 100644
 --- a/app/build.gradle

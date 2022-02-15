@@ -1,18 +1,5 @@
-diff --git a/gradle.properties b/gradle.properties
-index 5c99297107..8504158e1e 100644
---- a/gradle.properties
-+++ b/gradle.properties
-@@ -8,7 +8,7 @@
- # The setting is particularly useful for tweaking memory settings.
- 
- # Build Time Optimizations
--org.gradle.jvmargs=-Xmx3g -Xms512M -XX:MaxPermSize=2048m -XX:MaxMetaspaceSize=1g -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:+UseParallelGC
-+org.gradle.jvmargs=-Xmx4g -Xms512M -XX:MaxPermSize=4096m -XX:MaxMetaspaceSize=1g -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:+UseParallelGC
- org.gradle.configureondemand=true
- org.gradle.parallel=true
- org.gradle.vfs.watch=true
 diff --git a/vector/build.gradle b/vector/build.gradle
-index 63c749daeb..188b64d78d 100644
+index 91a6319975..cb2a654b9c 100644
 --- a/vector/build.gradle
 +++ b/vector/build.gradle
 @@ -161,11 +161,6 @@ android {
