@@ -1,12 +1,11 @@
 diff --git a/build.gradle b/build.gradle
-index 54684a58..f3eb46ee 100644
+index 13f02e61..9f356bb2 100644
 --- a/build.gradle
 +++ b/build.gradle
-@@ -87,6 +87,18 @@ android {
-             shrinkResources true
-         }
+@@ -87,6 +87,17 @@ android {
+         abortOnError false
+         checkReleaseBuilds false
      }
-+
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
 +    Date d1 = origin.getTime()

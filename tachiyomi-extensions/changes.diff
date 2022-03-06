@@ -1,5 +1,5 @@
 diff --git a/common.gradle b/common.gradle
-index 87d95583a..a5abdb386 100644
+index fa4222513..08c0f92ea 100644
 --- a/common.gradle
 +++ b/common.gradle
 @@ -55,7 +55,6 @@ android {
@@ -23,3 +23,16 @@ index 77ee6b239..033f5120e 100644
  
      <application android:icon="@mipmap/ic_launcher" android:allowBackup="false" android:label="${appName}">
  
+diff --git a/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDex.kt b/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDex.kt
+index ea65289a7..266ae29bd 100644
+--- a/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDex.kt
++++ b/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDex.kt
+@@ -291,7 +291,7 @@ abstract class MangaDex(override val lang: String, val dexLang: String) :
+         val listDto = helper.json.decodeFromString<ListDto>(response.body!!.string())
+         val listDtoFiltered = listDto.data.relationships.filter { it.type != "Manga" }
+         val amount = listDtoFiltered.count()
+-        if (amount < 1){
++        if (amount < 1) {
+             throw Exception("No Manga in List")
+         }
+         val minIndex = (page - 1) * MDConstants.mangaLimit
