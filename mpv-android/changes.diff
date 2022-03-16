@@ -22,7 +22,7 @@ index 0a80274..8ae286e 100644
  
  dependencies {
 diff --git a/buildscripts/buildall.sh b/buildscripts/buildall.sh
-index b35996c..181256b 100755
+index 8f34cde..0faf778 100755
 --- a/buildscripts/buildall.sh
 +++ b/buildscripts/buildall.sh
 @@ -151,6 +151,5 @@ setup_prefix
