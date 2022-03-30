@@ -1,69 +1,12 @@
-diff --git a/.experimenter.json b/.experimenter.json
-index 5b32be7b9..d1a05d9e8 100644
---- a/.experimenter.json
-+++ b/.experimenter.json
-@@ -1,15 +1,4 @@
- {
--  "homescreen": {
--    "description": "The homescreen that the user goes to when they press home or new tab.",
--    "hasExposure": true,
--    "exposureDescription": "",
--    "variables": {
--      "sections-enabled": {
--        "description": "This property provides a lookup table of whether or not the given section should be enabled. If the section is enabled, it should be toggleable in the settings screen, and on by default.",
--        "type": "json"
--      }
--    }
--  },
-   "default-browser-message": {
-     "description": "A small feature allowing experiments on the placement of a default browser message.",
-     "hasExposure": true,
-@@ -21,14 +10,14 @@
-       }
-     }
-   },
--  "search-term-groups": {
--    "description": "A feature allowing the grouping of URLs around the search term that it came from.",
-+  "homescreen": {
-+    "description": "The homescreen that the user goes to when they press home or new tab.",
-     "hasExposure": true,
-     "exposureDescription": "",
-     "variables": {
--      "enabled": {
--        "description": "If true, the feature shows up on the homescreen and on the new tab screen.",
--        "type": "boolean"
-+      "sections-enabled": {
-+        "description": "This property provides a lookup table of whether or not the given section should be enabled. If the section is enabled, it should be toggleable in the settings screen, and on by default.",
-+        "type": "json"
-       }
-     }
-   },
-@@ -50,5 +39,16 @@
-         "type": "string"
-       }
-     }
-+  },
-+  "search-term-groups": {
-+    "description": "A feature allowing the grouping of URLs around the search term that it came from.",
-+    "hasExposure": true,
-+    "exposureDescription": "",
-+    "variables": {
-+      "enabled": {
-+        "description": "If true, the feature shows up on the homescreen and on the new tab screen.",
-+        "type": "boolean"
-+      }
-+    }
-   }
- }
-\ No newline at end of file
 diff --git a/app/build.gradle b/app/build.gradle
-index 4cfb491cf..453a93aae 100644
+index 4ab1dff61..111938748 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -261,6 +261,13 @@ android.applicationVariants.all { variant ->
+@@ -252,7 +252,13 @@ android.applicationVariants.all { variant ->
+         // builds.
  
          println("versionName override: $versionName")
- 
+-
 +        Calendar origin = Calendar.getInstance()
 +        origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
 +        Date d1 = origin.getTime()
@@ -74,7 +17,7 @@ index 4cfb491cf..453a93aae 100644
          variant.outputs.each { output ->
              def isMozillaOnline = project.hasProperty("mozillaOnline") || gradle.hasProperty("localProperties.mozillaOnline")
              def abi = output.getFilter(OutputFile.ABI)
-@@ -273,7 +280,7 @@ android.applicationVariants.all { variant ->
+@@ -265,7 +271,7 @@ android.applicationVariants.all { variant ->
              println("versionCode for $abi = $versionCodeOverride, isMozillaOnline = $isMozillaOnline")
  
              output.versionNameOverride = versionName
