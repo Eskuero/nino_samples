@@ -1,8 +1,8 @@
 diff --git a/application/app/build.gradle b/application/app/build.gradle
-index cff3a675a..93b823160 100644
+index b7ca6b04e..a6054bb81 100644
 --- a/application/app/build.gradle
 +++ b/application/app/build.gradle
-@@ -121,6 +121,12 @@ android {
+@@ -113,6 +113,12 @@ android {
          }
      }
  
@@ -15,7 +15,7 @@ index cff3a675a..93b823160 100644
      def abiCodes = ['x86': 5, 'x86_64': 8, 'armeabi-v7a': 4, 'arm64-v8a': 7]
      lint {
          abortOnError false
-@@ -133,7 +139,7 @@ android {
+@@ -125,7 +131,7 @@ android {
              def outputAbi = output.getFilter(com.android.build.OutputFile.ABI)
              def abiName = System.getenv('GRADLE_ABI')?.toLowerCase() ?: "all"
              if (outputAbi != null) abiName = outputAbi
