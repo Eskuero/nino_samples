@@ -1,0 +1,38 @@
+diff --git a/mastodon/build.gradle b/mastodon/build.gradle
+index 636263e..c6a3ce0 100644
+--- a/mastodon/build.gradle
++++ b/mastodon/build.gradle
+@@ -5,7 +5,7 @@ plugins {
+ 
+ android {
+ 	compileSdk 31
+-	buildToolsVersion "33.0.0-rc1"
++	buildToolsVersion "33.0.0-rc2"
+ 	defaultConfig {
+ 		applicationId "org.joinmastodon.android"
+ 		minSdk 23
+@@ -48,6 +48,17 @@ android {
+ 			setRoot "src/appcenter"
+ 		}
+ 	}
++	Calendar origin = Calendar.getInstance()
++	origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++	Date d1 = origin.getTime()
++	Date d2 = new Date()
++	long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++	def DateVersionCode = 2112312359 + minutes
++	android.applicationVariants.all { variant ->
++		variant.outputs.all { output ->
++			output.versionCodeOverride = DateVersionCode
++		}
++	}
+ }
+ 
+ dependencies {
+@@ -78,4 +89,4 @@ dependencies {
+ 	androidTestImplementation 'androidx.test.ext:junit:1.1.4-alpha05'
+ 	androidTestImplementation 'androidx.test:runner:1.5.0-alpha02'
+ 	androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0-alpha05'
+-}
+\ No newline at end of file
++}
