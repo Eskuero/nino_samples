@@ -1,31 +1,18 @@
-diff --git a/app/k9mail-jmap/build.gradle b/app/k9mail-jmap/build.gradle
-index bcdcc9896..cb9e25d5d 100644
---- a/app/k9mail-jmap/build.gradle
-+++ b/app/k9mail-jmap/build.gradle
-@@ -122,6 +122,13 @@ android {
-             includeAndroidResources = true
-         }
-     }
-+
-+    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
-+    android.applicationVariants.all { variant ->
-+        variant.outputs.all { output ->
-+            output.versionCodeOverride = DateVersionCode
-+        }
-+    }
- }
- 
- androidExtensions {
 diff --git a/app/k9mail/build.gradle b/app/k9mail/build.gradle
-index f2da66043..20c837f99 100644
+index aae39b45b..3b024b3ff 100644
 --- a/app/k9mail/build.gradle
 +++ b/app/k9mail/build.gradle
-@@ -132,6 +132,13 @@ android {
+@@ -133,6 +133,18 @@ android {
              includeAndroidResources = true
          }
      }
 +
-+    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
++    Calendar origin = Calendar.getInstance()
++    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++    Date d1 = origin.getTime()
++    Date d2 = new Date()
++    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++    def DateVersionCode = 2112312359 + minutes
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->
 +            output.versionCodeOverride = DateVersionCode
@@ -33,4 +20,4 @@ index f2da66043..20c837f99 100644
 +    }
  }
  
- androidExtensions {
+ if (project.hasProperty('keyAlias')) {
