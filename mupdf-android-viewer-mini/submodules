@@ -10,6 +10,10 @@ Entering 'jni/libmupdf/thirdparty/curl'
 git://git.ghostscript.com/thirdparty-curl.git
 f43c6fbb2dbdf68dfdd0f0c3399e3711a621614a
 
+Entering 'jni/libmupdf/thirdparty/extract'
+git://git.ghostscript.com/extract.git
+96f670cbb051b30cd4636d58660cb4d34b9ede11
+
 Entering 'jni/libmupdf/thirdparty/freeglut'
 git://git.ghostscript.com/thirdparty-freeglut.git
 13ae6aa2c2f9a7b4266fc2e6116c876237f40477
@@ -17,6 +21,10 @@ git://git.ghostscript.com/thirdparty-freeglut.git
 Entering 'jni/libmupdf/thirdparty/freetype'
 git://git.ghostscript.com/thirdparty-freetype2.git
 6a2b3e4007e794bfc6c91030d0ed987f925164a8
+
+Entering 'jni/libmupdf/thirdparty/gumbo-parser'
+git://git.ghostscript.com/thirdparty-gumbo-parser.git
+289f3de61d9fc6a9812a6900c23e74c4d1fbde7d
 
 Entering 'jni/libmupdf/thirdparty/harfbuzz'
 git://git.ghostscript.com/thirdparty-harfbuzz.git
@@ -30,6 +38,10 @@ Entering 'jni/libmupdf/thirdparty/lcms2'
 git://git.ghostscript.com/thirdparty-lcms2.git
 558b336e330e7816c22df900b8100c029b16b0bc
 
+Entering 'jni/libmupdf/thirdparty/leptonica'
+git://git.ghostscript.com/thirdparty-leptonica.git
+5e87d579527d8ac470ad97f399ceb65c35cea598
+
 Entering 'jni/libmupdf/thirdparty/libjpeg'
 git://git.ghostscript.com/thirdparty-libjpeg.git
 cdb7096dbcee3ef85d9f735b7d9f59b22173a1ad
@@ -41,6 +53,22 @@ c3715ce3db4cc37ea46af8dbc891ecee1ca1b2ff
 Entering 'jni/libmupdf/thirdparty/openjpeg'
 git://git.ghostscript.com/thirdparty-openjpeg.git
 23ba772146cebd155e0c1f61d1e0c952a65af0df
+
+Entering 'jni/libmupdf/thirdparty/tesseract'
+git://git.ghostscript.com/thirdparty-tesseract.git
+a25ae8dc4cc97b191bf5ea11365a05a78c566698
+
+Entering 'jni/libmupdf/thirdparty/tesseract/abseil'
+https://github.com/abseil/abseil-cpp.git
+b832dce8489ef7b6231384909fd9b68d5a5ff2b7
+
+Entering 'jni/libmupdf/thirdparty/tesseract/googletest'
+https://github.com/google/googletest.git
+703bd9caab50b139428cea1aaff9974ebee5742e
+
+Entering 'jni/libmupdf/thirdparty/tesseract/test'
+https://github.com/tesseract-ocr/test.git
+e27d9566917d7d167636a7d0cd59bcfb2c61c7eb
 
 Entering 'jni/libmupdf/thirdparty/zlib'
 git://git.ghostscript.com/thirdparty-zlib.git

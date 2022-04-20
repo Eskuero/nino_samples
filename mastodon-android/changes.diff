@@ -1,17 +1,8 @@
 diff --git a/mastodon/build.gradle b/mastodon/build.gradle
-index 636263e..c6a3ce0 100644
+index f5456dc..b332035 100644
 --- a/mastodon/build.gradle
 +++ b/mastodon/build.gradle
-@@ -5,7 +5,7 @@ plugins {
- 
- android {
- 	compileSdk 31
--	buildToolsVersion "33.0.0-rc1"
-+	buildToolsVersion "33.0.0-rc2"
- 	defaultConfig {
- 		applicationId "org.joinmastodon.android"
- 		minSdk 23
-@@ -48,6 +48,17 @@ android {
+@@ -47,6 +47,17 @@ android {
  			setRoot "src/appcenter"
  		}
  	}
@@ -29,7 +20,7 @@ index 636263e..c6a3ce0 100644
  }
  
  dependencies {
-@@ -78,4 +89,4 @@ dependencies {
+@@ -77,4 +88,4 @@ dependencies {
  	androidTestImplementation 'androidx.test.ext:junit:1.1.4-alpha05'
  	androidTestImplementation 'androidx.test:runner:1.5.0-alpha02'
  	androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0-alpha05'

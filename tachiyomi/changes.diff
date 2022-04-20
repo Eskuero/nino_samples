@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 9d53d85db..17e1d9807 100644
+index 32adbe100..c5d9b249c 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
 @@ -1,4 +1,7 @@
@@ -30,7 +30,7 @@ index 9d53d85db..17e1d9807 100644
          }
      }
  
-@@ -132,6 +131,24 @@ android {
+@@ -137,6 +136,23 @@ android {
      }
  }
  
@@ -51,7 +51,6 @@ index 9d53d85db..17e1d9807 100644
 +    }
 +}
 +
-+
  dependencies {
-     implementation(kotlinx.reflect)
- 
+     implementation(compose.foundation)
+     implementation(compose.material3.core)
