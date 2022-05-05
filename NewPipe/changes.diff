@@ -21,36 +21,3 @@ index 36bee05a0..52820bf92 100644
  }
  
  ext {
-diff --git a/app/schemas/org.schabi.newpipe.database.AppDatabase/4.json b/app/schemas/org.schabi.newpipe.database.AppDatabase/4.json
-index b555260d5..973850d5c 100644
---- a/app/schemas/org.schabi.newpipe.database.AppDatabase/4.json
-+++ b/app/schemas/org.schabi.newpipe.database.AppDatabase/4.json
-@@ -72,14 +72,8 @@
-       },
-       {
-         "tableName": "search_history",
--        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `creation_date` INTEGER, `service_id` INTEGER NOT NULL, `search` TEXT)",
-+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`creation_date` INTEGER, `service_id` INTEGER NOT NULL, `search` TEXT, `id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL)",
-         "fields": [
--          {
--            "fieldPath": "id",
--            "columnName": "id",
--            "affinity": "INTEGER",
--            "notNull": true
--          },
-           {
-             "fieldPath": "creationDate",
-             "columnName": "creation_date",
-@@ -97,6 +91,12 @@
-             "columnName": "search",
-             "affinity": "TEXT",
-             "notNull": false
-+          },
-+          {
-+            "fieldPath": "id",
-+            "columnName": "id",
-+            "affinity": "INTEGER",
-+            "notNull": true
-           }
-         ],
-         "primaryKey": {

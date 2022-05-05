@@ -1,19 +1,5 @@
-diff --git a/.experimenter.yaml b/.experimenter.yaml
-index 280988d4f..e8d0a792f 100644
---- a/.experimenter.yaml
-+++ b/.experimenter.yaml
-@@ -33,8 +33,8 @@ messaging:
-       type: string
-       description: What should be displayed when a control message is selected.
-       enum:
--        - show-next-message
-         - show-none
-+        - show-next-message
-     styles:
-       type: json
-       description: "A map of styles to configure message appearance.\n"
 diff --git a/app/build.gradle b/app/build.gradle
-index 3bdb10eaa..8b9269586 100644
+index 163362052..82e609f4b 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -253,6 +253,13 @@ android.applicationVariants.all { variant ->
