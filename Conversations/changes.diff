@@ -1,8 +1,8 @@
 diff --git a/build.gradle b/build.gradle
-index 371b1ea87..50c691417 100644
+index 2e1870b2f..fdef8e481 100644
 --- a/build.gradle
 +++ b/build.gradle
-@@ -102,7 +102,7 @@ android {
+@@ -103,7 +103,7 @@ android {
  
      splits {
          abi {
@@ -11,11 +11,10 @@ index 371b1ea87..50c691417 100644
              enable true
          }
      }
-@@ -229,16 +229,16 @@ android {
+@@ -230,15 +230,16 @@ android {
          disable 'MissingTranslation', 'InvalidPackage', 'AppCompatResource'
      }
  
--
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
 +    Date d1 = origin.getTime()

@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index f5809ba5f..85c26143e 100644
+index 0c0dc94f9..0cd3b250a 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
 @@ -1,4 +1,8 @@
@@ -55,37 +55,3 @@ index f5809ba5f..85c26143e 100644
  }
  
  dependencies {
-diff --git a/app/src/main/java/eu/kanade/tachiyomi/ui/browse/migration/sources/MigrationSourcesController.kt b/app/src/main/java/eu/kanade/tachiyomi/ui/browse/migration/sources/MigrationSourcesController.kt
-index 136e418ac..c400c0926 100644
---- a/app/src/main/java/eu/kanade/tachiyomi/ui/browse/migration/sources/MigrationSourcesController.kt
-+++ b/app/src/main/java/eu/kanade/tachiyomi/ui/browse/migration/sources/MigrationSourcesController.kt
-@@ -52,13 +52,13 @@ class MigrationSourcesController : ComposeController<MigrationSourcesPresenter>(
-             }
-             R.id.asc_alphabetical,
-             R.id.desc_alphabetical,
---> {
-+            -> {
-                 presenter.setAlphabeticalSorting(itemId == R.id.asc_alphabetical)
-                 true
-             }
-             R.id.asc_count,
-             R.id.desc_count,
---> {
-+            -> {
-                 presenter.setTotalSorting(itemId == R.id.asc_count)
-                 true
-             }
-diff --git a/app/src/main/java/eu/kanade/tachiyomi/widget/TachiyomiBottomNavigationView.kt b/app/src/main/java/eu/kanade/tachiyomi/widget/TachiyomiBottomNavigationView.kt
-index e3209c384..6ed163a2c 100644
---- a/app/src/main/java/eu/kanade/tachiyomi/widget/TachiyomiBottomNavigationView.kt
-+++ b/app/src/main/java/eu/kanade/tachiyomi/widget/TachiyomiBottomNavigationView.kt
-@@ -91,7 +91,8 @@ class TachiyomiBottomNavigationView @JvmOverloads constructor(
-                     currentAnimator = null
-                     postInvalidate()
-                 }
--            },)
-+            },
-+            )
-     }
- 
-     internal class SavedState : AbsSavedState {

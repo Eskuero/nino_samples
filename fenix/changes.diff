@@ -1,9 +1,9 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 163362052..82e609f4b 100644
+index f1af1a008..bfdbb1f80 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -253,6 +253,13 @@ android.applicationVariants.all { variant ->
- 
+         def versionName = variant.buildType.name == 'nightly' ? Config.nightlyVersionName() : Config.releaseVersionName(project)
          println("versionName override: $versionName")
  
 +        Calendar origin = Calendar.getInstance()
@@ -23,5 +23,5 @@ index 163362052..82e609f4b 100644
 -            output.versionCodeOverride = versionCodeOverride
 +            output.versionCodeOverride = project.ext.versionCodes.get(output.getFilter(com.android.build.OutputFile.ABI), 0) + DateVersionCode
          }
-     }
- 
+     } else if (gradle.hasProperty("localProperties.branchBuild.fenix.version")) {
+         def versionName = gradle.getProperty("localProperties.branchBuild.fenix.version")
