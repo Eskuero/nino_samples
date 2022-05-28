@@ -1,5 +1,5 @@
 diff --git a/vector/build.gradle b/vector/build.gradle
-index 4ae6527e0b..bdbbfff264 100644
+index 51dfc2f962..8afd90de72 100644
 --- a/vector/build.gradle
 +++ b/vector/build.gradle
 @@ -167,11 +167,6 @@ android {
