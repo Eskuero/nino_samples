@@ -1,31 +1,40 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 25b3d6b..c56b55d 100644
+index 2d027f1..0c7e66e 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -26,6 +26,18 @@ android {
-     buildFeatures {
-         viewBinding = true
+@@ -38,11 +38,17 @@ android {
+                 if (new File(project.projectDir, "src/main/jniLibs/${abi}").exists())
+                     include(abi)
+             }
+-            universalApk true // build an APK with all ABIs too
++            universalApk false // build an APK with all ABIs too
+         }
      }
-+
-+    Calendar origin = Calendar.getInstance()
-+    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
-+    Date d1 = origin.getTime()
-+    Date d2 = new Date()
-+    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
-+    def DateVersionCode = 2112312359 + minutes
-+    android.applicationVariants.all { variant ->
-+        variant.outputs.all { output ->
-+            output.versionCodeOverride = DateVersionCode
-+        }
-+    }
  }
  
- dependencies {
++Calendar origin = Calendar.getInstance()
++origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++Date d1 = origin.getTime()
++Date d2 = new Date()
++long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++def DateVersionCode = 2112312359 + minutes
+ // Map versionCode so each ABI gets a different one
+ // e.g. x86 with version 21 gets a versionCode of 3021
+ import com.android.build.VariantOutput
+@@ -51,7 +57,7 @@ android.applicationVariants.all { variant ->
+         def base = project.ext.abiCodes.get(output.getFilter(VariantOutput.ABI))
+         // universal APK keeps the original versionCode
+         if (base != null)
+-            output.versionCodeOverride = base * 1000 + variant.versionCode
++            output.versionCodeOverride = base * 1000 + variant.versionCode + DateVersionCode
+     }
+ }
+ 
 diff --git a/buildscripts/buildall.sh b/buildscripts/buildall.sh
-index 8f34cde..0faf778 100755
+index c689c48..10b8165 100755
 --- a/buildscripts/buildall.sh
 +++ b/buildscripts/buildall.sh
-@@ -151,6 +151,5 @@ setup_prefix
+@@ -155,6 +155,5 @@ setup_prefix
  build $target
  
  [ "$target" == "mpv-android" ] && \
@@ -33,7 +42,7 @@ index 8f34cde..0faf778 100755
  
  exit 0
 diff --git a/buildscripts/scripts/mpv-android.sh b/buildscripts/scripts/mpv-android.sh
-index e7f849d..44134b6 100755
+index e8ae0c8..c58d1be 100755
 --- a/buildscripts/scripts/mpv-android.sh
 +++ b/buildscripts/scripts/mpv-android.sh
 @@ -30,7 +30,6 @@ prefix_x86=$(nativeprefix "x86")

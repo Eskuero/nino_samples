@@ -1,17 +1,16 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index aec2a984a..665a9f1be 100644
+index f57149dd2..198f82bb2 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -1,4 +1,8 @@
+@@ -1,4 +1,7 @@
  import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 +import com.android.build.api.variant.FilterConfiguration.FilterType.*
 +import java.time.LocalDateTime
 +import java.time.Duration;
-+
  
  plugins {
      id("com.android.application")
-@@ -37,10 +41,6 @@ android {
+@@ -37,10 +40,6 @@ android {
          // Please disable ACRA or use your own instance in forked versions of the project
          buildConfigField("String", "ACRA_URI", "\"https://tachiyomi.kanade.eu/crash_report\"")
  
@@ -22,7 +21,7 @@ index aec2a984a..665a9f1be 100644
          testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
      }
  
-@@ -49,7 +49,7 @@ android {
+@@ -49,7 +48,7 @@ android {
              isEnable = true
              reset()
              include(*SUPPORTED_ABIS.toTypedArray())
@@ -31,9 +30,9 @@ index aec2a984a..665a9f1be 100644
          }
      }
  
-@@ -136,6 +136,23 @@ android {
-     kotlinOptions {
-         jvmTarget = JavaVersion.VERSION_1_8.toString()
+@@ -143,6 +142,23 @@ android {
+             dialect = "sqlite:3.24"
+         }
      }
 +
 +    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);

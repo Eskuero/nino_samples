@@ -1,10 +1,10 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index a054826e..065d5f07 100644
+index 0d587cc2..ae4653f6 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -113,6 +113,18 @@ android {
-     kotlinOptions {
-         jvmTarget = "1.8"
+@@ -117,6 +117,18 @@ android {
+     lint {
+         disable 'GoogleAppIndexingWarning'
      }
 +
 +    Calendar origin = Calendar.getInstance()
@@ -22,17 +22,17 @@ index a054826e..065d5f07 100644
  
  allOpen {
 diff --git a/app/build.properties b/app/build.properties
-index f2f6f546..b3a864f6 100644
+index 6a551dcf..a273ecac 100644
 --- a/app/build.properties
 +++ b/app/build.properties
 @@ -1,7 +1,7 @@
  #Build Properties
--#Mon Jan 03 10:10:05 EST 2022
-+#Tue Jan 04 15:15:23 WET 2022
+-#Sat Jun 25 08:43:59 EDT 2022
++#Sun Jun 26 02:57:06 WEST 2022
  version_minor=0
--version_store=58
--version_patch=6
-+version_store=61
-+version_patch=9
+-version_store=61
+-version_patch=9
++version_store=63
++version_patch=11
  version_build=0
  version_major=3
