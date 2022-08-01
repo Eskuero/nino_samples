@@ -1,13 +1,26 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 94f7cd1..c3a56fe 100644
+index 5300c0c..c092f3c 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -49,6 +49,13 @@ android {
+@@ -41,7 +41,6 @@ android {
+         }
+     }
+ 
+-
+     compileOptions {
          sourceCompatibility 1.8
          targetCompatibility 1.8
+@@ -50,6 +49,18 @@ android {
+         disable 'MissingTranslation'
      }
+     namespace 'com.jarsilio.android.scrambledeggsif'
 +
-+    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
++    Calendar origin = Calendar.getInstance()
++    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++    Date d1 = origin.getTime()
++    Date d2 = new Date()
++    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++    def DateVersionCode = 2112312359 + minutes
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->
 +            output.versionCodeOverride = DateVersionCode
