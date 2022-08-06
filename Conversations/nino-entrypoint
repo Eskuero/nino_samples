@@ -1,4 +1,0 @@
-#!/bin/sh
-libraryversion=$(grep "libwebrtc" build.gradle | cut -d\' -f 2)
-mkdir -p libs
-wget -O libs/$libraryversion http://gultsch.de/files/$libraryversion
