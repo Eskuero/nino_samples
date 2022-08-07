@@ -1,8 +1,8 @@
 diff --git a/app/k9mail/build.gradle b/app/k9mail/build.gradle
-index e4cf02169..fcd004d5d 100644
+index 1e5a394be..2538defd3 100644
 --- a/app/k9mail/build.gradle
 +++ b/app/k9mail/build.gradle
-@@ -146,6 +146,18 @@ android {
+@@ -147,6 +147,18 @@ android {
              includeAndroidResources = true
          }
      }
