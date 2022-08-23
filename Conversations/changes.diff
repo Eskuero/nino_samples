@@ -1,8 +1,8 @@
 diff --git a/build.gradle b/build.gradle
-index 9e1366ce3..0106b36f1 100644
+index c102d9e39..c7161a6e7 100644
 --- a/build.gradle
 +++ b/build.gradle
-@@ -103,7 +103,7 @@ android {
+@@ -104,7 +104,7 @@ android {
  
      splits {
          abi {
@@ -11,7 +11,7 @@ index 9e1366ce3..0106b36f1 100644
              enable true
          }
      }
-@@ -230,15 +230,16 @@ android {
+@@ -231,15 +231,16 @@ android {
          disable 'MissingTranslation', 'InvalidPackage', 'AppCompatResource'
      }
  

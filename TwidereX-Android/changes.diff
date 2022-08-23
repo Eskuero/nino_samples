@@ -1,0 +1,29 @@
+diff --git a/android/build.gradle.kts b/android/build.gradle.kts
+index eab26b78..54123253 100644
+--- a/android/build.gradle.kts
++++ b/android/build.gradle.kts
+@@ -1,4 +1,6 @@
+ import java.util.Properties
++import java.time.LocalDateTime
++import java.time.Duration;
+ 
+ buildscript {
+     repositories {
+@@ -131,6 +133,17 @@ android {
+             )
+         }
+     }
++    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
++    val d2 = LocalDateTime.now()
++    val minutes = Duration.between(d1, d2).getSeconds() / 60
++    val DateVersionCode = (2112312359 + minutes).toInt()
++    androidComponents {
++        onVariants { variant ->
++            variant.outputs.forEach { output ->
++                output.versionCode.set(DateVersionCode)
++            }
++        }
++    }
+ }
+ 
+ dependencies {

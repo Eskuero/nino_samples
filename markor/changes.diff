@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 95eb44a3..a2c713b5 100644
+index c15ed443..dd484b23 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -100,6 +100,18 @@ android {
+@@ -89,6 +89,18 @@ android {
          disable 'MissingTranslation', 'InvalidPackage', 'ObsoleteLintCustomCheck', 'DefaultLocale', 'UnusedAttribute', 'VectorRaster', 'InflateParams', 'IconLocation', 'UnusedResources', 'TypographyEllipsis'
          abortOnError false
      }

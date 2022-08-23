@@ -1,10 +1,10 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index eae7ca50..5816be21 100644
+index 1ea71d9f..c87c44d6 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -133,6 +133,18 @@ android {
-     exclude 'META-INF/AL2.0'
-     exclude 'META-INF/LGPL2.1'
+@@ -131,6 +131,18 @@ android {
+     textOutput file('stdout')
+     textReport true
    }
 +
 +  Calendar origin = Calendar.getInstance()
@@ -20,14 +20,4 @@ index eae7ca50..5816be21 100644
 +  }
  }
  
- configurations.all {
-diff --git a/gradle.properties b/gradle.properties
-index 8079a17b..d753d76b 100644
---- a/gradle.properties
-+++ b/gradle.properties
-@@ -20,4 +20,5 @@ org.gradle.jvmargs=-Xmx2048m
- android.enableJetifier=true
- android.useAndroidX=true
- 
-+org.gradle.jvmargs=-Xmx1g
- org.gradle.caching=true
+ // https://chris.banes.dev/composable-metrics/
