@@ -1,10 +1,10 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 590352b..92726e1 100644
+index 6b1f48d..8351bfd 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -33,6 +33,17 @@ android {
-         // We don't really hit the broken use-cases for now
-         disable 'InvalidFragmentVersionForActivityResult'
+@@ -34,6 +34,17 @@ android {
+     lint {
+         disable 'MissingTranslation', 'ExtraTranslation', 'GoogleAppIndexingWarning', 'InvalidFragmentVersionForActivityResult'
      }
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
