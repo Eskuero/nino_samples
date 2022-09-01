@@ -1,10 +1,10 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 79a29aca..60671568 100644
+index a06a4708..4395cb0b 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -72,6 +72,18 @@ android {
-         sourceCompatibility JavaVersion.VERSION_1_8
-         targetCompatibility JavaVersion.VERSION_1_8
+@@ -88,6 +88,18 @@ android {
+         sourceCompatibility JavaVersion.VERSION_11
+         targetCompatibility JavaVersion.VERSION_11
      }
 +
 +    Calendar origin = Calendar.getInstance()
@@ -20,11 +20,4 @@ index 79a29aca..60671568 100644
 +    }
  }
  
- buildscript {
-@@ -189,4 +201,4 @@ if (propFile.canRead()) {
- } else {
-     println "signing.properties not found"
-     android.buildTypes.release.signingConfig = null
--}
-\ No newline at end of file
-+}
+ kapt {

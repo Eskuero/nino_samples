@@ -1,3 +1,7 @@
 Remote: https://github.com/TwidereProject/Twidere-Android
 Branch: maintenance
 HEAD: f1ff56b8f50e8c8761c6c12082ffee1ce37d0fb2
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################
