@@ -1,26 +1,26 @@
 diff --git a/mastodon/build.gradle b/mastodon/build.gradle
-index 26e6f2f..4b777d4 100644
+index 0691e1d..a1685ba 100644
 --- a/mastodon/build.gradle
 +++ b/mastodon/build.gradle
-@@ -47,6 +47,17 @@ android {
- 			setRoot "src/appcenter"
- 		}
+@@ -51,6 +51,17 @@ android {
+ 		checkReleaseBuilds false
+ 		abortOnError false
  	}
-+	Calendar origin = Calendar.getInstance()
-+	origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
-+	Date d1 = origin.getTime()
-+	Date d2 = new Date()
-+	long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
-+	def DateVersionCode = 2112312359 + minutes
-+	android.applicationVariants.all { variant ->
-+		variant.outputs.all { output ->
-+			output.versionCodeOverride = DateVersionCode
-+		}
-+	}
++        Calendar origin = Calendar.getInstance()
++        origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++        Date d1 = origin.getTime()
++        Date d2 = new Date()
++        long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++        def DateVersionCode = 2112312359 + minutes
++        android.applicationVariants.all { variant ->
++                variant.outputs.all { output ->
++                        output.versionCodeOverride = DateVersionCode
++                }
++        }
  }
  
  dependencies {
-@@ -77,4 +88,4 @@ dependencies {
+@@ -81,4 +92,4 @@ dependencies {
  	androidTestImplementation 'androidx.test.ext:junit:1.1.4-alpha05'
  	androidTestImplementation 'androidx.test:runner:1.5.0-alpha02'
  	androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0-alpha05'
