@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 2b781a6e..ff85109a 100644
+index eb6e7b08..46a18636 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -131,6 +131,18 @@ android {
+@@ -146,6 +146,18 @@ android {
      textOutput file('stdout')
      textReport true
    }
