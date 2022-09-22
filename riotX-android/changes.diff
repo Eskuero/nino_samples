@@ -1,5 +1,5 @@
 diff --git a/vector-app/build.gradle b/vector-app/build.gradle
-index 82c433d2df..886bc2d69f 100644
+index a4bc105a1d..0dff99ef3b 100644
 --- a/vector-app/build.gradle
 +++ b/vector-app/build.gradle
 @@ -157,11 +157,6 @@ android {
@@ -31,7 +31,7 @@ index 82c433d2df..886bc2d69f 100644
 -                // Known limitation: it does not modify the value in the BuildConfig.java generated file
 -                // See https://issuetracker.google.com/issues/171133218
 -                output.versionCodeOverride = baseVariantVersion + baseAbiVersionCode
--                print "ABI " + output.getFilter(OutputFile.ABI) + " \t-> VersionCode = " + output.versionCodeOverride + "\n"
+-                print "ABI " + output.getFilter(OutputFile.ABI) + " \t-> VersionCode = " + output.versionCode + "\n"
 -                output.outputFileName = output.outputFileName.replace("vector-app", "vector")
 -            }
 +        Calendar origin = Calendar.getInstance()
