@@ -1,3 +1,21 @@
+diff --git a/tools/gradle/doctor.gradle b/tools/gradle/doctor.gradle
+index c77d2eb338..e6d178aa7d 100644
+--- a/tools/gradle/doctor.gradle
++++ b/tools/gradle/doctor.gradle
+@@ -74,11 +74,11 @@ doctor {
+         /**
+          * Ensure that we are using JAVA_HOME to build with this Gradle.
+          */
+-        ensureJavaHomeMatches = true
++        ensureJavaHomeMatches = false
+         /**
+          * Ensure we have JAVA_HOME set.
+          */
+-        ensureJavaHomeIsSet = true
++        ensureJavaHomeIsSet = false
+         /**
+          * Fail on any `JAVA_HOME` issues.
+          */
 diff --git a/vector-app/build.gradle b/vector-app/build.gradle
 index a4bc105a1d..0dff99ef3b 100644
 --- a/vector-app/build.gradle

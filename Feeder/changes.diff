@@ -21,10 +21,3 @@ index fccf9d79..a9140890 100644
  }
  
  // https://chris.banes.dev/composable-metrics/
-diff --git a/rome b/rome
-index 16a5928b..09bb410a 160000
---- a/rome
-+++ b/rome
-@@ -1 +1 @@
--Subproject commit 16a5928b522cd3549903ae98cd6b05ba01759e0a
-+Subproject commit 09bb410a3039337a8f3979c4d09602083b3638ba
