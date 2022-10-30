@@ -1,8 +1,8 @@
 diff --git a/tools/gradle/doctor.gradle b/tools/gradle/doctor.gradle
-index c77d2eb338..e6d178aa7d 100644
+index 7a7adad062..8d02671e07 100644
 --- a/tools/gradle/doctor.gradle
 +++ b/tools/gradle/doctor.gradle
-@@ -74,11 +74,11 @@ doctor {
+@@ -75,11 +75,11 @@ doctor {
          /**
           * Ensure that we are using JAVA_HOME to build with this Gradle.
           */
@@ -17,10 +17,10 @@ index c77d2eb338..e6d178aa7d 100644
           * Fail on any `JAVA_HOME` issues.
           */
 diff --git a/vector-app/build.gradle b/vector-app/build.gradle
-index eb19027880..9ddea72aaf 100644
+index 9a0bfdfa63..e0829ad578 100644
 --- a/vector-app/build.gradle
 +++ b/vector-app/build.gradle
-@@ -158,11 +158,6 @@ android {
+@@ -159,11 +159,6 @@ android {
  
          testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
  
@@ -32,7 +32,7 @@ index eb19027880..9ddea72aaf 100644
          // Ref: https://developer.android.com/studio/build/configure-apk-splits.html
          splits {
              // Configures multiple APKs based on ABI.
-@@ -180,21 +175,21 @@ android {
+@@ -181,21 +176,21 @@ android {
                  include "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
  
                  // Generate a universal APK that includes all ABIs, so user who install from CI tool can use this one by default.
