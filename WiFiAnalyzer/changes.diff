@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 0d587cc2..ae4653f6 100644
+index ae6319f1..4d936e04 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -117,6 +117,18 @@ android {
+@@ -118,6 +118,18 @@ android {
      lint {
          disable 'GoogleAppIndexingWarning'
      }
@@ -22,17 +22,17 @@ index 0d587cc2..ae4653f6 100644
  
  allOpen {
 diff --git a/app/build.properties b/app/build.properties
-index 6a551dcf..a273ecac 100644
+index 4ea2707b..06c613d2 100644
 --- a/app/build.properties
 +++ b/app/build.properties
 @@ -1,7 +1,7 @@
  #Build Properties
--#Sat Jun 25 08:43:59 EDT 2022
-+#Sun Jun 26 02:57:06 WEST 2022
+-#Thu Dec 29 13:44:13 EST 2022
++#Thu Dec 29 20:54:49 WET 2022
  version_minor=0
--version_store=61
--version_patch=9
-+version_store=63
-+version_patch=11
+-version_store=63
+-version_patch=11
++version_store=64
++version_patch=12
  version_build=0
  version_major=3

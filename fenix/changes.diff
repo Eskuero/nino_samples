@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 42be1a20b..c0ae5f008 100644
+index ab552ab84..b0d37162f 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -253,6 +253,13 @@ android.applicationVariants.all { variant ->
+@@ -254,6 +254,13 @@ android.applicationVariants.all { variant ->
          def versionName = variant.buildType.name == 'nightly' ? Config.nightlyVersionName() : Config.releaseVersionName(project)
          println("versionName override: $versionName")
  
@@ -16,7 +16,7 @@ index 42be1a20b..c0ae5f008 100644
          variant.outputs.each { output ->
              def isMozillaOnline = project.hasProperty("mozillaOnline") || gradle.hasProperty("localProperties.mozillaOnline")
              def abi = output.getFilter(OutputFile.ABI)
-@@ -265,7 +272,7 @@ android.applicationVariants.all { variant ->
+@@ -266,7 +273,7 @@ android.applicationVariants.all { variant ->
              println("versionCode for $abi = $versionCodeOverride, isMozillaOnline = $isMozillaOnline")
  
              output.versionNameOverride = versionName

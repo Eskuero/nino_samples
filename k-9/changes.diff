@@ -1,10 +1,10 @@
 diff --git a/app/k9mail/build.gradle b/app/k9mail/build.gradle
-index f6664cedf..f0c6eb607 100644
+index cbd49fe57..9d0575529 100644
 --- a/app/k9mail/build.gradle
 +++ b/app/k9mail/build.gradle
-@@ -150,6 +150,18 @@ android {
-             includeAndroidResources = true
-         }
+@@ -124,6 +124,18 @@ android {
+         includeInApk = false
+         includeInBundle = false
      }
 +
 +    Calendar origin = Calendar.getInstance()

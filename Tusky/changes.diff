@@ -1,10 +1,10 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 8d6600fa..cd82cbf9 100644
+index 636ca36c..b0bb2f9f 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -90,6 +90,17 @@ android {
-     kotlinOptions {
-         freeCompilerArgs += "-opt-in=kotlin.RequiresOptIn"
+@@ -95,6 +95,17 @@ android {
+         includeInApk false
+         includeInBundle false
      }
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)

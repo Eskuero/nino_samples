@@ -1,12 +1,18 @@
 diff --git a/OpenKeychain/build.gradle b/OpenKeychain/build.gradle
-index aa817868b..977e17741 100644
+index 882a80302..11f53b005 100644
 --- a/OpenKeychain/build.gradle
 +++ b/OpenKeychain/build.gradle
-@@ -263,5 +263,11 @@ android {
+@@ -262,5 +262,17 @@ android {
          exclude 'META-INF/NOTICE'
          exclude '.readme'
      }
-+    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
++
++    Calendar origin = Calendar.getInstance()
++    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++    Date d1 = origin.getTime()
++    Date d2 = new Date()
++    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++    def DateVersionCode = 2112312359 + minutes
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->
 +            output.versionCodeOverride = DateVersionCode
