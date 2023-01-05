@@ -1,8 +1,8 @@
 diff --git a/OpenKeychain/build.gradle b/OpenKeychain/build.gradle
-index 882a80302..11f53b005 100644
+index c1d073ab2..a4c9d96e7 100644
 --- a/OpenKeychain/build.gradle
 +++ b/OpenKeychain/build.gradle
-@@ -262,5 +262,17 @@ android {
+@@ -230,5 +230,17 @@ android {
          exclude 'META-INF/NOTICE'
          exclude '.readme'
      }
