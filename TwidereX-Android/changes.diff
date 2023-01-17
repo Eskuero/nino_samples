@@ -1,5 +1,5 @@
 diff --git a/android/build.gradle.kts b/android/build.gradle.kts
-index ca18d959..79c85c6a 100644
+index ed8ade32..46cd0f40 100644
 --- a/android/build.gradle.kts
 +++ b/android/build.gradle.kts
 @@ -1,4 +1,6 @@
@@ -7,9 +7,9 @@ index ca18d959..79c85c6a 100644
 +import java.time.LocalDateTime
 +import java.time.Duration;
  
- buildscript {
-     repositories {
-@@ -131,6 +133,17 @@ android {
+ @Suppress("DSL_SCOPE_VIOLATION")
+ plugins {
+@@ -86,4 +88,15 @@ android {
              )
          }
      }
@@ -25,5 +25,3 @@ index ca18d959..79c85c6a 100644
 +        }
 +    }
  }
- 
- dependencies {

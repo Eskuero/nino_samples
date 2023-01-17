@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index afd295b8a..2ca8be1c5 100644
+index 39768d095..4986b13b5 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -143,6 +143,18 @@ android {
@@ -22,15 +22,13 @@ index afd295b8a..2ca8be1c5 100644
  
  dependencies {
 diff --git a/app/src/main/res/values/default_repos.xml b/app/src/main/res/values/default_repos.xml
-index 58239bb9e..2cd33df8d 100644
+index 3d64dccae..2aea519da 100644
 --- a/app/src/main/res/values/default_repos.xml
 +++ b/app/src/main/res/values/default_repos.xml
-@@ -1,92 +1,5 @@
- <?xml version="1.0" encoding="utf-8"?>
- <resources>
--
+@@ -3,82 +3,6 @@
+ 
      <string-array name="default_repos">
--
+ 
 -        <!-- name -->
 -        <item>F-Droid Archive</item>
 -        <!-- address -->
@@ -43,8 +41,6 @@ index 58239bb9e..2cd33df8d 100644
 -        <item>13</item>
 -        <!-- enabled -->
 -        <item>0</item>
--        <!-- priority -->
--        <item>1</item>
 -        <!-- push requests -->
 -        <item>ignore</item>
 -        <!-- pubkey -->
@@ -63,8 +59,6 @@ index 58239bb9e..2cd33df8d 100644
 -        <item>13</item>
 -        <!-- enabled -->
 -        <item>1</item>
--        <!-- priority -->
--        <item>2</item>
 -        <!-- push requests -->
 -        <item>ignore</item>
 -        <!-- pubkey -->
@@ -84,8 +78,6 @@ index 58239bb9e..2cd33df8d 100644
 -        <item>13</item>
 -        <!-- enabled -->
 -        <item>0</item>
--        <!-- priority -->
--        <item>3</item>
 -        <!-- push requests -->
 -        <item>ignore</item>
 -        <!-- pubkey -->
@@ -106,8 +98,6 @@ index 58239bb9e..2cd33df8d 100644
 -        <item>13</item>
 -        <!-- enabled -->
 -        <item>0</item>
--        <!-- priority -->
--        <item>4</item>
 -        <!-- push requests -->
 -        <item>ignore</item>
 -        <!-- pubkey -->
@@ -116,5 +106,5 @@ index 58239bb9e..2cd33df8d 100644
 -        </item>
 -
      </string-array>
--
+ 
  </resources>

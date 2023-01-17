@@ -17,7 +17,7 @@ index edd3069402..23deab78b1 100644
           * Fail on any `JAVA_HOME` issues.
           */
 diff --git a/vector-app/build.gradle b/vector-app/build.gradle
-index e157f0704a..29875fdbcc 100644
+index 824f651b4d..3e63a9624c 100644
 --- a/vector-app/build.gradle
 +++ b/vector-app/build.gradle
 @@ -149,11 +149,6 @@ android {

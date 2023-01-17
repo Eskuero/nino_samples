@@ -24,10 +24,10 @@ index 77ee6b239..033f5120e 100644
      <application android:icon="@mipmap/ic_launcher" android:allowBackup="false" android:label="${appName}">
  
 diff --git a/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDexHelper.kt b/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDexHelper.kt
-index ae9aaf503..5533ecb0a 100644
+index 4fcf770e1..dde19faa3 100644
 --- a/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDexHelper.kt
 +++ b/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MangaDexHelper.kt
-@@ -266,9 +266,9 @@ class MangaDexHelper(lang: String) {
+@@ -269,9 +269,9 @@ class MangaDexHelper(lang: String) {
              val titleMap = mangaDataDto.attributes!!.title
              val dirtyTitle =
                  titleMap.values.firstOrNull() // use literally anything from title as first resort
@@ -37,6 +37,6 @@ index ae9aaf503..5533ecb0a 100644
 +                    ?: mangaDataDto.attributes.altTitles
 +                        .find { (it[lang] ?: it["en"]) !== null }
 +                        ?.values?.singleOrNull() // find something else from alt titles
-             title = cleanString(dirtyTitle ?: "")
+             title = (dirtyTitle ?: "").removeEntitiesAndMarkdown()
  
              coverFileName?.let {
