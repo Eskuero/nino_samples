@@ -1,9 +1,8 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 2ed374a7a..d7b8ebea3 100644
+index 0a4179758..bb19e0175 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -1,6 +1,9 @@
- import org.gradle.api.tasks.testing.logging.TestLogEvent
+@@ -1,5 +1,8 @@
  import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
  import org.jmailen.gradle.kotlinter.tasks.LintTask
 +import com.android.build.api.variant.FilterConfiguration.FilterType.*
@@ -12,7 +11,7 @@ index 2ed374a7a..d7b8ebea3 100644
  
  plugins {
      id("com.android.application")
-@@ -40,10 +43,6 @@ android {
+@@ -34,10 +37,6 @@ android {
          // Please disable ACRA or use your own instance in forked versions of the project
          buildConfigField("String", "ACRA_URI", "\"https://tachiyomi.kanade.eu/crash_report\"")
  
@@ -23,7 +22,7 @@ index 2ed374a7a..d7b8ebea3 100644
          testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
      }
  
-@@ -52,7 +51,7 @@ android {
+@@ -46,7 +45,7 @@ android {
              isEnable = true
              reset()
              include(*SUPPORTED_ABIS.toTypedArray())
@@ -32,9 +31,9 @@ index 2ed374a7a..d7b8ebea3 100644
          }
      }
  
-@@ -159,6 +158,23 @@ android {
-             dialect = "sqlite:3.24"
-         }
+@@ -135,6 +134,23 @@ android {
+     composeOptions {
+         kotlinCompilerExtensionVersion = compose.versions.compiler.get()
      }
 +
 +    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);

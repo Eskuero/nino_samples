@@ -1,8 +1,8 @@
 diff --git a/ui/build.gradle b/ui/build.gradle
-index b48f012..7c984ca 100644
+index e95d177..14eb2a2 100644
 --- a/ui/build.gradle
 +++ b/ui/build.gradle
-@@ -60,6 +60,17 @@ android {
+@@ -61,6 +61,17 @@ android {
          warning('MissingTranslation')
          warning('ImpliedQuantity')
      }
