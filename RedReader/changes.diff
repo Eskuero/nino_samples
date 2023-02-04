@@ -1,8 +1,10 @@
 diff --git a/build.gradle.kts b/build.gradle.kts
-index 46b4989a..396bf633 100644
+index 26e881c1..28de527a 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
-@@ -1,3 +1,7 @@
+@@ -1,5 +1,9 @@
+ @file:Suppress("UnstableApiUsage")
+ 
 +import com.android.build.api.variant.FilterConfiguration.FilterType.*
 +import java.time.LocalDateTime
 +import java.time.Duration;
@@ -10,7 +12,7 @@ index 46b4989a..396bf633 100644
  buildscript {
  	repositories {
  		mavenCentral()
-@@ -93,6 +97,23 @@ android {
+@@ -100,6 +104,23 @@ android {
  	testOptions {
  		animationsDisabled = true
  	}
