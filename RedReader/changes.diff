@@ -1,5 +1,5 @@
 diff --git a/build.gradle.kts b/build.gradle.kts
-index 26e881c1..28de527a 100644
+index ae2f70d4..5aff12b0 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
 @@ -1,5 +1,9 @@
@@ -12,7 +12,7 @@ index 26e881c1..28de527a 100644
  buildscript {
  	repositories {
  		mavenCentral()
-@@ -100,6 +104,23 @@ android {
+@@ -108,6 +112,23 @@ android {
  	testOptions {
  		animationsDisabled = true
  	}

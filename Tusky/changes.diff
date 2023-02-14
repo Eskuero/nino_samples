@@ -1,11 +1,15 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 53c9e9d2f..ba2453f35 100644
+index 283a8374c..fc5a29ebf 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -95,6 +95,17 @@ android {
-         includeInApk false
-         includeInBundle false
+@@ -111,10 +111,15 @@ android {
+     kotlinOptions {
+         jvmTarget = JavaVersion.VERSION_11
      }
+-    applicationVariants.configureEach { variant ->
+-        variant.outputs.configureEach {
+-            outputFileName = "Tusky_${variant.versionName}_${variant.versionCode}_${gitSha}_" +
+-                "${variant.flavorName}_${buildType.name}.apk"
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
 +    Date d1 = origin.getTime()
@@ -15,8 +19,6 @@ index 53c9e9d2f..ba2453f35 100644
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->
 +            output.versionCodeOverride = DateVersionCode
-+        }
-+    }
+         }
+     }
  }
- 
- // library versions are in PROJECT_ROOT/gradle/libs.versions.toml
