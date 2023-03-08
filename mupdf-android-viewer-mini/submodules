@@ -1,10 +1,10 @@
 Entering 'jni'
 git://git.ghostscript.com/mupdf-android-fitz.git
-598781a3e78d4e39bb9ba50d5dee3e30e411ee6a
+13d67d660e0b2b9e47064c41bcbd0fa4f5fd8994
 
 Entering 'jni/libmupdf'
 git://git.ghostscript.com/mupdf.git
-90bf3e08ca1c12845631a74aec7b21a81408a6c0
+5dd4f6d59781a2577abc7a3684c7ad7430f22850
 
 Entering 'jni/libmupdf/thirdparty/curl'
 git://git.ghostscript.com/thirdparty-curl.git
@@ -12,7 +12,7 @@ f43c6fbb2dbdf68dfdd0f0c3399e3711a621614a
 
 Entering 'jni/libmupdf/thirdparty/extract'
 git://git.ghostscript.com/extract.git
-10c442dfea1cb49f63ee9f97f05402d5678f271d
+c18d9f3bd3812839da4a44e2c74dcce9e640d89e
 
 Entering 'jni/libmupdf/thirdparty/freeglut'
 git://git.ghostscript.com/thirdparty-freeglut.git
@@ -20,7 +20,7 @@ git://git.ghostscript.com/thirdparty-freeglut.git
 
 Entering 'jni/libmupdf/thirdparty/freetype'
 git://git.ghostscript.com/thirdparty-freetype2.git
-3f83daeecb1a78d851b660eed025eeba362c0e4a
+e8ebfe988b5f57bfb9a3ecb13c70d9791bce9ecf
 
 Entering 'jni/libmupdf/thirdparty/gumbo-parser'
 git://git.ghostscript.com/thirdparty-gumbo-parser.git
@@ -28,7 +28,7 @@ git://git.ghostscript.com/thirdparty-gumbo-parser.git
 
 Entering 'jni/libmupdf/thirdparty/harfbuzz'
 git://git.ghostscript.com/thirdparty-harfbuzz.git
-7236c7e29cef1c2d76c7a284c5081ff4d3aa1127
+3ce4b8f5c94fe351165243b209ccb9759917f5cb
 
 Entering 'jni/libmupdf/thirdparty/jbig2dec'
 git://git.ghostscript.com/jbig2dec.git
@@ -36,7 +36,7 @@ ade8a556af40d67e0762809d5136db8f3b4b3d09
 
 Entering 'jni/libmupdf/thirdparty/lcms2'
 git://git.ghostscript.com/thirdparty-lcms2.git
-558b336e330e7816c22df900b8100c029b16b0bc
+88b6a72d31dbb5723d2f710789c825f57f2f38b4
 
 Entering 'jni/libmupdf/thirdparty/leptonica'
 git://git.ghostscript.com/thirdparty-leptonica.git
@@ -44,15 +44,15 @@ git://git.ghostscript.com/thirdparty-leptonica.git
 
 Entering 'jni/libmupdf/thirdparty/libjpeg'
 git://git.ghostscript.com/thirdparty-libjpeg.git
-cdb7096dbcee3ef85d9f735b7d9f59b22173a1ad
+86a6eb695a6af7814f4b111aae0bdb5a20cbc344
 
 Entering 'jni/libmupdf/thirdparty/mujs'
 git://git.ghostscript.com/mujs.git
-dd0a0972b4428771e6a3887da2210c7c9dd40f9c
+0e611cdc0c81a90dabfcb2ab96992acca95b886d
 
 Entering 'jni/libmupdf/thirdparty/openjpeg'
 git://git.ghostscript.com/thirdparty-openjpeg.git
-23ba772146cebd155e0c1f61d1e0c952a65af0df
+98c3da3bfc76ac0552ce849840411cc07bb1ad56
 
 Entering 'jni/libmupdf/thirdparty/tesseract'
 git://git.ghostscript.com/thirdparty-tesseract.git
@@ -72,5 +72,5 @@ e27d9566917d7d167636a7d0cd59bcfb2c61c7eb
 
 Entering 'jni/libmupdf/thirdparty/zlib'
 git://git.ghostscript.com/thirdparty-zlib.git
-801678bd53548d3ffa269443fa0e98c538ce11f5
+9f75d1fb9f7e92473895b5dc0c1416140a9db469
 
