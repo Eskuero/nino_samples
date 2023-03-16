@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index d1259f72e..6aac3af61 100644
+index a1f4e2bff..94e0a3875 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -101,10 +101,15 @@ android {
+@@ -105,10 +105,15 @@ android {
          sourceCompatibility JavaVersion.VERSION_11
          targetCompatibility JavaVersion.VERSION_11
      }
