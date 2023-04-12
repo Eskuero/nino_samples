@@ -1,11 +1,11 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index a2617aa58..90189cf3e 100644
+index 6408426d..0ba9c87e 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -96,6 +96,18 @@ android {
-     buildFeatures {
-         viewBinding true
+@@ -37,6 +37,18 @@ android {
+         checkReleaseBuilds false
      }
+     //useLibrary 'android.test.mock'
 +
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
@@ -20,4 +20,4 @@ index a2617aa58..90189cf3e 100644
 +    }
  }
  
- ext {
+ dependencies {
