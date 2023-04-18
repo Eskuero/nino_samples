@@ -1,10 +1,10 @@
 diff --git a/ui/build.gradle b/ui/build.gradle
-index 5e21010..dd126d4 100644
+index 8a553f1..72e5ee1 100644
 --- a/ui/build.gradle
 +++ b/ui/build.gradle
-@@ -66,6 +66,17 @@ android {
-         disable 'LongLogTag'
-         warning 'MissingTranslation', 'ImpliedQuantity'
+@@ -52,6 +52,17 @@ android {
+     androidResources {
+         generateLocaleConfig true
      }
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)

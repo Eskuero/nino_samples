@@ -1,10 +1,10 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index a2617aa58..90189cf3e 100644
+index 11bab00c5..359af4b31 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -96,6 +96,18 @@ android {
-     buildFeatures {
-         viewBinding true
+@@ -103,6 +103,18 @@ android {
+         exclude 'META-INF/README.md'
+         exclude 'META-INF/CHANGES'
      }
 +
 +    Calendar origin = Calendar.getInstance()

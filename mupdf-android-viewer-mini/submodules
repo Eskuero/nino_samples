@@ -1,10 +1,10 @@
 Entering 'jni'
 git://git.ghostscript.com/mupdf-android-fitz.git
-13d67d660e0b2b9e47064c41bcbd0fa4f5fd8994
+3cfbecb55c4cb898d821d3d48cac1202ad788b7e
 
 Entering 'jni/libmupdf'
 git://git.ghostscript.com/mupdf.git
-5dd4f6d59781a2577abc7a3684c7ad7430f22850
+5ee06fb614568e466b5fba4284d9001e66b2c13f
 
 Entering 'jni/libmupdf/thirdparty/curl'
 git://git.ghostscript.com/thirdparty-curl.git
@@ -12,7 +12,7 @@ f43c6fbb2dbdf68dfdd0f0c3399e3711a621614a
 
 Entering 'jni/libmupdf/thirdparty/extract'
 git://git.ghostscript.com/extract.git
-c18d9f3bd3812839da4a44e2c74dcce9e640d89e
+c20747943248f4ebced6f85d849ab1994896b421
 
 Entering 'jni/libmupdf/thirdparty/freeglut'
 git://git.ghostscript.com/thirdparty-freeglut.git
@@ -20,7 +20,7 @@ git://git.ghostscript.com/thirdparty-freeglut.git
 
 Entering 'jni/libmupdf/thirdparty/freetype'
 git://git.ghostscript.com/thirdparty-freetype2.git
-e8ebfe988b5f57bfb9a3ecb13c70d9791bce9ecf
+de8b92dd7ec634e9e2b25ef534c54a3537555c11
 
 Entering 'jni/libmupdf/thirdparty/gumbo-parser'
 git://git.ghostscript.com/thirdparty-gumbo-parser.git
@@ -28,7 +28,7 @@ git://git.ghostscript.com/thirdparty-gumbo-parser.git
 
 Entering 'jni/libmupdf/thirdparty/harfbuzz'
 git://git.ghostscript.com/thirdparty-harfbuzz.git
-3ce4b8f5c94fe351165243b209ccb9759917f5cb
+afcae83a064843d71d47624bc162e121cc56c08b
 
 Entering 'jni/libmupdf/thirdparty/jbig2dec'
 git://git.ghostscript.com/jbig2dec.git
@@ -48,7 +48,7 @@ git://git.ghostscript.com/thirdparty-libjpeg.git
 
 Entering 'jni/libmupdf/thirdparty/mujs'
 git://git.ghostscript.com/mujs.git
-0e611cdc0c81a90dabfcb2ab96992acca95b886d
+57e3f01d5f29c5823be725d96284488edf5f8ae1
 
 Entering 'jni/libmupdf/thirdparty/openjpeg'
 git://git.ghostscript.com/thirdparty-openjpeg.git
@@ -72,5 +72,5 @@ e27d9566917d7d167636a7d0cd59bcfb2c61c7eb
 
 Entering 'jni/libmupdf/thirdparty/zlib'
 git://git.ghostscript.com/thirdparty-zlib.git
-9f75d1fb9f7e92473895b5dc0c1416140a9db469
+04f42ceca40f73e2978b50e93806c2a18c1281fc
 

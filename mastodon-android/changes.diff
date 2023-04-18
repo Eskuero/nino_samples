@@ -1,5 +1,5 @@
 diff --git a/mastodon/build.gradle b/mastodon/build.gradle
-index 8ddbe86..8d700d1 100644
+index ca3c8a78..d63f1527 100644
 --- a/mastodon/build.gradle
 +++ b/mastodon/build.gradle
 @@ -58,6 +58,17 @@ android {
