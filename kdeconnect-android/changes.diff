@@ -1,8 +1,8 @@
 diff --git a/build.gradle b/build.gradle
-index d717aa70..ffd6f5d4 100644
+index 92379353..6c0a8c3c 100644
 --- a/build.gradle
 +++ b/build.gradle
-@@ -81,6 +81,17 @@ android {
+@@ -88,6 +88,17 @@ android {
          abortOnError false
          checkReleaseBuilds false
      }
