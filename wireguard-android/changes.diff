@@ -1,18 +1,18 @@
 diff --git a/ui/build.gradle.kts b/ui/build.gradle.kts
-index 5c6163a..e83ea6c 100644
+index 136c636a..185a7842 100644
 --- a/ui/build.gradle.kts
 +++ b/ui/build.gradle.kts
-@@ -1,6 +1,9 @@
- @file:Suppress("UnstableApiUsage")
+@@ -3,6 +3,9 @@
  import org.jetbrains.kotlin.gradle.dsl.JvmTarget
  import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+ import com.android.build.gradle.tasks.ExtractSupportedLocalesTask
 +import com.android.build.api.variant.FilterConfiguration.FilterType.*
 +import java.time.LocalDateTime
 +import java.time.Duration;
  
- val pkg: String = providers.gradleProperty("wireguardPackageName").get()
- 
-@@ -58,6 +61,22 @@ android {
+ // Grotesque workaround for https://issuetracker.google.com/issues/279780940
+ System.setProperty("com.android.tools.r8.disableApiModeling", "1")
+@@ -66,6 +69,22 @@ android {
          warning += "MissingTranslation"
          warning += "ImpliedQuantity"
      }
@@ -35,3 +35,10 @@ index 5c6163a..e83ea6c 100644
  }
  
  dependencies {
+@@ -103,4 +122,4 @@ tasks.withType<ExtractSupportedLocalesTask>().configureEach {
+         val lines = file.readLines()
+         file.writeText((listOf(lines[0]) + lines.subList(1, lines.size).sorted()).joinToString(separator = "\n"))
+     }
+-}
+\ No newline at end of file
++}
