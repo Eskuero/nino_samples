@@ -42,23 +42,15 @@ index 77f8d34..4d030d4 100755
  
  exit 0
 diff --git a/buildscripts/scripts/mpv-android.sh b/buildscripts/scripts/mpv-android.sh
-index e8ae0c8..c58d1be 100755
+index e8ae0c8..d8f4d02 100755
 --- a/buildscripts/scripts/mpv-android.sh
 +++ b/buildscripts/scripts/mpv-android.sh
-@@ -30,7 +30,6 @@ prefix_x86=$(nativeprefix "x86")
+@@ -30,7 +30,7 @@ prefix_x86=$(nativeprefix "x86")
  
  PREFIX=$BUILD/prefix/armv7l PREFIX64=$prefix64 PREFIX_X64=$prefix_x64 PREFIX_X86=$prefix_x86 \
  ndk-build -C app/src/main -j$cores
 -./gradlew assembleDebug assembleRelease
++#./gradlew assembleRelease
  
  if [ -n "${ANDROID_SIGNING_KEY:-}" ]; then
  	cd "${MPV_ANDROID}/app/build/outputs/apk"
-diff --git a/gradle.properties b/gradle.properties
-index aab9aa8..1f6664f 100644
---- a/gradle.properties
-+++ b/gradle.properties
-@@ -3,3 +3,4 @@ android.enableJetifier=true
- android.nonFinalResIds=false
- android.nonTransitiveRClass=true
- android.useAndroidX=true
-+org.gradle.jvmargs=-Xmx4g -XX:MaxPermSize=4096m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
