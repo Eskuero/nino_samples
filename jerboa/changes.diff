@@ -1,0 +1,69 @@
+diff --git a/app/build.gradle b/app/build.gradle
+index c602735..dcacc27 100644
+--- a/app/build.gradle
++++ b/app/build.gradle
+@@ -66,6 +66,17 @@ android {
+     composeOptions {
+         kotlinCompilerExtensionVersion '1.4.7'
+     }
++    Calendar origin = Calendar.getInstance()
++    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++    Date d1 = origin.getTime()
++    Date d2 = new Date()
++    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++    def DateVersionCode = 2112312359 + minutes
++    android.applicationVariants.all { variant ->
++        variant.outputs.all { output ->
++            output.versionCodeOverride = DateVersionCode
++        }
++    }
+ }
+ 
+ dependencies {
+diff --git a/app/src/main/res/values-fr/strings.xml b/app/src/main/res/values-fr/strings.xml
+index 61c9e0e..d24dd99 100644
+--- a/app/src/main/res/values-fr/strings.xml
++++ b/app/src/main/res/values-fr/strings.xml
+@@ -276,7 +276,6 @@
+     <string name="postListing_deleted">Supprimé</string>
+     <string name="postListing_reply">Répondre au message</string>
+     <string name="privateMessage_reply">Répondre au message</string>
+-    <string name="voteToggle">Changer de vote</string>
+     <string name="topAppBar_back">Précédent</string>
+     <string name="home_communities">Liste des communautés suivies</string>
+     <string name="bottomBar_label_bookmarks">Enregistrés</string>
+diff --git a/app/src/main/res/values-ja/strings.xml b/app/src/main/res/values-ja/strings.xml
+index c27893d..20cdf6c 100644
+--- a/app/src/main/res/values-ja/strings.xml
++++ b/app/src/main/res/values-ja/strings.xml
+@@ -265,7 +265,6 @@
+     <string name="postListing_deleted">削除済み</string>
+     <string name="postListing_reply">投稿に返信</string>
+     <string name="privateMessage_reply">メッセージに返信</string>
+-    <string name="voteToggle">投票をトグル</string>
+     <string name="topAppBar_back">戻る</string>
+     <string name="person_profile_activity_about">ユーザー概要</string>
+     <string name="person_profile_activity_posts">ポスト</string>
+@@ -288,4 +287,4 @@
+     <string name="bottomBar_label_profile">ユーザー</string>
+     <string name="look_and_feel_show_action_bar_for_comments">コメントでアクションバーを表示</string>
+     <string name="look_and_feel_show_voting_arrows_list_view">リスト表示形式で投票矢印を表示</string>
+-</resources>
+\ No newline at end of file
++</resources>
+diff --git a/app/src/main/res/values-nl/strings.xml b/app/src/main/res/values-nl/strings.xml
+index a36dc4b..e539b95 100644
+--- a/app/src/main/res/values-nl/strings.xml
++++ b/app/src/main/res/values-nl/strings.xml
+@@ -288,9 +288,8 @@
+     <string name="sorttype_topall">TopAlles</string>
+     <string name="sorttype_mostcomments">Meeste reacties</string>
+     <string name="sorttype_newcomments">Nieuwste reacties</string>
+-    <string name="voteToggle">Stem omkeren</string>
+     <string name="upvote">Duim omhoog</string>
+     <string name="downvote">Duim omlaag</string>
+     <string name="upvoted">Duim omhoog gekregen</string>
+     <string name="downvoted">Duim omlaag gekregen</string>
+-</resources>
+\ No newline at end of file
++</resources>
