@@ -1,3 +1,7 @@
 Remote: https://github.com/microg/IchnaeaNlpBackend
 Branch: master
 HEAD: 72df2b484b110fd59688661df124553dc62d7e5a
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

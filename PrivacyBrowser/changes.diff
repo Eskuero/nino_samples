@@ -1,13 +1,18 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 2d893f9e..96911940 100644
+index f460f80a..546de05f 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -62,6 +62,13 @@ android {
-             dimension "basic"
-         }
+@@ -73,6 +73,18 @@ android {
      }
-+    
-+    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
+ 
+     namespace 'com.stoutner.privacybrowser'
++
++    Calendar origin = Calendar.getInstance()
++    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++    Date d1 = origin.getTime()
++    Date d2 = new Date()
++    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++    def DateVersionCode = 2112312359 + minutes
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->
 +            output.versionCodeOverride = DateVersionCode
@@ -16,10 +21,3 @@ index 2d893f9e..96911940 100644
  }
  
  dependencies {
-@@ -86,4 +93,4 @@ dependencies {
- 
-     // Only compile AdMob ads for the free flavor.
-     freeImplementation 'com.google.android.gms:play-services-ads:20.5.0'
--}
-\ No newline at end of file
-+}

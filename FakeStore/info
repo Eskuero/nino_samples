@@ -1,3 +1,7 @@
 Remote: https://github.com/microg/android_packages_apps_FakeStore
 Branch: master
 HEAD: 0bd394193567e62ab7e6fef0af8c1c9335fba433
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

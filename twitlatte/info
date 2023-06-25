@@ -1,3 +1,7 @@
 Remote: https://github.com/moko256/twitlatte.git
 Branch: develop
 HEAD: e72ac4d0a5d25fd7e862e391596bc3afb2f9f746
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

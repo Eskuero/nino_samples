@@ -1,3 +1,7 @@
 Remote: https://github.com/QuantumBadger/RedReader
 Branch: master
-HEAD: cfac460178686ed979e2e732ea0a963b8d489697
+HEAD: 056631101e779973ab922d9f7d0a20e19b023173
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

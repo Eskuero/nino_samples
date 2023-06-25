@@ -1,3 +1,7 @@
 Remote: https://github.com/FredJul/Flym
 Branch: master
 HEAD: 171af1778a8cb14004dcc00ed04093862d8c154e
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

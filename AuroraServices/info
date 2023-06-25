@@ -1,3 +1,7 @@
 Remote: https://gitlab.com/AuroraOSS/AuroraServices.git
 Branch: master
 HEAD: 91461b30ad93c38d0be7d56ff58bc1b6b8253e9a
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

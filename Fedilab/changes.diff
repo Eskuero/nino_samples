@@ -1,12 +1,17 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index d82a5d889..3ca8f3c51 100644
+index 37c31f3e..d89893f6 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -95,6 +95,12 @@ android {
-         exclude 'META-INF/proguard/androidx-annotations.pro'
+@@ -88,6 +88,17 @@ android {
+             exclude group: 'androidx.lifecycle', module: 'lifecycle-viewmodel-ktx'
+         }
      }
-     viewBinding.enabled = true
-+    def DateVersionCode = Integer.parseInt(new Date().format("yyMMddHHmm"))
++    Calendar origin = Calendar.getInstance()
++    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++    Date d1 = origin.getTime()
++    Date d2 = new Date()
++    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++    def DateVersionCode = 2112312359 + minutes
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->
 +            output.versionCodeOverride = DateVersionCode
@@ -15,3 +20,13 @@ index d82a5d889..3ca8f3c51 100644
  }
  allprojects {
      repositories {
+@@ -225,4 +236,4 @@ def getCurrentFlavor() {
+ println("Flavor: ${getCurrentFlavor()}")
+ if ( getCurrentFlavor() == "playstore" ){
+     apply plugin: 'com.google.gms.google-services'
+-}
+\ No newline at end of file
++}
+diff --git a/gradlew b/gradlew
+old mode 100644
+new mode 100755

@@ -1,11 +1,11 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index b5ee7b63..d3a0d08d 100644
+index f6cbd7f1..b13bc4b2 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -36,6 +36,17 @@ android {
-         sourceCompatibility = '1.8'
+@@ -37,6 +37,17 @@ android {
          targetCompatibility = '1.8'
      }
+     namespace 'fr.neamar.kiss'
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
 +    Date d1 = origin.getTime()

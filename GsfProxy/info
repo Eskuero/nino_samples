@@ -1,3 +1,7 @@
 Remote: https://github.com/microg/android_packages_apps_GsfProxy
 Branch: master
 HEAD: 48a767f754e341ab957f0ff8cb7d8fe989e4ddc0
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################
