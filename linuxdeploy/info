@@ -1,3 +1,7 @@
 Remote: https://github.com/meefik/linuxdeploy
 Branch: master
 HEAD: d2f1af07a2f4880eae7da0d33b79691716ff9883
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

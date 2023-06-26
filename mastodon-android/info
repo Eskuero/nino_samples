@@ -1,3 +1,7 @@
 Remote: https://github.com/mastodon/mastodon-android
 Branch: master
 HEAD: 81ac8a3bc94d4d47d943f543fabbd7c1a5a50d3f
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

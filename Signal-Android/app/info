@@ -1,3 +1,7 @@
 Remote: https://github.com/signalapp/Signal-Android
 Branch: master
 HEAD: c4bc2162f23e0fd6bc25941af8fb7454d91a4a35
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################
