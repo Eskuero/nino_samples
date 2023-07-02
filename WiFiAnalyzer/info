@@ -1,3 +1,7 @@
 Remote: https://github.com/VREMSoftwareDevelopment/WiFiAnalyzer
 Branch: master
 HEAD: 7f1c25bb6d994f72e10dcb8d0df51e2d29fa5148
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

@@ -1,3 +1,7 @@
 Remote: https://gitlab.com/axet/android-audio-recorder/
 Branch: master
 HEAD: c393dad0f40379e2eaa9abb7e4839209842bc8c5
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

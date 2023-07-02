@@ -1,3 +1,7 @@
 Remote: https://github.com/saschpe/BirthdayCalendar
 Branch: master
 HEAD: 0d42b6278b626d75fdd95d4e369f263a815ab8c6
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

@@ -20,3 +20,9 @@ index 16ddf91..deb11ef 100644
  }
  
  dependencies {
+diff --git a/libs/SetupWizardLibrary b/libs/SetupWizardLibrary
+--- a/libs/SetupWizardLibrary
++++ b/libs/SetupWizardLibrary
+@@ -1 +1 @@
+-Subproject commit 15dce316a229f6ab9b1d6d112bca7a10564336e2
++Subproject commit 15dce316a229f6ab9b1d6d112bca7a10564336e2-dirty
