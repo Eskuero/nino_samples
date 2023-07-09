@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index bef00a1b..c71d9fdb 100644
+index 9ad40a73..81ba0cca 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -93,6 +93,18 @@ android {
+@@ -92,6 +92,18 @@ android {
      lint {
          lintConfig file("lint.xml")
      }
