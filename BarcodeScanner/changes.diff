@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 5dc5929..ee7ea36 100644
+index 5436a05..fadaeee 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -35,6 +35,18 @@ android {
@@ -24,7 +24,7 @@ index 5dc5929..ee7ea36 100644
 @@ -86,4 +98,4 @@ dependencies {
  
      // VCard Parser
-     implementation 'com.googlecode.ez-vcard:ez-vcard:0.11.3'
+     implementation 'com.googlecode.ez-vcard:ez-vcard:0.12.0'
 -}
 \ No newline at end of file
 +}

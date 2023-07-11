@@ -1,3 +1,7 @@
 Remote: https://github.com/TwidereProject/TwidereX-Android
 Branch: develop
 HEAD: da1602493091116c354602136d600783a9c648dd
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

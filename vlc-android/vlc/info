@@ -1,3 +1,7 @@
 Remote: https://code.videolan.org/videolan/vlc.git
 Branch: 3.0.x
 HEAD: 7e85f584a4bae64865e254d1dfa599fe0d81c5d7
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

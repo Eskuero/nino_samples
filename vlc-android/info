@@ -1,3 +1,7 @@
 Remote: https://github.com/videolan/vlc-android
 Branch: master
 HEAD: 8440097008061492ef0e5790d6f2de1053f8ef4f
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

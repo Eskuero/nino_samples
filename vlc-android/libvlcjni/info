@@ -1,3 +1,7 @@
 Remote: https://code.videolan.org/videolan/libvlcjni
 Branch: libvlcjni-3.x
 HEAD: d41f1378672d628425c17c07c32e474270ea2b31
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

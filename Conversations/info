@@ -1,3 +1,7 @@
 Remote: https://github.com/siacs/Conversations
 Branch: master
 HEAD: 73dc65308ff3de78d68caa7bff6715c3046c89eb
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

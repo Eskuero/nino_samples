@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 6a744b5..bef7d73 100644
+index 2db598d..3093a32 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
 @@ -1,5 +1,9 @@
