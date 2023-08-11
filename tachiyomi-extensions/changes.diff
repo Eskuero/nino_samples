@@ -1,8 +1,8 @@
 diff --git a/common.gradle b/common.gradle
-index 9d652843c..219ff2cc7 100644
+index 9f3a255ea..d2dbc94d9 100644
 --- a/common.gradle
 +++ b/common.gradle
-@@ -54,7 +54,6 @@ android {
+@@ -55,7 +55,6 @@ android {
  
      buildTypes {
          release {

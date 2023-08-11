@@ -1,7 +1,3 @@
 Remote: https://git.zx2c4.com/wireguard-android
 Branch: master
-HEAD: cec9269738e43b7cd5d56482e961077944eb2df8
-
-##############################################################################
-WARNING: This configuration matches the release published on the repository but new package builds are disabled
-##############################################################################
+HEAD: 56be913fa4e14449b4eb3185c86361a35dbf30d6

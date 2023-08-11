@@ -1,22 +1,33 @@
-diff --git a/build.gradle b/build.gradle
-index 9a95e59f..33877d4c 100644
---- a/build.gradle
-+++ b/build.gradle
-@@ -100,6 +100,17 @@ android {
-             ]
+diff --git a/build.gradle.kts b/build.gradle.kts
+index 7e702083..9d1f4910 100644
+--- a/build.gradle.kts
++++ b/build.gradle.kts
+@@ -1,6 +1,9 @@
+ import com.github.jk1.license.LicenseReportExtension
+ import com.github.jk1.license.render.ReportRenderer
+ import com.github.jk1.license.render.TextReportRenderer
++import com.android.build.api.variant.FilterConfiguration.FilterType.*
++import java.time.LocalDateTime
++import java.time.Duration;
+ 
+ buildscript {
+     dependencies {
+@@ -146,6 +149,18 @@ android {
+             }
          }
      }
-+    Calendar origin = Calendar.getInstance()
-+    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
-+    Date d1 = origin.getTime()
-+    Date d2 = new Date()
-+    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
-+    def DateVersionCode = 2112312359 + minutes
-+    android.applicationVariants.all { variant ->
-+        variant.outputs.all { output ->
-+            output.versionCodeOverride = DateVersionCode
++
++    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
++    val d2 = LocalDateTime.now()
++    val minutes = Duration.between(d1, d2).getSeconds() / 60
++    val DateVersionCode = (2112312359 + minutes).toInt()
++    androidComponents {
++        onVariants { variant ->
++            variant.outputs.forEach { output ->
++                output.versionCode.set(DateVersionCode)
++            }
 +        }
 +    }
  }
  
- /**
+ dependencies {
