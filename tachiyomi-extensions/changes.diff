@@ -1,8 +1,8 @@
 diff --git a/common.gradle b/common.gradle
-index 9f3a255ea..d2dbc94d9 100644
+index 769166a92..442deeb56 100644
 --- a/common.gradle
 +++ b/common.gradle
-@@ -55,7 +55,6 @@ android {
+@@ -56,7 +56,6 @@ android {
  
      buildTypes {
          release {
@@ -11,12 +11,12 @@ index 9f3a255ea..d2dbc94d9 100644
          }
      }
 diff --git a/core/AndroidManifest.xml b/core/AndroidManifest.xml
-index 77ee6b239..033f5120e 100644
+index ed0e26f0d..c58c80a21 100644
 --- a/core/AndroidManifest.xml
 +++ b/core/AndroidManifest.xml
-@@ -2,7 +2,7 @@
- <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-     package="eu.kanade.tachiyomi.extension">
+@@ -1,7 +1,7 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android">
  
 -    <uses-feature android:name="tachiyomi.extension" />
 +    <uses-feature android:name="tachiyomi.extension" android:required="false" />

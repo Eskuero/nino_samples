@@ -1,0 +1,30 @@
+diff --git a/android/build.gradle b/android/build.gradle
+index eebddb68..53e537f5 100644
+--- a/android/build.gradle
++++ b/android/build.gradle
+@@ -115,6 +115,18 @@ android {
+     kotlinOptions {
+         jvmTarget = JavaVersion.VERSION_1_8.toString()
+     }
++
++    Calendar origin = Calendar.getInstance()
++    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++    Date d1 = origin.getTime()
++    Date d2 = new Date()
++    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++    def DateVersionCode = 2112312359 + minutes
++    android.applicationVariants.all { variant ->
++        variant.outputs.all { output ->
++            output.versionCodeOverride = DateVersionCode
++        }
++    }
+ }
+ 
+ dependencies {
+@@ -202,4 +214,4 @@ dependencies {
+     // requires minSDK 16 according to docs, not sure if it causes an issue
+     withAnalyticsImplementation 'com.google.android.gms:play-services-analytics:18.0.2'
+     withMapsImplementation 'com.google.android.gms:play-services-maps:17.0.0'
+-}
+\ No newline at end of file
++}

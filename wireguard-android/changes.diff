@@ -1,18 +1,18 @@
 diff --git a/ui/build.gradle.kts b/ui/build.gradle.kts
-index 7a98123c..0b3ae838 100644
+index 5cdcb6a1..d08286e8 100644
 --- a/ui/build.gradle.kts
 +++ b/ui/build.gradle.kts
-@@ -3,6 +3,9 @@
+@@ -2,6 +2,9 @@
+ 
  import org.jetbrains.kotlin.gradle.dsl.JvmTarget
  import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
- import com.android.build.gradle.tasks.ExtractSupportedLocalesTask
 +import com.android.build.api.variant.FilterConfiguration.FilterType.*
 +import java.time.LocalDateTime
 +import java.time.Duration;
  
  val pkg: String = providers.gradleProperty("wireguardPackageName").get()
  
-@@ -63,6 +66,22 @@ android {
+@@ -62,6 +65,17 @@ android {
          warning += "MissingTranslation"
          warning += "ImpliedQuantity"
      }
@@ -20,15 +20,10 @@ index 7a98123c..0b3ae838 100644
 +    val d2 = LocalDateTime.now()
 +    val minutes = Duration.between(d1, d2).getSeconds() / 60
 +    val DateVersionCode = (2112312359 + minutes).toInt()
-+    val abiCodes = mapOf("armeabi-v7a" to 1, "arm64-v8a" to 2, "x86" to 3, "x86_64" to 4)
 +    androidComponents {
 +        onVariants { variant ->
 +            variant.outputs.forEach { output ->
-+                val name = output.filters.find { it.filterType == ABI }?.identifier
-+                val baseAbiCode = abiCodes[name]
-+                if (baseAbiCode != null) {
-+                    output.versionCode.set(baseAbiCode + DateVersionCode)
-+                }
++                output.versionCode.set(DateVersionCode)
 +            }
 +        }
 +    }
