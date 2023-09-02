@@ -1,6 +1,7 @@
 #!/bin/bash
 # Clean current cache
 cd buildscripts;
+rm dist.zip*;
 rm -rf deps prefix sdk;
 # Symlink local SDK installation
 mkdir sdk;

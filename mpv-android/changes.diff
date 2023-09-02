@@ -1,26 +1,17 @@
-diff --git a/.gitignore b/.gitignore
-index ae4d27e..d341012 100644
---- a/.gitignore
-+++ b/.gitignore
-@@ -9,3 +9,4 @@ obj
- build
- local.properties
- *~
-+app/src/main/assets/ytdl/python*
 diff --git a/app/build.gradle b/app/build.gradle
-index 8ec2e54..fdfb735 100644
+index 3af3850..84b6d88 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -9,7 +9,7 @@ android {
+@@ -10,7 +10,7 @@ android {
  
      defaultConfig {
          minSdkVersion 21
 -        targetSdkVersion 31
 +        targetSdkVersion 28
-         versionCode 31
-         versionName "2023-06-04-release"
+         versionCode 32
+         versionName "2023-08-27-release"
          vectorDrawables.useSupportLibrary = true
-@@ -30,6 +30,10 @@ android {
+@@ -31,6 +31,10 @@ android {
          viewBinding = true
      }
  
@@ -31,7 +22,7 @@ index 8ec2e54..fdfb735 100644
      splits {
          abi {
              enable true
-@@ -39,7 +43,7 @@ android {
+@@ -40,7 +44,7 @@ android {
                  if (new File(project.projectDir, "src/main/jniLibs/${abi}").exists())
                      include(abi)
              }
@@ -40,7 +31,7 @@ index 8ec2e54..fdfb735 100644
          }
      }
  
-@@ -53,6 +57,12 @@ android {
+@@ -54,6 +58,12 @@ android {
      }
  }
  
@@ -53,15 +44,15 @@ index 8ec2e54..fdfb735 100644
  // Map versionCode so each ABI gets a different one
  // e.g. x86 with version 21 gets a versionCode of 3021
  import com.android.build.VariantOutput
-@@ -61,7 +71,7 @@ android.applicationVariants.all { variant ->
+@@ -62,7 +72,7 @@ android.applicationVariants.all { variant ->
          def base = project.ext.abiCodes.get(output.getFilter(VariantOutput.ABI))
-         // universal APK keeps the original versionCode
+         // universal APK just gets a constant added to it
          if (base != null)
 -            output.versionCodeOverride = base * 1000 + variant.versionCode
 +            output.versionCodeOverride = base * 1000 + variant.versionCode + DateVersionCode
+         else
+             output.versionCodeOverride = universalBase + variant.versionCode
      }
- }
- 
 diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
 index aad153a..2d8d543 100644
 --- a/app/src/main/AndroidManifest.xml
@@ -208,10 +199,10 @@ index 05e17a6..3b1dfc7 100644
          player.addObserver(this)
          player.playFile(filepath)
 diff --git a/app/src/main/java/is/xyz/mpv/MPVView.kt b/app/src/main/java/is/xyz/mpv/MPVView.kt
-index 8ccf450..d4fe056 100644
+index 8ccf450..1d45ae5 100644
 --- a/app/src/main/java/is/xyz/mpv/MPVView.kt
 +++ b/app/src/main/java/is/xyz/mpv/MPVView.kt
-@@ -104,6 +104,14 @@ internal class MPVView(context: Context, attrs: AttributeSet) : SurfaceView(cont
+@@ -104,6 +104,13 @@ internal class MPVView(context: Context, attrs: AttributeSet) : SurfaceView(cont
              MPVLib.setOptionString("vd-lavc-skiploopfilter", "nonkey")
          }
  
@@ -222,12 +213,11 @@ index 8ccf450..d4fe056 100644
 +        }
 +
 +        // set basic options
-+
          MPVLib.setOptionString("vo", "gpu")
          MPVLib.setOptionString("gpu-context", "android")
          MPVLib.setOptionString("opengl-es", "yes")
 diff --git a/app/src/main/java/is/xyz/mpv/Utils.kt b/app/src/main/java/is/xyz/mpv/Utils.kt
-index 609210e..363a612 100644
+index 609210e..03269e5 100644
 --- a/app/src/main/java/is/xyz/mpv/Utils.kt
 +++ b/app/src/main/java/is/xyz/mpv/Utils.kt
 @@ -27,8 +27,12 @@ import kotlin.math.abs
@@ -244,11 +234,10 @@ index 609210e..363a612 100644
          for (filename in files) {
              var ins: InputStream? = null
              var out: OutputStream? = null
-@@ -51,6 +55,13 @@ object Utils {
+@@ -51,6 +55,12 @@ object Utils {
                  out?.close()
              }
          }
-+
 +        val execFiles = arrayOf("ytdl/python3", "ytdl/wrapper")
 +        for (filename in execFiles) {
 +            try {
@@ -335,7 +324,7 @@ index 3e663d7..47aa3bb 100755
  
  exit 0
 diff --git a/buildscripts/include/download-deps.sh b/buildscripts/include/download-deps.sh
-index 0525acd..50773b4 100755
+index 0525acd..b90ca94 100755
 --- a/buildscripts/include/download-deps.sh
 +++ b/buildscripts/include/download-deps.sh
 @@ -54,3 +54,9 @@ fi
@@ -345,20 +334,20 @@ index 0525acd..50773b4 100755
 +
 +# youtube-dl
 +$WGET https://kitsunemimi.pw/ytdl/dist.zip
-+unzip dist.zip -d ../app/src/main/assets/ytdl
++unzip -o dist.zip -d ../app/src/main/assets/ytdl
 +rm -f ../app/src/main/assets/ytdl/youtube-dl # don't need it
 +rm dist.zip
 diff --git a/buildscripts/scripts/mpv-android.sh b/buildscripts/scripts/mpv-android.sh
-index e8ae0c8..c58d1be 100755
+index a7c55e3..f2a71d2 100755
 --- a/buildscripts/scripts/mpv-android.sh
 +++ b/buildscripts/scripts/mpv-android.sh
-@@ -30,7 +30,6 @@ prefix_x86=$(nativeprefix "x86")
+@@ -35,7 +35,6 @@ ndk-build -C app/src/main -j$cores
  
- PREFIX=$BUILD/prefix/armv7l PREFIX64=$prefix64 PREFIX_X64=$prefix_x64 PREFIX_X86=$prefix_x86 \
- ndk-build -C app/src/main -j$cores
--./gradlew assembleDebug assembleRelease
+ targets=(assembleDebug assembleRelease)
+ [ -n "$BUNDLE" ] && targets+=(bundleRelease)
+-./gradlew "${targets[@]}"
  
- if [ -n "${ANDROID_SIGNING_KEY:-}" ]; then
+ if [ -n "$ANDROID_SIGNING_KEY" ]; then
  	cd "${MPV_ANDROID}/app/build/outputs/apk"
 diff --git a/gradle.properties b/gradle.properties
 index aab9aa8..be15ce3 100644

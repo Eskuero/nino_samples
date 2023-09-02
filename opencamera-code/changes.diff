@@ -1,12 +1,11 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 6408426d..0ba9c87e 100644
+index b81c3782..258c0540 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -37,6 +37,18 @@ android {
-         checkReleaseBuilds false
+@@ -41,6 +41,17 @@ android {
+         renderScript true
      }
      //useLibrary 'android.test.mock'
-+
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
 +    Date d1 = origin.getTime()

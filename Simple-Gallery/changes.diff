@@ -1,21 +1,31 @@
-diff --git a/app/build.gradle b/app/build.gradle
-index bdbca7261..992b0c140 100644
---- a/app/build.gradle
-+++ b/app/build.gradle
-@@ -75,6 +75,18 @@ android {
-     packagingOptions {
-         exclude 'META-INF/library_release.kotlin_module'
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+index 7ed9da937..4471a1308 100644
+--- a/app/build.gradle.kts
++++ b/app/build.gradle.kts
+@@ -1,6 +1,9 @@
+ import java.io.FileInputStream
+ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+ import org.jetbrains.kotlin.konan.properties.Properties
++import com.android.build.api.variant.FilterConfiguration.FilterType.*
++import java.time.LocalDateTime
++import java.time.Duration;
+ 
+ val isProprietary = gradle.startParameter.taskNames.any { task -> task.contains("Proprietary") }
+ 
+@@ -98,6 +101,18 @@ android {
+             excludes += "META-INF/library_release.kotlin_module"
+         }
      }
 +
-+    Calendar origin = Calendar.getInstance()
-+    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
-+    Date d1 = origin.getTime()
-+    Date d2 = new Date()
-+    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
-+    def DateVersionCode = 2112312359 + minutes
-+    android.applicationVariants.all { variant ->
-+        variant.outputs.all { output ->
-+            output.versionCodeOverride = DateVersionCode
++    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
++    val d2 = LocalDateTime.now()
++    val minutes = Duration.between(d1, d2).getSeconds() / 60
++    val DateVersionCode = (2112312359 + minutes).toInt()
++    androidComponents {
++        onVariants { variant ->
++            variant.outputs.forEach { output ->
++                output.versionCode.set(DateVersionCode)
++            }
 +        }
 +    }
  }
