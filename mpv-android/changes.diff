@@ -313,10 +313,10 @@ index aa7ccc1..634117c 100644
 +
  </PreferenceScreen>
 diff --git a/buildscripts/buildall.sh b/buildscripts/buildall.sh
-index 3e663d7..47aa3bb 100755
+index 5e23667..f578ea3 100755
 --- a/buildscripts/buildall.sh
 +++ b/buildscripts/buildall.sh
-@@ -163,6 +163,5 @@ setup_prefix
+@@ -164,6 +164,5 @@ setup_prefix
  build $target
  
  [ "$target" == "mpv-android" ] && \
@@ -324,7 +324,7 @@ index 3e663d7..47aa3bb 100755
  
  exit 0
 diff --git a/buildscripts/include/download-deps.sh b/buildscripts/include/download-deps.sh
-index 0525acd..b90ca94 100755
+index b6a5873..3628d93 100755
 --- a/buildscripts/include/download-deps.sh
 +++ b/buildscripts/include/download-deps.sh
 @@ -54,3 +54,9 @@ fi
