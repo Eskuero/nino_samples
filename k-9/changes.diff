@@ -1,5 +1,5 @@
 diff --git a/app/k9mail/build.gradle.kts b/app/k9mail/build.gradle.kts
-index fd0f33f51..caf415274 100644
+index bcf60947b..a6e613635 100644
 --- a/app/k9mail/build.gradle.kts
 +++ b/app/k9mail/build.gradle.kts
 @@ -1,3 +1,7 @@
@@ -10,7 +10,7 @@ index fd0f33f51..caf415274 100644
  plugins {
      id(ThunderbirdPlugins.App.android)
  }
-@@ -173,4 +177,16 @@ android {
+@@ -174,4 +178,16 @@ android {
              )
          }
      }
