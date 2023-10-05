@@ -1,5 +1,5 @@
 diff --git a/fenix/app/build.gradle b/fenix/app/build.gradle
-index 27e805a2ba..3261a09f4c 100644
+index b8d04671b7..98b96c52de 100644
 --- a/fenix/app/build.gradle
 +++ b/fenix/app/build.gradle
 @@ -275,6 +275,13 @@ android.applicationVariants.configureEach { variant ->
@@ -16,7 +16,7 @@ index 27e805a2ba..3261a09f4c 100644
          variant.outputs.each { output ->
              def isMozillaOnline = project.hasProperty("mozillaOnline") || gradle.hasProperty("localProperties.mozillaOnline")
              def abi = output.getFilter(FilterConfiguration.FilterType.ABI.name())
-@@ -289,7 +296,7 @@ android.applicationVariants.configureEach { variant ->
+@@ -290,7 +297,7 @@ android.applicationVariants.configureEach { variant ->
              if (versionName != null) {
                  output.versionNameOverride = versionName
              }
