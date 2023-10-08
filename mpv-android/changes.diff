@@ -199,10 +199,10 @@ index 05e17a6..3b1dfc7 100644
          player.addObserver(this)
          player.playFile(filepath)
 diff --git a/app/src/main/java/is/xyz/mpv/MPVView.kt b/app/src/main/java/is/xyz/mpv/MPVView.kt
-index 8ccf450..1d45ae5 100644
+index e07e624..3553019 100644
 --- a/app/src/main/java/is/xyz/mpv/MPVView.kt
 +++ b/app/src/main/java/is/xyz/mpv/MPVView.kt
-@@ -104,6 +104,13 @@ internal class MPVView(context: Context, attrs: AttributeSet) : SurfaceView(cont
+@@ -107,6 +107,13 @@ internal class MPVView(context: Context, attrs: AttributeSet) : SurfaceView(cont
              MPVLib.setOptionString("vd-lavc-skiploopfilter", "nonkey")
          }
  
