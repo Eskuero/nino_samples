@@ -1,11 +1,11 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 16ddf91..deb11ef 100644
+index 8d02597..3fb80eb 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -34,6 +34,17 @@ android {
-     lint {
-         disable 'MissingTranslation', 'ExtraTranslation', 'GoogleAppIndexingWarning', 'InvalidFragmentVersionForActivityResult'
+@@ -38,6 +38,17 @@ android {
+         aidl true
      }
+     namespace 'net.typeblog.shelter'
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
 +    Date d1 = origin.getTime()
@@ -20,9 +20,3 @@ index 16ddf91..deb11ef 100644
  }
  
  dependencies {
-diff --git a/libs/SetupWizardLibrary b/libs/SetupWizardLibrary
---- a/libs/SetupWizardLibrary
-+++ b/libs/SetupWizardLibrary
-@@ -1 +1 @@
--Subproject commit 15dce316a229f6ab9b1d6d112bca7a10564336e2
-+Subproject commit 15dce316a229f6ab9b1d6d112bca7a10564336e2-dirty
