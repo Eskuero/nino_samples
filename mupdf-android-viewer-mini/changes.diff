@@ -28,10 +28,3 @@ index 4ccd349..2beac2a 100644
 +		}
 +	}
  }
-diff --git a/jni b/jni
-index ca3182b..014a367 160000
---- a/jni
-+++ b/jni
-@@ -1 +1 @@
--Subproject commit ca3182bcde76289a713b03ce03de9f6d426f941c
-+Subproject commit 014a36787a195b85dd5def12845b7e9a1f06a07d

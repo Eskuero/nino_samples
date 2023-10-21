@@ -1,16 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 23a26cd..41c4a98 100644
+index d27679d..81d2ffd 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -44,7 +44,6 @@ android {
-         }
-     }
- 
--
-     compileOptions {
-         sourceCompatibility 1.8
-         targetCompatibility 1.8
-@@ -53,6 +52,18 @@ android {
+@@ -57,6 +57,18 @@ android {
          disable 'MissingTranslation'
      }
      namespace 'com.jarsilio.android.scrambledeggsif'
