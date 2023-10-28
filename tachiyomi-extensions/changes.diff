@@ -23,3 +23,15 @@ index ed0e26f0d..c58c80a21 100644
  
      <application android:icon="@mipmap/ic_launcher" android:allowBackup="false" android:label="${appName}">
  
+diff --git a/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MdUserAgentInterceptor.kt b/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MdUserAgentInterceptor.kt
+index 1771daf94..451f1ebef 100644
+--- a/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MdUserAgentInterceptor.kt
++++ b/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MdUserAgentInterceptor.kt
+@@ -3,7 +3,6 @@ package eu.kanade.tachiyomi.extension.all.mangadex
+ import android.content.SharedPreferences
+ import okhttp3.Interceptor
+ import okhttp3.Response
+-import java.io.IOException
+ 
+ /**
+  * Interceptor to set custom useragent for MangaDex

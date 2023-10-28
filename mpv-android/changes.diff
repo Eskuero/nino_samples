@@ -1,3 +1,12 @@
+diff --git a/.gitignore b/.gitignore
+index ae4d27e..d341012 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -9,3 +9,4 @@ obj
+ build
+ local.properties
+ *~
++app/src/main/assets/ytdl/python*
 diff --git a/app/build.gradle b/app/build.gradle
 index 3af3850..84b6d88 100644
 --- a/app/build.gradle
@@ -199,21 +208,18 @@ index 05e17a6..3b1dfc7 100644
          player.addObserver(this)
          player.playFile(filepath)
 diff --git a/app/src/main/java/is/xyz/mpv/MPVView.kt b/app/src/main/java/is/xyz/mpv/MPVView.kt
-index e07e624..3553019 100644
+index 83fac10..6b05c46 100644
 --- a/app/src/main/java/is/xyz/mpv/MPVView.kt
 +++ b/app/src/main/java/is/xyz/mpv/MPVView.kt
-@@ -107,6 +107,13 @@ internal class MPVView(context: Context, attrs: AttributeSet) : SurfaceView(cont
+@@ -116,6 +116,10 @@ internal class MPVView(context: Context, attrs: AttributeSet) : SurfaceView(cont
              MPVLib.setOptionString("vd-lavc-skiploopfilter", "nonkey")
          }
  
 +        MPVLib.setOptionString("ytdl", "yes")
-+        sharedPreferences.getString("video_ytdl_format", "")?.also {
-+            if (it.isNotEmpty())
-+                MPVLib.setOptionString("ytdl-format", it)
-+        }
 +
 +        // set basic options
-         MPVLib.setOptionString("vo", "gpu")
++
+         MPVLib.setOptionString("vo", vo)
          MPVLib.setOptionString("gpu-context", "android")
          MPVLib.setOptionString("opengl-es", "yes")
 diff --git a/app/src/main/java/is/xyz/mpv/Utils.kt b/app/src/main/java/is/xyz/mpv/Utils.kt
@@ -248,7 +254,7 @@ index 609210e..03269e5 100644
  
      fun findRealPath(fd: Int): String? {
 diff --git a/app/src/main/res/values/strings.xml b/app/src/main/res/values/strings.xml
-index 2828c8c..a93eac8 100644
+index a6554ad..a9b0bd8 100644
 --- a/app/src/main/res/values/strings.xml
 +++ b/app/src/main/res/values/strings.xml
 @@ -49,6 +49,7 @@
@@ -259,7 +265,7 @@ index 2828c8c..a93eac8 100644
  
      <!-- Action buttons -->
      <string name="switch_orientation">Switch Orientation</string>
-@@ -169,11 +170,22 @@
+@@ -172,11 +173,22 @@
      <string name="pref_edit_input_conf">Edit input.conf</string>
      <string name="pref_edit_input_conf_message">You can edit input.conf here, this is mainly useful for TV remotes and keyboards.\n\nImportant: mpv-android has some hardcoded keys which can\'t be redefined here, e.g. \'j\' to cycle subtitles.</string>
  
@@ -283,10 +289,10 @@ index 2828c8c..a93eac8 100644
      <!-- File picker -->
      <string name="nnf_name">Name</string>
 diff --git a/app/src/main/res/xml/pref_advanced.xml b/app/src/main/res/xml/pref_advanced.xml
-index 3b90fee..8f4b75e 100644
+index 191ab4a..1bf9ddf 100644
 --- a/app/src/main/res/xml/pref_advanced.xml
 +++ b/app/src/main/res/xml/pref_advanced.xml
-@@ -17,6 +17,11 @@
+@@ -23,6 +23,11 @@
          android:positiveButtonText="@string/dialog_save"
          android:negativeButtonText="@string/dialog_cancel" />
  
@@ -324,37 +330,16 @@ index 5e23667..f578ea3 100755
  
  exit 0
 diff --git a/buildscripts/include/download-deps.sh b/buildscripts/include/download-deps.sh
-index b6a5873..3628d93 100755
+index c4f41b8..03e99d7 100755
 --- a/buildscripts/include/download-deps.sh
 +++ b/buildscripts/include/download-deps.sh
-@@ -54,3 +54,9 @@ fi
+@@ -57,3 +57,9 @@ fi
  [ ! -d mpv ] && git clone https://github.com/mpv-player/mpv
  
  cd ..
 +
 +# youtube-dl
 +$WGET https://kitsunemimi.pw/ytdl/dist.zip
-+unzip -o dist.zip -d ../app/src/main/assets/ytdl
++unzip dist.zip -d ../app/src/main/assets/ytdl
 +rm -f ../app/src/main/assets/ytdl/youtube-dl # don't need it
 +rm dist.zip
-diff --git a/buildscripts/scripts/mpv-android.sh b/buildscripts/scripts/mpv-android.sh
-index a7c55e3..f2a71d2 100755
---- a/buildscripts/scripts/mpv-android.sh
-+++ b/buildscripts/scripts/mpv-android.sh
-@@ -35,7 +35,6 @@ ndk-build -C app/src/main -j$cores
- 
- targets=(assembleDebug assembleRelease)
- [ -n "$BUNDLE" ] && targets+=(bundleRelease)
--./gradlew "${targets[@]}"
- 
- if [ -n "$ANDROID_SIGNING_KEY" ]; then
- 	cd "${MPV_ANDROID}/app/build/outputs/apk"
-diff --git a/gradle.properties b/gradle.properties
-index aab9aa8..be15ce3 100644
---- a/gradle.properties
-+++ b/gradle.properties
-@@ -3,3 +3,4 @@ android.enableJetifier=true
- android.nonFinalResIds=false
- android.nonTransitiveRClass=true
- android.useAndroidX=true
-+org.gradle.jvmargs=-Xmx2g -XX:MaxMetaspaceSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
