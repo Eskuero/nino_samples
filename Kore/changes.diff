@@ -1,12 +1,11 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 3d36c4817..6f3673d89 100644
+index 83850c09..ebf4c1bd 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -92,6 +92,18 @@ android {
-     kotlinOptions {
-         jvmTarget = "1.8"
+@@ -92,6 +92,17 @@ android {
+         sourceCompatibility JavaVersion.VERSION_1_8
+         targetCompatibility JavaVersion.VERSION_1_8
      }
-+
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
 +    Date d1 = origin.getTime()
@@ -20,4 +19,4 @@ index 3d36c4817..6f3673d89 100644
 +    }
  }
  
- def room_version = "2.5.1"
+ ext {

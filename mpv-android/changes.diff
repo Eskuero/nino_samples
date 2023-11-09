@@ -187,7 +187,7 @@ index aad153a..2d8d543 100644
          <activity
              android:name=".MainActivity"
 diff --git a/app/src/main/java/is/xyz/mpv/MPVActivity.kt b/app/src/main/java/is/xyz/mpv/MPVActivity.kt
-index 05e17a6..3b1dfc7 100644
+index 2b221f6..07b15d9 100644
 --- a/app/src/main/java/is/xyz/mpv/MPVActivity.kt
 +++ b/app/src/main/java/is/xyz/mpv/MPVActivity.kt
 @@ -291,6 +291,16 @@ class MPVActivity : AppCompatActivity(), MPVLib.EventObserver, TouchGesturesObse
@@ -208,7 +208,7 @@ index 05e17a6..3b1dfc7 100644
          player.addObserver(this)
          player.playFile(filepath)
 diff --git a/app/src/main/java/is/xyz/mpv/MPVView.kt b/app/src/main/java/is/xyz/mpv/MPVView.kt
-index 83fac10..6b05c46 100644
+index d3e8226..7099e11 100644
 --- a/app/src/main/java/is/xyz/mpv/MPVView.kt
 +++ b/app/src/main/java/is/xyz/mpv/MPVView.kt
 @@ -116,6 +116,10 @@ internal class MPVView(context: Context, attrs: AttributeSet) : SurfaceView(cont
