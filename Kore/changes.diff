@@ -1,11 +1,11 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 83850c09..ebf4c1bd 100644
+index ccc10a4c..fc170ef7 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -92,6 +92,17 @@ android {
-         sourceCompatibility JavaVersion.VERSION_1_8
+@@ -56,6 +56,18 @@ android {
          targetCompatibility JavaVersion.VERSION_1_8
      }
+ 
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
 +    Date d1 = origin.getTime()
@@ -17,6 +17,7 @@ index 83850c09..ebf4c1bd 100644
 +            output.versionCodeOverride = DateVersionCode
 +        }
 +    }
- }
- 
- ext {
++
+     buildTypes {
+         release {
+             if (keystoreFile.exists()) {
