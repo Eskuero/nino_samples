@@ -1,10 +1,10 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index ccc10a4c..fc170ef7 100644
+index 58bf4041..06132adf 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -56,6 +56,18 @@ android {
-         targetCompatibility JavaVersion.VERSION_1_8
+@@ -78,6 +78,17 @@ android {
      }
+     namespace 'org.xbmc.kore'
  
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
@@ -17,7 +17,6 @@ index ccc10a4c..fc170ef7 100644
 +            output.versionCodeOverride = DateVersionCode
 +        }
 +    }
-+
-     buildTypes {
-         release {
-             if (keystoreFile.exists()) {
+ }
+ 
+ java {
