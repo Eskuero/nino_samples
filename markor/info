@@ -1,3 +1,7 @@
 Remote: https://github.com/gsantner/markor
 Branch: master
 HEAD: 3335ce6d13e09fe55a894aaef9af755dcf25ca94
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################
