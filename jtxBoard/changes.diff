@@ -1,0 +1,32 @@
+diff --git a/app/build.gradle b/app/build.gradle
+index f1b2c6ee..14181778 100644
+--- a/app/build.gradle
++++ b/app/build.gradle
+@@ -71,8 +71,6 @@ android {
+             minifyEnabled = true
+             shrinkResources = false
+             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+-
+-            signingConfig signingConfigs.jtx
+         }
+ 
+         benchmark {
+@@ -139,6 +137,18 @@ android {
+     lint {
+         disable 'MissingTranslation', 'ExtraTranslation'
+     }
++
++    Calendar origin = Calendar.getInstance()
++    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++    Date d1 = origin.getTime()
++    Date d2 = new Date()
++    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++    def DateVersionCode = 2112312359 + minutes
++    android.applicationVariants.all { variant ->
++        variant.outputs.all { output ->
++            output.versionCodeOverride = DateVersionCode
++        }
++    }
+ }
+ 
+ configurations {
