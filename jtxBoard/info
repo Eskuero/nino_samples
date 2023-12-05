@@ -1,3 +1,7 @@
 Remote: https://github.com/TechbeeAT/jtxBoard
 Branch: develop
 HEAD: 0cf3ec45291fba0648147f0ecf87314f5887a661
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

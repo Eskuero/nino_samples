@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 142f4bb5..325f8775 100644
+index 5f9391c5..375fd2a4 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -87,8 +87,6 @@ android {
+@@ -93,8 +93,6 @@ android {
              proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules-release.pro'
  
              shrinkResources true
@@ -11,7 +11,7 @@ index 142f4bb5..325f8775 100644
          }
      }
  
-@@ -105,6 +103,18 @@ android {
+@@ -111,6 +109,18 @@ android {
      androidResources {
          generateLocaleConfig true
      }
@@ -30,7 +30,7 @@ index 142f4bb5..325f8775 100644
  }
  
  ksp {
-@@ -209,4 +219,4 @@ dependencies {
+@@ -215,4 +225,4 @@ dependencies {
  
      testImplementation "com.squareup.okhttp3:mockwebserver:${versions.okhttp}"
      testImplementation 'junit:junit:4.13.2'

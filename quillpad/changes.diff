@@ -1,15 +1,12 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 6a79474a6..96b4aee17 100644
+index f11a256..8094168 100755
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -99,10 +99,15 @@ android {
-         includeInApk false
-         includeInBundle false
+@@ -89,6 +89,18 @@ android {
+             option("-Adagger.hilt.android.internal.disableAndroidSuperclassValidation=true")
+         }
      }
--    applicationVariants.configureEach { variant ->
--        variant.outputs.configureEach {
--            outputFileName = "Tusky_${variant.versionName}_${variant.versionCode}_${gitSha}_" +
--                "${variant.flavorName}_${buildType.name}.apk"
++
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
 +    Date d1 = origin.getTime()
@@ -19,6 +16,8 @@ index 6a79474a6..96b4aee17 100644
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->
 +            output.versionCodeOverride = DateVersionCode
-         }
-     }
++        }
++    }
+     namespace 'org.qosp.notes'
  }
+ 
