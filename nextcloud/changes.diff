@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 6e180a837f..572f710458 100644
+index dd57414dda..f9543c42a9 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -163,6 +163,18 @@ android {
+@@ -167,6 +167,18 @@ android {
              unitTests.returnDefaultValues = true
              animationsDisabled true
          }

@@ -1,0 +1,7 @@
+#!/bin/bash
+cd android/app;
+corepack enable;
+pnpm install --frozen-lockfile;
+CI_PLATFORM=android pnpm run build;
+cd ../..;
+npx cap sync android --deployment;
