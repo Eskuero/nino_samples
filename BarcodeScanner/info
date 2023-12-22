@@ -1,3 +1,7 @@
 Remote: https://gitlab.com/Atharok/BarcodeScanner
 Branch: main
 HEAD: 9baba04e70183fdd30737a6f49f491c8706d9b8e
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

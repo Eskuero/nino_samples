@@ -1,11 +1,12 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 500a2cc..669e6e4 100644
+index 3fdbf55..806a718 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -41,6 +41,17 @@ android {
+@@ -43,6 +43,18 @@ android {
      packagingOptions.resources {
          excludes += ["DebugProbesKt.bin", "META-INF/**.version", "kotlin/**.kotlin_builtins", "kotlin-tooling-metadata.json"]
      }
++
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
 +    Date d1 = origin.getTime()
@@ -20,24 +21,13 @@ index 500a2cc..669e6e4 100644
  }
  
  tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile) {
-@@ -64,4 +75,4 @@ dependencies {
-     implementation "com.google.android.material:material:1.4.0"
+@@ -69,4 +81,4 @@ dependencies {
  
-     implementation "ru.rambler.android:swipe-layout:1.1.0"
+     implementation "com.github.bumptech.glide:glide:4.15.1"
+     implementation "com.davemorrissey.labs:subsampling-scale-image-view-androidx:3.10.0"
 -}
 \ No newline at end of file
 +}
-diff --git a/app/src/main/res/values-fr/strings.xml b/app/src/main/res/values-fr/strings.xml
-index b70584d..4e14a80 100644
---- a/app/src/main/res/values-fr/strings.xml
-+++ b/app/src/main/res/values-fr/strings.xml
-@@ -122,6 +122,5 @@
-     <string name="send_feedback">Envoyer des commentaires</string>
- 
-     <!-- Widget -->
--    <string name="single_note_or_list">Note ou liste seule</string>
-     <string name="select_note">Sélectionnez une note</string>
- </resources>
 diff --git a/gradlew b/gradlew
 old mode 100644
 new mode 100755

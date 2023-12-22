@@ -23,6 +23,18 @@ index ed0e26f0d..c58c80a21 100644
  
      <application android:icon="@mipmap/ic_launcher" android:allowBackup="false" android:label="${appName}">
  
+diff --git a/src/all/komga/src/eu/kanade/tachiyomi/extension/all/komga/Komga.kt b/src/all/komga/src/eu/kanade/tachiyomi/extension/all/komga/Komga.kt
+index 4f0adb59f..9ce793c5a 100644
+--- a/src/all/komga/src/eu/kanade/tachiyomi/extension/all/komga/Komga.kt
++++ b/src/all/komga/src/eu/kanade/tachiyomi/extension/all/komga/Komga.kt
+@@ -21,7 +21,6 @@ import eu.kanade.tachiyomi.extension.all.komga.dto.ReadListDto
+ import eu.kanade.tachiyomi.extension.all.komga.dto.SeriesDto
+ import eu.kanade.tachiyomi.network.GET
+ import eu.kanade.tachiyomi.network.asObservable
+-import eu.kanade.tachiyomi.network.await
+ import eu.kanade.tachiyomi.source.ConfigurableSource
+ import eu.kanade.tachiyomi.source.UnmeteredSource
+ import eu.kanade.tachiyomi.source.model.Filter
 diff --git a/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MdUserAgentInterceptor.kt b/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MdUserAgentInterceptor.kt
 index 1771daf94..451f1ebef 100644
 --- a/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MdUserAgentInterceptor.kt

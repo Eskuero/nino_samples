@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index c77f024e..eb501a1a 100644
+index a3ee7f37..9191a8de 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
 @@ -19,6 +19,9 @@
@@ -12,7 +12,7 @@ index c77f024e..eb501a1a 100644
  import java.util.Properties
  
  plugins {
-@@ -110,6 +113,18 @@ android {
+@@ -111,6 +114,18 @@ android {
      androidResources {
          generateLocaleConfig = true
      }

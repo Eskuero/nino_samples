@@ -1,5 +1,5 @@
 diff --git a/build.gradle.kts b/build.gradle.kts
-index d244cb09..0810bbd2 100644
+index 08db2b48..e6bbac25 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
 @@ -2,6 +2,9 @@ import com.android.build.gradle.internal.tasks.factory.dependsOn
@@ -12,7 +12,7 @@ index d244cb09..0810bbd2 100644
  
  buildscript {
      dependencies {
-@@ -240,6 +243,18 @@ android {
+@@ -241,6 +244,18 @@ android {
          checkReleaseBuilds = false
          disable += listOf("MissingTranslation", "ExtraTranslation")
      }
@@ -31,7 +31,7 @@ index d244cb09..0810bbd2 100644
  }
  
  dependencies {
-@@ -362,4 +377,4 @@ fun getBuildDate(): String {
+@@ -365,4 +380,4 @@ fun getBuildDate(): String {
      val RFC3339_LIKE = SimpleDateFormat("yyyy-MM-dd'T'HH:mm'Z'")
      RFC3339_LIKE.timeZone = TimeZone.getTimeZone("UTC")
      return RFC3339_LIKE.format(Date())
@@ -41,23 +41,3 @@ index d244cb09..0810bbd2 100644
 diff --git a/gradlew b/gradlew
 old mode 100644
 new mode 100755
-diff --git a/src/com/android/launcher3/DeviceProfile.java b/src/com/android/launcher3/DeviceProfile.java
-index 2d8d1faf..f8c44406 100644
---- a/src/com/android/launcher3/DeviceProfile.java
-+++ b/src/com/android/launcher3/DeviceProfile.java
-@@ -525,7 +525,7 @@ public class DeviceProfile {
-         }
- 
-         if (renderer == null) {
--            renderer = new DotRenderer(size, getShapePath(context,DEFAULT_DOT_SIZE), DEFAULT_DOT_SIZE, dotSize);
-+            renderer = new DotRenderer(size, getShapePath(context,DEFAULT_DOT_SIZE), DEFAULT_DOT_SIZE);
-             cache.put(size, renderer);
-         }
-         return renderer;
-@@ -1565,4 +1565,4 @@ public class DeviceProfile {
-                     mIsGestureMode, mViewScaleProvider, mOverrideProvider);
-         }
-     }
--}
-\ No newline at end of file
-+}

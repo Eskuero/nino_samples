@@ -1,3 +1,7 @@
 Remote: https://github.com/aeharding/voyager
 Branch: main
 HEAD: a3ed688a07bbc3384989a514f2da4803b48508ed
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################
