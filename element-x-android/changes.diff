@@ -1,0 +1,54 @@
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+index f936e991f..f95c34317 100644
+--- a/app/build.gradle.kts
++++ b/app/build.gradle.kts
+@@ -20,6 +20,9 @@ import com.android.build.api.variant.FilterConfiguration.FilterType.ABI
+ import extension.allFeaturesImpl
+ import extension.allLibrariesImpl
+ import extension.allServicesImpl
++import com.android.build.api.variant.FilterConfiguration.FilterType.*
++import java.time.LocalDateTime
++import java.time.Duration;
+ 
+ plugins {
+     id("io.element.android-compose-application")
+@@ -47,11 +50,6 @@ android {
+             useSupportLibrary = true
+         }
+ 
+-        // Keep abiFilter for the universalApk
+-        ndk {
+-            abiFilters += listOf("armeabi-v7a", "x86", "arm64-v8a", "x86_64")
+-        }
+-
+         // Ref: https://developer.android.com/studio/build/configure-apk-splits.html#configure-abi-split
+         splits {
+             // Configures multiple APKs based on ABI.
+@@ -65,7 +63,7 @@ android {
+                 // Specifies a list of ABIs that Gradle should create APKs for.
+                 include("armeabi-v7a", "x86", "arm64-v8a", "x86_64")
+                 // Generate a universal APK that includes all ABIs, so user who installs from CI tool can use this one by default.
+-                isUniversalApk = true
++                isUniversalApk = false
+             }
+         }
+     }
+@@ -145,6 +143,18 @@ android {
+     buildFeatures {
+         buildConfig = true
+     }
++
++    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
++    val d2 = LocalDateTime.now()
++    val minutes = Duration.between(d1, d2).getSeconds() / 60
++    val DateVersionCode = (2112312359 + minutes).toInt()
++    androidComponents {
++        onVariants { variant ->
++            variant.outputs.forEach { output ->
++                output.versionCode.set(DateVersionCode)
++            }
++        }
++    }
+ }
+ 
+ androidComponents {
