@@ -28,6 +28,30 @@ index 3fdbf55..806a718 100644
 -}
 \ No newline at end of file
 +}
+diff --git a/app/src/main/res/values-pl/strings.xml b/app/src/main/res/values-pl/strings.xml
+index d15a7c9..0819137 100644
+--- a/app/src/main/res/values-pl/strings.xml
++++ b/app/src/main/res/values-pl/strings.xml
+@@ -122,6 +122,5 @@
+     <string name="send_feedback">Wyślij opinię</string>
+ 
+     <!-- Widget -->
+-    <string name="single_note">Pojedyńcza notatka</string>
+     <string name="select_note">Wybierz notatkę</string>
+ </resources>
+diff --git a/app/src/main/res/values-zh-rCN/strings.xml b/app/src/main/res/values-zh-rCN/strings.xml
+index 02c5c4f..382af97 100644
+--- a/app/src/main/res/values-zh-rCN/strings.xml
++++ b/app/src/main/res/values-zh-rCN/strings.xml
+@@ -123,6 +123,5 @@
+    
+     
+     <!-- Widget -->
+-    <string name="single_note">单条笔记</string>
+     <string name="select_note">选择笔记</string>
+-</resources>
+\ No newline at end of file
++</resources>
 diff --git a/gradlew b/gradlew
 old mode 100644
 new mode 100755

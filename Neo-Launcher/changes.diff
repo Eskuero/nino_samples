@@ -1,5 +1,5 @@
 diff --git a/build.gradle.kts b/build.gradle.kts
-index 08db2b48..e6bbac25 100644
+index 7a99e0e6..4e951c40 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
 @@ -2,6 +2,9 @@ import com.android.build.gradle.internal.tasks.factory.dependsOn
