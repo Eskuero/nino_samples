@@ -1,0 +1,5 @@
+#!/bin/bash
+cd Builder;
+# Clean current cache
+rm -rf mupdf-* src/libs;
+./link_to_mupdf_1.23.7.sh;

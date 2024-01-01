@@ -1,0 +1,180 @@
+diff --git a/Builder/src/libs/freemarker-2.3.23.jar b/Builder/src/libs/freemarker-2.3.23.jar
+deleted file mode 100644
+index 82990f6bf..000000000
+Binary files a/Builder/src/libs/freemarker-2.3.23.jar and /dev/null differ
+diff --git a/Builder/src/libs/greendao-3.2.0.jar b/Builder/src/libs/greendao-3.2.0.jar
+deleted file mode 100644
+index c4191222a..000000000
+Binary files a/Builder/src/libs/greendao-3.2.0.jar and /dev/null differ
+diff --git a/Builder/src/libs/greendao-api-3.2.0.jar b/Builder/src/libs/greendao-api-3.2.0.jar
+deleted file mode 100644
+index 0bd5a1eb9..000000000
+Binary files a/Builder/src/libs/greendao-api-3.2.0.jar and /dev/null differ
+diff --git a/Builder/src/libs/greendao-generator-3.2.0.jar b/Builder/src/libs/greendao-generator-3.2.0.jar
+deleted file mode 100644
+index c98756c8d..000000000
+Binary files a/Builder/src/libs/greendao-generator-3.2.0.jar and /dev/null differ
+diff --git a/Builder/src/libs/sqlite-jdbc-3.27.2.1.jar b/Builder/src/libs/sqlite-jdbc-3.27.2.1.jar
+deleted file mode 100644
+index 688c635b8..000000000
+Binary files a/Builder/src/libs/sqlite-jdbc-3.27.2.1.jar and /dev/null differ
+diff --git a/app/build.gradle b/app/build.gradle
+index 4f2f4af53..f0a8756e0 100644
+--- a/app/build.gradle
++++ b/app/build.gradle
+@@ -62,19 +62,9 @@ android {
+         }
+     }
+ 
+-    signingConfigs {
+-        release {
+-            storeFile file(RELEASE_STORE_FILE)
+-            storePassword RELEASE_STORE_PASSWORD
+-            keyAlias RELEASE_KEY_ALIAS
+-            keyPassword RELEASE_KEY_PASSWORD
+-        }
+-    }
+-
+     buildTypes {
+         release {
+             minifyEnabled false
+-            signingConfig signingConfigs.release
+             debuggable false
+         }
+         debug {
+@@ -91,10 +81,9 @@ android {
+ 
+     splits {
+         abi {
+-            enable true
+             reset()
+             include "x86", "x86_64", "armeabi-v7a", "arm64-v8a"
+-            universalApk true
++            universalApk false
+         }
+     }
+ 
+@@ -123,10 +112,6 @@ android {
+                     appName      : "Librera",
+                     appIcon      : "@mipmap/icon_pdf_reader",
+                     appRoundIcon : "@mipmap/icon_pdf_reader",
+-                    appGdriveKey : librera_appGdriveKey,
+-                    admobAppId   : librera_admobAppId,
+-                    admobBannerId: librera_admobBannerId,
+-                    admobFullId  : librera_admobFullId,
+                     appSafeMode  : "false"
+             ]
+         }
+@@ -138,7 +123,6 @@ android {
+                     appName      : "Librera",
+                     appIcon      : "@mipmap/icon_pdf_pro",
+                     appRoundIcon : "@mipmap/icon_pdf_pro",
+-                    appGdriveKey : pro_appGdriveKey,
+                     admobAppId   : "",
+                     admobBannerId: "",
+                     admobFullId  : "",
+@@ -152,10 +136,6 @@ android {
+                     appName      : "PDF Reader",
+                     appIcon      : "@mipmap/icon_pdf_classic",
+                     appRoundIcon : "@mipmap/launcher_classic",
+-                    appGdriveKey : pdf_classic_appGdriveKey,
+-                    admobAppId   : pdf_classic_admobAppId,
+-                    admobBannerId: pdf_classic_admobBannerId,
+-                    admobFullId  : pdf_classic_admobFullId,
+                     appSafeMode  : "true"
+             ]
+         }
+@@ -166,10 +146,6 @@ android {
+                     appName      : "Book Reader",
+                     appIcon      : "@mipmap/icon_pdf_droid",
+                     appRoundIcon : "@mipmap/launcher_droid",
+-                    appGdriveKey : ebooka_appGdriveKey,
+-                    admobAppId   : ebooka_admobAppId,
+-                    admobBannerId: ebooka_admobBannerId,
+-                    admobFullId  : ebooka_admobFullId,
+                     appSafeMode  : "false"
+             ]
+         }
+@@ -180,10 +156,6 @@ android {
+                     appName      : "PDF Reader",
+                     appIcon      : "@mipmap/icon_pdf_2",
+                     appRoundIcon : "@mipmap/launcher_pdf_v2",
+-                    appGdriveKey : pdf_v2_appGdriveKey,
+-                    admobAppId   : pdf_v2_admobAppId,
+-                    admobBannerId: pdf_v2_admobBannerId,
+-                    admobFullId  : pdf_v2_admobFullId,
+                     appSafeMode  : "false"
+             ]
+         }
+@@ -194,10 +166,6 @@ android {
+                     appName      : "TTS Reader",
+                     appIcon      : "@mipmap/icon_tts_reader_app",
+                     appRoundIcon : "@mipmap/launcher_tts_reader_app",
+-                    appGdriveKey : tts_reader_appGdriveKey,
+-                    admobAppId   : tts_reader_admobAppId,
+-                    admobBannerId: tts_reader_admobBannerId,
+-                    admobFullId  : tts_reader_admobFullId,
+                     appSafeMode  : "false"
+             ]
+         }
+@@ -208,17 +176,18 @@ android {
+                     appName      : "Epub Reader",
+                     appIcon      : "@mipmap/icon_epub_reader",
+                     appRoundIcon : "@mipmap/launcher_epub_reader",
+-                    appGdriveKey : epub_reader_appGdriveKey,
+-                    admobAppId   : epub_reader_admobAppId,
+-                    admobBannerId: epub_reader_admobBannerId,
+-                    admobFullId  : epub_reader_admobFullId,
+                     appSafeMode  : "false"
+             ]
+         }
+     }
+ 
+     def abiCodes = ['armeabi-v7a': 0, 'arm64-v8a': 1, 'x86': 2, 'x86_64': 3]
+-
++    Calendar origin = Calendar.getInstance()
++    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++    Date d1 = origin.getTime()
++    Date d2 = new Date()
++    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++    def DateVersionCode = 2112312359 + minutes
+     applicationVariants.all { variant ->
+ 
+         variant.outputs.all { output ->
+@@ -239,7 +208,7 @@ android {
+                 def code = abiCodes.get(abiName, 0) + variant.versionCode
+                 abiName = abiName.replace("arm64-v8a", "arm64").replace("armeabi-v7a", "arm")
+ 
+-                output.versionCodeOverride = code
++                output.versionCodeOverride = DateVersionCode + code
+                 //def fullName = "Librera ${flavor}-${versionNumber}-c${code}-d${db}-${abiName}.apk"
+ 
+                 def fullName = "Librera ${flavor}-${versionNumber}-${abiName}.apk"
+@@ -249,7 +218,7 @@ android {
+                 //def fullName = "Librera ${flavor}-${versionNumber}-c${codeNumber}-d${db}-universal.apk"
+                 //def fullName = "Librera ${flavor}-${versionNumber}-universal.apk"
+                 def fullName = "Librera ${flavor}-${versionNumber}-uni.apk"
+-                output.versionCodeOverride = codeNumber
++                output.versionCodeOverride = DateVersionCode + codeNumber
+                 output.outputFileName = fullName
+             }
+         }
+@@ -442,18 +411,3 @@ task incVersion() {
+     }
+ }
+ 
+-if (!taskName.contains("Fdroid")) {
+-    dependencies {
+-        implementation "com.github.junrar:junrar:4.0.0"
+-
+-        /** Google Drive Sync **/
+-        implementation 'com.google.http-client:google-http-client-gson:1.42.2'
+-        implementation 'com.google.android.gms:play-services-auth:20.3.0'
+-        implementation('com.google.api-client:google-api-client-android:1.30.2') {
+-            exclude group: 'org.apache.httpcomponents'
+-        }
+-        implementation('com.google.apis:google-api-services-drive:v3-rev173-1.25.0') {
+-            exclude group: 'org.apache.httpcomponents'
+-        }
+-    }
+-}

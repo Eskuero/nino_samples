@@ -1,6 +1,6 @@
-Remote: https://github.com/jarnedemeulemeester/findroid
-Branch: main
-HEAD: 42650ee6c44a5219f5ed3c61e0d8a7ad694a2b08
+Remote: https://github.com/foobnix/LibreraReader
+Branch: master
+HEAD: 5e19c28a426bd1caa769922b2df45f5d95745ede
 
 ##############################################################################
 WARNING: This configuration matches the release published on the repository but new package builds are disabled
