@@ -35,15 +35,3 @@ index 4f0adb59f..9ce793c5a 100644
  import eu.kanade.tachiyomi.source.ConfigurableSource
  import eu.kanade.tachiyomi.source.UnmeteredSource
  import eu.kanade.tachiyomi.source.model.Filter
-diff --git a/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MdUserAgentInterceptor.kt b/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MdUserAgentInterceptor.kt
-index 1771daf94..451f1ebef 100644
---- a/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MdUserAgentInterceptor.kt
-+++ b/src/all/mangadex/src/eu/kanade/tachiyomi/extension/all/mangadex/MdUserAgentInterceptor.kt
-@@ -3,7 +3,6 @@ package eu.kanade.tachiyomi.extension.all.mangadex
- import android.content.SharedPreferences
- import okhttp3.Interceptor
- import okhttp3.Response
--import java.io.IOException
- 
- /**
-  * Interceptor to set custom useragent for MangaDex
