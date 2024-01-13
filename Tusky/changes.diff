@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index f0cf52681..3c7c0487a 100644
+index f0cf52681..8ac7fbf60 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -98,10 +98,15 @@ android {
+@@ -98,12 +98,17 @@ android {
          includeInApk false
          includeInBundle false
      }
@@ -20,5 +20,8 @@ index f0cf52681..3c7c0487a 100644
 +        variant.outputs.all { output ->
 +            output.versionCodeOverride = DateVersionCode
          }
-     }
+-    }
++     }
  }
+ 
+ ksp {

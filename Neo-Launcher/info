@@ -1,3 +1,7 @@
 Remote: https://github.com/NeoApplications/Neo-Launcher/
 Branch: main
 HEAD: 6402d7fc9ece28d35e124dde6f29c9d0746a3b06
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

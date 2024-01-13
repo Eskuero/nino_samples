@@ -1,8 +1,8 @@
 diff --git a/common.gradle b/common.gradle
-index 769166a92..442deeb56 100644
+index a287167..f85038e 100644
 --- a/common.gradle
 +++ b/common.gradle
-@@ -56,7 +56,6 @@ android {
+@@ -44,7 +44,6 @@ android {
  
      buildTypes {
          release {
@@ -11,7 +11,7 @@ index 769166a92..442deeb56 100644
          }
      }
 diff --git a/core/AndroidManifest.xml b/core/AndroidManifest.xml
-index ed0e26f0d..c58c80a21 100644
+index b56b3b9..ba4d436 100644
 --- a/core/AndroidManifest.xml
 +++ b/core/AndroidManifest.xml
 @@ -1,7 +1,7 @@
@@ -24,7 +24,7 @@ index ed0e26f0d..c58c80a21 100644
      <application android:icon="@mipmap/ic_launcher" android:allowBackup="false" android:label="${appName}">
  
 diff --git a/src/all/komga/src/eu/kanade/tachiyomi/extension/all/komga/Komga.kt b/src/all/komga/src/eu/kanade/tachiyomi/extension/all/komga/Komga.kt
-index 4f0adb59f..9ce793c5a 100644
+index 4f0adb5..9ce793c 100644
 --- a/src/all/komga/src/eu/kanade/tachiyomi/extension/all/komga/Komga.kt
 +++ b/src/all/komga/src/eu/kanade/tachiyomi/extension/all/komga/Komga.kt
 @@ -21,7 +21,6 @@ import eu.kanade.tachiyomi.extension.all.komga.dto.ReadListDto

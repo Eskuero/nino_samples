@@ -1,5 +1,5 @@
 diff --git a/fenix/app/build.gradle b/fenix/app/build.gradle
-index 2f462c194d..31b449856a 100644
+index de18512c7e..ceeb820b73 100644
 --- a/fenix/app/build.gradle
 +++ b/fenix/app/build.gradle
 @@ -296,6 +296,13 @@ android.applicationVariants.configureEach { variant ->
