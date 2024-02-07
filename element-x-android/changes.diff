@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index e977af4c8..6b0a14df8 100644
+index aad1c4eff..60292616c 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -23,6 +23,8 @@ import extension.allServicesImpl
+@@ -25,6 +25,8 @@ import extension.gitRevision
  import extension.koverDependencies
  import extension.setupKover
  import org.jetbrains.kotlin.cli.common.toBooleanLenient
@@ -11,7 +11,7 @@ index e977af4c8..6b0a14df8 100644
  
  plugins {
      id("io.element.android-compose-application")
-@@ -49,11 +51,6 @@ android {
+@@ -51,11 +53,6 @@ android {
          versionCode = Versions.versionCode
          versionName = Versions.versionName
  
@@ -20,10 +20,10 @@ index e977af4c8..6b0a14df8 100644
 -            abiFilters += listOf("armeabi-v7a", "x86", "arm64-v8a", "x86_64")
 -        }
 -
-         // Ref: https://developer.android.com/studio/build/configure-apk-splits.html#configure-abi-split
-         splits {
-             // Configures multiple APKs based on ABI.
-@@ -67,7 +64,7 @@ android {
+         buildConfigField("String", "GIT_REVISION", "\"${gitRevision()}\"")
+         buildConfigField("String", "GIT_BRANCH_NAME", "\"${gitBranchName()}\"")
+ 
+@@ -72,7 +69,7 @@ android {
                  // Specifies a list of ABIs that Gradle should create APKs for.
                  include("armeabi-v7a", "x86", "arm64-v8a", "x86_64")
                  // Generate a universal APK that includes all ABIs, so user who installs from CI tool can use this one by default.
@@ -32,7 +32,7 @@ index e977af4c8..6b0a14df8 100644
              }
          }
      }
-@@ -99,7 +96,6 @@ android {
+@@ -104,7 +101,6 @@ android {
  
          getByName("release") {
              resValue("string", "app_name", "Element X")
@@ -40,7 +40,7 @@ index e977af4c8..6b0a14df8 100644
  
              postprocessing {
                  isRemoveUnusedCode = true
-@@ -174,6 +170,10 @@ androidComponents {
+@@ -179,6 +175,10 @@ androidComponents {
          "x86_64" to 4,
      )
  
@@ -51,7 +51,7 @@ index e977af4c8..6b0a14df8 100644
      onVariants { variant ->
          // Assigns a different version code for each output APK
          // other than the universal APK.
-@@ -184,7 +184,7 @@ androidComponents {
+@@ -189,7 +189,7 @@ androidComponents {
              val abiCode = abiVersionCodes[name] ?: 0
              // Assigns the new version code to output.versionCode, which changes the version code
              // for only the output APK, not for the variant itself.
