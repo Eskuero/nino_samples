@@ -28,6 +28,48 @@ index 25ece07..605c4d4 100644
 -}
 \ No newline at end of file
 +}
+diff --git a/app/src/main/res/values-nb/strings.xml b/app/src/main/res/values-nb/strings.xml
+index dcec9e0..c2f6099 100644
+--- a/app/src/main/res/values-nb/strings.xml
++++ b/app/src/main/res/values-nb/strings.xml
+@@ -109,8 +109,8 @@
+     <string name="disable_auto_backup">Slå av automatisk sikkerhetskopiering</string>
+     <string name="choose_another_folder">Velg en annen mappe</string>
+     <string name="cant_find_folder">Finner ikke mappen. Den kan ha blitt flyttet eller slettet</string>
+-    <string name="invalid_backup">Ugyldig sikkerhetskopi<string>
+-    <string name="imported_backup">Importert sikkerhetskopi<string>
++    <string name="invalid_backup">Ugyldig sikkerhetskopi</string>
++    <string name="imported_backup">Importert sikkerhetskopi</string>
+     <string name="exporting_backup">Eksporterer sikkerhetskopi</string>
+     <string name="importing_backup">Importerer sikkerhetskopi</string>
+     <string name="calculating">Beregner …</string>
+diff --git a/app/src/main/res/values-nn/strings.xml b/app/src/main/res/values-nn/strings.xml
+index f30d7ad..667cd84 100644
+--- a/app/src/main/res/values-nn/strings.xml
++++ b/app/src/main/res/values-nn/strings.xml
+@@ -109,8 +109,8 @@
+     <string name="disable_auto_backup">Slå av automatisk sikkerheitskopiering</string>
+     <string name="choose_another_folder">Vel ei anna mappe</string>
+     <string name="cant_find_folder">Finn ikkje mappa. Den kan ha blitt flytta eller sletta</string>
+-    <string name="invalid_backup">Ugyldeg sikkerheitskopi<string>
+-    <string name="imported_backup">Importert sikkerheitskopi<string>
++    <string name="invalid_backup">Ugyldeg sikkerheitskopi</string>
++    <string name="imported_backup">Importert sikkerheitskopi</string>
+     <string name="exporting_backup">Eksporterer sikkerheitskopi</string>
+     <string name="importing_backup">Importerer sikkerheitskopi</string>
+     <string name="calculating">Bereknar …</string>
+diff --git a/app/src/main/res/values-vi/strings.xml b/app/src/main/res/values-vi/strings.xml
+index 26cbb0f..7e1f34e 100644
+--- a/app/src/main/res/values-vi/strings.xml
++++ b/app/src/main/res/values-vi/strings.xml
+@@ -114,7 +114,6 @@
+     <string name="invalid_backup">Bản sao lưu không hợp lệ</string>
+     <string name="imported_backup">Đã nhập bản sao lưu</string>
+     <string name="exporting_backup">Đã xuất bản sao lưu</string>
+-    <string name="import_backup">Nhập dữ liệu</string>
+     <string name="calculating">Đang xử lý…</string>
+ 
+     <string name="export_backup">Xuất dữ liệu</string>
 diff --git a/gradlew b/gradlew
 old mode 100644
 new mode 100755
