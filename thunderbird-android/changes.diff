@@ -1,5 +1,5 @@
 diff --git a/app-k9mail/build.gradle.kts b/app-k9mail/build.gradle.kts
-index b3e0dcdf0..738b3cc05 100644
+index c5a6edbd0..a52de6feb 100644
 --- a/app-k9mail/build.gradle.kts
 +++ b/app-k9mail/build.gradle.kts
 @@ -1,3 +1,7 @@
@@ -8,9 +8,9 @@ index b3e0dcdf0..738b3cc05 100644
 +import java.time.Duration;
 +
  plugins {
-     id(ThunderbirdPlugins.App.android)
+     id(ThunderbirdPlugins.App.androidCompose)
      alias(libs.plugins.dependency.guard)
-@@ -190,6 +194,18 @@ android {
+@@ -192,6 +196,18 @@ android {
              )
          }
      }
