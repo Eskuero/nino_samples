@@ -1,10 +1,10 @@
 Entering 'jni'
 git://git.ghostscript.com/mupdf-android-fitz.git
-c634a39c6a40c791679b1c4505e39e1cb6fef637
+dec98af53a151e04a92f8d8f9345d9ad54a09f3b
 
 Entering 'jni/libmupdf'
 git://git.ghostscript.com/mupdf.git
-4e5bbc59dc81ba065cbc9a79cb0293783d6b26dd
+21fb0a2bf815c927cf09881f799f78cbece0daf2
 
 Entering 'jni/libmupdf/thirdparty/curl'
 git://git.ghostscript.com/thirdparty-curl.git
@@ -12,7 +12,7 @@ f43c6fbb2dbdf68dfdd0f0c3399e3711a621614a
 
 Entering 'jni/libmupdf/thirdparty/extract'
 git://git.ghostscript.com/extract.git
-a95292c0300240da8582ca80ed810681b4f2ad06
+ed5acb1397fc48f7e11804e9a72e37dd25a05c93
 
 Entering 'jni/libmupdf/thirdparty/freeglut'
 git://git.ghostscript.com/thirdparty-freeglut.git
@@ -32,15 +32,15 @@ git://git.ghostscript.com/thirdparty-harfbuzz.git
 
 Entering 'jni/libmupdf/thirdparty/jbig2dec'
 git://git.ghostscript.com/jbig2dec.git
-6c7ea451a61324708d7d5a35a642f71b20eb3e80
+1d1347e38a55e657dcc4c8f1c77bb3a26bfc9ff3
 
 Entering 'jni/libmupdf/thirdparty/lcms2'
 git://git.ghostscript.com/thirdparty-lcms2.git
-88b6a72d31dbb5723d2f710789c825f57f2f38b4
+ab4547bd04a13590a6e72833f9928fc1c31da12e
 
 Entering 'jni/libmupdf/thirdparty/leptonica'
 git://git.ghostscript.com/thirdparty-leptonica.git
-5e87d579527d8ac470ad97f399ceb65c35cea598
+d2ed8c535bbc423f39f2b2d4c024d561405a46ef
 
 Entering 'jni/libmupdf/thirdparty/libjpeg'
 git://git.ghostscript.com/thirdparty-libjpeg.git
@@ -52,23 +52,19 @@ git://git.ghostscript.com/mujs.git
 
 Entering 'jni/libmupdf/thirdparty/openjpeg'
 git://git.ghostscript.com/thirdparty-openjpeg.git
-f693004805d970207a0487bedd4a6c6c1a2f82fb
+7bd802666d6b8a1b5c9d947c5bd926fae2927b38
 
 Entering 'jni/libmupdf/thirdparty/tesseract'
 git://git.ghostscript.com/thirdparty-tesseract.git
-a25ae8dc4cc97b191bf5ea11365a05a78c566698
-
-Entering 'jni/libmupdf/thirdparty/tesseract/abseil'
-https://github.com/abseil/abseil-cpp.git
-b832dce8489ef7b6231384909fd9b68d5a5ff2b7
-
-Entering 'jni/libmupdf/thirdparty/tesseract/googletest'
-https://github.com/google/googletest.git
-703bd9caab50b139428cea1aaff9974ebee5742e
+bff8be466e9c26890c57106ffe57e8e5959690f3
 
 Entering 'jni/libmupdf/thirdparty/tesseract/test'
 https://github.com/tesseract-ocr/test.git
-e27d9566917d7d167636a7d0cd59bcfb2c61c7eb
+2761899921c08014cf9dbf3b63592237fb9e6ecb
+
+Entering 'jni/libmupdf/thirdparty/tesseract/unittest/third_party/googletest'
+https://github.com/google/googletest.git
+e2239ee6043f73722e7aa812a459f54a28552929
 
 Entering 'jni/libmupdf/thirdparty/zlib'
 git://git.ghostscript.com/thirdparty-zlib.git

@@ -1,5 +1,5 @@
 diff --git a/build.gradle.kts b/build.gradle.kts
-index be971ec8..629e13ad 100644
+index 513483e1..10996146 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
 @@ -1,6 +1,9 @@
@@ -9,14 +9,13 @@ index be971ec8..629e13ad 100644
 +import com.android.build.api.variant.FilterConfiguration.FilterType.*
 +import java.time.LocalDateTime
 +import java.time.Duration;
+ import java.io.FileNotFoundException
+ import java.util.Properties
  
- buildscript {
-     dependencies {
-@@ -148,6 +151,18 @@ android {
+@@ -160,6 +163,17 @@ android {
              }
          }
      }
-+
 +    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
 +    val d2 = LocalDateTime.now()
 +    val minutes = Duration.between(d1, d2).getSeconds() / 60
