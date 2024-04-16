@@ -1,11 +1,12 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 7a3b28661..d8f069777 100644
+index 9d64e59d4..f7be72a25 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -103,6 +103,17 @@ android {
-                          'META-INF/COPYRIGHT']
+@@ -101,6 +101,18 @@ android {
+             excludes += ['META-INF/README.md', 'META-INF/CHANGES']
          }
      }
++
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
 +    Date d1 = origin.getTime()
