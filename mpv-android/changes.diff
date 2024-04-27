@@ -34,7 +34,7 @@ index 798673d..6aafdb5 100644
              output.versionCodeOverride = universalBase + variant.versionCode
      }
 diff --git a/buildscripts/buildall.sh b/buildscripts/buildall.sh
-index 5e23667..f578ea3 100755
+index 932897c..9017868 100755
 --- a/buildscripts/buildall.sh
 +++ b/buildscripts/buildall.sh
 @@ -164,6 +164,5 @@ setup_prefix
