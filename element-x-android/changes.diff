@@ -1,17 +1,17 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 6ecfe66fb..28eafb76a 100644
+index 4c21cef58..8151ead64 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -24,6 +24,8 @@ import extension.gitBranchName
- import extension.gitRevision
+@@ -25,6 +25,8 @@ import extension.gitRevision
  import extension.koverDependencies
+ import extension.locales
  import extension.setupKover
 +import java.time.LocalDateTime
 +import java.time.Duration;
  
  plugins {
      id("io.element.android-compose-application")
-@@ -50,11 +52,6 @@ android {
+@@ -51,11 +53,6 @@ android {
          versionCode = Versions.versionCode
          versionName = Versions.versionName
  
@@ -23,7 +23,7 @@ index 6ecfe66fb..28eafb76a 100644
          buildConfigField("String", "GIT_REVISION", "\"${gitRevision()}\"")
          buildConfigField("String", "GIT_BRANCH_NAME", "\"${gitBranchName()}\"")
  
-@@ -71,7 +68,7 @@ android {
+@@ -72,7 +69,7 @@ android {
                  // Specifies a list of ABIs that Gradle should create APKs for.
                  include("armeabi-v7a", "x86", "arm64-v8a", "x86_64")
                  // Generate a universal APK that includes all ABIs, so user who installs from CI tool can use this one by default.
@@ -31,8 +31,8 @@ index 6ecfe66fb..28eafb76a 100644
 +                isUniversalApk = false
              }
          }
-     }
-@@ -98,12 +95,10 @@ android {
+ 
+@@ -103,12 +100,10 @@ android {
          getByName("debug") {
              resValue("string", "app_name", "Element X dbg")
              applicationIdSuffix = ".debug"
@@ -45,7 +45,15 @@ index 6ecfe66fb..28eafb76a 100644
  
              postprocessing {
                  isRemoveUnusedCode = true
-@@ -178,6 +173,10 @@ androidComponents {
+@@ -126,7 +121,6 @@ android {
+             versionNameSuffix = "-nightly"
+             resValue("string", "app_name", "Element X nightly")
+             matchingFallbacks += listOf("release")
+-            signingConfig = signingConfigs.getByName("nightly")
+ 
+             postprocessing {
+                 initWith(release.postprocessing)
+@@ -183,6 +177,10 @@ androidComponents {
          "x86_64" to 4,
      )
  
@@ -56,7 +64,7 @@ index 6ecfe66fb..28eafb76a 100644
      onVariants { variant ->
          // Assigns a different version code for each output APK
          // other than the universal APK.
-@@ -188,7 +187,7 @@ androidComponents {
+@@ -193,7 +191,7 @@ androidComponents {
              val abiCode = abiVersionCodes[name] ?: 0
              // Assigns the new version code to output.versionCode, which changes the version code
              // for only the output APK, not for the variant itself.
