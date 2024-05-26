@@ -1,5 +1,5 @@
 diff --git a/build.gradle.kts b/build.gradle.kts
-index 513483e1..10996146 100644
+index d84d8766..3ce23983 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
 @@ -1,6 +1,9 @@
@@ -9,10 +9,10 @@ index 513483e1..10996146 100644
 +import com.android.build.api.variant.FilterConfiguration.FilterType.*
 +import java.time.LocalDateTime
 +import java.time.Duration;
- import java.io.FileNotFoundException
- import java.util.Properties
  
-@@ -160,6 +163,17 @@ android {
+ buildscript {
+     dependencies {
+@@ -142,6 +145,17 @@ android {
              }
          }
      }

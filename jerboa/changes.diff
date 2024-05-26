@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index e00c4737..78ad6150 100644
+index 328fe00e..fa97f3a7 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
 @@ -1,5 +1,9 @@
@@ -12,7 +12,7 @@ index e00c4737..78ad6150 100644
  plugins {
      id("com.android.application")
      id("org.jetbrains.kotlin.android")
-@@ -63,12 +67,6 @@ android {
+@@ -64,12 +68,6 @@ android {
  
      buildTypes {
          release {
@@ -25,9 +25,9 @@ index e00c4737..78ad6150 100644
              postprocessing {
                  isRemoveUnusedCode = true
                  isObfuscate = false
-@@ -105,6 +103,17 @@ android {
-     composeOptions {
-         kotlinCompilerExtensionVersion = "1.5.12"
+@@ -103,6 +101,17 @@ android {
+     buildFeatures {
+         compose = true
      }
 +    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
 +    val d2 = LocalDateTime.now()
@@ -42,4 +42,4 @@ index e00c4737..78ad6150 100644
 +    }
  }
  
- dependencies {
+ composeCompiler {
