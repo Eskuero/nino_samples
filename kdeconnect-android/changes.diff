@@ -1,5 +1,5 @@
 diff --git a/build.gradle.kts b/build.gradle.kts
-index d84d8766..3ce23983 100644
+index 9a5bac59..1e56eaee 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
 @@ -1,6 +1,9 @@
@@ -12,7 +12,7 @@ index d84d8766..3ce23983 100644
  
  buildscript {
      dependencies {
-@@ -142,6 +145,17 @@ android {
+@@ -129,6 +132,17 @@ android {
              }
          }
      }

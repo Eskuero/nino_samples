@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 1b09f36..302ee4f 100644
+index 8100c50..1efbc66 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -43,6 +43,18 @@ android {
@@ -28,6 +28,19 @@ index 1b09f36..302ee4f 100644
 -}
 \ No newline at end of file
 +}
+diff --git a/app/src/main/res/values-nl/strings.xml b/app/src/main/res/values-nl/strings.xml
+index f5fddcd..02bc030 100644
+--- a/app/src/main/res/values-nl/strings.xml
++++ b/app/src/main/res/values-nl/strings.xml
+@@ -140,8 +140,6 @@
+     <string name="cant_load_image">Afbeelding kan niet geladen worden. Misschien is deze verplaatst of verwijderd</string>
+     <string name="unknown_name">Onbekende naam</string>
+     <string name="unknown_error">Onbekende foutmelding</string>
+-    <string name="insert_an_sd_card">Plaats een SD kaart om afbeeldingen toe te voegen</string>
+-    <string name="please_grant_notally">Geef Notally rechten om notificaties te versturen. Dit wordt gebruikt om de voortgang weer te geven wanneer bijvoorbeeld verwijderen afbeeldingen of importeren van backups langer duurt</string>
+ 
+     <plurals name="cant_add_images">
+         <item quantity="one">Kan %d afbeelding niet toevoegen</item>
 diff --git a/gradlew b/gradlew
 old mode 100644
 new mode 100755
