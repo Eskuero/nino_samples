@@ -1,3 +1,7 @@
 Remote: https://github.com/mozilla-mobile/firefox-android
 Branch: main
 HEAD: db1d3d3477ec8c3e485cfc7f92b60084b49f0622
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

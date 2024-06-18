@@ -1,0 +1,59 @@
+diff --git a/mobile/android/app/build.gradle b/mobile/android/app/build.gradle
+index a26d055cb..473bdcb2a 100644
+--- a/mobile/android/app/build.gradle
++++ b/mobile/android/app/build.gradle
+@@ -52,16 +52,6 @@ android {
+     }
+ 
+    signingConfigs {
+-       release {
+-            def keyAliasVal = System.getenv("ALIAS")
+-            def keyPasswordVal = System.getenv("ANDROID_KEY_PASSWORD")
+-            def storePasswordVal = System.getenv("ANDROID_STORE_PASSWORD")
+-
+-            keyAlias keyAliasVal ? keyAliasVal : keystoreProperties['keyAlias']
+-            keyPassword keyPasswordVal ? keyPasswordVal : keystoreProperties['keyPassword']
+-            storeFile file("../key.jks") ? file("../key.jks") : file(keystoreProperties['storeFile'])
+-            storePassword storePasswordVal ? storePasswordVal : keystoreProperties['storePassword']
+-       }
+    }
+ 
+     buildTypes {
+@@ -71,7 +61,18 @@ android {
+         }
+ 
+         release {
+-            signingConfig signingConfigs.release
++        }
++    }
++
++    Calendar origin = Calendar.getInstance()
++    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++    Date d1 = origin.getTime()
++    Date d2 = new Date()
++    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++    def DateVersionCode = 2112312359 + minutes
++    android.applicationVariants.all { variant ->
++        variant.outputs.all { output ->
++            output.versionCodeOverride = DateVersionCode
+         }
+     }
+ }
+diff --git a/mobile/android/build.gradle b/mobile/android/build.gradle
+index 9b757fbc3..51ce1fc70 100644
+--- a/mobile/android/build.gradle
++++ b/mobile/android/build.gradle
+@@ -1,5 +1,5 @@
+ allprojects {
+-    ext.kotlin_version = '1.9.24' 
++    ext.kotlin_version = '2.0.0'
+ 
+     repositories {
+         google()
+@@ -21,4 +21,4 @@ tasks.register("clean", Delete) {
+ 
+ tasks.named('wrapper') {
+     distributionType = Wrapper.DistributionType.ALL
+-}
+\ No newline at end of file
++}
