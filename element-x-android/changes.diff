@@ -1,17 +1,18 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index a4a4b1ee1..94790b54f 100644
+index af70c6ae39..90ed3fa090 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -25,6 +25,8 @@ import extension.gitRevision
+@@ -26,6 +26,9 @@ import extension.gitRevision
  import extension.koverDependencies
  import extension.locales
  import extension.setupKover
 +import java.time.LocalDateTime
 +import java.time.Duration;
++
  
  plugins {
      id("io.element.android-compose-application")
-@@ -51,11 +53,6 @@ android {
+@@ -56,11 +59,6 @@ android {
          versionCode = Versions.versionCode
          versionName = Versions.versionName
  
@@ -23,7 +24,7 @@ index a4a4b1ee1..94790b54f 100644
          buildConfigField("String", "GIT_REVISION", "\"${gitRevision()}\"")
          buildConfigField("String", "GIT_BRANCH_NAME", "\"${gitBranchName()}\"")
  
-@@ -72,7 +69,7 @@ android {
+@@ -77,7 +75,7 @@ android {
                  // Specifies a list of ABIs that Gradle should create APKs for.
                  include("armeabi-v7a", "x86", "arm64-v8a", "x86_64")
                  // Generate a universal APK that includes all ABIs, so user who installs from CI tool can use this one by default.
@@ -32,28 +33,53 @@ index a4a4b1ee1..94790b54f 100644
              }
          }
  
-@@ -103,12 +100,10 @@ android {
+@@ -86,24 +84,6 @@ android {
+         }
+     }
+ 
+-    signingConfigs {
+-        getByName("debug") {
+-            keyAlias = "androiddebugkey"
+-            keyPassword = "android"
+-            storeFile = file("./signature/debug.keystore")
+-            storePassword = "android"
+-        }
+-        register("nightly") {
+-            keyAlias = System.getenv("ELEMENT_ANDROID_NIGHTLY_KEYID")
+-                ?: project.property("signing.element.nightly.keyId") as? String?
+-            keyPassword = System.getenv("ELEMENT_ANDROID_NIGHTLY_KEYPASSWORD")
+-                ?: project.property("signing.element.nightly.keyPassword") as? String?
+-            storeFile = file("./signature/nightly.keystore")
+-            storePassword = System.getenv("ELEMENT_ANDROID_NIGHTLY_STOREPASSWORD")
+-                ?: project.property("signing.element.nightly.storePassword") as? String?
+-        }
+-    }
+-
+     val baseAppName = if (isEnterpriseBuild) {
+         "Element Enterprise"
+     } else {
+@@ -115,12 +95,10 @@ android {
          getByName("debug") {
-             resValue("string", "app_name", "Element X dbg")
+             resValue("string", "app_name", "$baseAppName dbg")
              applicationIdSuffix = ".debug"
 -            signingConfig = signingConfigs.getByName("debug")
          }
  
          getByName("release") {
-             resValue("string", "app_name", "Element X")
+             resValue("string", "app_name", baseAppName)
 -            signingConfig = signingConfigs.getByName("debug")
  
              postprocessing {
                  isRemoveUnusedCode = true
-@@ -126,7 +121,6 @@ android {
+@@ -138,7 +116,6 @@ android {
              versionNameSuffix = "-nightly"
-             resValue("string", "app_name", "Element X nightly")
+             resValue("string", "app_name", "$baseAppName nightly")
              matchingFallbacks += listOf("release")
 -            signingConfig = signingConfigs.getByName("nightly")
  
              postprocessing {
                  initWith(release.postprocessing)
-@@ -183,6 +177,10 @@ androidComponents {
+@@ -202,6 +179,10 @@ androidComponents {
          "x86_64" to 4,
      )
  
@@ -64,7 +90,7 @@ index a4a4b1ee1..94790b54f 100644
      onVariants { variant ->
          // Assigns a different version code for each output APK
          // other than the universal APK.
-@@ -193,7 +191,7 @@ androidComponents {
+@@ -212,7 +193,7 @@ androidComponents {
              val abiCode = abiVersionCodes[name] ?: 0
              // Assigns the new version code to output.versionCode, which changes the version code
              // for only the output APK, not for the variant itself.
