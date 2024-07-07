@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index af70c6ae39..90ed3fa090 100644
+index 3f5618b208..793e0fd471 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
 @@ -26,6 +26,9 @@ import extension.gitRevision
@@ -12,7 +12,7 @@ index af70c6ae39..90ed3fa090 100644
  
  plugins {
      id("io.element.android-compose-application")
-@@ -56,11 +59,6 @@ android {
+@@ -55,11 +58,6 @@ android {
          versionCode = Versions.versionCode
          versionName = Versions.versionName
  
@@ -24,7 +24,7 @@ index af70c6ae39..90ed3fa090 100644
          buildConfigField("String", "GIT_REVISION", "\"${gitRevision()}\"")
          buildConfigField("String", "GIT_BRANCH_NAME", "\"${gitBranchName()}\"")
  
-@@ -77,7 +75,7 @@ android {
+@@ -76,7 +74,7 @@ android {
                  // Specifies a list of ABIs that Gradle should create APKs for.
                  include("armeabi-v7a", "x86", "arm64-v8a", "x86_64")
                  // Generate a universal APK that includes all ABIs, so user who installs from CI tool can use this one by default.
@@ -33,7 +33,7 @@ index af70c6ae39..90ed3fa090 100644
              }
          }
  
-@@ -86,24 +84,6 @@ android {
+@@ -85,24 +83,6 @@ android {
          }
      }
  
@@ -58,7 +58,7 @@ index af70c6ae39..90ed3fa090 100644
      val baseAppName = if (isEnterpriseBuild) {
          "Element Enterprise"
      } else {
-@@ -115,12 +95,10 @@ android {
+@@ -114,12 +94,10 @@ android {
          getByName("debug") {
              resValue("string", "app_name", "$baseAppName dbg")
              applicationIdSuffix = ".debug"
@@ -71,7 +71,7 @@ index af70c6ae39..90ed3fa090 100644
  
              postprocessing {
                  isRemoveUnusedCode = true
-@@ -138,7 +116,6 @@ android {
+@@ -137,7 +115,6 @@ android {
              versionNameSuffix = "-nightly"
              resValue("string", "app_name", "$baseAppName nightly")
              matchingFallbacks += listOf("release")
@@ -79,7 +79,7 @@ index af70c6ae39..90ed3fa090 100644
  
              postprocessing {
                  initWith(release.postprocessing)
-@@ -202,6 +179,10 @@ androidComponents {
+@@ -201,6 +178,10 @@ androidComponents {
          "x86_64" to 4,
      )
  
@@ -90,7 +90,7 @@ index af70c6ae39..90ed3fa090 100644
      onVariants { variant ->
          // Assigns a different version code for each output APK
          // other than the universal APK.
-@@ -212,7 +193,7 @@ androidComponents {
+@@ -211,7 +192,7 @@ androidComponents {
              val abiCode = abiVersionCodes[name] ?: 0
              // Assigns the new version code to output.versionCode, which changes the version code
              // for only the output APK, not for the variant itself.
