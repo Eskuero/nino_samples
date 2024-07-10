@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 89beb41..b94e829 100644
+index c1f38e5..daf3e9e 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -22,7 +22,7 @@ android {
@@ -28,3 +28,782 @@ index 89beb41..b94e829 100644
 +		}
 +	}
  }
+Submodule jni da01d86..d8c9582 (rewind):
+diff --git a/jni/build.gradle b/jni/build.gradle
+index 09fd1b5..db466ba 100644
+--- a/jni/build.gradle
++++ b/jni/build.gradle
+@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
+ apply plugin: 'maven-publish'
+ 
+ group = 'com.artifex.mupdf'
+-version = '1.24.6'
++version = '1.24.4'
+ 
+ buildscript {
+ 	repositories {
+@@ -36,7 +36,7 @@ android {
+ 
+ 	defaultConfig {
+ 		minSdkVersion 21
+-		targetSdkVersion 34
++		targetSdkVersion 33
+ 
+ 		externalNativeBuild.ndkBuild.arguments '-j4'
+ 
+Submodule libmupdf 7e4da1b..31b25c5 (rewind):
+diff --git a/jni/libmupdf/include/mupdf/fitz/version.h b/jni/libmupdf/include/mupdf/fitz/version.h
+index b0be36887..2ab2bbc05 100644
+--- a/jni/libmupdf/include/mupdf/fitz/version.h
++++ b/jni/libmupdf/include/mupdf/fitz/version.h
+@@ -23,9 +23,9 @@
+ #ifndef MUPDF_FITZ_VERSION_H
+ #define MUPDF_FITZ_VERSION_H
+ #ifndef FZ_VERSION
+-#define FZ_VERSION "1.24.6"
++#define FZ_VERSION "1.24.4"
+ #define FZ_VERSION_MAJOR 1
+ #define FZ_VERSION_MINOR 24
+-#define FZ_VERSION_PATCH 6
++#define FZ_VERSION_PATCH 4
+ #endif
+ #endif
+diff --git a/jni/libmupdf/platform/java/Android.mk b/jni/libmupdf/platform/java/Android.mk
+index ce7fe4fcc..89f2b62dd 100644
+--- a/jni/libmupdf/platform/java/Android.mk
++++ b/jni/libmupdf/platform/java/Android.mk
+@@ -198,16 +198,15 @@ ifdef USE_LEPTONICA
+ 
+ include $(CLEAR_VARS)
+ LOCAL_MODULE += mupdf_thirdparty_leptonica
+-LOCAL_C_INCLUDES := $(MUPDF_PATH)/include
+ LOCAL_SRC_FILES += $(patsubst %,$(MUPDF_PATH)/%,$(LEPTONICA_SRC))
+-LOCAL_SRC_FILES += $(MUPDF_PATH)/source/fitz/leptonica-wrap.c
++LOCAL_SRC_FILES += $(MUPDF_PATH)/source/fitz/tessocr.cpp
+ LOCAL_C_INCLUDES += $(patsubst -I%,$(MUPDF_PATH)/%,$(filter -I%,$(LEPTONICA_CFLAGS) $(LEPTONICA_BUILD_CFLAGS)))
+ LOCAL_CFLAGS += $(filter-out -I%,$(LEPTONICA_CFLAGS) $(LEPTONICA_BUILD_CFLAGS))
+ LOCAL_CFLAGS += -Wno-sign-compare -DANDROID_BUILD
+ LOCAL_CFLAGS += $(MUPDF_EXTRA_CFLAGS)
+ include $(BUILD_STATIC_LIBRARY)
+ 
+-endif  #  USE_LEPTONICA
++endif  #  USE_TESSERACT
+ 
+ include $(CLEAR_VARS)
+ LOCAL_MODULE += mupdf_thirdparty_extract
+@@ -246,10 +245,10 @@ LOCAL_STATIC_LIBRARIES += mupdf_thirdparty_libjpeg
+ LOCAL_STATIC_LIBRARIES += mupdf_thirdparty_mujs
+ LOCAL_STATIC_LIBRARIES += mupdf_thirdparty_openjpeg
+ 
+-ifdef USE_LEPTONICA
++ifdef USE_TESSERACT
+ LOCAL_STATIC_LIBRARIES += mupdf_thirdparty_leptonica
+ endif
+-ifdef USE_TESSERACT
++ifdef USE_LEPTONICA
+ LOCAL_STATIC_LIBRARIES += mupdf_thirdparty_tesseract
+ endif
+ 
+diff --git a/jni/libmupdf/scripts/mupdfwrap_test.cs b/jni/libmupdf/scripts/mupdfwrap_test.cs
+index c6af530ff..7bbe739db 100644
+--- a/jni/libmupdf/scripts/mupdfwrap_test.cs
++++ b/jni/libmupdf/scripts/mupdfwrap_test.cs
+@@ -57,64 +57,6 @@ public class HelloWorld
+         if (w2 != w || h2 != h) {
+             throw new System.Exception("Unexpected tuple values from bitmap.fz_bitmap_details().");
+         }
+-
+-        // Check we get exception from MuPDF. As of 2024-06-14 this exception
+-        // does not contain the original MuPDF exception text, it just says
+-        // "External component has thrown an exception."
+-        //
+-        // We only do this test if not running on Mono - Mono fails
+-        // with:
+-        //
+-        // > terminate called after throwing an instance of
+-        // > 'mupdf::FzErrorSystem'
+-        //
+-        if (System.Type.GetType("Mono.Runtime") == null)
+-        {
+-            int received_exception = 0;
+-            try
+-            {
+-                mupdf.FzDocument document2 = new mupdf.FzDocument("does not exist");
+-                System.Console.WriteLine("*** Error, did not get expected exception.");
+-            }
+-            catch (System.Exception e)
+-            {
+-                received_exception = 1;
+-                System.Console.WriteLine("Received exception: " + e.Message);
+-            }
+-            if (received_exception != 1)
+-            {
+-                throw new System.Exception("Did not receive expected exception");
+-            }
+-        }
+-        else
+-        {
+-            System.Console.WriteLine("Not checking handling of exceptions because running on Mono.");
+-        }
+-
+-        // Check we can make MuPDF open filename containing 4-byte unicode
+-        // character.
+-        byte[] text_utf8 =
+-        {
+-                0xf0,
+-                0x90,
+-                0x90,
+-                0xb7,
+-        };
+-        string testfile2 = "zlib.3.pdf"
+-                + System.Text.Encoding.UTF8.GetString(text_utf8)
+-                + ".pdf";
+-        System.Console.WriteLine("Opening testfile2: " + testfile2);
+-        try
+-        {
+-            mupdf.FzDocument document2 = new mupdf.FzDocument(testfile2);
+-            System.Console.WriteLine("new mupdf.FzDocument succeeded");
+-        }
+-        catch (System.Exception e)
+-        {
+-            System.Console.WriteLine("Exception: " + e.Message);
+-            throw new System.Exception("Failed to open filename containing 4-byte unicode character");
+-        }
+-
+         System.Console.WriteLine("MuPDF C# test finished.");
+     }
+ }
+diff --git a/jni/libmupdf/scripts/wrap/__main__.py b/jni/libmupdf/scripts/wrap/__main__.py
+index 7c899ff19..5d78ac6a1 100644
+--- a/jni/libmupdf/scripts/wrap/__main__.py
++++ b/jni/libmupdf/scripts/wrap/__main__.py
+@@ -955,7 +955,6 @@ import wdev
+ 
+ from . import classes
+ from . import cpp
+-from . import csharp
+ from . import make_cppyy
+ from . import parse
+ from . import state
+@@ -2247,6 +2246,46 @@ def python_settings(build_dirs, startdir=None):
+         #
+     return env_extra, command_prefix
+ 
++def csharp_settings(build_dirs):
++    '''
++    Returns (csc, mono, mupdf_cs).
++
++    csc: C# compiler.
++    mono: C# interpreter ("" on Windows).
++    mupdf_cs: MuPDF C# code.
++
++    E.g. on Windows `csc` can be: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/Roslyn/csc.exe
++    '''
++    # On linux requires:
++    #   sudo apt install mono-devel
++    #
++    # OpenBSD:
++    #   pkg_add mono
++    # but we get runtime error when exiting:
++    #   mono:build/shared-release/libmupdfcpp.so: undefined symbol '_ZdlPv'
++    # which might be because of mixing gcc and clang?
++    #
++    if state.state_.windows:
++        import wdev
++        vs = wdev.WindowsVS()
++        jlib.log('{vs.description_ml()=}')
++        csc = vs.csc
++        jlib.log('{csc=}')
++        assert csc, f'Unable to find csc.exe'
++        mono = ''
++    else:
++        mono = 'mono'
++        if state.state_.linux:
++            csc = 'mono-csc'
++        elif state.state_.openbsd:
++            csc = 'csc'
++        else:
++            assert 0, f'Do not know where to find mono. {platform.platform()=}'
++
++    mupdf_cs = os.path.relpath(f'{build_dirs.dir_so}/mupdf.cs')
++    return csc, mono, mupdf_cs
++
++
+ def make_docs( build_dirs, languages_original):
+ 
+     languages = languages_original
+@@ -2826,19 +2865,13 @@ def main2():
+                     jlib.log( 'Tests ran ok.')
+ 
+             elif arg == '--test-csharp':
+-                csc, mono, mupdf_cs = csharp.csharp_settings(build_dirs)
++                csc, mono, mupdf_cs = csharp_settings(build_dirs)
+ 
+                 # Our tests look for zlib.3.pdf in their current directory.
+-                testfile = f'{build_dirs.dir_so}/zlib.3.pdf' if state.state_.windows else 'zlib.3.pdf'
+                 jlib.fs_copy(
+                         f'{build_dirs.dir_mupdf}/thirdparty/zlib/zlib.3.pdf',
+-                        testfile
++                        f'{build_dirs.dir_so}/zlib.3.pdf' if state.state_.windows else 'zlib.3.pdf'
+                         )
+-                testfile2 = testfile + b'\xf0\x90\x90\xb7'.decode() + '.pdf'
+-                jlib.log(f'{testfile=}')
+-                jlib.log(f'{testfile2=}')
+-                jlib.log(f'{testfile2}')
+-                shutil.copy2(testfile, testfile2)
+ 
+                 if 1:
+                     # Build and run simple test.
+@@ -2861,13 +2894,9 @@ def main2():
+                                 raise Exception( f'command failed: {command}')
+                         else:
+                             jlib.system(f'LD_LIBRARY_PATH={build_dirs.dir_so} {mono} ./{out}', verbose=1)
+-                if 1:
+-                    # Build and run test using minimal swig library to test
+-                    # handling of Unicode strings.
+-                    swig.test_swig_csharp()
+ 
+             elif arg == '--test-csharp-gui':
+-                csc, mono, mupdf_cs = csharp.csharp_settings(build_dirs)
++                csc, mono, mupdf_cs = csharp_settings(build_dirs)
+ 
+                 # Build and run gui test.
+                 #
+diff --git a/jni/libmupdf/scripts/wrap/csharp.py b/jni/libmupdf/scripts/wrap/csharp.py
+index 35f2a591d..22ebc7e74 100644
+--- a/jni/libmupdf/scripts/wrap/csharp.py
++++ b/jni/libmupdf/scripts/wrap/csharp.py
+@@ -10,7 +10,6 @@ from . import util
+ import jlib
+ 
+ import textwrap
+-import os
+ 
+ 
+ def make_outparam_helper_csharp(
+@@ -278,48 +277,3 @@ def make_outparam_helper_csharp(
+     write(';\n')
+     write(f'    }}\n')
+     write(f'}}\n')
+-
+-
+-def csharp_settings(build_dirs):
+-    '''
+-    Returns (csc, mono, mupdf_cs).
+-
+-    csc: C# compiler.
+-    mono: C# interpreter ("" on Windows).
+-    mupdf_cs: MuPDF C# code.
+-
+-    `mupdf_cs` will be None if `build_dirs` is false.
+-
+-    E.g. on Windows `csc` can be: C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/MSBuild/Current/Bin/Roslyn/csc.exe
+-    '''
+-    # On linux requires:
+-    #   sudo apt install mono-devel
+-    #
+-    # OpenBSD:
+-    #   pkg_add mono
+-    # but we get runtime error when exiting:
+-    #   mono:build/shared-release/libmupdfcpp.so: undefined symbol '_ZdlPv'
+-    # which might be because of mixing gcc and clang?
+-    #
+-    if state.state_.windows:
+-        import wdev
+-        vs = wdev.WindowsVS()
+-        jlib.log('{vs.description_ml()=}')
+-        csc = vs.csc
+-        jlib.log('{csc=}')
+-        assert csc, f'Unable to find csc.exe'
+-        mono = ''
+-    else:
+-        mono = 'mono'
+-        if state.state_.linux:
+-            csc = 'mono-csc'
+-        elif state.state_.openbsd:
+-            csc = 'csc'
+-        else:
+-            assert 0, f'Do not know where to find mono. {platform.platform()=}'
+-
+-    if build_dirs:
+-        mupdf_cs = os.path.relpath(f'{build_dirs.dir_so}/mupdf.cs')
+-    else:
+-        mupdf_cs = None
+-    return csc, mono, mupdf_cs
+diff --git a/jni/libmupdf/scripts/wrap/state.py b/jni/libmupdf/scripts/wrap/state.py
+index b96ee52a4..5924b7cd1 100644
+--- a/jni/libmupdf/scripts/wrap/state.py
++++ b/jni/libmupdf/scripts/wrap/state.py
+@@ -53,7 +53,7 @@ def get_name_canonical( type_):
+     Wrap Clang's clang.cindex.Type.get_canonical() to avoid returning anonymous
+     struct that clang spells as 'struct (unnamed at ...)'.
+     '''
+-    if type_.spelling in ('size_t', 'int64_t'):
++    if type_.spelling == 'size_t':
+         #jlib.log( 'Not canonicalising {self.spelling=}')
+         return type_
+     ret = type_.get_canonical()
+diff --git a/jni/libmupdf/scripts/wrap/swig.py b/jni/libmupdf/scripts/wrap/swig.py
+index 60ae49055..49fd7e70c 100644
+--- a/jni/libmupdf/scripts/wrap/swig.py
++++ b/jni/libmupdf/scripts/wrap/swig.py
+@@ -11,7 +11,6 @@ import textwrap
+ import jlib
+ 
+ from . import cpp
+-from . import csharp
+ from . import rename
+ from . import state
+ from . import util
+@@ -37,59 +36,6 @@ def translate_ucdn_macros( build_dirs):
+     assert n
+     return out.getvalue()
+ 
+-def _csharp_unicode_prefix():
+-    '''
+-    Returns typemaps that automatically convert C# strings (which are utf16)
+-    into utf8 when calling MuPDF, and convert strings returned by MuPDF (which
+-    are utf8) into utf16.
+-
+-    We return empty string if not on Windows, because Mono appears to already
+-    work.
+-    '''
+-    if not state.state_.windows:
+-        # Mono on Linux already seems to use utf8.
+-        return ''
+-
+-    text = textwrap.dedent('''
+-            // This ensures that our code below overrides whatever is defined
+-            // in std_string.i and any later `%include "std_string.i"` is
+-            // ignored.
+-            %include "std_string.i"
+-
+-            // See https://github.com/swig/swig/pull/2364. We also add typemaps
+-            // for `const char*`.
+-
+-            %{
+-            #include <string>
+-            %}
+-
+-            namespace std
+-            {
+-                %typemap(imtype,
+-                         inattributes="[global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPUTF8Str)]",
+-                         outattributes="[return: global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPUTF8Str)]",
+-                         directorinattributes="[global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPUTF8Str)]",
+-                         directoroutattributes="[return: global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPUTF8Str)]"
+-                         ) string "string"
+-
+-
+-                %typemap(imtype,
+-                         inattributes="[global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPUTF8Str)]",
+-                         outattributes="[return: global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPUTF8Str)]",
+-                         directorinattributes="[global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPUTF8Str)]",
+-                         directoroutattributes="[return: global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPUTF8Str)]"
+-                         ) const string & "string"
+-
+-                %typemap(imtype,
+-                         inattributes="[global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPUTF8Str)]",
+-                         outattributes="[return: global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPUTF8Str)]",
+-                         directorinattributes="[global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPUTF8Str)]",
+-                         directoroutattributes="[return: global::System.Runtime.InteropServices.MarshalAs(global::System.Runtime.InteropServices.UnmanagedType.LPUTF8Str)]"
+-                         ) const char* "string"
+-            }
+-            ''')
+-    return text
+-
+ 
+ def build_swig(
+         state_,
+@@ -644,15 +590,6 @@ def build_swig(
+     text = ''
+ 
+     text += '%module(directors="1") mupdf\n'
+-
+-    # https://www.mono-project.com/docs/advanced/pinvoke/
+-    #
+-    # > Mono on all platforms currently uses UTF-8 encoding for all string
+-    # > marshaling operations.
+-    #
+-    if language == 'csharp':
+-        text += _csharp_unicode_prefix()
+-
+     for i in generated.virtual_fnptrs:
+         text += f'%feature("director") {i};\n'
+ 
+@@ -2000,265 +1937,3 @@ def test_swig():
+                 test.i
+             ''').replace( '\n', ' \\\n')
+             )
+-
+-
+-def test_swig_csharp():
+-    '''
+-    Checks behaviour with and without our custom string marshalling code from
+-    _csharp_unicode_prefix().
+-    '''
+-    test_swig_csharp_internal(fix=0)
+-    test_swig_csharp_internal(fix=1)
+-
+-
+-def test_swig_csharp_internal(fix):
+-    '''
+-    Test utf8 string handling, with/without use of _csharp_unicode_prefix().
+-    '''
+-    # We create C++/C# source directly from this function, and explicitly run
+-    # C++ and .NET/Mono build commands.
+-    #
+-
+-    build_dir = f'test_swig_{fix}'
+-    os.makedirs( build_dir, exist_ok=True)
+-
+-    print('')
+-    print(f'### test_swig_internal(): {fix=}', flush=1)
+-
+-    # Create SWIG input file `test.i`.
+-    #
+-    test_i = '%module test\n'
+-
+-    if fix:
+-        test_i += _csharp_unicode_prefix()
+-
+-    test_i += textwrap.dedent(f'''
+-            %include "std_string.i"
+-
+-            // Returns escaped representation of `text`.
+-            const char* foo1(const char* text);
+-
+-            // Returns escaped representation of `text`.
+-            std::string foo2(const std::string& text);
+-
+-            // Returns 4-byte string `0xf0 0x90 0x90 0xb7`, which decodes as
+-            // utf8 to a 4-byte utf16 character.
+-            const char* bar();
+-
+-            // Returns 4-byte string `0xf0 0x90 0x90 0xb7`, which decodes as
+-            // utf8 to a 4-byte utf16 character.
+-            std::string bar2();
+-
+-            %{{
+-                // Returns string containing escaped description of `text`.
+-                std::string foo2(const std::string& text)
+-                {{
+-                    std::string ret;
+-                    for (int i=0; i<text.size(); ++i)
+-                    {{
+-                        char buffer[8];
+-                        snprintf(buffer, sizeof(buffer), " \\\\x%02x", (unsigned char) text[i]);
+-                        ret += buffer;
+-                    }}
+-                    return ret;
+-                }}
+-
+-                // Returns pointer to static buffer containing escaped
+-                // description of `text`.
+-                const char* foo1(const char* text)
+-                {{
+-                    std::string text2 = text;
+-                    static std::string ret;
+-                    ret = foo2(text2);
+-                    return ret.c_str();
+-                }}
+-
+-                // Returns pointer to static buffer containing a utf8 string.
+-                const char* bar()
+-                {{
+-                    static char ret[] =
+-                    {{
+-                            (char) 0xf0,
+-                            (char) 0x90,
+-                            (char) 0x90,
+-                            (char) 0xb7,
+-                            0,
+-                    }};
+-                    return ret;
+-                }}
+-
+-                // Returns a std::string containing a utf8 string.
+-                std::string bar2()
+-                {{
+-                    const char* ret = bar();
+-                    return std::string(ret);
+-                }}
+-            %}}
+-            ''')
+-    with open(f'{build_dir}/test.i', 'w') as f:
+-        f.write(test_i)
+-
+-    # Run swig on `test.i` to generate `test.cs` and `test.cpp`.
+-    #
+-    jlib.system(
+-            f'''
+-            cd {build_dir} && swig
+-                {'-DSWIG_CSHARP_NO_STRING_HELPER=1 -DSWIG_CSHARP_NO_EXCEPTION_HELPER=1' if 0 and fix else ''}
+-                -D_WIN32
+-                -c++
+-                -csharp
+-                -Wextra
+-                -Wall
+-                -dllimport test.dll
+-                -outdir .
+-                -outfile test.cs
+-                -o test.cpp
+-                test.i
+-            ''')
+-
+-    # Compile/link test.cpp to create test.dll.
+-    #
+-    if state.state_.windows:
+-        import wdev
+-        vs = wdev.WindowsVS()
+-        jlib.system(
+-                f'''
+-                cd {build_dir} && "{vs.vcvars}"&&"{vs.cl}"
+-                    /nologo                     #
+-                    /c                          # Compiles without linking.
+-                    /EHsc                       # Enable "Standard C++ exception handling".
+-                    /MD
+-                    /Tptest.cpp                 # /Tp specifies C++ source file.
+-                    /Fotest.cpp.obj             # Output file.
+-                    /permissive-                # Set standard-conformance mode.
+-                    /FC                         # Display full path of source code files passed to cl.exe in diagnostic text.
+-                    /W3                         # Sets which warning level to output. /W3 is IDE default.
+-                    /diagnostics:caret          # Controls the format of diagnostic messages.
+-                ''')
+-
+-        jlib.system(
+-                f'''
+-                cd {build_dir} && "{vs.vcvars}"&&"{vs.link}"
+-                    /nologo                     #
+-                    /DLL
+-                    /IMPLIB:test.lib        # Overrides the default import library name.
+-                    /OUT:test.dll           # Specifies the output file name.
+-                    /nologo
+-                    test.cpp.obj
+-                ''')
+-    else:
+-        jlib.system(
+-                f'''
+-                cd {build_dir} && c++
+-                    -fPIC
+-                    --shared
+-                    -o test.dll
+-                    test.cpp
+-                ''')
+-
+-    # Create C# test programme `testfoo.cs`.
+-    #
+-    cs = textwrap.dedent(f'''
+-            public class HelloWorld
+-            {{
+-                public static void Main(string[] args)
+-                {{
+-                    bool expect_fix = ({fix if state.state_.windows else 1} != 0);
+-
+-                    // Utf8 for our string with 4-byte utf16 character.
+-                    //
+-                    byte[] text_utf8 = {{ 0xf0, 0x90, 0x90, 0xb7, }};
+-                    string text = System.Text.Encoding.UTF8.GetString(text_utf8);
+-
+-                    // Escaped representation of text_utf8, as returned by
+-                    // calls of test.foo1() and test.foo2() below.
+-                    //
+-                    string text_utf8_escaped = " \\\\xf0 \\\\x90 \\\\x90 \\\\xb7";
+-                    string incorrect_utf8_escaped = " \\\\x3f \\\\x3f";
+-
+-                    // test.foo1()/test.foo2() return a `const
+-                    // char*`/`std::string` containing an escaped
+-                    // representation of the string that they were given. If
+-                    // things are working correctly, this will be an escaped
+-                    // representation of `text_utf8`.
+-                    //
+-
+-                    string foo1 = test.foo1(text);
+-                    System.Console.WriteLine("foo1: " + foo1);
+-                    string foo_expected_escaped = (expect_fix) ? text_utf8_escaped : incorrect_utf8_escaped;
+-                    if (foo1 != foo_expected_escaped)
+-                    {{
+-                        throw new System.Exception(
+-                                "foo1 incorrect: '" + foo1 + "'"
+-                                + " - foo_expected_escaped: '" + foo_expected_escaped + "'"
+-                                );
+-                    }}
+-
+-                    string foo2 = test.foo2(text);
+-                    System.Console.WriteLine("foo2: " + foo2);
+-                    if (foo2 != foo_expected_escaped)
+-                    {{
+-                        throw new System.Exception(
+-                                "foo2 incorrect: '" + foo2 + "'"
+-                                + " - foo_expected_escaped: '" + foo_expected_escaped + "'"
+-                                );
+-                    }}
+-
+-                    // test.bar1() and test.bar2() return a `const
+-                    // char*`/`std::string` containing the bytes of
+-                    // `text_utf8`. If things are working correctly we will see
+-                    // exactly these bytes.
+-                    //
+-                    byte[] bar_expected_utf8_incorrect = {{ 0xc3, 0xb0, 0xc2, 0x90, 0xc2, 0x90, 0xc2, 0xb7, }};
+-                    byte[] bar_expected_utf8 = (expect_fix) ? text_utf8 : bar_expected_utf8_incorrect;
+-
+-                    string ret3 = test.bar();
+-                    byte[] ret3_utf8 = System.Text.Encoding.UTF8.GetBytes(ret3);
+-                    print_bytes_as_string("ret3_utf8:", ret3_utf8);
+-                    if (!equal(ret3_utf8, bar_expected_utf8))
+-                    {{
+-                        throw new System.Exception("ret3 != bar_expected_utf8");
+-                    }}
+-
+-                    string ret4 = test.bar2();
+-                    byte[] ret4_utf8 = System.Text.Encoding.UTF8.GetBytes(ret4);
+-                    print_bytes_as_string("ret4_utf8:", ret4_utf8);
+-                    if (!equal(ret4_utf8, bar_expected_utf8))
+-                    {{
+-                        throw new System.Exception("ret4_utf8 != bar_expected_utf8");
+-                    }}
+-                }}
+-
+-                static bool equal(byte[] a, byte[] b)
+-                {{
+-                    if (a.Length != b.Length)   return false;
+-                    for (int i=0; i<a.Length; ++i)
+-                    {{
+-                        if (a[i] != b[i])   return false;
+-                    }}
+-                    return true;
+-                }}
+-
+-                static void print_bytes_as_string(string prefix, byte[] a)
+-                {{
+-                    System.Console.Write(prefix);
+-                    System.Console.Write("[");
+-                    foreach (var b in a)
+-                    {{
+-                        System.Console.Write(" {{0:x2}}", b);
+-                    }}
+-                    System.Console.WriteLine("]");
+-                }}
+-            }}
+-            ''')
+-    with open(f'{build_dir}/testfoo.cs', 'w') as f:
+-        f.write(cs)
+-
+-    # Use `csc` to compile `testfoo.cs` and create `testfoo.exe`.
+-    #
+-    csc, mono, _ = csharp.csharp_settings(None)
+-    jlib.system(f'cd {build_dir} && "{csc}" -out:testfoo.exe testfoo.cs test.cs')
+-
+-    # Run `testfoo.exe`.
+-    #
+-    jlib.system(f'cd {build_dir} && {mono} testfoo.exe')
+diff --git a/jni/libmupdf/source/fitz/geometry.c b/jni/libmupdf/source/fitz/geometry.c
+index 5c3c76bc7..f9d6aadc6 100644
+--- a/jni/libmupdf/source/fitz/geometry.c
++++ b/jni/libmupdf/source/fitz/geometry.c
+@@ -682,60 +682,20 @@ int fz_is_point_inside_irect(int x, int y, fz_irect r)
+ 	return (x >= r.x0 && x < r.x1 && y >= r.y0 && y < r.y1);
+ }
+ 
+-/* cross (b-a) with (p-a) */
+-static float
+-cross(fz_point a, fz_point b, fz_point p)
+-{
+-	b.x -= a.x;
+-	b.y -= a.y;
+-	p.x -= a.x;
+-	p.y -= a.y;
+-	return b.x * p.y - b.y * p.x;
+-}
+-
+ static int fz_is_point_inside_triangle(fz_point p, fz_point a, fz_point b, fz_point c)
+ {
+-	/* Consider the following:
+-	 *
+-	 *       P
+-	 *      /|
+-	 *     / |
+-	 *    /  |
+-	 * A +---+-------+ B
+-	 *       M
+-	 *
+-	 * The cross product of vector AB and vector AP is the distance PM.
+-	 * The sign of this distance depends on what side of the line AB, P lies on.
+-	 *
+-	 * So, for a triangle ABC, if we take cross products of:
+-	 *
+-	 *  AB and AP
+-	 *  BC and BP
+-	 *  CA and CP
+-	 *
+-	 * P can only be inside the triangle if the signs are all identical.
+-	 *
+-	 * One of the cross products being 0 indicates that the point is on a line.
+-	 * Two of the cross products being 0 indicates that the point is on a vertex.
+-	 *
+-	 * If 2 of the vertexes are the same, the algorithm still works.
+-	 * Iff all 3 of the vertexes are the same, the cross products are all zero. The
+-	 * value of p is irrelevant.
+-	 */
+-	float crossa = cross(a, b, p);
+-	float crossb = cross(b, c, p);
+-	float crossc = cross(c, a, p);
+-
+-	/* Check for degenerate case. All vertexes the same. */
+-	if (crossa == 0 && crossb == 0 && crossc == 0)
+-		return a.x == p.x && a.y == p.y;
+-
+-	if (crossa >= 0 && crossb >= 0 && crossc >= 0)
+-		return 1;
+-	if (crossa <= 0 && crossb <= 0 && crossc <= 0)
+-		return 1;
++	float s, t, area;
++	s = a.y * c.x - a.x * c.y + (c.y - a.y) * p.x + (a.x - c.x) * p.y;
++	t = a.x * b.y - a.y * b.x + (a.y - b.y) * p.x + (b.x - a.x) * p.y;
+ 
+-	return 0;
++	if ((s < 0) != (t < 0))
++		return 0;
++
++	area = -b.y * c.x + a.y * (c.x - b.x) + a.x * (b.y - c.y) + b.x * c.y;
++
++	return area < 0 ?
++		(s <= 0 && s + t >= area) :
++		(s >= 0 && s + t <= area);
+ }
+ 
+ int fz_is_point_inside_quad(fz_point p, fz_quad q)
+diff --git a/jni/libmupdf/source/pdf/pdf-op-filter.c b/jni/libmupdf/source/pdf/pdf-op-filter.c
+index 4d8935db6..6d512a035 100644
+--- a/jni/libmupdf/source/pdf/pdf-op-filter.c
++++ b/jni/libmupdf/source/pdf/pdf-op-filter.c
+@@ -1769,13 +1769,11 @@ pdf_filter_W(fz_context *ctx, pdf_processor *proc)
+ {
+ 	pdf_sanitize_processor *p = (pdf_sanitize_processor*)proc;
+ 	fz_rect r;
+-	fz_matrix ctm;
+ 
+ 	if (fz_is_empty_rect(p->gstate->clip_rect))
+ 		return;
+ 
+-	ctm = fz_concat(p->gstate->pending.ctm, p->gstate->sent.ctm);
+-	r = fz_bound_path(ctx, p->path, NULL, ctm);
++	r = fz_bound_path(ctx, p->path, NULL, p->gstate->pending.ctm);
+ 	p->gstate->clip_rect = fz_intersect_rect(p->gstate->clip_rect, r);
+ 
+ 	if (fz_is_empty_rect(p->gstate->clip_rect))
+@@ -1794,13 +1792,11 @@ pdf_filter_Wstar(fz_context *ctx, pdf_processor *proc)
+ {
+ 	pdf_sanitize_processor *p = (pdf_sanitize_processor*)proc;
+ 	fz_rect r;
+-	fz_matrix ctm;
+ 
+ 	if (fz_is_empty_rect(p->gstate->clip_rect))
+ 		return;
+ 
+-	ctm = fz_concat(p->gstate->pending.ctm, p->gstate->sent.ctm);
+-	r = fz_bound_path(ctx, p->path, NULL, ctm);
++	r = fz_bound_path(ctx, p->path, NULL, p->gstate->pending.ctm);
+ 	p->gstate->clip_rect = fz_intersect_rect(p->gstate->clip_rect, r);
+ 
+ 	if (fz_is_empty_rect(p->gstate->clip_rect))
