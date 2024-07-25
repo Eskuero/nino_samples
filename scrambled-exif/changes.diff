@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index d27679d..81d2ffd 100644
+index fbda243..d7dbaa3 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -57,6 +57,18 @@ android {
+@@ -59,6 +59,18 @@ android {
          disable 'MissingTranslation'
      }
      namespace 'com.jarsilio.android.scrambledeggsif'

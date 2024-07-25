@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index bd879df4d..e85805823 100644
+index f9e226d3d..6bee476f6 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -158,6 +158,18 @@ android {
+@@ -161,6 +161,18 @@ android {
          exclude 'META-INF/INDEX.LIST'
          exclude '.readme'
      }
