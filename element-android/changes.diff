@@ -1,0 +1,63 @@
+diff --git a/gradle.properties b/gradle.properties
+index 8cde2fc687..9065380003 100644
+--- a/gradle.properties
++++ b/gradle.properties
+@@ -8,7 +8,7 @@
+ # The setting is particularly useful for tweaking memory settings.
+ 
+ # Build Time Optimizations
+-org.gradle.jvmargs=-Xmx4g -Xms512M -XX:MaxPermSize=2048m -XX:MaxMetaspaceSize=1g -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:+UseParallelGC
++org.gradle.jvmargs=-Xmx4g -Xms4g -XX:MaxMetaspaceSize=4g -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8 -XX:+UseParallelGC
+ org.gradle.configureondemand=true
+ org.gradle.parallel=true
+ org.gradle.vfs.watch=true
+diff --git a/vector-app/build.gradle b/vector-app/build.gradle
+index 8a806707d0..3c76b000c3 100644
+--- a/vector-app/build.gradle
++++ b/vector-app/build.gradle
+@@ -168,11 +168,6 @@ android {
+ 
+         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+ 
+-        // Keep abiFilter for the universalApk
+-        ndk {
+-            abiFilters "armeabi-v7a", "x86", 'arm64-v8a', 'x86_64'
+-        }
+-
+         // Ref: https://developer.android.com/studio/build/configure-apk-splits.html
+         splits {
+             // Configures multiple APKs based on ABI.
+@@ -190,21 +185,21 @@ android {
+                 include "armeabi-v7a", "x86", "arm64-v8a", "x86_64"
+ 
+                 // Generate a universal APK that includes all ABIs, so user who install from CI tool can use this one by default.
+-                universalApk true
++                universalApk false
+             }
+         }
+ 
+-        applicationVariants.all { variant ->
+-            // assign different version code for each output
+-            def baseVariantVersion = variant.versionCode * 10
+-            variant.outputs.each { output ->
+-                def baseAbiVersionCode = project.ext.abiVersionCodes.get(output.getFilter(OutputFile.ABI))
+-                // Known limitation: it does not modify the value in the BuildConfig.java generated file
+-                // See https://issuetracker.google.com/issues/171133218
+-                output.versionCodeOverride = baseVariantVersion + baseAbiVersionCode
+-                print "ABI " + output.getFilter(OutputFile.ABI) + " \t-> VersionCode = " + output.versionCode + "\n"
+-                output.outputFileName = output.outputFileName.replace("vector-app", "vector")
+-            }
++        Calendar origin = Calendar.getInstance()
++        origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++        Date d1 = origin.getTime()
++        Date d2 = new Date()
++        long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++        def DateVersionCode = 2112312359 + minutes
++        project.ext.versionCodes = ['armeabi-v7a': 1, 'arm64-v8a': 2, 'x86': 3, 'x86_64': 4]
++        android.applicationVariants.all { variant ->
++                variant.outputs.all { output ->
++                        output.versionCodeOverride = project.ext.versionCodes.get(output.getFilter(com.android.build.OutputFile.ABI), 0) + DateVersionCode
++                }
+         }
+ 
+         // The following argument makes the Android Test Orchestrator run its

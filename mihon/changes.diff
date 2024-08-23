@@ -1,0 +1,58 @@
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+index 015af54d7..d62a48c56 100644
+--- a/app/build.gradle.kts
++++ b/app/build.gradle.kts
+@@ -2,6 +2,9 @@ import mihon.buildlogic.getBuildTime
+ import mihon.buildlogic.getCommitCount
+ import mihon.buildlogic.getGitSha
+ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
++import com.android.build.api.variant.FilterConfiguration.FilterType.*
++import java.time.LocalDateTime
++import java.time.Duration;
+ 
+ plugins {
+     id("mihon.android.application")
+@@ -34,10 +37,6 @@ android {
+         buildConfigField("boolean", "INCLUDE_UPDATER", "false")
+         buildConfigField("boolean", "PREVIEW", "false")
+ 
+-        ndk {
+-            abiFilters += supportedAbis
+-        }
+-
+         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+     }
+ 
+@@ -46,7 +45,7 @@ android {
+             isEnable = true
+             reset()
+             include(*supportedAbis.toTypedArray())
+-            isUniversalApk = true
++            isUniversalApk = false
+         }
+     }
+ 
+@@ -134,6 +133,23 @@ android {
+         abortOnError = false
+         checkReleaseBuilds = false
+     }
++
++    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
++    val d2 = LocalDateTime.now()
++    val minutes = Duration.between(d1, d2).getSeconds() / 60
++    val DateVersionCode = (2112312359 + minutes).toInt()
++    val abiCodes = mapOf("armeabi-v7a" to 1, "arm64-v8a" to 2, "x86" to 3, "x86_64" to 4)
++    androidComponents {
++        onVariants { variant ->
++            variant.outputs.forEach { output ->
++                val name = output.filters.find { it.filterType == ABI }?.identifier
++                val baseAbiCode = abiCodes[name]
++                if (baseAbiCode != null) {
++                    output.versionCode.set(baseAbiCode + DateVersionCode)
++                }
++            }
++        }
++    }
+ }
+ 
+ dependencies {

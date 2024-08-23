@@ -1,5 +1,5 @@
 diff --git a/mobile/android/app/build.gradle b/mobile/android/app/build.gradle
-index a26d055cb..473bdcb2a 100644
+index 52750232c..baeee4d88 100644
 --- a/mobile/android/app/build.gradle
 +++ b/mobile/android/app/build.gradle
 @@ -52,16 +52,6 @@ android {
@@ -39,21 +39,3 @@ index a26d055cb..473bdcb2a 100644
          }
      }
  }
-diff --git a/mobile/android/build.gradle b/mobile/android/build.gradle
-index 9b757fbc3..51ce1fc70 100644
---- a/mobile/android/build.gradle
-+++ b/mobile/android/build.gradle
-@@ -1,5 +1,5 @@
- allprojects {
--    ext.kotlin_version = '1.9.24' 
-+    ext.kotlin_version = '2.0.0'
- 
-     repositories {
-         google()
-@@ -21,4 +21,4 @@ tasks.register("clean", Delete) {
- 
- tasks.named('wrapper') {
-     distributionType = Wrapper.DistributionType.ALL
--}
-\ No newline at end of file
-+}

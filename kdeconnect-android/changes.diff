@@ -1,18 +1,18 @@
 diff --git a/build.gradle.kts b/build.gradle.kts
-index 9a5bac59..1e56eaee 100644
+index 33d30f42..a108dd77 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
-@@ -1,6 +1,9 @@
- import com.github.jk1.license.LicenseReportExtension
- import com.github.jk1.license.render.ReportRenderer
- import com.github.jk1.license.render.TextReportRenderer
+@@ -10,6 +10,9 @@ import org.objectweb.asm.ClassVisitor
+ import org.objectweb.asm.MethodVisitor
+ import org.objectweb.asm.Opcodes.CHECKCAST
+ import org.objectweb.asm.Opcodes.INVOKESTATIC
 +import com.android.build.api.variant.FilterConfiguration.FilterType.*
 +import java.time.LocalDateTime
 +import java.time.Duration;
  
  buildscript {
      dependencies {
-@@ -129,6 +132,17 @@ android {
+@@ -138,6 +141,17 @@ android {
              }
          }
      }
@@ -29,4 +29,4 @@ index 9a5bac59..1e56eaee 100644
 +    }
  }
  
- dependencies {
+ /**
