@@ -1,5 +1,5 @@
 diff --git a/mobile/android/app/build.gradle b/mobile/android/app/build.gradle
-index 52750232c..baeee4d88 100644
+index 52750232c..4e301d2a4 100644
 --- a/mobile/android/app/build.gradle
 +++ b/mobile/android/app/build.gradle
 @@ -52,16 +52,6 @@ android {
@@ -39,3 +39,70 @@ index 52750232c..baeee4d88 100644
          }
      }
  }
+@@ -98,6 +99,6 @@ dependencies {
+ }
+ 
+ // This is uncommented in F-Droid build script
+-//f configurations.all {
+-//f     exclude group: 'com.google.android.gms'
+-//f }
++configurations.all {
++    exclude group: 'com.google.android.gms'
++}
+diff --git a/mobile/pubspec.lock b/mobile/pubspec.lock
+index 14b487ce4..b74e10159 100644
+--- a/mobile/pubspec.lock
++++ b/mobile/pubspec.lock
+@@ -661,13 +661,14 @@ packages:
+     source: hosted
+     version: "11.1.0"
+   geolocator_android:
+-    dependency: transitive
++    dependency: "direct overridden"
+     description:
+-      name: geolocator_android
+-      sha256: "7aefc530db47d90d0580b552df3242440a10fe60814496a979aa67aa98b1fd47"
+-      url: "https://pub.dev"
+-    source: hosted
+-    version: "4.6.1"
++      path: geolocator_android
++      ref: floss
++      resolved-ref: be830ce0111e3d21f3a4932fa0a7ac888854582c
++      url: "https://github.com/Zverik/flutter-geolocator.git"
++    source: git
++    version: "4.5.5"
+   geolocator_apple:
+     dependency: transitive
+     description:
+diff --git a/mobile/pubspec.yaml b/mobile/pubspec.yaml
+index 51a31a24e..dc827d1f2 100644
+--- a/mobile/pubspec.yaml
++++ b/mobile/pubspec.yaml
+@@ -77,11 +77,11 @@ dependency_overrides:
+   meta: ^1.11.0
+   # TODO: remove once analyzer override is removed
+   analyzer_plugin: ^0.11.3
+-#f  geolocator_android:
+-#f    git:
+-#f      url: https://github.com/Zverik/flutter-geolocator.git
+-#f      ref: floss
+-#f      path: geolocator_android
++  geolocator_android:
++    git:
++      url: https://github.com/Zverik/flutter-geolocator.git
++      ref: floss
++      path: geolocator_android
+ 
+ dev_dependencies:
+   flutter_test:
+diff --git a/mobile/scripts/fdroid_build_isar.sh b/mobile/scripts/fdroid_build_isar.sh
+index 44f59c69a..f3945679b 100644
+--- a/mobile/scripts/fdroid_build_isar.sh
++++ b/mobile/scripts/fdroid_build_isar.sh
+@@ -13,4 +13,4 @@ mv libisar_android_x64.so libisar.so
+ mv libisar.so ../.pub-cache/hosted/pub.dev/isar_flutter_libs-*/android/src/main/jniLibs/x86_64/
+ mv libisar_android_x86.so libisar.so
+ mv libisar.so ../.pub-cache/hosted/pub.dev/isar_flutter_libs-*/android/src/main/jniLibs/x86/
+-cd ..
+\ No newline at end of file
++cd ..
