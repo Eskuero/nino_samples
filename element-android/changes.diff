@@ -12,7 +12,7 @@ index 8cde2fc687..9065380003 100644
  org.gradle.parallel=true
  org.gradle.vfs.watch=true
 diff --git a/vector-app/build.gradle b/vector-app/build.gradle
-index 8a806707d0..3c76b000c3 100644
+index e96f6ff1f6..2f719451a5 100644
 --- a/vector-app/build.gradle
 +++ b/vector-app/build.gradle
 @@ -168,11 +168,6 @@ android {

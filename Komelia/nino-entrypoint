@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cd image-decoder/native;
+# Uncomment this line to rebuild the compilation image
+# docker build -t komelia-build-android-arm64 . -f android-arm64.Dockerfile;
+docker run -v .:/build komelia-build-android-arm64;
+cd ../../;
+./gradlew :image-decoder:android-arm64_copyJniLibs;

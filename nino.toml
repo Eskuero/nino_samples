@@ -1,8 +1,8 @@
 [keystores]
-    [keystores.store2]    
-        path = "clave.jks"
-        [keystores.store2.aliases.key2]    
-            name = "mykey"
+	[keystores.store2]
+		path = "clave.jks"
+		[keystores.store2.aliases.key2]
+			name = "mykey"
 [projects]
 	[projects.default]
 		sync = true
@@ -11,44 +11,23 @@
 		keystore = "store2"
 		keyalias = "key2"
 	[projects.tachiyomi-extensions]
-		[projects.tachiyomi-extensions.tasks.mangadex]
-			exec = "individual:all:mangadex:assembleRelease"
-		[projects.tachiyomi-extensions.tasks.mangaplus]
-			exec = "individual:all:mangaplus:assembleRelease"
-		[projects.tachiyomi-extensions.tasks.mangahere]
-			exec = "individual:en:mangahere:assembleRelease"
-	[projects.proton-mail-android]
-		[projects.proton-mail-android.tasks.betarelease]
-			exec = "assembleBetaRelease"
-	[projects.PrivacyBrowser]
-		[projects.PrivacyBrowser.tasks.standardrelease]
-			exec = "assembleStandardRelease"
+		[projects.tachiyomi-extensions.tasks.komga]
+			exec = "extensions:individual:all:komga:assembleRelease"
+	[projects.thunderbird-android]
+		[projects.thunderbird-android.tasks.release]
+			exec = "app-k9mail:assembleRelease"
 	[projects.KeePassDX]
 		[projects.KeePassDX.tasks.librerelease]
 			exec = "assembleLibreRelease"
 	[projects.scrambled-exif]
 		[projects.scrambled-exif.tasks.standardreleases]
 			exec = "assembleStandardRelease"
-	[projects.Osmand]
-		[projects.Osmand.tasks.fulllegacyarmrelease]
-			exec = "assembleFullLegacyArmv7Release"
-		[projects.Osmand.tasks.fulllegacyarm64release]
-			exec = "assembleFullLegacyArm64Release"
-	[projects.blokada]
-		[projects.blokada.tasks.communityrelease]
-			exec = "assembleCommunityRelease"
-	[projects.Signal-Android]
-		[projects.Signal-Android.tasks.websiterelease]
-			exec = "assembleWebsiteProdRelease"
 	[projects.screenrecorder]
 		[projects.screenrecorder.tasks.fdroidrelease]
 			exec = "assembleFdroidRelease"
-	[projects.tachiyomi]
-		[projects.tachiyomi.tasks.fdroidrelease]
-			exec = "assembleFdroidRelease"
-	[projects.Conversations]
-		[projects.Conversations.tasks.conversationsfreesystemrelease]
-			exec = "assembleConversationsFreeSystemRelease"
+	[projects.mihon]
+		[projects.mihon.tasks.fdroidrelease]
+			exec = "assembleStandardRelease"
 	[projects.fdroidclient]
 		[projects.fdroidclient.tasks.fullrelease]
 			exec = "assembleFullRelease"
@@ -61,29 +40,35 @@
 	[projects.AmazeFileManager]
 		[projects.AmazeFileManager.tasks.fdroidrelease]
 			exec = "assembleFdroidRelease"
-	[projects.open-keychain]
-		[projects.open-keychain.tasks.fdroidrelease]
-			exec = "assembleFdroidRelease"
-	[projects.Twidere-Android]
-		[projects.Twidere-Android.tasks.fdroidrelease]
-			exec = "assembleFdroidRelease"
-	[projects.orbot]
-		[projects.orbot.tasks.fullperm]
-			exec = "assembleFullpermRelease"
 	[projects.andOTP]
 		[projects.andOTP.tasks.fdroid]
 			exec = "assembleFdroidRelease"
-	[projects.Fedilab]
-		[projects.Fedilab.tasks.fdroid]
-			exec = "assembleFdroidRelease"
-	[projects.k-9]
-		[projects.k-9.tasks.base]
-			exec = ":app:k9mail:assembleRelease"
-		[projects.k-9.tasks.jmap]
-			exec = ":app:k9mail-jmap:assembleRelease"
 	[projects.Simple-Gallery]
+		sync = false
 		[projects.Simple-Gallery.tasks.fossrelease]
 			exec = "assembleFossRelease"
-	[projects.riotX-android]
-		[projects.riotX-android.tasks.fdroidrelease]
+	[projects.element-android]
+		[projects.element-android.tasks.fdroidrelease]
 			exec = "assembleFdroidRelease"
+	[projects.LibreTorrent]
+		[projects.LibreTorrent.tasks.baserelease]
+			exec = "assembleBaseRelease"
+	[projects.PassAndroid]
+		[projects.PassAndroid.tasks.fdroidrelease]
+			exec = "assembleNoMapsNoAnalyticsForFDroidRelease"
+	[projects.mpv-android]
+		[projects.mpv-android.tasks.defaultrelease]
+			exec = "assembleDefaultRelease"
+	[projects.jellyfin-android]
+		[projects.jellyfin-android.tasks.librerelease]
+			exec = "assembleLibreRelease"
+	[projects.Komelia]
+		[projects.Komelia.tasks.release]
+			exec = "komelia-app:assembleRelease"
+	[projects.element-x-android]
+		[projects.element-x-android.tasks.release]
+			exec = "app:assembleFdroidRelease"
+	[projects.immich]
+		subdir = "mobile"
+		[projects.immich.tasks.release]
+			exec = "app:assembleFdroidRelease"

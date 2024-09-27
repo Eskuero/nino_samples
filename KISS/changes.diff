@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index bfbf359e..b5eb3dce 100644
+index c5fd970e..2d3cfe7f 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -37,6 +37,17 @@ android {
+@@ -42,6 +42,17 @@ android {
          targetCompatibility = '1.8'
      }
      namespace 'fr.neamar.kiss'

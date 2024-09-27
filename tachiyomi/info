@@ -1,3 +1,7 @@
 Remote: https://github.com/inorichi/tachiyomi
 Branch: master
 HEAD: a9c7cbf2c43959ae7ad9df3baa2306a254dd57e3
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

@@ -1,0 +1,31 @@
+diff --git a/komelia-app/build.gradle.kts b/komelia-app/build.gradle.kts
+index 0a4aad3..04a8a82 100644
+--- a/komelia-app/build.gradle.kts
++++ b/komelia-app/build.gradle.kts
+@@ -7,6 +7,8 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+ import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
+ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+ import org.jetbrains.kotlin.gradle.targets.js.webpack.KotlinWebpackConfig
++import java.time.LocalDateTime
++import java.time.Duration;
+ 
+ plugins {
+     alias(libs.plugins.kotlinMultiplatform)
+@@ -195,6 +197,17 @@ android {
+             }
+         }
+     }
++    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
++    val d2 = LocalDateTime.now()
++    val minutes = Duration.between(d1, d2).getSeconds() / 60
++    val DateVersionCode = (2112312359 + minutes).toInt()
++    androidComponents {
++        onVariants { variant ->
++            variant.outputs.forEach { output ->
++                output.versionCode.set(DateVersionCode)
++            }
++        }
++    }
+ }
+ 
+ 

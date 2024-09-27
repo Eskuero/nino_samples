@@ -1,11 +1,12 @@
 diff --git a/mobile/android/app/build.gradle b/mobile/android/app/build.gradle
-index 52750232c..4e301d2a4 100644
+index 52750232c..2ae1e71ac 100644
 --- a/mobile/android/app/build.gradle
 +++ b/mobile/android/app/build.gradle
-@@ -52,16 +52,6 @@ android {
+@@ -51,27 +51,22 @@ android {
+         versionName flutterVersionName
      }
  
-    signingConfigs {
+-   signingConfigs {
 -       release {
 -            def keyAliasVal = System.getenv("ALIAS")
 -            def keyPasswordVal = System.getenv("ANDROID_KEY_PASSWORD")
@@ -16,17 +17,17 @@ index 52750232c..4e301d2a4 100644
 -            storeFile file("../key.jks") ? file("../key.jks") : file(keystoreProperties['storeFile'])
 -            storePassword storePasswordVal ? storePasswordVal : keystoreProperties['storePassword']
 -       }
-    }
- 
+-   }
+-
      buildTypes {
-@@ -71,7 +61,18 @@ android {
+         debug {
+             applicationIdSuffix '.debug'
+             versionNameSuffix '-DEBUG'
          }
- 
-         release {
--            signingConfig signingConfigs.release
-+        }
 +    }
-+
+ 
+-        release {
+-            signingConfig signingConfigs.release
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
 +    Date d1 = origin.getTime()
@@ -39,7 +40,7 @@ index 52750232c..4e301d2a4 100644
          }
      }
  }
-@@ -98,6 +99,6 @@ dependencies {
+@@ -98,6 +93,6 @@ dependencies {
  }
  
  // This is uncommented in F-Droid build script
@@ -50,7 +51,7 @@ index 52750232c..4e301d2a4 100644
 +    exclude group: 'com.google.android.gms'
 +}
 diff --git a/mobile/pubspec.lock b/mobile/pubspec.lock
-index c9493f649..b74e10159 100644
+index aaea00d69..2c4e845c3 100644
 --- a/mobile/pubspec.lock
 +++ b/mobile/pubspec.lock
 @@ -661,13 +661,14 @@ packages:
@@ -74,7 +75,7 @@ index c9493f649..b74e10159 100644
    geolocator_apple:
      dependency: transitive
      description:
-@@ -1737,10 +1738,10 @@ packages:
+@@ -1744,10 +1745,10 @@ packages:
      dependency: transitive
      description:
        name: vm_service
@@ -88,7 +89,7 @@ index c9493f649..b74e10159 100644
      dependency: "direct main"
      description:
 diff --git a/mobile/pubspec.yaml b/mobile/pubspec.yaml
-index 3db5457c8..805977e1c 100644
+index dc1eb11ca..7cddc462b 100644
 --- a/mobile/pubspec.yaml
 +++ b/mobile/pubspec.yaml
 @@ -77,11 +77,11 @@ dependency_overrides:
@@ -108,14 +109,3 @@ index 3db5457c8..805977e1c 100644
  
  dev_dependencies:
    flutter_test:
-diff --git a/mobile/scripts/fdroid_build_isar.sh b/mobile/scripts/fdroid_build_isar.sh
-index 44f59c69a..f3945679b 100644
---- a/mobile/scripts/fdroid_build_isar.sh
-+++ b/mobile/scripts/fdroid_build_isar.sh
-@@ -13,4 +13,4 @@ mv libisar_android_x64.so libisar.so
- mv libisar.so ../.pub-cache/hosted/pub.dev/isar_flutter_libs-*/android/src/main/jniLibs/x86_64/
- mv libisar_android_x86.so libisar.so
- mv libisar.so ../.pub-cache/hosted/pub.dev/isar_flutter_libs-*/android/src/main/jniLibs/x86/
--cd ..
-\ No newline at end of file
-+cd ..
