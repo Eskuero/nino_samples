@@ -1,9 +1,9 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index c2c38ae219..f8faed350e 100644
+index 74e8abcad8..974310c3bf 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -21,6 +21,8 @@ import extension.koverDependencies
- import extension.locales
+@@ -23,6 +23,8 @@ import extension.locales
+ import extension.setupAnvil
  import extension.setupKover
  import java.util.Locale
 +import java.time.LocalDateTime
@@ -78,7 +78,7 @@ index c2c38ae219..f8faed350e 100644
  
              postprocessing {
                  initWith(release.postprocessing)
-@@ -195,6 +171,10 @@ androidComponents {
+@@ -192,6 +168,10 @@ androidComponents {
          "x86_64" to 4,
      )
  
@@ -89,7 +89,7 @@ index c2c38ae219..f8faed350e 100644
      onVariants { variant ->
          // Assigns a different version code for each output APK
          // other than the universal APK.
-@@ -205,7 +185,7 @@ androidComponents {
+@@ -202,7 +182,7 @@ androidComponents {
              val abiCode = abiVersionCodes[name] ?: 0
              // Assigns the new version code to output.versionCode, which changes the version code
              // for only the output APK, not for the variant itself.
@@ -98,3 +98,16 @@ index c2c38ae219..f8faed350e 100644
          }
      }
  
+diff --git a/gradle.properties b/gradle.properties
+index 9aefe9e69a..08c873a990 100644
+--- a/gradle.properties
++++ b/gradle.properties
+@@ -12,7 +12,7 @@
+ # http://www.gradle.org/docs/current/userguide/build_environment.html
+ # Specifies the JVM arguments used for the daemon process.
+ # The setting is particularly useful for tweaking memory settings.
+-org.gradle.jvmargs=-Xmx4g -Dfile.encoding=UTF-8 -XX:+UseG1GC
++org.gradle.jvmargs=-Xmx9g -XX:MaxMetaspaceSize=512m -Dfile.encoding=UTF-8 -XX:+HeapDumpOnOutOfMemoryError -XX:+UseG1GC -Dkotlin.daemon.jvm.options=-Xmx4g
+ 
+ # AndroidX package structure to make it clearer which packages are bundled with the
+ # Android operating system, and which are packaged with your app"s APK

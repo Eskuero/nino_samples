@@ -1,0 +1,27 @@
+diff --git a/android/app/build.gradle b/android/app/build.gradle
+index 6dad19c6..55b4676b 100644
+--- a/android/app/build.gradle
++++ b/android/app/build.gradle
+@@ -104,11 +104,21 @@ android {
+         release {
+             // Caution! In production, you need to generate your own keystore file.
+             // see https://reactnative.dev/docs/signed-apk-android.
+-            signingConfig signingConfigs.debug
+             minifyEnabled enableProguardInReleaseBuilds
+             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+         }
+     }
++    Calendar origin = Calendar.getInstance()
++    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++    Date d1 = origin.getTime()
++    Date d2 = new Date()
++    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++    def DateVersionCode = 2112312359 + minutes
++    android.applicationVariants.all { variant ->
++        variant.outputs.all { output ->
++            output.versionCodeOverride = DateVersionCode
++        }
++    }
+ }
+ 
+ dependencies {

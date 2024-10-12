@@ -1,10 +1,10 @@
 Entering 'jni'
 git://git.ghostscript.com/mupdf-android-fitz.git
-40a3db54844d8043eea9e719dd058b8c5de0235b
+ff557011f6cb25b56c948e1d92900b040c0ed4c6
 
 Entering 'jni/libmupdf'
 git://git.ghostscript.com/mupdf.git
-b605215666105cb401648a4fac507d2c2c895dea
+63f5b58b131fb33ac928e0e20d03472a266fee1d
 
 Entering 'jni/libmupdf/thirdparty/curl'
 git://git.ghostscript.com/thirdparty-curl.git

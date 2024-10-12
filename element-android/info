@@ -1,3 +1,7 @@
 Remote: https://github.com/element-hq/element-android/
 Branch: develop
 HEAD: 21e751e50f49c446d37a778709b0bf6d5449cfab
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################
