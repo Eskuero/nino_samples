@@ -1,8 +1,8 @@
 diff --git a/build.gradle b/build.gradle
-index 0cb6160..d94dd0f 100644
+index 69ce4cc..0cab096 100644
 --- a/build.gradle
 +++ b/build.gradle
-@@ -60,7 +60,6 @@ android {
+@@ -52,7 +52,6 @@ android {
        debuggable false
        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
        resValue "string", "app_name", "@string/app_name_release"
@@ -10,15 +10,7 @@ index 0cb6160..d94dd0f 100644
      }
  
      debug {
-@@ -70,7 +69,6 @@ android {
-       applicationIdSuffix ".debug"
-       resValue "string", "app_name", "@string/app_name_debug"
-       resValue "bool", "debug_logs", "true"
--      signingConfig signingConfigs.debug
-     }
-   }
- 
-@@ -90,6 +88,18 @@ android {
+@@ -82,6 +81,18 @@ android {
      // Translation are already checked by 'syncTranslations'
      disable 'MissingTranslation'
    }
@@ -36,4 +28,4 @@ index 0cb6160..d94dd0f 100644
 +  }
  }
  
- tasks.register('buildKeyboardFont') {
+ dependencies {

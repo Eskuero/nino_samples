@@ -1,3 +1,7 @@
 Remote: https://github.com/SimpleMobileTools/Simple-Gallery
 Branch: master
 HEAD: 3cb12cc41bb579dabb676f2fe83b53a63089fe1b
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

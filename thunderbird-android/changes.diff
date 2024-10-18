@@ -1,16 +1,18 @@
 diff --git a/app-k9mail/build.gradle.kts b/app-k9mail/build.gradle.kts
-index 7f6904b6f..b7e37f545 100644
+index 8628da2dd..9ea348006 100644
 --- a/app-k9mail/build.gradle.kts
 +++ b/app-k9mail/build.gradle.kts
-@@ -1,3 +1,7 @@
+@@ -1,6 +1,9 @@
+ import javax.xml.parsers.DocumentBuilderFactory
+ import javax.xml.xpath.XPathConstants
+ import javax.xml.xpath.XPathFactory
 +import com.android.build.api.variant.FilterConfiguration.FilterType.*
 +import java.time.LocalDateTime
 +import java.time.Duration;
-+
+ 
  plugins {
      id(ThunderbirdPlugins.App.androidCompose)
-     alias(libs.plugins.dependency.guard)
-@@ -147,6 +151,18 @@ android {
+@@ -153,6 +156,18 @@ android {
              )
          }
      }

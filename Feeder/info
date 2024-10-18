@@ -1,7 +1,3 @@
-Remote: https://gitlab.com/spacecowboy/Feeder.git
-Branch: master
-HEAD: 424007c27b11dfd59f2cf457d9eb93072881a097
-
-##############################################################################
-WARNING: This configuration matches the release published on the repository but new package builds are disabled
-##############################################################################
+Remote: https://github.com/spacecowboy/Feeder
+Branch: 
+HEAD: 6bc07a46614af757ac9b0d8db7e6661cadc1cef4

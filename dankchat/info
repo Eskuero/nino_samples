@@ -1,3 +1,7 @@
 Remote: https://github.com/flex3r/dankchat
 Branch: develop
 HEAD: 2df77416923320014c0d3f48e28789ed32ec0222
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

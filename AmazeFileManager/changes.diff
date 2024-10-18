@@ -1,12 +1,11 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 5685923d8..96957ffea 100644
+index 5685923d8..f94cd38ff 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -112,6 +112,18 @@ android {
+@@ -112,6 +112,17 @@ android {
      lint {
          abortOnError false
      }
-+
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
 +    Date d1 = origin.getTime()

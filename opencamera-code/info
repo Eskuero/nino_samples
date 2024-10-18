@@ -1,3 +1,7 @@
 Remote: https://git.code.sf.net/p/opencamera/code
 Branch: master
 HEAD: a6673ade58550ed468d53a430608fecfe6bcd721
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

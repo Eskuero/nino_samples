@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index fec07a9..da91ca6 100644
+index e488eaf..58a7ce8 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
 @@ -1,4 +1,6 @@
@@ -27,10 +27,10 @@ index fec07a9..da91ca6 100644
  }
  
  aboutLibraries {
-@@ -171,4 +184,4 @@ dependencies {
+@@ -168,4 +181,4 @@ dependencies {
  
-     // Markdown
-     implementation("org.commonmark:commonmark:0.23.0")
+     // Gson
+     implementation("com.google.code.gson:gson:2.11.0")
 -}
 \ No newline at end of file
 +}

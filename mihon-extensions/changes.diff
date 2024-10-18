@@ -1,0 +1,25 @@
+diff --git a/common.gradle b/common.gradle
+index f916f509..41ab43fa 100644
+--- a/common.gradle
++++ b/common.gradle
+@@ -62,7 +62,6 @@ android {
+ 
+     buildTypes {
+         release {
+-            signingConfig signingConfigs.release
+             minifyEnabled false
+             vcsInfo.include false
+         }
+diff --git a/core/AndroidManifest.xml b/core/AndroidManifest.xml
+index b56b3b9a..ba4d4367 100644
+--- a/core/AndroidManifest.xml
++++ b/core/AndroidManifest.xml
+@@ -1,7 +1,7 @@
+ <?xml version="1.0" encoding="utf-8"?>
+ <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+ 
+-    <uses-feature android:name="tachiyomi.extension" />
++    <uses-feature android:name="tachiyomi.extension" android:required="false" />
+ 
+     <application android:icon="@mipmap/ic_launcher" android:allowBackup="false" android:label="${appName}">
+ 

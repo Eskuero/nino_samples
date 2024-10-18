@@ -51,7 +51,7 @@ index 52750232c..2ae1e71ac 100644
 +    exclude group: 'com.google.android.gms'
 +}
 diff --git a/mobile/pubspec.lock b/mobile/pubspec.lock
-index 87aa987df..96c5948dd 100644
+index 1f29bf783..b2eaadd63 100644
 --- a/mobile/pubspec.lock
 +++ b/mobile/pubspec.lock
 @@ -669,13 +669,14 @@ packages:
@@ -76,7 +76,7 @@ index 87aa987df..96c5948dd 100644
      dependency: transitive
      description:
 diff --git a/mobile/pubspec.yaml b/mobile/pubspec.yaml
-index fd1634ba0..7cc1dbb46 100644
+index 703736e3d..478cb0f0e 100644
 --- a/mobile/pubspec.yaml
 +++ b/mobile/pubspec.yaml
 @@ -78,11 +78,11 @@ dependency_overrides:
