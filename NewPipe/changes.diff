@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 081bc2766..a694be8de 100644
+index d0426d5a2..c4dff2e0a 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -103,6 +103,18 @@ android {
+@@ -104,6 +104,18 @@ android {
                           'META-INF/COPYRIGHT']
          }
      }
