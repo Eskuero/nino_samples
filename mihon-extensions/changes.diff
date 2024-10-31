@@ -1,5 +1,5 @@
 diff --git a/common.gradle b/common.gradle
-index f916f509..41ab43fa 100644
+index f916f509a..41ab43faf 100644
 --- a/common.gradle
 +++ b/common.gradle
 @@ -62,7 +62,6 @@ android {
@@ -11,7 +11,7 @@ index f916f509..41ab43fa 100644
              vcsInfo.include false
          }
 diff --git a/core/AndroidManifest.xml b/core/AndroidManifest.xml
-index b56b3b9a..ba4d4367 100644
+index b56b3b9a5..ba4d43675 100644
 --- a/core/AndroidManifest.xml
 +++ b/core/AndroidManifest.xml
 @@ -1,7 +1,7 @@
