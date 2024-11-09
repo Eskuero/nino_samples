@@ -1,3 +1,7 @@
 Remote: https://github.com/DanielRendox/GroceryGenius/
 Branch: 
 HEAD: a83810af28f025836030d98c944ad667845b380f
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

@@ -1,5 +1,5 @@
 diff --git a/komelia-app/build.gradle.kts b/komelia-app/build.gradle.kts
-index 9d5cf35..a02fed9 100644
+index d43e415..9b6377a 100644
 --- a/komelia-app/build.gradle.kts
 +++ b/komelia-app/build.gradle.kts
 @@ -5,6 +5,8 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
@@ -11,7 +11,7 @@ index 9d5cf35..a02fed9 100644
  
  plugins {
      alias(libs.plugins.kotlinMultiplatform)
-@@ -98,6 +100,17 @@ android {
+@@ -103,6 +105,17 @@ android {
          sourceCompatibility = JavaVersion.VERSION_17
          targetCompatibility = JavaVersion.VERSION_17
      }
@@ -28,4 +28,25 @@ index 9d5cf35..a02fed9 100644
 +    }
  }
  
+ 
+Submodule third_party/compose-sonner 8a3d2fe..841fb17 (rewind):
+diff --git a/third_party/compose-sonner/settings.gradle.kts b/third_party/compose-sonner/settings.gradle.kts
+index a4c4587..49f4d77 100644
+--- a/third_party/compose-sonner/settings.gradle.kts
++++ b/third_party/compose-sonner/settings.gradle.kts
+@@ -3,6 +3,7 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+ 
+ pluginManagement {
+     repositories {
++        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+         google()
+         gradlePluginPortal()
+         mavenCentral()
+@@ -13,6 +14,7 @@ dependencyResolutionManagement {
+     repositories {
+         google()
+         mavenCentral()
++        maven("https://maven.pkg.jetbrains.space/public/p/compose/dev")
+     }
+ }
  

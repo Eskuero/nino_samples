@@ -1,33 +1,30 @@
+Submodule e2e/test-assets 99544a200..3e057d2f5 (rewind):
+diff --git a/e2e/test-assets/formats/raw/Canon/PowerShot_G12.CR2 b/e2e/test-assets/formats/raw/Canon/PowerShot_G12.CR2
+deleted file mode 100644
+index 7bb43c9..0000000
+Binary files a/e2e/test-assets/formats/raw/Canon/PowerShot_G12.CR2 and /dev/null differ
+diff --git a/e2e/test-assets/formats/raw/Fujifilm/X100V_compressed.RAF b/e2e/test-assets/formats/raw/Fujifilm/X100V_compressed.RAF
+deleted file mode 100755
+index 1a60471..0000000
+Binary files a/e2e/test-assets/formats/raw/Fujifilm/X100V_compressed.RAF and /dev/null differ
+diff --git a/e2e/test-assets/formats/raw/Ricoh/GR3/Ricoh_GR3-450.DNG b/e2e/test-assets/formats/raw/Ricoh/GR3/Ricoh_GR3-450.DNG
+deleted file mode 100644
+index 92875c9..0000000
+Binary files a/e2e/test-assets/formats/raw/Ricoh/GR3/Ricoh_GR3-450.DNG and /dev/null differ
 diff --git a/mobile/android/app/build.gradle b/mobile/android/app/build.gradle
-index 52750232c..2ae1e71ac 100644
+index 506ee9d1a..893c0122b 100644
 --- a/mobile/android/app/build.gradle
 +++ b/mobile/android/app/build.gradle
-@@ -51,27 +51,22 @@ android {
-         versionName flutterVersionName
-     }
- 
--   signingConfigs {
--       release {
--            def keyAliasVal = System.getenv("ALIAS")
--            def keyPasswordVal = System.getenv("ANDROID_KEY_PASSWORD")
--            def storePasswordVal = System.getenv("ANDROID_STORE_PASSWORD")
--
--            keyAlias keyAliasVal ? keyAliasVal : keystoreProperties['keyAlias']
--            keyPassword keyPasswordVal ? keyPasswordVal : keystoreProperties['keyPassword']
--            storeFile file("../key.jks") ? file("../key.jks") : file(keystoreProperties['storeFile'])
--            storePassword storePasswordVal ? storePasswordVal : keystoreProperties['storePassword']
--       }
--   }
--
-     buildTypes {
-         debug {
+@@ -70,11 +70,19 @@ android {
              applicationIdSuffix '.debug'
              versionNameSuffix '-DEBUG'
          }
-+    }
- 
+-
 -        release {
 -            signingConfig signingConfigs.release
+-        }
+     }
++
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
 +    Date d1 = origin.getTime()
@@ -37,10 +34,12 @@ index 52750232c..2ae1e71ac 100644
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->
 +            output.versionCodeOverride = DateVersionCode
-         }
-     }
++         }
++     }
+     namespace 'app.alextran.immich'
  }
-@@ -98,6 +93,6 @@ dependencies {
+ 
+@@ -101,6 +109,6 @@ dependencies {
  }
  
  // This is uncommented in F-Droid build script
@@ -51,10 +50,10 @@ index 52750232c..2ae1e71ac 100644
 +    exclude group: 'com.google.android.gms'
 +}
 diff --git a/mobile/pubspec.lock b/mobile/pubspec.lock
-index fe40017ba..fb9eb1332 100644
+index 8b43cf33d..e0ad9c56e 100644
 --- a/mobile/pubspec.lock
 +++ b/mobile/pubspec.lock
-@@ -669,13 +669,14 @@ packages:
+@@ -669,12 +669,13 @@ packages:
      source: hosted
      version: "11.1.0"
    geolocator_android:
@@ -65,21 +64,19 @@ index fe40017ba..fb9eb1332 100644
 -      sha256: "7aefc530db47d90d0580b552df3242440a10fe60814496a979aa67aa98b1fd47"
 -      url: "https://pub.dev"
 -    source: hosted
--    version: "4.6.1"
 +      path: geolocator_android
 +      ref: floss
-+      resolved-ref: be830ce0111e3d21f3a4932fa0a7ac888854582c
++      resolved-ref: "6675758d887aee61b3fd0b024fc6ec81befeb366"
 +      url: "https://github.com/Zverik/flutter-geolocator.git"
 +    source: git
-+    version: "4.5.5"
+     version: "4.6.1"
    geolocator_apple:
      dependency: transitive
-     description:
 diff --git a/mobile/pubspec.yaml b/mobile/pubspec.yaml
-index 15d4a057f..7c8af0295 100644
+index bf75dad45..35b1926f5 100644
 --- a/mobile/pubspec.yaml
 +++ b/mobile/pubspec.yaml
-@@ -78,11 +78,11 @@ dependency_overrides:
+@@ -85,11 +85,11 @@ dependency_overrides:
    meta: ^1.11.0
    # TODO: remove once analyzer override is removed
    analyzer_plugin: ^0.11.3
