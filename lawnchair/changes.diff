@@ -1,0 +1,12 @@
+diff --git a/build.gradle b/build.gradle
+index 76d2185e94..36caa12faa 100644
+--- a/build.gradle
++++ b/build.gradle
+@@ -207,7 +207,6 @@ android {
+ 
+     buildTypes {
+         all {
+-            signingConfig releaseSigning
+             pseudoLocalesEnabled true
+         }
+ 
