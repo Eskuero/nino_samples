@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 725de04..3f5679f 100644
+index bc7ffab..7675526 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -22,7 +22,7 @@ android {
@@ -28,3 +28,258 @@ index 725de04..3f5679f 100644
 +		}
 +	}
  }
+Submodule jni 03d1bcf..ff55701 (rewind):
+diff --git a/jni/build.gradle b/jni/build.gradle
+index 9eeeb20..cd35294 100644
+--- a/jni/build.gradle
++++ b/jni/build.gradle
+@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
+ apply plugin: 'maven-publish'
+ 
+ group = 'com.artifex.mupdf'
+-version = '1.24.11'
++version = '1.24.10'
+ 
+ buildscript {
+ 	repositories {
+Submodule libmupdf ef3f9b1..63f5b58 (rewind):
+diff --git a/jni/libmupdf/include/mupdf/fitz/font.h b/jni/libmupdf/include/mupdf/fitz/font.h
+index 8022394ea..bcfe2d5ce 100644
+--- a/jni/libmupdf/include/mupdf/fitz/font.h
++++ b/jni/libmupdf/include/mupdf/fitz/font.h
+@@ -733,16 +733,6 @@ void fz_hb_lock(fz_context *ctx);
+ */
+ void fz_hb_unlock(fz_context *ctx);
+ 
+-/**
+-	Callback for use in font cmap enumeration.
+-*/
+-typedef void (fz_cmap_callback)(fz_context *ctx, void *opaque, unsigned long ucs, unsigned int gid);
+-
+-/**
+-	Enumerate a cmap using a callback.
+-*/
+-void fz_enumerate_font_cmap(fz_context *ctx, fz_font *font, fz_cmap_callback *cb, void *opaque);
+-
+ struct fz_font
+ {
+ 	int refs;
+diff --git a/jni/libmupdf/include/mupdf/fitz/version.h b/jni/libmupdf/include/mupdf/fitz/version.h
+index 7545c87c0..784f2104e 100644
+--- a/jni/libmupdf/include/mupdf/fitz/version.h
++++ b/jni/libmupdf/include/mupdf/fitz/version.h
+@@ -23,9 +23,9 @@
+ #ifndef MUPDF_FITZ_VERSION_H
+ #define MUPDF_FITZ_VERSION_H
+ #ifndef FZ_VERSION
+-#define FZ_VERSION "1.24.11"
++#define FZ_VERSION "1.24.10"
+ #define FZ_VERSION_MAJOR 1
+ #define FZ_VERSION_MINOR 24
+-#define FZ_VERSION_PATCH 11
++#define FZ_VERSION_PATCH 10
+ #endif
+ #endif
+diff --git a/jni/libmupdf/scripts/wrap/__main__.py b/jni/libmupdf/scripts/wrap/__main__.py
+index 85e410c43..ddd23a281 100644
+--- a/jni/libmupdf/scripts/wrap/__main__.py
++++ b/jni/libmupdf/scripts/wrap/__main__.py
+@@ -1138,11 +1138,7 @@ def _get_m_command( build_dirs, j=None, make=None, m_target=None, m_vars=None):
+             elif flag == 'bsymbolic':
+                 make_env += ' XLIB_LDFLAGS=-Wl,-Bsymbolic'
+                 build_prefix += f'{flag}-'
+-            elif flag == 'Py_LIMITED_API':
+-                build_prefix += f'{flag}-'
+-            elif flag.startswith('Py_LIMITED_API='):    # fixme: obsolete.
+-                build_prefix += f'{flag}-'
+-            elif flag.startswith('Py_LIMITED_API_'):
++            elif flag == 'Py_LIMITED_API' or flag.startswith('Py_LIMITED_API='):
+                 build_prefix += f'{flag}-'
+             else:
+                 if not in_prefix:
+diff --git a/jni/libmupdf/scripts/wrap/cpp.py b/jni/libmupdf/scripts/wrap/cpp.py
+index a41ee7408..fe8e4e1f2 100644
+--- a/jni/libmupdf/scripts/wrap/cpp.py
++++ b/jni/libmupdf/scripts/wrap/cpp.py
+@@ -1093,14 +1093,6 @@ g_extra_declarations = textwrap.dedent(f'''
+         must end with one of 'efg' otherwise we throw an exception. */
+         std::string fz_format_double(fz_context* ctx, const char* fmt, double value);
+ 
+-        struct fz_font_ucs_gid
+-        {{
+-            unsigned long ucs;
+-            unsigned int gid;
+-        }};
+-
+-        /** SWIG-friendly wrapper for fz_enumerate_font_cmap(). */
+-        std::vector<fz_font_ucs_gid> fz_enumerate_font_cmap2(fz_context* ctx, fz_font* font);
+         ''')
+ 
+ g_extra_definitions = textwrap.dedent(f'''
+@@ -1317,20 +1309,6 @@ g_extra_definitions = textwrap.dedent(f'''
+             fz_snprintf(buffer, sizeof(buffer), fmt, value);
+             return buffer;
+         }}
+-
+-        static void fz_enumerate_font_cmap2_cb(fz_context* ctx, void* opaque, unsigned long ucs, unsigned int gid)
+-        {{
+-            std::vector<fz_font_ucs_gid>& ret = *(std::vector<fz_font_ucs_gid>*) opaque;
+-            fz_font_ucs_gid item = {{ucs, gid}};
+-            ret.push_back(item);
+-        }}
+-
+-        std::vector<fz_font_ucs_gid> fz_enumerate_font_cmap2(fz_context* ctx, fz_font* font)
+-        {{
+-            std::vector<fz_font_ucs_gid> ret;
+-            fz_enumerate_font_cmap(ctx, font, fz_enumerate_font_cmap2_cb, &ret);
+-            return ret;
+-        }}
+         ''')
+ 
+ def make_extra( out_extra_h, out_extra_cpp):
+@@ -5302,7 +5280,6 @@ def cpp_source(
+ 
+             #include "mupdf/fitz/geometry.h"
+ 
+-            #include <algorithm>
+             #include <map>
+             #include <mutex>
+             #include <sstream>
+diff --git a/jni/libmupdf/scripts/wrap/state.py b/jni/libmupdf/scripts/wrap/state.py
+index 158ada6e5..2091921e2 100644
+--- a/jni/libmupdf/scripts/wrap/state.py
++++ b/jni/libmupdf/scripts/wrap/state.py
+@@ -351,16 +351,14 @@ class BuildDirs:
+         for flag in flags:
+             if flag == 'Py_LIMITED_API':
+                 self.Py_LIMITED_API = '0x03080000'
+-            elif flag.startswith('Py_LIMITED_API='):    # 2024-11-15: fixme: obsolete
++            elif flag.startswith('Py_LIMITED_API='):
+                 self.Py_LIMITED_API = flag[len('Py_LIMITED_API='):]
+-            elif flag.startswith('Py_LIMITED_API_'):
+-                self.Py_LIMITED_API = flag[len('Py_LIMITED_API_'):]
+         jlib.log(f'{self.Py_LIMITED_API=}')
+ 
+         # Set swig .i and .cpp paths, including Py_LIMITED_API so that
+         # different values of Py_LIMITED_API can be tested without rebuilding
+         # unnecessarily.
+-        Py_LIMITED_API_infix = f'-Py_LIMITED_API_{self.Py_LIMITED_API}' if self.Py_LIMITED_API else ''
++        Py_LIMITED_API_infix = f'-Py_LIMITED_API={self.Py_LIMITED_API}' if self.Py_LIMITED_API else ''
+         self.mupdfcpp_swig_i    = lambda language: f'{self.dir_mupdf}/platform/{language}/mupdfcpp_swig{Py_LIMITED_API_infix}.i'
+         self.mupdfcpp_swig_cpp  = lambda language: self.mupdfcpp_swig_i(language) + '.cpp'
+ 
+diff --git a/jni/libmupdf/scripts/wrap/swig.py b/jni/libmupdf/scripts/wrap/swig.py
+index adf65832a..82cd5ee42 100644
+--- a/jni/libmupdf/scripts/wrap/swig.py
++++ b/jni/libmupdf/scripts/wrap/swig.py
+@@ -650,11 +650,9 @@ def build_swig(
+     text += '%module(directors="1") mupdf\n'
+ 
+     jlib.log(f'{build_dirs.Py_LIMITED_API=}')
+-
+-    text += f'%begin %{{\n'
+-
+     if build_dirs.Py_LIMITED_API:  # e.g. 0x03080000
+         text += textwrap.dedent(f'''
++                %begin %{{
+                 /* Use Python Stable ABI with earliest Python version that we
+                 support. */
+                 #define Py_LIMITED_API {build_dirs.Py_LIMITED_API}
+@@ -668,17 +666,9 @@ def build_swig(
+                 #ifndef PyBUF_WRITE
+                     #define PyBUF_WRITE 0x200
+                 #endif
++                %}}
+                 ''')
+ 
+-        text += textwrap.dedent(f'''
+-                /* This seems to be necessary on some Windows machines with
+-                Py_LIMITED_API, otherwise compilation can fail because free()
+-                and malloc() are not declared. */
+-                #include <stdlib.h>
+-                ''')
+-
+-    text += f'%}}\n'
+-
+     # https://www.mono-project.com/docs/advanced/pinvoke/
+     #
+     # > Mono on all platforms currently uses UTF-8 encoding for all string
+@@ -1010,7 +1000,6 @@ def build_swig(
+                 %template(map_string_int) map<std::string, int>;
+                 %template(vectorq) vector<{rename.namespace_class("fz_quad")}>;
+                 %template(vector_search_page2_hit) vector<fz_search_page2_hit>;
+-                %template(vector_fz_font_ucs_gid) vector<fz_font_ucs_gid>;
+             }};
+ 
+             // Make sure that operator++() gets converted to __next__().
+diff --git a/jni/libmupdf/source/fitz/font.c b/jni/libmupdf/source/fitz/font.c
+index b2226df83..fdb02c823 100644
+--- a/jni/libmupdf/source/fitz/font.c
++++ b/jni/libmupdf/source/fitz/font.c
+@@ -2368,21 +2368,3 @@ fz_extract_ttf_from_ttc(fz_context *ctx, fz_font *font)
+ 
+ 	return buf;
+ }
+-
+-void fz_enumerate_font_cmap(fz_context *ctx, fz_font *font, fz_cmap_callback *cb, void *opaque)
+-{
+-	unsigned long ucs;
+-	unsigned int gid;
+-
+-	if (font == NULL || font->ft_face == NULL)
+-		return;
+-
+-	fz_ft_lock(ctx);
+-	for (ucs = FT_Get_First_Char(font->ft_face, &gid); gid > 0; ucs = FT_Get_Next_Char(font->ft_face, ucs, &gid))
+-	{
+-		fz_ft_unlock(ctx);
+-		cb(ctx, opaque, ucs, gid);
+-		fz_ft_lock(ctx);
+-	}
+-	fz_ft_unlock(ctx);
+-}
+diff --git a/jni/libmupdf/source/html/html-parse.c b/jni/libmupdf/source/html/html-parse.c
+index 3eec10bde..f539a73c5 100644
+--- a/jni/libmupdf/source/html/html-parse.c
++++ b/jni/libmupdf/source/html/html-parse.c
+@@ -1118,7 +1118,7 @@ static void gen2_tag(fz_context *ctx, struct genstate *g, fz_html_box *root_box,
+ 		break;
+ 	}
+ 
+-	if (tag && (!strcmp(tag, "ol") || !strcmp(tag, "ul") || !strcmp(tag, "dl")))
++	if (tag && !strcmp(tag, "ol"))
+ 	{
+ 		int save_list_counter = g->list_counter;
+ 		g->list_counter = 0;
+diff --git a/jni/libmupdf/source/pdf/pdf-clean.c b/jni/libmupdf/source/pdf/pdf-clean.c
+index 7abfe76da..56163478a 100644
+--- a/jni/libmupdf/source/pdf/pdf-clean.c
++++ b/jni/libmupdf/source/pdf/pdf-clean.c
+@@ -865,8 +865,7 @@ pdf_redact_image_filter_pixels(fz_context *ctx, void *opaque, fz_matrix ctm, con
+ 			fz_rethrow(ctx);
+ 		return image;
+ 	}
+-
+-	return fz_keep_image(ctx, image);
++	return image;
+ }
+ 
+ /* Returns 0 if area does not intersect with any of our redactions.
+diff --git a/jni/libmupdf/source/pdf/pdf-op-run.c b/jni/libmupdf/source/pdf/pdf-op-run.c
+index 7f8e3c132..8eb6c03be 100644
+--- a/jni/libmupdf/source/pdf/pdf-op-run.c
++++ b/jni/libmupdf/source/pdf/pdf-op-run.c
+@@ -2344,10 +2344,11 @@ static void pdf_run_gs_SMask(fz_context *ctx, pdf_processor *proc, pdf_obj *smas
+ 		gstate->softmask_ctm = gstate->ctm;
+ 		gstate->softmask = pdf_keep_obj(ctx, smask);
+ 		gstate->softmask_resources = pdf_keep_obj(ctx, pr->rstack->resources);
+-		pdf_drop_obj(ctx, gstate->softmask_tr);
+-		gstate->softmask_tr = NULL;
+ 		if (tr)
++		{
++			pdf_drop_obj(ctx, gstate->softmask_tr);
+ 			gstate->softmask_tr = pdf_keep_obj(ctx, tr);
++		}
+ 		for (i = 0; i < cs_n; ++i)
+ 			gstate->softmask_bc[i] = bc[i];
+ 		gstate->luminosity = luminosity;
