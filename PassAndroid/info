@@ -1,3 +1,7 @@
 Remote: https://github.com/ligi/PassAndroid
 Branch: 
 HEAD: 0b460ab68257e889c1fa7615ed1d0897d8d33ba7
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

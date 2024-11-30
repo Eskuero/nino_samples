@@ -1,6 +1,11 @@
 #!/bin/bash
 
-EXPO_NO_GIT_STATUS=1 npx expo prebuild --platform android --clean;
+source /usr/share/nvm/init-nvm.sh;
+nvm install 22;
+nvm use 22;
+yarn add expo@51.0.8;
+cp google-services.json.example google-services.json;
+EXPO_NO_GIT_STATUS=1 npx --yes expo prebuild --platform android --clean;
 
 # Set the date and time in seconds since epoch (January 1, 1970)
 start_time=1640995200

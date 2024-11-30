@@ -1,3 +1,7 @@
 Remote: git://git.ghostscript.com/mupdf-android-viewer-mini.git
 Branch: 
 HEAD: d44af8f7b0e8deb7736c8fefc75d14d13b5a235b
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

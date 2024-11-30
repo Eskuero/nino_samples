@@ -1,0 +1,26 @@
+diff --git a/package.json b/package.json
+index 8449e1dee..66686040a 100644
+--- a/package.json
++++ b/package.json
+@@ -118,7 +118,7 @@
+     "emoji-mart": "^5.5.2",
+     "emoji-regex": "^10.4.0",
+     "eventemitter3": "^5.0.1",
+-    "expo": "^51.0.8",
++    "expo": "51.0.8",
+     "expo-application": "^5.9.1",
+     "expo-blur": "^13.0.2",
+     "expo-build-properties": "^0.12.1",
+diff --git a/yarn.lock b/yarn.lock
+index 16dbba397..f2d2f4ea9 100644
+--- a/yarn.lock
++++ b/yarn.lock
+@@ -10763,7 +10763,7 @@ expo-web-browser@~13.0.3:
+   resolved "https://registry.yarnpkg.com/expo-web-browser/-/expo-web-browser-13.0.3.tgz#dceb05dbc187b498ca937b02adf385b0232a4e92"
+   integrity sha512-HXb7y82ApVJtqk8tManyudtTrCtx8xcUnVzmJECeHCB0SsWSQ+penVLZxJkcyATWoJOsFMnfVSVdrTcpKKGszQ==
+ 
+-expo@^51.0.8:
++expo@51.0.8:
+   version "51.0.8"
+   resolved "https://registry.yarnpkg.com/expo/-/expo-51.0.8.tgz#a7981e86ee20eac4b847c7c8cc5799d9c6b1508d"
+   integrity sha512-bdTOiMb1f3PChtuqEZ9czUm2gMTmS0r1+H+Pkm2O3PsuLnOgxfIBzL6S37+J4cUocLBaENrmx9SOGKpzhBqXpg==

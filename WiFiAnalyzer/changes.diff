@@ -1,38 +1,17 @@
-diff --git a/app/build.gradle b/app/build.gradle
-index c6040c0e..74fcf3b9 100644
---- a/app/build.gradle
-+++ b/app/build.gradle
-@@ -117,6 +117,17 @@ android {
-     lint {
-         disable 'GoogleAppIndexingWarning'
-     }
-+    Calendar origin = Calendar.getInstance()
-+    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
-+    Date d1 = origin.getTime()
-+    Date d2 = new Date()
-+    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
-+    def DateVersionCode = 2112312359 + minutes
-+    android.applicationVariants.all { variant ->
-+        variant.outputs.all { output ->
-+            output.versionCodeOverride = DateVersionCode
-+        }
-+    }
- }
- 
- allOpen {
 diff --git a/app/build.properties b/app/build.properties
-index fc791682..630d355e 100644
+index fe4d391e..dd094d26 100644
 --- a/app/build.properties
 +++ b/app/build.properties
 @@ -1,7 +1,7 @@
  #Build Properties
--#Sat Jun 24 10:38:04 EDT 2023
-+#Sun Jun 25 16:45:06 WEST 2023
-+version_minor=0
-+version_store=65
-+version_patch=13
- version_build=0
- version_major=3
--version_minor=0
--version_patch=12
--version_store=64
+-#Sat Jun 15 08:37:37 EDT 2024
+-version_build=21
+-version_major=3
++#Fri Nov 29 20:48:26 WET 2024
+ version_minor=1
+-version_patch=2
+-version_store=67
++version_store=68
++version_patch=3
++version_build=0
++version_major=3
