@@ -1,17 +1,15 @@
 diff --git a/mobile/android/app/build.gradle b/mobile/android/app/build.gradle
-index 506ee9d1a..893c0122b 100644
+index 0ec511d9f..b7ca166ae 100644
 --- a/mobile/android/app/build.gradle
 +++ b/mobile/android/app/build.gradle
-@@ -70,11 +70,19 @@ android {
+@@ -70,9 +70,17 @@ android {
              applicationIdSuffix '.debug'
              versionNameSuffix '-DEBUG'
          }
--
++    }
+ 
 -        release {
 -            signingConfig signingConfigs.release
--        }
-     }
-+
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
 +    Date d1 = origin.getTime()
@@ -21,11 +19,9 @@ index 506ee9d1a..893c0122b 100644
 +    android.applicationVariants.all { variant ->
 +        variant.outputs.all { output ->
 +            output.versionCodeOverride = DateVersionCode
-+         }
-+     }
+         }
+     }
      namespace 'app.alextran.immich'
- }
- 
 @@ -101,6 +109,6 @@ dependencies {
  }
  
@@ -37,10 +33,10 @@ index 506ee9d1a..893c0122b 100644
 +    exclude group: 'com.google.android.gms'
 +}
 diff --git a/mobile/pubspec.lock b/mobile/pubspec.lock
-index 8b43cf33d..e0ad9c56e 100644
+index 34eb21782..3ea1cf1bd 100644
 --- a/mobile/pubspec.lock
 +++ b/mobile/pubspec.lock
-@@ -669,12 +669,13 @@ packages:
+@@ -653,12 +653,13 @@ packages:
      source: hosted
      version: "11.1.0"
    geolocator_android:
@@ -60,10 +56,10 @@ index 8b43cf33d..e0ad9c56e 100644
    geolocator_apple:
      dependency: transitive
 diff --git a/mobile/pubspec.yaml b/mobile/pubspec.yaml
-index 931313aac..d569af3f3 100644
+index 6974c560a..e9b62b874 100644
 --- a/mobile/pubspec.yaml
 +++ b/mobile/pubspec.yaml
-@@ -85,11 +85,11 @@ dependency_overrides:
+@@ -87,11 +87,11 @@ dependency_overrides:
    meta: ^1.11.0
    # TODO: remove once analyzer override is removed
    analyzer_plugin: ^0.11.3

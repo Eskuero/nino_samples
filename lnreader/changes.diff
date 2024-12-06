@@ -1,8 +1,8 @@
 diff --git a/android/app/build.gradle b/android/app/build.gradle
-index 79d850c2..5d9dca87 100644
+index 6dad19c6..55b4676b 100644
 --- a/android/app/build.gradle
 +++ b/android/app/build.gradle
-@@ -102,11 +102,21 @@ android {
+@@ -104,11 +104,21 @@ android {
          release {
              // Caution! In production, you need to generate your own keystore file.
              // see https://reactnative.dev/docs/signed-apk-android.

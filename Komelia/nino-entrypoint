@@ -4,3 +4,4 @@
 # docker build -t komelia-build-android-arm64 . -f ./cmake/android-arm64.Dockerfile
 docker run -v .:/build komelia-build-android-arm64;
 ./gradlew android-arm64_copyJniLibs;
+./gradlew buildWebui;
