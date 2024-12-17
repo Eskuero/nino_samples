@@ -7,25 +7,26 @@
 	[projects.default]
 		sync = true
 		preserve = true
+		followtags = true
 		build = true
 		keystore = "store2"
 		keyalias = "key2"
-	[projects.tachiyomi-extensions]
-		[projects.tachiyomi-extensions.tasks.komga]
-			exec = "extensions:individual:all:komga:assembleRelease"
+		javahome = "/usr/lib/jvm/java-17-openjdk"
+	[projects.mihon-extensions]
+		followtags = false
+		[projects.mihon-extensions.tasks.komga]
+			exec = "src:all:komga:assembleRelease"
 	[projects.thunderbird-android]
 		[projects.thunderbird-android.tasks.release]
-			exec = "app-k9mail:assembleRelease"
+			exec = "app-k9mail:assembleFossRelease"
 	[projects.KeePassDX]
 		[projects.KeePassDX.tasks.librerelease]
 			exec = "assembleLibreRelease"
 	[projects.scrambled-exif]
 		[projects.scrambled-exif.tasks.standardreleases]
 			exec = "assembleStandardRelease"
-	[projects.screenrecorder]
-		[projects.screenrecorder.tasks.fdroidrelease]
-			exec = "assembleFdroidRelease"
 	[projects.mihon]
+		followtags = false
 		[projects.mihon.tasks.fdroidrelease]
 			exec = "assembleStandardRelease"
 	[projects.fdroidclient]
@@ -34,28 +35,26 @@
 	[projects.Tusky]
 		[projects.Tusky.tasks.bluerelease]
 			exec = "assembleBlueRelease"
-	[projects.markor]
-		[projects.markor.tasks.flavordefaultrelease]
-			exec = "assembleFlavorDefaultRelease"
+	[projects.Shelter]
+		followtags = false
+	[projects.NewPipe]
+		followtags = false
+	[projects.InterProfileSharing]
+		followtags = false
 	[projects.AmazeFileManager]
+		followtags = false
 		[projects.AmazeFileManager.tasks.fdroidrelease]
 			exec = "assembleFdroidRelease"
 	[projects.andOTP]
+		javahome = "/usr/lib/jvm/java-11-openjdk"
 		[projects.andOTP.tasks.fdroid]
 			exec = "assembleFdroidRelease"
-	[projects.Simple-Gallery]
-		sync = false
-		[projects.Simple-Gallery.tasks.fossrelease]
+	[projects.FossifyGallery]
+		[projects.FossifyGallery.tasks.fossrelease]
 			exec = "assembleFossRelease"
-	[projects.element-android]
-		[projects.element-android.tasks.fdroidrelease]
-			exec = "assembleFdroidRelease"
 	[projects.LibreTorrent]
 		[projects.LibreTorrent.tasks.baserelease]
 			exec = "assembleBaseRelease"
-	[projects.PassAndroid]
-		[projects.PassAndroid.tasks.fdroidrelease]
-			exec = "assembleNoMapsNoAnalyticsForFDroidRelease"
 	[projects.mpv-android]
 		[projects.mpv-android.tasks.defaultrelease]
 			exec = "assembleDefaultRelease"
@@ -69,6 +68,30 @@
 		[projects.element-x-android.tasks.release]
 			exec = "app:assembleFdroidRelease"
 	[projects.immich]
-		subdir = "mobile"
-		[projects.immich.tasks.release]
-			exec = "app:assembleFdroidRelease"
+		subdir = "mobile/android"
+	[projects.streamyfin]
+		subdir = "android"
+	[projects.lnreader]
+		subdir = "android"
+	[projects.bsky-app]
+		subdir = "android"
+		javahome = "/usr/lib/jvm/zulu-17"
+	[projects.FUTOLatinIME]
+		[projects.FUTOLatinIME.tasks.stablerelease]
+			exec = "assembleStableRelease"
+	[projects.lawnchair]
+		[projects.lawnchair.tasks.lawnwithquicksteprelease]
+			exec = "assembleLawnWithQuickstepGithubRelease"
+	[projects.tailscale-android]
+		subdir = "android"
+	[projects.termux-app]
+		javahome = "/usr/lib/jvm/java-11-openjdk"
+	[projects.davx5-ose]
+		javahome = "/usr/lib/jvm/java-21-openjdk"
+	[projects.GCamPhotosPreview]
+		javahome = "/usr/lib/jvm/java-11-openjdk"
+	[projects.paperless-mobile]
+		subdir = "android"
+	[projects.PhotonCamera]
+		followtags = false
+

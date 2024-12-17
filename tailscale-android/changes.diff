@@ -1,0 +1,23 @@
+diff --git a/android/build.gradle b/android/build.gradle
+index 270f0ce..d447e35 100644
+--- a/android/build.gradle
++++ b/android/build.gradle
+@@ -104,6 +104,18 @@ android {
+         }
+     }
+ 
++    Calendar origin = Calendar.getInstance()
++    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++    Date d1 = origin.getTime()
++    Date d2 = new Date()
++    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++    def DateVersionCode = 2112312359 + minutes
++    android.applicationVariants.all { variant ->
++        variant.outputs.all { output ->
++            output.versionCodeOverride = DateVersionCode
++        }
++    }
++
+     testBuildType "applicationTest"
+ }
+ 

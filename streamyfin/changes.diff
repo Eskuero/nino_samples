@@ -1,0 +1,33 @@
+diff --git a/modules/vlc-player/android/.gradle/8.9/checksums/checksums.lock b/modules/vlc-player/android/.gradle/8.9/checksums/checksums.lock
+deleted file mode 100644
+index 52a7f0f..0000000
+Binary files a/modules/vlc-player/android/.gradle/8.9/checksums/checksums.lock and /dev/null differ
+diff --git a/modules/vlc-player/android/.gradle/8.9/dependencies-accessors/gc.properties b/modules/vlc-player/android/.gradle/8.9/dependencies-accessors/gc.properties
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/modules/vlc-player/android/.gradle/8.9/fileChanges/last-build.bin b/modules/vlc-player/android/.gradle/8.9/fileChanges/last-build.bin
+deleted file mode 100644
+index f76dd23..0000000
+Binary files a/modules/vlc-player/android/.gradle/8.9/fileChanges/last-build.bin and /dev/null differ
+diff --git a/modules/vlc-player/android/.gradle/8.9/fileHashes/fileHashes.lock b/modules/vlc-player/android/.gradle/8.9/fileHashes/fileHashes.lock
+deleted file mode 100644
+index 5743f6c..0000000
+Binary files a/modules/vlc-player/android/.gradle/8.9/fileHashes/fileHashes.lock and /dev/null differ
+diff --git a/modules/vlc-player/android/.gradle/8.9/gc.properties b/modules/vlc-player/android/.gradle/8.9/gc.properties
+deleted file mode 100644
+index e69de29..0000000
+diff --git a/modules/vlc-player/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock b/modules/vlc-player/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock
+deleted file mode 100644
+index 964eb6b..0000000
+Binary files a/modules/vlc-player/android/.gradle/buildOutputCleanup/buildOutputCleanup.lock and /dev/null differ
+diff --git a/modules/vlc-player/android/.gradle/buildOutputCleanup/cache.properties b/modules/vlc-player/android/.gradle/buildOutputCleanup/cache.properties
+deleted file mode 100644
+index c062e48..0000000
+--- a/modules/vlc-player/android/.gradle/buildOutputCleanup/cache.properties
++++ /dev/null
+@@ -1,2 +0,0 @@
+-#Sun Nov 17 18:25:45 AEDT 2024
+-gradle.version=8.9
+diff --git a/modules/vlc-player/android/.gradle/vcs-1/gc.properties b/modules/vlc-player/android/.gradle/vcs-1/gc.properties
+deleted file mode 100644
+index e69de29..0000000
