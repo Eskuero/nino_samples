@@ -74,6 +74,7 @@
 	[projects.lnreader]
 		subdir = "android"
 	[projects.bsky-app]
+		preserve = false
 		subdir = "android"
 		javahome = "/usr/lib/jvm/zulu-17"
 	[projects.FUTOLatinIME]
