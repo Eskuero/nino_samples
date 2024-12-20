@@ -95,4 +95,6 @@
 		subdir = "android"
 	[projects.PhotonCamera]
 		followtags = false
+	[projects.GrapheneOS_GmsCompat]
+		subdir = "config-holder"
 
