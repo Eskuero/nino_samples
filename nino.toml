@@ -72,6 +72,7 @@
 	[projects.streamyfin]
 		subdir = "android"
 	[projects.lnreader]
+		followtags = false
 		subdir = "android"
 	[projects.bsky-app]
 		preserve = false
@@ -97,4 +98,5 @@
 		followtags = false
 	[projects.GrapheneOS_GmsCompat]
 		subdir = "config-holder"
+		followtags = false
 
