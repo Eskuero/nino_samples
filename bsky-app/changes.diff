@@ -1,5 +1,5 @@
 diff --git a/package.json b/package.json
-index 5e1394c2c..d59f21d79 100644
+index a5be4a9be..783e33c5d 100644
 --- a/package.json
 +++ b/package.json
 @@ -118,7 +118,7 @@
@@ -7,12 +7,12 @@ index 5e1394c2c..d59f21d79 100644
      "emoji-regex": "^10.4.0",
      "eventemitter3": "^5.0.1",
 -    "expo": "~52.0.19",
-+    "expo": "^52.0.21",
++    "expo": "^52.0.23",
      "expo-application": "^6.0.1",
      "expo-blur": "^14.0.1",
      "expo-build-properties": "^0.13.1",
 diff --git a/yarn.lock b/yarn.lock
-index df8572a28..c3d2587ab 100644
+index da037040c..2276bf443 100644
 --- a/yarn.lock
 +++ b/yarn.lock
 @@ -3704,10 +3704,10 @@
@@ -30,6 +30,21 @@ index df8572a28..c3d2587ab 100644
    dependencies:
      "@0no-co/graphql.web" "^1.0.8"
      "@babel/runtime" "^7.20.0"
+@@ -3902,10 +3902,10 @@
+     dotenv-expand "~11.0.6"
+     getenv "^1.0.0"
+ 
+-"@expo/fingerprint@0.11.4":
+-  version "0.11.4"
+-  resolved "https://registry.yarnpkg.com/@expo/fingerprint/-/fingerprint-0.11.4.tgz#f40bbc784e10a065b783091e0d060a7428d41a7c"
+-  integrity sha512-FfcvHjrWjOJ17wiMfr1iQ1YDyjlj8qfxG+GDce0khrjNSkzRjVdCOIFsMvfVSBPnOPX5NuZlgMRvMkcPUtGClA==
++"@expo/fingerprint@0.11.6":
++  version "0.11.6"
++  resolved "https://registry.yarnpkg.com/@expo/fingerprint/-/fingerprint-0.11.6.tgz#7e01d436c1610c7dc1fc6898b2d90adaa19a39a0"
++  integrity sha512-hlVIfMEJYZIqIFMjeGRN5GhK/h6vJ3M4QVc1ZD8F0Bh7gMeI+jZkEyZdL5XT29jergQrksP638e2qFwgrGTw/w==
+   dependencies:
+     "@expo/spawn-async" "^1.7.2"
+     arg "^5.0.2"
 @@ -10490,6 +10490,13 @@ expo-font@~13.0.1:
    dependencies:
      fontfaceobserver "^2.1.0"
@@ -44,7 +59,7 @@ index df8572a28..c3d2587ab 100644
  expo-haptics@^14.0.0:
    version "14.0.0"
    resolved "https://registry.yarnpkg.com/expo-haptics/-/expo-haptics-14.0.0.tgz#b3ccea2ed5c7f4c2505e2e8cbfa799091b185303"
-@@ -10688,13 +10695,13 @@ expo-web-browser@~14.0.1:
+@@ -10693,23 +10700,23 @@ expo-web-browser@~14.0.1:
    resolved "https://registry.yarnpkg.com/expo-web-browser/-/expo-web-browser-14.0.1.tgz#97f3f141b0897364bc8364d90d6e29df0beec8aa"
    integrity sha512-QM9F3ie+UyIOoBvqFmT6CZojb1vMc2H+7ZlMT5dEu1PL2jtYyOeK2hLfbt/EMt7CBm/w+P29H9W9Y9gdebOkuQ==
  
@@ -52,18 +67,21 @@ index df8572a28..c3d2587ab 100644
 -  version "52.0.19"
 -  resolved "https://registry.yarnpkg.com/expo/-/expo-52.0.19.tgz#1b881c96ea595da0c5f3c13f578bc368c5261f4a"
 -  integrity sha512-wOb/wbiQa0xqQRhgVBuOhLRus05TSw6fgThVMrPQgdLo24EPuT/ZAiRVcVRdjrEbwOqCDumgQCB7636B9J+jKg==
-+expo@^52.0.21:
-+  version "52.0.21"
-+  resolved "https://registry.yarnpkg.com/expo/-/expo-52.0.21.tgz#49cf9342b0d914565f2d3f65579aa5c7f67bef55"
-+  integrity sha512-+yYIvUczlM7zvqjwCtCH4OtLaX0F1/35oAlNmPK5lV1RIVVRjKfBeZ8kK+jNNUwY9gZnrk8oeN6E2qcqohyOcw==
++expo@^52.0.23:
++  version "52.0.23"
++  resolved "https://registry.yarnpkg.com/expo/-/expo-52.0.23.tgz#68b79da2206afdce9c68f45f519f812bab9a2cfe"
++  integrity sha512-DR36Vkpz/ZLPci4fxDBG/pLk26nGK63vcZ+X4RZJfNBzi14DXZ939loP8YzWGV78Qp23qdPINczpo2727tqLxg==
    dependencies:
      "@babel/runtime" "^7.20.0"
 -    "@expo/cli" "0.22.6"
 +    "@expo/cli" "0.22.7"
      "@expo/config" "~10.0.6"
      "@expo/config-plugins" "~9.0.12"
-     "@expo/fingerprint" "0.11.4"
-@@ -10704,7 +10711,7 @@ expo@~52.0.19:
+-    "@expo/fingerprint" "0.11.4"
++    "@expo/fingerprint" "0.11.6"
+     "@expo/metro-config" "0.19.8"
+     "@expo/vector-icons" "^14.0.0"
+     babel-preset-expo "~12.0.4"
      expo-asset "~11.0.1"
      expo-constants "~17.0.3"
      expo-file-system "~18.0.6"

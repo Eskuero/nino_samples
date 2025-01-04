@@ -1,12 +1,31 @@
 diff --git a/build.gradle b/build.gradle
-index 76d2185e94..36caa12faa 100644
+index 922a7f853d..937410d762 100644
 --- a/build.gradle
 +++ b/build.gradle
-@@ -207,7 +207,6 @@ android {
+@@ -209,8 +209,6 @@ android {
  
      buildTypes {
          all {
 -            signingConfig releaseSigning
-             pseudoLocalesEnabled true
+-
+             applicationVariants.configureEach { variant ->
+                 variant.outputs.configureEach {
+                     def channel = variant.productFlavors.last().name
+@@ -320,6 +318,17 @@ android {
+             manifest.srcFile "quickstep/AndroidManifest.xml"
          }
+     }
++    Calendar origin = Calendar.getInstance()
++    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++    Date d1 = origin.getTime()
++    Date d2 = new Date()
++    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++    def DateVersionCode = 2112312359 + minutes
++    android.applicationVariants.all { variant ->
++        variant.outputs.all { output ->
++            output.versionCodeOverride = DateVersionCode
++        }
++    }
+ }
  
+ androidComponents {

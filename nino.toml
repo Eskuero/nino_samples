@@ -82,6 +82,7 @@
 		[projects.FUTOLatinIME.tasks.stablerelease]
 			exec = "assembleStableRelease"
 	[projects.lawnchair]
+		followtags = false
 		[projects.lawnchair.tasks.lawnwithquicksteprelease]
 			exec = "assembleLawnWithQuickstepGithubRelease"
 	[projects.tailscale-android]

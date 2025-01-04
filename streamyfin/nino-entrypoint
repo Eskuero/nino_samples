@@ -4,7 +4,7 @@ rm -rf node_modules;
 source /usr/share/nvm/init-nvm.sh;
 nvm install 20;
 nvm use 20;
-bun i;
+bun i && bun run submodule-reload;
 EXPO_NO_GIT_STATUS=1 npx --yes expo prebuild --platform android --clean;
 
 # Set the date and time in seconds since epoch (January 1, 1970)
