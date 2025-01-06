@@ -1,17 +1,17 @@
 diff --git a/app/build.properties b/app/build.properties
-index fe4d391e..dd094d26 100644
+index c5ee27e7..f152ce5d 100644
 --- a/app/build.properties
 +++ b/app/build.properties
 @@ -1,7 +1,7 @@
  #Build Properties
--#Sat Jun 15 08:37:37 EDT 2024
--version_build=21
+-#Sun Jan 05 11:35:50 EST 2025
+-version_build=12
 -version_major=3
-+#Fri Nov 29 20:48:26 WET 2024
++#Mon Jan 06 00:01:55 WET 2025
  version_minor=1
--version_patch=2
--version_store=67
-+version_store=68
-+version_patch=3
+-version_patch=3
+-version_store=68
++version_store=69
++version_patch=4
 +version_build=0
 +version_major=3
