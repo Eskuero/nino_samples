@@ -1,3 +1,7 @@
 Remote: https://github.com/GrapheneOS/platform_packages_apps_GmsCompat/
 Branch: 15
-HEAD: a89fdd0ef5e7b8dd5b6c2dea5254c80fee0087f8
+HEAD: 8357dcaebe0047b0bc79b518de6cba1ba516c0d0
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

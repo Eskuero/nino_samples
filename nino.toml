@@ -92,7 +92,7 @@
 	[projects.davx5-ose]
 		javahome = "/usr/lib/jvm/java-21-openjdk"
 	[projects.GCamPhotosPreview]
-		javahome = "/usr/lib/jvm/java-11-openjdk"
+		javahome = "/usr/lib/jvm/java-21-openjdk"
 	[projects.paperless-mobile]
 		subdir = "android"
 	[projects.PhotonCamera]

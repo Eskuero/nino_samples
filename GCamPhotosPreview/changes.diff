@@ -1,0 +1,13 @@
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+index 2813024..3ab17ab 100644
+--- a/app/build.gradle.kts
++++ b/app/build.gradle.kts
+@@ -10,7 +10,7 @@ android {
+     defaultConfig {
+         applicationId = "com.google.android.apps.photos"
+         minSdk = 30
+-        targetSdk = 31
++        targetSdk = 33
+         versionCode = 1000000004
+         versionName = "0.4"
+     }

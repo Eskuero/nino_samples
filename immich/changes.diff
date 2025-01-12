@@ -56,7 +56,7 @@ index 34eb21782..3ea1cf1bd 100644
    geolocator_apple:
      dependency: transitive
 diff --git a/mobile/pubspec.yaml b/mobile/pubspec.yaml
-index beabbd89b..038b76676 100644
+index c69290b29..9a6926a3d 100644
 --- a/mobile/pubspec.yaml
 +++ b/mobile/pubspec.yaml
 @@ -87,11 +87,11 @@ dependency_overrides:

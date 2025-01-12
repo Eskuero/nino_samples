@@ -1,3 +1,7 @@
 Remote: https://github.com/GrapheneOS/Camera
 Branch: 
-HEAD: 7593d42366fb096271684ba44cf413ab62299646
+HEAD: d29a9b635ed7db363a98123ffe8945cbd25bf43e
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################
