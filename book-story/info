@@ -1,3 +1,7 @@
 Remote: https://github.com/Acclorite/book-story/
 Branch: 
 HEAD: aa657790d0f5b6e4f1f9d16fe659f59b0145ac64
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

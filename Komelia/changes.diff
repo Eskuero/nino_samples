@@ -1,5 +1,5 @@
 diff --git a/komelia-app/build.gradle.kts b/komelia-app/build.gradle.kts
-index dfad1c2..143a9f1 100644
+index 9cca2d3..a649360 100644
 --- a/komelia-app/build.gradle.kts
 +++ b/komelia-app/build.gradle.kts
 @@ -5,6 +5,8 @@ import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
@@ -11,7 +11,7 @@ index dfad1c2..143a9f1 100644
  
  plugins {
      alias(libs.plugins.kotlinMultiplatform)
-@@ -104,6 +106,17 @@ android {
+@@ -108,6 +110,17 @@ android {
          sourceCompatibility = JavaVersion.VERSION_17
          targetCompatibility = JavaVersion.VERSION_17
      }

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd mobile;
+
+# Setup
+flutter config --no-analytics;
+flutter pub get;

@@ -1,5 +1,5 @@
 diff --git a/build.gradle.kts b/build.gradle.kts
-index 3fc7be84..485e3b62 100644
+index aeb5f599..22abb0df 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
 @@ -10,6 +10,9 @@ import org.objectweb.asm.ClassVisitor
@@ -12,7 +12,7 @@ index 3fc7be84..485e3b62 100644
  
  buildscript {
      dependencies {
-@@ -138,6 +141,17 @@ android {
+@@ -145,6 +148,17 @@ android {
              }
          }
      }

@@ -5,6 +5,7 @@ source /usr/share/nvm/init-nvm.sh;
 nvm install 22;
 nvm use 22;
 yarn add expo;
+sed -i "s/com.github.Dimezis:BlurView:version-2.0.3/com.github.Dimezis:BlurView:version-2.0.6/" node_modules/expo-blur/android/build.gradle;
 cp google-services.json.example google-services.json;
 EXPO_NO_GIT_STATUS=1 npx --yes expo prebuild --platform android --clean;
 

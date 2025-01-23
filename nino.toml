@@ -93,8 +93,9 @@
 		javahome = "/usr/lib/jvm/java-21-openjdk"
 	[projects.GCamPhotosPreview]
 		javahome = "/usr/lib/jvm/java-21-openjdk"
-	[projects.paperless-mobile]
+	[projects.Boorusama]
 		subdir = "android"
+		followtags = false
 	[projects.PhotonCamera]
 		followtags = false
 	[projects.GrapheneOS_GmsCompat]
