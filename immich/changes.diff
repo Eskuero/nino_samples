@@ -208,7 +208,7 @@ index 5a15bf5f5..77a16983c 100644
      dependency: transitive
      description:
 diff --git a/mobile/pubspec.yaml b/mobile/pubspec.yaml
-index 162ad0857..087d9e08b 100644
+index dd046a60e..d359be2b8 100644
 --- a/mobile/pubspec.yaml
 +++ b/mobile/pubspec.yaml
 @@ -88,11 +88,11 @@ dependency_overrides:
