@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 31dcbd46..ebaf0c27 100644
+index d9e8b6df..74a20312 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
 @@ -1,3 +1,7 @@
@@ -10,7 +10,7 @@ index 31dcbd46..ebaf0c27 100644
  plugins {
      alias(libs.plugins.android.application)
      alias(libs.plugins.kotlin.android)
-@@ -176,6 +180,18 @@ android {
+@@ -192,6 +196,18 @@ android {
          textOutput = file("stdout")
          textReport = true
      }
@@ -28,4 +28,4 @@ index 31dcbd46..ebaf0c27 100644
 +    }
  }
  
- composeCompiler {
+ androidComponents {
