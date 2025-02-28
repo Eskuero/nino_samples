@@ -5,10 +5,6 @@ cd mobile;
 # Setup
 sed -i -e "s/^\#f//" pubspec.yaml;
 sed -i -e 's/^\/\/f //' android/app/build.gradle;
+
 flutter config --no-analytics;
 flutter pub get;
-
-# Building
-rustup update;
-source $HOME/.cargo/env;
-export PUB_CACHE=$(pwd)/.pub-cache;

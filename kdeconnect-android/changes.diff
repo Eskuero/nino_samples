@@ -1,5 +1,5 @@
 diff --git a/build.gradle.kts b/build.gradle.kts
-index aeb5f599..22abb0df 100644
+index f7b28ac0..03638947 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
 @@ -10,6 +10,9 @@ import org.objectweb.asm.ClassVisitor

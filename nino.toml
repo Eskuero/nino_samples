@@ -27,8 +27,6 @@
 			exec = "assembleStandardRelease"
 	[projects.mihon]
 		followtags = false
-		[projects.mihon.tasks.fdroidrelease]
-			exec = "assembleStandardRelease"
 	[projects.fdroidclient]
 		[projects.fdroidclient.tasks.fullrelease]
 			exec = "assembleFullRelease"
@@ -69,6 +67,7 @@
 			exec = "app:assembleFdroidRelease"
 	[projects.immich]
 		subdir = "mobile/android"
+		javahome = "/usr/lib/jvm/zulu-17"
 	[projects.streamyfin]
 		subdir = "android"
 	[projects.lnreader]

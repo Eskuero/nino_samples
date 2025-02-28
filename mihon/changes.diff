@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index cd269aeae..33634e07d 100644
+index 556d43775..756629415 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -3,6 +3,9 @@
+@@ -1,6 +1,9 @@
  import mihon.buildlogic.getBuildTime
  import mihon.buildlogic.getCommitCount
  import mihon.buildlogic.getGitSha
@@ -12,27 +12,16 @@ index cd269aeae..33634e07d 100644
  
  plugins {
      id("mihon.android.application")
-@@ -38,10 +41,6 @@ android {
-         buildConfigField("boolean", "INCLUDE_UPDATER", "false")
-         buildConfigField("boolean", "PREVIEW", "false")
- 
--        ndk {
--            abiFilters += supportedAbis
--        }
--
-         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-     }
- 
-@@ -50,7 +49,7 @@ android {
+@@ -96,7 +99,7 @@ android {
+     splits {
+         abi {
              isEnable = true
-             reset()
-             include(*supportedAbis.toTypedArray())
 -            isUniversalApk = true
 +            isUniversalApk = false
+             reset()
+             include("armeabi-v7a", "arm64-v8a", "x86", "x86_64")
          }
-     }
- 
-@@ -139,6 +138,23 @@ android {
+@@ -148,6 +151,23 @@ android {
          abortOnError = false
          checkReleaseBuilds = false
      }

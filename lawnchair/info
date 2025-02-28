@@ -1,3 +1,7 @@
 Remote: https://github.com/LawnchairLauncher/lawnchair.git
 Branch: 15-dev
-HEAD: e49c1732dbec629bc6c03f3c5dcca9a8624087e4
+HEAD: f50dd70b6c053003a22d53649f0fcecf456b7123
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################
