@@ -1,3 +1,7 @@
 Remote: https://github.com/TeamAmaze/AmazeFileManager
 Branch: release/4.0
 HEAD: 95f567b3c36e7a337ce68df624eaa090a082524d
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

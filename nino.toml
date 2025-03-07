@@ -100,4 +100,11 @@
 	[projects.GrapheneOS_GmsCompat]
 		subdir = "config-holder"
 		followtags = false
+	[projects.Openlib]
+		subdir = "android"
+	[projects.futopayclientlibraries]
+		subdir = "android"
+	[projects.Feeder]
+		[projects.Feeder.tasks.fdroidrelease]
+			exec = "assembleFdroidRelease"
 

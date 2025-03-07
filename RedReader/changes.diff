@@ -1,5 +1,5 @@
 diff --git a/build.gradle.kts b/build.gradle.kts
-index 13db5cb5..8186e751 100644
+index 13db5cb5..5f34c7d2 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
 @@ -1,5 +1,9 @@
@@ -12,7 +12,19 @@ index 13db5cb5..8186e751 100644
  plugins {
  	alias(libs.plugins.android.application)
  	alias(libs.plugins.kotlin.android)
-@@ -155,6 +159,18 @@ android {
+@@ -84,6 +88,11 @@ android {
+ 
+ 		vectorDrawables.generatedDensities("mdpi", "hdpi", "xhdpi", "xxhdpi", "xxxhdpi")
+ 		testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
++		ndk {
++			abiFilters.apply {
++				add("arm64-v8a")
++			}
++		}
+ 	}
+ 
+ 	// Flag to tell aapt to keep the attribute ids around
+@@ -155,6 +164,18 @@ android {
  		buildConfig = true
  		compose = true
  	}

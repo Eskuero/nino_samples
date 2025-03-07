@@ -1,5 +1,5 @@
 diff --git a/ui/build.gradle.kts b/ui/build.gradle.kts
-index 5cdcb6a1..d08286e8 100644
+index 5cdcb6a1..32af1089 100644
 --- a/ui/build.gradle.kts
 +++ b/ui/build.gradle.kts
 @@ -2,6 +2,9 @@
@@ -12,7 +12,19 @@ index 5cdcb6a1..d08286e8 100644
  
  val pkg: String = providers.gradleProperty("wireguardPackageName").get()
  
-@@ -62,6 +65,17 @@ android {
+@@ -26,6 +29,11 @@ android {
+         versionCode = providers.gradleProperty("wireguardVersionCode").get().toInt()
+         versionName = providers.gradleProperty("wireguardVersionName").get()
+         buildConfigField("int", "MIN_SDK_VERSION", minSdk.toString())
++        ndk {
++            abiFilters.apply {
++                add("arm64-v8a")
++            }
++        }
+     }
+     compileOptions {
+         sourceCompatibility = JavaVersion.VERSION_17
+@@ -62,6 +70,17 @@ android {
          warning += "MissingTranslation"
          warning += "ImpliedQuantity"
      }

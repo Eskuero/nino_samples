@@ -1,3 +1,7 @@
 Remote: https://gitlab.com/proninyaroslav/libretorrent.git
 Branch: 
 HEAD: 4a3dc6560cd400ff883baacd8e575398f3e5d524
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

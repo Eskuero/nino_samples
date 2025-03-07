@@ -1,3 +1,7 @@
 Remote: https://github.com/vanilla-music/vanilla
 Branch: 
 HEAD: 2e7ef1ce402f397462e8bb136787f60126ea15d0
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

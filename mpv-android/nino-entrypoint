@@ -1,16 +1,16 @@
 #!/bin/bash
 # Clean current cache
+git clean -xdf --exclude "*-entrypoint"
+
+# Preparae dependencies build
 cd buildscripts;
-rm dist.zip*;
-rm -rf deps prefix sdk;
 # Symlink local SDK installation
 mkdir sdk;
 ln -s $ANDROID_HOME sdk/android-sdk-linux;
 # Redownload all dependencies
 sh download.sh;
-# Compile all architectures
-./buildall.sh --arch arm64 mpv;
-./buildall.sh --arch x86_64 mpv;
-./buildall.sh --arch armv7l mpv;
+
+# Compile dependencies
+./buildall.sh;
 # Nothing bad ever happened.
 exit 0;

@@ -20,3 +20,4 @@ versioncode=$(( 2112312359 + $minutes ))
 echo "Applying versionCode: ${versioncode}"
 sed -i "s/        versionCode.*/        versionCode ${versioncode}/" android/app/build.gradle;
 sed -i '/^            signingConfig signingConfigs\.debug$/d' android/app/build.gradle;
+sed -i "s/applicationId 'com.fredrikburmester.streamyfin'/applicationId 'com.fredrikburmester.streamyfin'\n        ndk { abiFilters 'arm64-v8a' }/" android/app/build.gradle;

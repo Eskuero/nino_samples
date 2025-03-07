@@ -1,5 +1,5 @@
 diff --git a/app-k9mail/build.gradle.kts b/app-k9mail/build.gradle.kts
-index dd25d9528..4bedc6781 100644
+index 0e8274119..cf0599d9b 100644
 --- a/app-k9mail/build.gradle.kts
 +++ b/app-k9mail/build.gradle.kts
 @@ -1,6 +1,9 @@
@@ -12,7 +12,20 @@ index dd25d9528..4bedc6781 100644
  
  plugins {
      id(ThunderbirdPlugins.App.androidCompose)
-@@ -133,6 +136,18 @@ android {
+@@ -78,6 +81,12 @@ android {
+             ),
+         )
+ 
++        ndk {
++            abiFilters.apply {
++                add("arm64-v8a")
++            }
++        }
++
+         buildConfigField("String", "CLIENT_INFO_APP_NAME", "\"K-9 Mail\"")
+     }
+ 
+@@ -132,6 +141,18 @@ android {
              )
          }
      }

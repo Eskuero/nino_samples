@@ -1,8 +1,19 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index b970cc7e1..ced257d48 100644
+index b970cc7e1..e23286065 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -114,12 +114,17 @@ android {
+@@ -39,6 +39,10 @@ android {
+         buildConfigField("String", "CUSTOM_LOGO_URL", "\"$CUSTOM_LOGO_URL\"")
+         buildConfigField("String", "CUSTOM_INSTANCE", "\"$CUSTOM_INSTANCE\"")
+         buildConfigField("String", "SUPPORT_ACCOUNT_URL", "\"$SUPPORT_ACCOUNT_URL\"")
++
++        ndk {
++             abiFilters "arm64-v8a"
++        }
+     }
+     buildTypes {
+         debug {
+@@ -114,12 +118,17 @@ android {
          includeInApk false
          includeInBundle false
      }

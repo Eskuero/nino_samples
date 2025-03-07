@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 3c815cff..30046ae8 100644
+index 3c815cff..d92f6d12 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
 @@ -2,6 +2,9 @@
@@ -12,7 +12,19 @@ index 3c815cff..30046ae8 100644
  
  plugins {
      id("com.android.application")
-@@ -67,12 +70,6 @@ android {
+@@ -34,6 +37,11 @@ android {
+         ksp {
+             arg("room.schemaLocation", "$projectDir/schemas")
+         }
++        ndk {
++            abiFilters.apply {
++                add("arm64-v8a")
++            }
++        }
+     }
+ 
+     // Necessary for f-droid builds
+@@ -67,12 +75,6 @@ android {
  
      buildTypes {
          release {
@@ -25,7 +37,7 @@ index 3c815cff..30046ae8 100644
              postprocessing {
                  isRemoveUnusedCode = true
                  isObfuscate = false
-@@ -97,6 +94,17 @@ android {
+@@ -97,6 +99,17 @@ android {
      buildFeatures {
          compose = true
      }

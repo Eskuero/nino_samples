@@ -1,7 +1,16 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 480fd73..8886291 100644
+index 480fd73..e1ae324 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
+@@ -1,7 +1,7 @@
+ apply plugin: 'com.android.application'
+ apply plugin: 'kotlin-android'
+ 
+-ext.abiCodes = ["armeabi-v7a": 1, "arm64-v8a": 2, "x86":3, "x86_64":4]
++ext.abiCodes = ["arm64-v8a": 1]
+ ext.universalBase = 8000
+ 
+ android {
 @@ -43,7 +43,7 @@ android {
                  if (new File(project.projectDir, "src/main/jniLibs/${abi}").exists())
                      include(abi)
@@ -34,9 +43,18 @@ index 480fd73..8886291 100644
              output.versionCodeOverride = universalBase + variant.versionCode
      }
 diff --git a/buildscripts/buildall.sh b/buildscripts/buildall.sh
-index 5620801..67b30a1 100755
+index 5620801..459c2c2 100755
 --- a/buildscripts/buildall.sh
 +++ b/buildscripts/buildall.sh
+@@ -7,7 +7,7 @@ cleanbuild=0
+ nodeps=0
+ clang=1
+ target=mpv-android
+-arch=armv7l
++arch=arm64
+ 
+ getdeps () {
+ 	varname="dep_${1//-/_}[*]"
 @@ -175,6 +175,5 @@ setup_prefix
  build $target
  
@@ -44,3 +62,16 @@ index 5620801..67b30a1 100755
 -	ls -lh ../app/build/outputs/apk/{default,api29}/*/*.apk
  
  exit 0
+diff --git a/buildscripts/scripts/mpv-android.sh b/buildscripts/scripts/mpv-android.sh
+index af15281..d68c2c1 100755
+--- a/buildscripts/scripts/mpv-android.sh
++++ b/buildscripts/scripts/mpv-android.sh
+@@ -44,7 +44,7 @@ if [ -z "$DONT_BUILD_RELEASE" ]; then
+ 	targets+=(assembleRelease)
+ 	[ -n "$BUNDLE" ] && targets+=(bundleRelease)
+ fi
+-./gradlew "${targets[@]}"
++#./gradlew "${targets[@]}"
+ 
+ if [ -n "$ANDROID_SIGNING_KEY" ]; then
+ 	cd "${MPV_ANDROID}/app/build/outputs/apk"

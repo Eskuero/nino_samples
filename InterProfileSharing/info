@@ -1,3 +1,7 @@
 Remote: https://github.com/VentralDigital/InterProfileSharing
 Branch: main
 HEAD: d29705839f3d1f41d21b91ef686f1ce143b43f95
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################
