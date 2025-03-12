@@ -1,0 +1,890 @@
+diff --git a/app/build.gradle b/app/build.gradle
+index 90dc1ed..b254927 100644
+--- a/app/build.gradle
++++ b/app/build.gradle
+@@ -6,13 +6,17 @@ apply plugin: 'kotlin-android'
+ apply plugin: 'kotlin-kapt'
+ apply plugin: 'com.google.gms.google-services'
+ 
++kotlin {
++    jvmToolchain(17)
++}
++
+ android {
+-    compileSdkVersion 33
++    compileSdkVersion 34
+ 
+     defaultConfig {
+         applicationId "io.heckel.ntfy"
+         minSdkVersion 21
+-        targetSdkVersion 33
++        targetSdkVersion 34
+ 
+         versionCode 33
+         versionName "1.17.0"
+@@ -54,16 +58,27 @@ android {
+     }
+ 
+     compileOptions {
+-        sourceCompatibility JavaVersion.VERSION_1_8
+-        targetCompatibility JavaVersion.VERSION_1_8
++        sourceCompatibility JavaVersion.VERSION_17
++        targetCompatibility JavaVersion.VERSION_17
+     }
+ 
+     kotlinOptions {
+-        jvmTarget = JavaVersion.VERSION_1_8.toString()
++        jvmTarget = JavaVersion.VERSION_17.toString()
+         freeCompilerArgs += [
+             '-Xjvm-default=all-compatibility' // https://stackoverflow.com/a/71234042/1440785
+         ]
+     }
++    Calendar origin = Calendar.getInstance()
++    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++    Date d1 = origin.getTime()
++    Date d2 = new Date()
++    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++    def DateVersionCode = 2112312359 + minutes
++    android.applicationVariants.all { variant ->
++        variant.outputs.all { output ->
++            output.versionCodeOverride = DateVersionCode
++        }
++    }
+ }
+ 
+ // Disables GoogleServices tasks for F-Droid variant
+diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
+index 0950b40..350740e 100644
+--- a/app/src/main/AndroidManifest.xml
++++ b/app/src/main/AndroidManifest.xml
+@@ -5,12 +5,14 @@
+     <!-- Permissions -->
+     <uses-permission android:name="android.permission.INTERNET"/>
+     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/> <!-- For instant delivery foregrounds service -->
++    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+     <uses-permission android:name="android.permission.WAKE_LOCK"/> <!-- To keep foreground service awake; soon not needed anymore -->
+     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/> <!-- To restart service on reboot -->
+     <uses-permission android:name="android.permission.VIBRATE"/> <!-- Incoming notifications should be able to vibrate the phone -->
+     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28"/> <!-- Only required on SDK <= 28 -->
+-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM"/> <!-- To reschedule the websocket retry -->
++    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" android:maxSdkVersion="32"/> <!-- To reschedule the websocket retry -->
+     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/> <!-- As of Android 13, we need to ask for permission to post notifications -->
++    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/> <!-- Allows to ignore battery optimization without going to the settings -->
+ 
+     <!--
+         Permission REQUEST_INSTALL_PACKAGES (F-Droid only!):
+@@ -20,6 +22,12 @@
+     -->
+     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+ 
++    <queries>
++        <intent>
++            <action android:name="org.unifiedpush.android.connector.RAISE_TO_FOREGROUND" />
++        </intent>
++    </queries>
++
+     <application
+             android:name=".app.Application"
+             android:allowBackup="true"
+@@ -93,9 +101,24 @@
+                 android:name=".msg.NotificationService$ViewActionWithClearActivity"
+                 android:exported="false">
+         </activity>
++        <activity android:name=".up.LinkActivity"
++            android:exported="true">
++            <intent-filter>
++                <action android:name="android.intent.action.VIEW" />
++                <category android:name="android.intent.category.DEFAULT" />
++                <data android:scheme="unifiedpush"
++                    android:host="link" />
++            </intent-filter>
++        </activity>
+ 
+         <!-- Subscriber foreground service for hosts other than ntfy.sh -->
+-        <service android:name=".service.SubscriberService"/>
++        <service android:name=".service.SubscriberService"
++            android:enabled="true"
++            android:foregroundServiceType="specialUse">
++            <property android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
++                android:value="This service needs to be constantly connected to the server with the websocket if the device don't have Play Services, or the self-hosted server doesn't support FCM."/>
++        </service>
++
+ 
+         <!-- Subscriber service restart on reboot -->
+         <receiver
+diff --git a/app/src/main/java/io/heckel/ntfy/service/WsConnection.kt b/app/src/main/java/io/heckel/ntfy/service/WsConnection.kt
+index 080e848..592593e 100644
+--- a/app/src/main/java/io/heckel/ntfy/service/WsConnection.kt
++++ b/app/src/main/java/io/heckel/ntfy/service/WsConnection.kt
+@@ -114,7 +114,23 @@ class WsConnection(
+             Log.d(TAG,"$shortUrl (gid=$globalId): Scheduling a restart in $seconds seconds (via alarm manager)")
+             val reconnectTime = Calendar.getInstance()
+             reconnectTime.add(Calendar.SECOND, seconds)
+-            alarmManager.setExact(AlarmManager.RTC_WAKEUP, reconnectTime.timeInMillis, RECONNECT_TAG, { start() }, null)
++            if (Build.VERSION.SDK_INT < 31 || alarmManager.canScheduleExactAlarms()) {
++                alarmManager.setExact(
++                    AlarmManager.RTC_WAKEUP,
++                    reconnectTime.timeInMillis,
++                    RECONNECT_TAG,
++                    { start() },
++                    null
++                )
++            } else {
++                alarmManager.set(
++                    AlarmManager.RTC_WAKEUP,
++                    reconnectTime.timeInMillis,
++                    RECONNECT_TAG,
++                    { start() },
++                    null
++                )
++            }
+         } else {
+             Log.d(TAG, "$shortUrl (gid=$globalId): Scheduling a restart in $seconds seconds (via handler)")
+             val handler = Handler(Looper.getMainLooper())
+diff --git a/app/src/main/java/io/heckel/ntfy/ui/MainActivity.kt b/app/src/main/java/io/heckel/ntfy/ui/MainActivity.kt
+index e131f32..19c46e8 100644
+--- a/app/src/main/java/io/heckel/ntfy/ui/MainActivity.kt
++++ b/app/src/main/java/io/heckel/ntfy/ui/MainActivity.kt
+@@ -169,9 +169,26 @@ class MainActivity : AppCompatActivity(), ActionMode.Callback, AddFragment.Subsc
+             repository.setBatteryOptimizationsRemindTime(System.currentTimeMillis() + ONE_DAY_MILLIS)
+         }
+         fixNowButton.setOnClickListener {
++            // It should not be visible for SDK < 23
+             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+-                val intent = Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS)
+-                startActivity(intent)
++                try {
++                    Log.d(TAG, Uri.parse("package:$packageName").toString())
++                    startActivity(
++                        Intent(
++                            Settings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS,
++                            Uri.parse("package:$packageName")
++                        )
++                    )
++                } catch (e: ActivityNotFoundException) {
++                    try {
++                        startActivity(Intent(Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS))
++                    } catch (e2: ActivityNotFoundException) {
++                        startActivity(Intent(Settings.ACTION_SETTINGS))
++                    }
++                }
++                // Hide, at least for now
++                val batteryBanner = findViewById<View>(R.id.main_banner_battery)
++                batteryBanner.visibility = View.GONE
+             }
+         }
+ 
+@@ -233,7 +250,7 @@ class MainActivity : AppCompatActivity(), ActionMode.Callback, AddFragment.Subsc
+         val hasInstantSubscriptions = subscriptions.count { it.instant } > 0
+         val batteryRemindTimeReached = repository.getBatteryOptimizationsRemindTime() < System.currentTimeMillis()
+         val ignoringOptimizations = isIgnoringBatteryOptimizations(this@MainActivity)
+-        val showBanner = hasInstantSubscriptions && batteryRemindTimeReached && !ignoringOptimizations
++        val showBanner = batteryRemindTimeReached && !ignoringOptimizations
+         val batteryBanner = findViewById<View>(R.id.main_banner_battery)
+         batteryBanner.visibility = if (showBanner) View.VISIBLE else View.GONE
+         Log.d(TAG, "Battery: ignoring optimizations = $ignoringOptimizations (we want this to be true); instant subscriptions = $hasInstantSubscriptions; remind time reached = $batteryRemindTimeReached; banner = $showBanner")
+diff --git a/app/src/main/java/io/heckel/ntfy/up/BroadcastReceiver.kt b/app/src/main/java/io/heckel/ntfy/up/BroadcastReceiver.kt
+index 46a0bcb..7c68113 100644
+--- a/app/src/main/java/io/heckel/ntfy/up/BroadcastReceiver.kt
++++ b/app/src/main/java/io/heckel/ntfy/up/BroadcastReceiver.kt
+@@ -1,7 +1,11 @@
+ package io.heckel.ntfy.up
+ 
++import android.app.PendingIntent
+ import android.content.Context
+ import android.content.Intent
++import android.content.pm.PackageManager
++import android.os.Build
++import androidx.annotation.RequiresApi
+ import io.heckel.ntfy.R
+ import io.heckel.ntfy.app.Application
+ import io.heckel.ntfy.db.Repository
+@@ -32,7 +36,7 @@ class BroadcastReceiver : android.content.BroadcastReceiver() {
+     }
+ 
+     private fun register(context: Context, intent: Intent) {
+-        val appId = intent.getStringExtra(EXTRA_APPLICATION) ?: return
++        val appId = getApplication(context, intent) ?: return
+         val connectorToken = intent.getStringExtra(EXTRA_TOKEN) ?: return
+         val app = context.applicationContext as Application
+         val repository = app.repository
+@@ -40,12 +44,13 @@ class BroadcastReceiver : android.content.BroadcastReceiver() {
+         Log.d(TAG, "REGISTER received for app $appId (connectorToken=$connectorToken)")
+         if (!repository.getUnifiedPushEnabled()) {
+             Log.w(TAG, "Refusing registration because 'EnableUP' is disabled")
+-            distributor.sendRegistrationFailed(appId, connectorToken, "UnifiedPush is disabled in ntfy")
++            // Action required: tell the app to not try again before an action as be done manually
++            // by the user
++            distributor.sendRegistrationFailed(appId, connectorToken, FailedReason.ACTION_REQUIRED)
+             return
+         }
+         if (appId.isBlank()) {
+             Log.w(TAG, "Refusing registration: Empty application")
+-            distributor.sendRegistrationFailed(appId, connectorToken, "Empty application string")
+             return
+         }
+         GlobalScope.launch(Dispatchers.IO) {
+@@ -61,7 +66,8 @@ class BroadcastReceiver : android.content.BroadcastReceiver() {
+                         distributor.sendEndpoint(appId, connectorToken, endpoint)
+                     } else {
+                         Log.d(TAG, "Subscription with connectorToken $connectorToken exists for a different app. Refusing registration.")
+-                        distributor.sendRegistrationFailed(appId, connectorToken, "Connector token already exists")
++                        // Internal_error: try again with a new token
++                        distributor.sendRegistrationFailed(appId, connectorToken, FailedReason.INTERNAL_ERROR)
+                     }
+                     return@launch
+                 }
+@@ -99,7 +105,8 @@ class BroadcastReceiver : android.content.BroadcastReceiver() {
+                     SubscriberServiceManager.refresh(app)
+                 } catch (e: Exception) {
+                     Log.w(TAG, "Failed to add subscription", e)
+-                    distributor.sendRegistrationFailed(appId, connectorToken, e.message)
++                    // Try again when there is network
++                    distributor.sendRegistrationFailed(appId, connectorToken, FailedReason.NETWORK)
+                 }
+ 
+                 // Add to log scrubber
+@@ -109,6 +116,81 @@ class BroadcastReceiver : android.content.BroadcastReceiver() {
+         }
+     }
+ 
++    /**
++     * Get application package name
++     */
++    private fun getApplication(context: Context, intent: Intent): String? {
++        return getApplicationAnd3(context, intent)
++            ?: getApplicationAnd2(intent)
++    }
++
++    /**
++     * Get application package name following AND_3 specifications.
++     */
++    private fun getApplicationAnd3(context: Context, intent: Intent): String? {
++        return if (Build.VERSION.SDK_INT >= 34) {
++            getApplicationAnd3SharedId(context, intent)
++        } else {
++            getApplicationAnd3PendingIntent(intent)
++        }
++    }
++
++    /**
++     * Try get application package name following AND_3 specifications for SDK>=34, with the shared
++     * identity.
++     *
++     * It fallback to [getApplicationAnd3PendingIntent] if the other application targets SDK<34.
++     */
++    @RequiresApi(34)
++    private fun getApplicationAnd3SharedId(context: Context, intent: Intent): String? {
++        return sentFromPackage?.also {
++            // We got the package name with the shared identity
++            android.util.Log.d(TAG, "Registering $it. Package name retrieved with shared identity")
++        } ?: getApplicationAnd3PendingIntent(intent)?.let { packageId ->
++            // We got the package name with the pending intent, checking if that app targets SDK<34
++            return if (Build.VERSION.SDK_INT >= 33) {
++                context.packageManager.getApplicationInfo(
++                    packageId,
++                    PackageManager.ApplicationInfoFlags.of(
++                        PackageManager.GET_META_DATA.toLong()
++                    )
++                )
++            } else {
++                context.packageManager.getApplicationInfo(packageId, 0)
++            }.let { ai ->
++                if (ai.targetSdkVersion >= 34) {
++                    android.util.Log.d(TAG, "App targeting Sdk >= 34 without shared identity, ignoring.")
++                    null
++                } else {
++                    packageId
++                }
++            }
++        }
++    }
++
++    /**
++     * Try get application package name following AND_3 specifications when running on
++     * a device with SDK<34 or receiving message from an application targeting SDK<34, with a pending
++     * intent.
++     *
++     * Always prefer [getApplicationAnd3SharedId] if possible.
++     */
++    private fun getApplicationAnd3PendingIntent(intent: Intent): String? {
++        return intent.getParcelableExtra<PendingIntent>(EXTRA_PI)?.creatorPackage?.also {
++            android.util.Log.d(TAG, "Registering $it. Package name retrieved with PendingIntent")
++        }
++    }
++
++    /**
++     * Try get the application package name using AND_2 specifications
++     */
++    @Deprecated("This follows AND_2 specifications. Will be removed.")
++    private fun getApplicationAnd2(intent: Intent): String? {
++        return intent.getStringExtra(EXTRA_APPLICATION)?.also {
++            android.util.Log.d(TAG, "Registering $it. Package name retrieved with legacy String extra")
++        }
++    }
++
+     private fun unregister(context: Context, intent: Intent) {
+         val connectorToken = intent.getStringExtra(EXTRA_TOKEN) ?: return
+         val app = context.applicationContext as Application
+diff --git a/app/src/main/java/io/heckel/ntfy/up/Constants.kt b/app/src/main/java/io/heckel/ntfy/up/Constants.kt
+index ab9c816..b69ae6d 100644
+--- a/app/src/main/java/io/heckel/ntfy/up/Constants.kt
++++ b/app/src/main/java/io/heckel/ntfy/up/Constants.kt
+@@ -16,7 +16,8 @@ const val ACTION_UNREGISTER = "org.unifiedpush.android.distributor.UNREGISTER"
+ const val FEATURE_BYTES_MESSAGE = "org.unifiedpush.android.distributor.feature.BYTES_MESSAGE"
+ 
+ const val EXTRA_APPLICATION = "application"
++const val EXTRA_PI = "pi"
+ const val EXTRA_TOKEN = "token"
+ const val EXTRA_ENDPOINT = "endpoint"
+-const val EXTRA_MESSAGE = "message"
++const val EXTRA_FAILED_REASON = "reason"
+ const val EXTRA_BYTES_MESSAGE = "bytesMessage"
+diff --git a/app/src/main/java/io/heckel/ntfy/up/Distributor.kt b/app/src/main/java/io/heckel/ntfy/up/Distributor.kt
+index b6f9cce..7ea7068 100644
+--- a/app/src/main/java/io/heckel/ntfy/up/Distributor.kt
++++ b/app/src/main/java/io/heckel/ntfy/up/Distributor.kt
+@@ -11,11 +11,11 @@ import io.heckel.ntfy.util.Log
+ class Distributor(val context: Context) {
+     fun sendMessage(app: String, connectorToken: String, message: ByteArray) {
+         Log.d(TAG, "Sending MESSAGE to $app (token=$connectorToken): ${message.size} bytes")
++        RaiseAppToForegroundFactory.getInstance(context, app).raise()
+         val broadcastIntent = Intent()
+         broadcastIntent.`package` = app
+         broadcastIntent.action = ACTION_MESSAGE
+         broadcastIntent.putExtra(EXTRA_TOKEN, connectorToken)
+-        broadcastIntent.putExtra(EXTRA_MESSAGE, String(message)) // UTF-8
+         broadcastIntent.putExtra(EXTRA_BYTES_MESSAGE, message)
+         context.sendBroadcast(broadcastIntent)
+     }
+@@ -39,15 +39,13 @@ class Distributor(val context: Context) {
+         context.sendBroadcast(broadcastIntent)
+     }
+ 
+-    fun sendRegistrationFailed(app: String, connectorToken: String, message: String?) {
++    fun sendRegistrationFailed(app: String, connectorToken: String, reason: FailedReason) {
+         Log.d(TAG, "Sending REGISTRATION_FAILED to $app (token=$connectorToken)")
+         val broadcastIntent = Intent()
+         broadcastIntent.`package` = app
+         broadcastIntent.action = ACTION_REGISTRATION_FAILED
+         broadcastIntent.putExtra(EXTRA_TOKEN, connectorToken)
+-        if (message != null) {
+-            broadcastIntent.putExtra(EXTRA_MESSAGE, message)
+-        }
++        broadcastIntent.putExtra(EXTRA_FAILED_REASON, reason)
+         context.sendBroadcast(broadcastIntent)
+     }
+ 
+diff --git a/gradle/wrapper/gradle-wrapper.jar b/gradle/wrapper/gradle-wrapper.jar
+index f6b961f..2c35211 100644
+Binary files a/gradle/wrapper/gradle-wrapper.jar and b/gradle/wrapper/gradle-wrapper.jar differ
+diff --git a/gradle/wrapper/gradle-wrapper.properties b/gradle/wrapper/gradle-wrapper.properties
+index edb3793..09523c0 100644
+--- a/gradle/wrapper/gradle-wrapper.properties
++++ b/gradle/wrapper/gradle-wrapper.properties
+@@ -1,6 +1,7 @@
+-#Tue Sep 22 10:13:03 PDT 2020
+ distributionBase=GRADLE_USER_HOME
+ distributionPath=wrapper/dists
++distributionUrl=https\://services.gradle.org/distributions/gradle-8.9-bin.zip
++networkTimeout=10000
++validateDistributionUrl=true
+ zipStoreBase=GRADLE_USER_HOME
+ zipStorePath=wrapper/dists
+-distributionUrl=https\://services.gradle.org/distributions/gradle-7.5-bin.zip
+diff --git a/gradlew b/gradlew
+index cccdd3d..f5feea6 100755
+--- a/gradlew
++++ b/gradlew
+@@ -1,78 +1,130 @@
+-#!/usr/bin/env sh
++#!/bin/sh
++
++#
++# Copyright © 2015-2021 the original authors.
++#
++# Licensed under the Apache License, Version 2.0 (the "License");
++# you may not use this file except in compliance with the License.
++# You may obtain a copy of the License at
++#
++#      https://www.apache.org/licenses/LICENSE-2.0
++#
++# Unless required by applicable law or agreed to in writing, software
++# distributed under the License is distributed on an "AS IS" BASIS,
++# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++# See the License for the specific language governing permissions and
++# limitations under the License.
++#
++# SPDX-License-Identifier: Apache-2.0
++#
+ 
+ ##############################################################################
+-##
+-##  Gradle start up script for UN*X
+-##
++#
++#   Gradle start up script for POSIX generated by Gradle.
++#
++#   Important for running:
++#
++#   (1) You need a POSIX-compliant shell to run this script. If your /bin/sh is
++#       noncompliant, but you have some other compliant shell such as ksh or
++#       bash, then to run this script, type that shell name before the whole
++#       command line, like:
++#
++#           ksh Gradle
++#
++#       Busybox and similar reduced shells will NOT work, because this script
++#       requires all of these POSIX shell features:
++#         * functions;
++#         * expansions «$var», «${var}», «${var:-default}», «${var+SET}»,
++#           «${var#prefix}», «${var%suffix}», and «$( cmd )»;
++#         * compound commands having a testable exit status, especially «case»;
++#         * various built-in commands including «command», «set», and «ulimit».
++#
++#   Important for patching:
++#
++#   (2) This script targets any POSIX shell, so it avoids extensions provided
++#       by Bash, Ksh, etc; in particular arrays are avoided.
++#
++#       The "traditional" practice of packing multiple parameters into a
++#       space-separated string is a well documented source of bugs and security
++#       problems, so this is (mostly) avoided, by progressively accumulating
++#       options in "$@", and eventually passing that to Java.
++#
++#       Where the inherited environment variables (DEFAULT_JVM_OPTS, JAVA_OPTS,
++#       and GRADLE_OPTS) rely on word-splitting, this is performed explicitly;
++#       see the in-line comments for details.
++#
++#       There are tweaks for specific operating systems such as AIX, CygWin,
++#       Darwin, MinGW, and NonStop.
++#
++#   (3) This script is generated from the Groovy template
++#       https://github.com/gradle/gradle/blob/HEAD/platforms/jvm/plugins-application/src/main/resources/org/gradle/api/internal/plugins/unixStartScript.txt
++#       within the Gradle project.
++#
++#       You can find Gradle at https://github.com/gradle/gradle/.
++#
+ ##############################################################################
+ 
+ # Attempt to set APP_HOME
++
+ # Resolve links: $0 may be a link
+-PRG="$0"
+-# Need this for relative symlinks.
+-while [ -h "$PRG" ] ; do
+-    ls=`ls -ld "$PRG"`
+-    link=`expr "$ls" : '.*-> \(.*\)$'`
+-    if expr "$link" : '/.*' > /dev/null; then
+-        PRG="$link"
+-    else
+-        PRG=`dirname "$PRG"`"/$link"
+-    fi
++app_path=$0
++
++# Need this for daisy-chained symlinks.
++while
++    APP_HOME=${app_path%"${app_path##*/}"}  # leaves a trailing /; empty if no leading path
++    [ -h "$app_path" ]
++do
++    ls=$( ls -ld "$app_path" )
++    link=${ls#*' -> '}
++    case $link in             #(
++      /*)   app_path=$link ;; #(
++      *)    app_path=$APP_HOME$link ;;
++    esac
+ done
+-SAVED="`pwd`"
+-cd "`dirname \"$PRG\"`/" >/dev/null
+-APP_HOME="`pwd -P`"
+-cd "$SAVED" >/dev/null
+-
+-APP_NAME="Gradle"
+-APP_BASE_NAME=`basename "$0"`
+ 
+-# Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
+-DEFAULT_JVM_OPTS=""
++# This is normally unused
++# shellcheck disable=SC2034
++APP_BASE_NAME=${0##*/}
++# Discard cd standard output in case $CDPATH is set (https://github.com/gradle/gradle/issues/25036)
++APP_HOME=$( cd -P "${APP_HOME:-./}" > /dev/null && printf '%s
++' "$PWD" ) || exit
+ 
+ # Use the maximum available, or set MAX_FD != -1 to use that value.
+-MAX_FD="maximum"
++MAX_FD=maximum
+ 
+ warn () {
+     echo "$*"
+-}
++} >&2
+ 
+ die () {
+     echo
+     echo "$*"
+     echo
+     exit 1
+-}
++} >&2
+ 
+ # OS specific support (must be 'true' or 'false').
+ cygwin=false
+ msys=false
+ darwin=false
+ nonstop=false
+-case "`uname`" in
+-  CYGWIN* )
+-    cygwin=true
+-    ;;
+-  Darwin* )
+-    darwin=true
+-    ;;
+-  MINGW* )
+-    msys=true
+-    ;;
+-  NONSTOP* )
+-    nonstop=true
+-    ;;
++case "$( uname )" in                #(
++  CYGWIN* )         cygwin=true  ;; #(
++  Darwin* )         darwin=true  ;; #(
++  MSYS* | MINGW* )  msys=true    ;; #(
++  NONSTOP* )        nonstop=true ;;
+ esac
+ 
+ CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
+ 
++
+ # Determine the Java command to use to start the JVM.
+ if [ -n "$JAVA_HOME" ] ; then
+     if [ -x "$JAVA_HOME/jre/sh/java" ] ; then
+         # IBM's JDK on AIX uses strange locations for the executables
+-        JAVACMD="$JAVA_HOME/jre/sh/java"
++        JAVACMD=$JAVA_HOME/jre/sh/java
+     else
+-        JAVACMD="$JAVA_HOME/bin/java"
++        JAVACMD=$JAVA_HOME/bin/java
+     fi
+     if [ ! -x "$JAVACMD" ] ; then
+         die "ERROR: JAVA_HOME is set to an invalid directory: $JAVA_HOME
+@@ -81,92 +133,120 @@ Please set the JAVA_HOME variable in your environment to match the
+ location of your Java installation."
+     fi
+ else
+-    JAVACMD="java"
+-    which java >/dev/null 2>&1 || die "ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
++    JAVACMD=java
++    if ! command -v java >/dev/null 2>&1
++    then
++        die "ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
+ 
+ Please set the JAVA_HOME variable in your environment to match the
+ location of your Java installation."
++    fi
+ fi
+ 
+ # Increase the maximum file descriptors if we can.
+-if [ "$cygwin" = "false" -a "$darwin" = "false" -a "$nonstop" = "false" ] ; then
+-    MAX_FD_LIMIT=`ulimit -H -n`
+-    if [ $? -eq 0 ] ; then
+-        if [ "$MAX_FD" = "maximum" -o "$MAX_FD" = "max" ] ; then
+-            MAX_FD="$MAX_FD_LIMIT"
+-        fi
+-        ulimit -n $MAX_FD
+-        if [ $? -ne 0 ] ; then
+-            warn "Could not set maximum file descriptor limit: $MAX_FD"
+-        fi
+-    else
+-        warn "Could not query maximum file descriptor limit: $MAX_FD_LIMIT"
+-    fi
++if ! "$cygwin" && ! "$darwin" && ! "$nonstop" ; then
++    case $MAX_FD in #(
++      max*)
++        # In POSIX sh, ulimit -H is undefined. That's why the result is checked to see if it worked.
++        # shellcheck disable=SC2039,SC3045
++        MAX_FD=$( ulimit -H -n ) ||
++            warn "Could not query maximum file descriptor limit"
++    esac
++    case $MAX_FD in  #(
++      '' | soft) :;; #(
++      *)
++        # In POSIX sh, ulimit -n is undefined. That's why the result is checked to see if it worked.
++        # shellcheck disable=SC2039,SC3045
++        ulimit -n "$MAX_FD" ||
++            warn "Could not set maximum file descriptor limit to $MAX_FD"
++    esac
+ fi
+ 
+-# For Darwin, add options to specify how the application appears in the dock
+-if $darwin; then
+-    GRADLE_OPTS="$GRADLE_OPTS \"-Xdock:name=$APP_NAME\" \"-Xdock:icon=$APP_HOME/media/gradle.icns\""
+-fi
++# Collect all arguments for the java command, stacking in reverse order:
++#   * args from the command line
++#   * the main class name
++#   * -classpath
++#   * -D...appname settings
++#   * --module-path (only if needed)
++#   * DEFAULT_JVM_OPTS, JAVA_OPTS, and GRADLE_OPTS environment variables.
++
++# For Cygwin or MSYS, switch paths to Windows format before running java
++if "$cygwin" || "$msys" ; then
++    APP_HOME=$( cygpath --path --mixed "$APP_HOME" )
++    CLASSPATH=$( cygpath --path --mixed "$CLASSPATH" )
++
++    JAVACMD=$( cygpath --unix "$JAVACMD" )
+ 
+-# For Cygwin, switch paths to Windows format before running java
+-if $cygwin ; then
+-    APP_HOME=`cygpath --path --mixed "$APP_HOME"`
+-    CLASSPATH=`cygpath --path --mixed "$CLASSPATH"`
+-    JAVACMD=`cygpath --unix "$JAVACMD"`
+-
+-    # We build the pattern for arguments to be converted via cygpath
+-    ROOTDIRSRAW=`find -L / -maxdepth 1 -mindepth 1 -type d 2>/dev/null`
+-    SEP=""
+-    for dir in $ROOTDIRSRAW ; do
+-        ROOTDIRS="$ROOTDIRS$SEP$dir"
+-        SEP="|"
+-    done
+-    OURCYGPATTERN="(^($ROOTDIRS))"
+-    # Add a user-defined pattern to the cygpath arguments
+-    if [ "$GRADLE_CYGPATTERN" != "" ] ; then
+-        OURCYGPATTERN="$OURCYGPATTERN|($GRADLE_CYGPATTERN)"
+-    fi
+     # Now convert the arguments - kludge to limit ourselves to /bin/sh
+-    i=0
+-    for arg in "$@" ; do
+-        CHECK=`echo "$arg"|egrep -c "$OURCYGPATTERN" -`
+-        CHECK2=`echo "$arg"|egrep -c "^-"`                                 ### Determine if an option
+-
+-        if [ $CHECK -ne 0 ] && [ $CHECK2 -eq 0 ] ; then                    ### Added a condition
+-            eval `echo args$i`=`cygpath --path --ignore --mixed "$arg"`
+-        else
+-            eval `echo args$i`="\"$arg\""
++    for arg do
++        if
++            case $arg in                                #(
++              -*)   false ;;                            # don't mess with options #(
++              /?*)  t=${arg#/} t=/${t%%/*}              # looks like a POSIX filepath
++                    [ -e "$t" ] ;;                      #(
++              *)    false ;;
++            esac
++        then
++            arg=$( cygpath --path --ignore --mixed "$arg" )
+         fi
+-        i=$((i+1))
++        # Roll the args list around exactly as many times as the number of
++        # args, so each arg winds up back in the position where it started, but
++        # possibly modified.
++        #
++        # NB: a `for` loop captures its iteration list before it begins, so
++        # changing the positional parameters here affects neither the number of
++        # iterations, nor the values presented in `arg`.
++        shift                   # remove old arg
++        set -- "$@" "$arg"      # push replacement arg
+     done
+-    case $i in
+-        (0) set -- ;;
+-        (1) set -- "$args0" ;;
+-        (2) set -- "$args0" "$args1" ;;
+-        (3) set -- "$args0" "$args1" "$args2" ;;
+-        (4) set -- "$args0" "$args1" "$args2" "$args3" ;;
+-        (5) set -- "$args0" "$args1" "$args2" "$args3" "$args4" ;;
+-        (6) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" ;;
+-        (7) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" "$args6" ;;
+-        (8) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" "$args6" "$args7" ;;
+-        (9) set -- "$args0" "$args1" "$args2" "$args3" "$args4" "$args5" "$args6" "$args7" "$args8" ;;
+-    esac
+ fi
+ 
+-# Escape application args
+-save () {
+-    for i do printf %s\\n "$i" | sed "s/'/'\\\\''/g;1s/^/'/;\$s/\$/' \\\\/" ; done
+-    echo " "
+-}
+-APP_ARGS=$(save "$@")
+-
+-# Collect all arguments for the java command, following the shell quoting and substitution rules
+-eval set -- $DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS "\"-Dorg.gradle.appname=$APP_BASE_NAME\"" -classpath "\"$CLASSPATH\"" org.gradle.wrapper.GradleWrapperMain "$APP_ARGS"
+ 
+-# by default we should be in the correct project dir, but when run from Finder on Mac, the cwd is wrong
+-if [ "$(uname)" = "Darwin" ] && [ "$HOME" = "$PWD" ]; then
+-  cd "$(dirname "$0")"
++# Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
++DEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'
++
++# Collect all arguments for the java command:
++#   * DEFAULT_JVM_OPTS, JAVA_OPTS, JAVA_OPTS, and optsEnvironmentVar are not allowed to contain shell fragments,
++#     and any embedded shellness will be escaped.
++#   * For example: A user cannot expect ${Hostname} to be expanded, as it is an environment variable and will be
++#     treated as '${Hostname}' itself on the command line.
++
++set -- \
++        "-Dorg.gradle.appname=$APP_BASE_NAME" \
++        -classpath "$CLASSPATH" \
++        org.gradle.wrapper.GradleWrapperMain \
++        "$@"
++
++# Stop when "xargs" is not available.
++if ! command -v xargs >/dev/null 2>&1
++then
++    die "xargs is not available"
+ fi
+ 
++# Use "xargs" to parse quoted args.
++#
++# With -n1 it outputs one arg per line, with the quotes and backslashes removed.
++#
++# In Bash we could simply go:
++#
++#   readarray ARGS < <( xargs -n1 <<<"$var" ) &&
++#   set -- "${ARGS[@]}" "$@"
++#
++# but POSIX shell has neither arrays nor command substitution, so instead we
++# post-process each arg (as a line of input to sed) to backslash-escape any
++# character that might be a shell metacharacter, then use eval to reverse
++# that process (while maintaining the separation between arguments), and wrap
++# the whole thing up as a single "set" statement.
++#
++# This will of course break if any of these variables contains a newline or
++# an unmatched quote.
++#
++
++eval "set -- $(
++        printf '%s\n' "$DEFAULT_JVM_OPTS $JAVA_OPTS $GRADLE_OPTS" |
++        xargs -n1 |
++        sed ' s~[^-[:alnum:]+,./:=@_]~\\&~g; ' |
++        tr '\n' ' '
++    )" '"$@"'
++
+ exec "$JAVACMD" "$@"
+diff --git a/gradlew.bat b/gradlew.bat
+index e95643d..9b42019 100644
+--- a/gradlew.bat
++++ b/gradlew.bat
+@@ -1,4 +1,22 @@
+-@if "%DEBUG%" == "" @echo off
++@rem
++@rem Copyright 2015 the original author or authors.
++@rem
++@rem Licensed under the Apache License, Version 2.0 (the "License");
++@rem you may not use this file except in compliance with the License.
++@rem You may obtain a copy of the License at
++@rem
++@rem      https://www.apache.org/licenses/LICENSE-2.0
++@rem
++@rem Unless required by applicable law or agreed to in writing, software
++@rem distributed under the License is distributed on an "AS IS" BASIS,
++@rem WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
++@rem See the License for the specific language governing permissions and
++@rem limitations under the License.
++@rem
++@rem SPDX-License-Identifier: Apache-2.0
++@rem
++
++@if "%DEBUG%"=="" @echo off
+ @rem ##########################################################################
+ @rem
+ @rem  Gradle startup script for Windows
+@@ -9,25 +27,29 @@
+ if "%OS%"=="Windows_NT" setlocal
+ 
+ set DIRNAME=%~dp0
+-if "%DIRNAME%" == "" set DIRNAME=.
++if "%DIRNAME%"=="" set DIRNAME=.
++@rem This is normally unused
+ set APP_BASE_NAME=%~n0
+ set APP_HOME=%DIRNAME%
+ 
++@rem Resolve any "." and ".." in APP_HOME to make it shorter.
++for %%i in ("%APP_HOME%") do set APP_HOME=%%~fi
++
+ @rem Add default JVM options here. You can also use JAVA_OPTS and GRADLE_OPTS to pass JVM options to this script.
+-set DEFAULT_JVM_OPTS=
++set DEFAULT_JVM_OPTS="-Xmx64m" "-Xms64m"
+ 
+ @rem Find java.exe
+ if defined JAVA_HOME goto findJavaFromJavaHome
+ 
+ set JAVA_EXE=java.exe
+ %JAVA_EXE% -version >NUL 2>&1
+-if "%ERRORLEVEL%" == "0" goto init
++if %ERRORLEVEL% equ 0 goto execute
+ 
+-echo.
+-echo ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH.
+-echo.
+-echo Please set the JAVA_HOME variable in your environment to match the
+-echo location of your Java installation.
++echo. 1>&2
++echo ERROR: JAVA_HOME is not set and no 'java' command could be found in your PATH. 1>&2
++echo. 1>&2
++echo Please set the JAVA_HOME variable in your environment to match the 1>&2
++echo location of your Java installation. 1>&2
+ 
+ goto fail
+ 
+@@ -35,48 +57,36 @@ goto fail
+ set JAVA_HOME=%JAVA_HOME:"=%
+ set JAVA_EXE=%JAVA_HOME%/bin/java.exe
+ 
+-if exist "%JAVA_EXE%" goto init
++if exist "%JAVA_EXE%" goto execute
+ 
+-echo.
+-echo ERROR: JAVA_HOME is set to an invalid directory: %JAVA_HOME%
+-echo.
+-echo Please set the JAVA_HOME variable in your environment to match the
+-echo location of your Java installation.
++echo. 1>&2
++echo ERROR: JAVA_HOME is set to an invalid directory: %JAVA_HOME% 1>&2
++echo. 1>&2
++echo Please set the JAVA_HOME variable in your environment to match the 1>&2
++echo location of your Java installation. 1>&2
+ 
+ goto fail
+ 
+-:init
+-@rem Get command-line arguments, handling Windows variants
+-
+-if not "%OS%" == "Windows_NT" goto win9xME_args
+-
+-:win9xME_args
+-@rem Slurp the command line arguments.
+-set CMD_LINE_ARGS=
+-set _SKIP=2
+-
+-:win9xME_args_slurp
+-if "x%~1" == "x" goto execute
+-
+-set CMD_LINE_ARGS=%*
+-
+ :execute
+ @rem Setup the command line
+ 
+ set CLASSPATH=%APP_HOME%\gradle\wrapper\gradle-wrapper.jar
+ 
++
+ @rem Execute Gradle
+-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %GRADLE_OPTS% "-Dorg.gradle.appname=%APP_BASE_NAME%" -classpath "%CLASSPATH%" org.gradle.wrapper.GradleWrapperMain %CMD_LINE_ARGS%
++"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %GRADLE_OPTS% "-Dorg.gradle.appname=%APP_BASE_NAME%" -classpath "%CLASSPATH%" org.gradle.wrapper.GradleWrapperMain %*
+ 
+ :end
+ @rem End local scope for the variables with windows NT shell
+-if "%ERRORLEVEL%"=="0" goto mainEnd
++if %ERRORLEVEL% equ 0 goto mainEnd
+ 
+ :fail
+ rem Set variable GRADLE_EXIT_CONSOLE if you need the _script_ return code instead of
+ rem the _cmd.exe /c_ return code!
+-if  not "" == "%GRADLE_EXIT_CONSOLE%" exit 1
+-exit /b 1
++set EXIT_CODE=%ERRORLEVEL%
++if %EXIT_CODE% equ 0 set EXIT_CODE=1
++if not ""=="%GRADLE_EXIT_CONSOLE%" exit %EXIT_CODE%
++exit /b %EXIT_CODE%
+ 
+ :mainEnd
+ if "%OS%"=="Windows_NT" endlocal

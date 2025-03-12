@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 556d43775..55fdd8b4b 100644
+index 9a6375a6f..29d94e7f3 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -1,6 +1,9 @@
+@@ -2,6 +2,9 @@ import mihon.buildlogic.Config
  import mihon.buildlogic.getBuildTime
  import mihon.buildlogic.getCommitCount
  import mihon.buildlogic.getGitSha
@@ -12,7 +12,7 @@ index 556d43775..55fdd8b4b 100644
  
  plugins {
      id("mihon.android.application")
-@@ -96,9 +99,9 @@ android {
+@@ -92,9 +95,9 @@ android {
      splits {
          abi {
              isEnable = true
@@ -24,7 +24,7 @@ index 556d43775..55fdd8b4b 100644
          }
      }
  
-@@ -148,6 +151,23 @@ android {
+@@ -145,6 +148,23 @@ android {
          abortOnError = false
          checkReleaseBuilds = false
      }

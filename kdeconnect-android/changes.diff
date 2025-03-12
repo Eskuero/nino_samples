@@ -1,5 +1,5 @@
 diff --git a/build.gradle.kts b/build.gradle.kts
-index f8003106..e5d5b819 100644
+index 950c1554..0404418c 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
 @@ -10,6 +10,9 @@ import org.objectweb.asm.ClassVisitor
@@ -13,8 +13,8 @@ index f8003106..e5d5b819 100644
  buildscript {
      dependencies {
 @@ -56,6 +59,11 @@ android {
-         versionCode = 13301
-         versionName = "1.33.1"
+         versionCode = 13302
+         versionName = "1.33.2"
          proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
 +        ndk {
 +            abiFilters.apply {

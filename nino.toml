@@ -107,4 +107,15 @@
 	[projects.Feeder]
 		[projects.Feeder.tasks.fdroidrelease]
 			exec = "assembleFdroidRelease"
+	[projects.TowerCollector]
+		[projects.TowerCollector.tasks.fdroidrelease]
+			exec = "assembleProductionFdroidRelease"
+	[projects.NeoStumbler]
+		[projects.NeoStumbler.tasks.fullrelease]
+			exec = "assembleFullRelease"
+	[projects.ntfy-android]
+		followtags = false
+		[projects.ntfy-android.tasks.fdroidrelease]
+			exec = "assembleFdroidRelease"
+
 

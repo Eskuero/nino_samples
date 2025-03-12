@@ -1,33 +1,20 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index b30646f4..c3f55210 100644
+index f8a600f0..7204ac52 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -1,3 +1,7 @@
+@@ -1,4 +1,7 @@
+ import com.android.build.gradle.internal.tasks.factory.dependsOn
 +import com.android.build.api.variant.FilterConfiguration.FilterType.*
 +import java.time.LocalDateTime
 +import java.time.Duration;
-+
+ 
  plugins {
-     alias(libs.plugins.android.application)
-     alias(libs.plugins.kotlin.android)
-@@ -42,6 +46,12 @@ android {
- 
-         vectorDrawables.useSupportLibrary = true
- 
-+        ndk {
-+            abiFilters.apply {
-+                add("arm64-v8a")
-+            }
-+        }
-+
-         androidResources.localeFilters.addAll(getListOfSupportedLocales())
- 
-         // For espresso tests
-@@ -192,6 +202,18 @@ android {
-         textOutput = file("stdout")
-         textReport = true
-     }
-+
+ 	id("com.android.application")
+@@ -114,7 +117,17 @@ android {
+ 	androidResources {
+ 		generateLocaleConfig = true
+ 	}
+-
 +    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
 +    val d2 = LocalDateTime.now()
 +    val minutes = Duration.between(d1, d2).getSeconds() / 60
@@ -41,4 +28,4 @@ index b30646f4..c3f55210 100644
 +    }
  }
  
- androidComponents {
+ dependencies {

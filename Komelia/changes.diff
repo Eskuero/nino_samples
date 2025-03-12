@@ -1,5 +1,5 @@
 diff --git a/komelia-app/build.gradle.kts b/komelia-app/build.gradle.kts
-index dad4cbb..21655a7 100644
+index 7046ef6..7612ae7 100644
 --- a/komelia-app/build.gradle.kts
 +++ b/komelia-app/build.gradle.kts
 @@ -2,6 +2,8 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
@@ -13,7 +13,7 @@ index dad4cbb..21655a7 100644
      alias(libs.plugins.kotlinMultiplatform)
 @@ -86,6 +88,11 @@ android {
          targetSdk = libs.versions.android.targetSdk.get().toInt()
-         versionCode = 7
+         versionCode = 8
          versionName = libs.versions.app.version.get()
 +        ndk {
 +            abiFilters.apply {
@@ -41,3 +41,15 @@ index dad4cbb..21655a7 100644
  }
  
  
+diff --git a/settings.gradle.kts b/settings.gradle.kts
+index 8556a32..75e4011 100644
+--- a/settings.gradle.kts
++++ b/settings.gradle.kts
+@@ -33,7 +33,6 @@ include(":third_party:ChipTextField:chiptextfield-m3")
+ include(":third_party:compose-sonner:sonner")
+ include(":third_party:indexeddb:core")
+ include(":third_party:indexeddb:external")
+-include(":third_party:cache4k:cache4k")
+ 
+ includeBuild("third_party/secret-service") {
+     dependencySubstitution { substitute(module("de.swiesend:secret-service")) }

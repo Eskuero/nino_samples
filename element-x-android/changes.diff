@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 89181cf9cf..f6be765882 100644
+index 89181cf9cf..b5309c1f8d 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
 @@ -24,6 +24,8 @@ import extension.locales
@@ -11,16 +11,19 @@ index 89181cf9cf..f6be765882 100644
  
  plugins {
      id("io.element.android-compose-application")
-@@ -51,7 +53,7 @@ android {
+@@ -49,11 +51,6 @@ android {
+         versionCode = Versions.VERSION_CODE
+         versionName = Versions.VERSION_NAME
  
-         // Keep abiFilter for the universalApk
-         ndk {
+-        // Keep abiFilter for the universalApk
+-        ndk {
 -            abiFilters += listOf("armeabi-v7a", "x86", "arm64-v8a", "x86_64")
-+            abiFilters += listOf("arm64-v8a")
-         }
- 
+-        }
+-
          // Ref: https://developer.android.com/studio/build/configure-apk-splits.html#configure-abi-split
-@@ -65,9 +67,9 @@ android {
+         splits {
+             // Configures multiple APKs based on ABI.
+@@ -65,9 +62,9 @@ android {
                  // Resets the list of ABIs that Gradle should create APKs for to none.
                  reset()
                  // Specifies a list of ABIs that Gradle should create APKs for.
@@ -32,7 +35,7 @@ index 89181cf9cf..f6be765882 100644
              }
          }
  
-@@ -106,7 +108,6 @@ android {
+@@ -106,7 +103,6 @@ android {
  
          getByName("release") {
              resValue("string", "app_name", baseAppName)
@@ -40,7 +43,7 @@ index 89181cf9cf..f6be765882 100644
  
              postprocessing {
                  isRemoveUnusedCode = true
-@@ -185,6 +186,10 @@ androidComponents {
+@@ -185,6 +181,10 @@ androidComponents {
          "x86_64" to 4,
      )
  
@@ -51,7 +54,7 @@ index 89181cf9cf..f6be765882 100644
      onVariants { variant ->
          // Assigns a different version code for each output APK
          // other than the universal APK.
-@@ -195,7 +200,7 @@ androidComponents {
+@@ -195,7 +195,7 @@ androidComponents {
              val abiCode = abiVersionCodes[name] ?: 0
              // Assigns the new version code to output.versionCode, which changes the version code
              // for only the output APK, not for the variant itself.

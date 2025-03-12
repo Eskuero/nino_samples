@@ -1,0 +1,53 @@
+diff --git a/app/build.gradle b/app/build.gradle
+index c720c5f..9c84f86 100644
+--- a/app/build.gradle
++++ b/app/build.gradle
+@@ -76,6 +76,9 @@ android {
+             arg("room.schemaLocation", DB_SCHEMAS_DIR)
+             arg("room.incremental", "true")
+         }
++        ndk {
++             abiFilters "arm64-v8a"
++        }
+     }
+ 
+     sourceSets {
+@@ -99,8 +102,6 @@ android {
+         }
+ 
+         release {
+-            signingConfig signingConfigs.release
+-
+             debuggable false
+ 
+             minifyEnabled true
+@@ -157,9 +158,9 @@ android {
+             enable project.hasProperty("enableAbiSplit")
+ 
+             reset()
+-            include 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
++            include 'arm64-v8a'
+ 
+-            universalApk true
++            universalApk false
+         }
+     }
+ 
+@@ -176,6 +177,17 @@ android {
+         //Temporarily set missing quantities to only give a warning until all the translations have been updated
+         warning 'MissingQuantity'
+     }
++    Calendar origin = Calendar.getInstance()
++    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++    Date d1 = origin.getTime()
++    Date d2 = new Date()
++    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++    def DateVersionCode = 2112312359 + minutes
++    android.applicationVariants.all { variant ->
++        variant.outputs.all { output ->
++            output.versionCodeOverride = DateVersionCode
++        }
++    }
+ }
+ 
+ tasks.register('printVersionName') {
