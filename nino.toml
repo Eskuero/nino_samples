@@ -111,11 +111,15 @@
 		[projects.TowerCollector.tasks.fdroidrelease]
 			exec = "assembleProductionFdroidRelease"
 	[projects.NeoStumbler]
-		[projects.NeoStumbler.tasks.fullrelease]
-			exec = "assembleFullRelease"
+		[projects.NeoStumbler.tasks.fdroidrelease]
+			exec = "assembleFdroidRelease"
 	[projects.ntfy-android]
 		followtags = false
 		[projects.ntfy-android.tasks.fdroidrelease]
+			exec = "assembleFdroidRelease"
+	[projects.Fedilab]
+		followtags = false
+		[projects.Fedilab.tasks.fdroidrelease]
 			exec = "assembleFdroidRelease"
 
 

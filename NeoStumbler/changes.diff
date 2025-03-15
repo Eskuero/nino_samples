@@ -1,8 +1,37 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index c720c5f..9c84f86 100644
+index c720c5f..ca5cae1 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -76,6 +76,9 @@ android {
+@@ -11,28 +11,10 @@ plugins {
+ 
+ def DB_SCHEMAS_DIR =  "$projectDir/schemas"
+ 
+-bundletool {
+-    signingConfig {
+-        storeFile = file("../keystore.jks")
+-        storePassword = System.getenv("SIGNING_STORE_PASSWORD")
+-        keyAlias = System.getenv("SIGNING_KEY_ALIAS")
+-        keyPassword = System.getenv("SIGNING_KEY_PASSWORD")
+-    }
+-}
+-
+ android {
+     namespace 'xyz.malkki.neostumbler'
+     compileSdk 35
+ 
+-    signingConfigs {
+-        release {
+-            storeFile file("../keystore.jks")
+-            storePassword System.getenv("SIGNING_STORE_PASSWORD")
+-            keyAlias System.getenv("SIGNING_KEY_ALIAS")
+-            keyPassword System.getenv("SIGNING_KEY_PASSWORD")
+-        }
+-    }
+-
+     defaultConfig {
+         applicationId "xyz.malkki.neostumbler"
+         minSdk 29
+@@ -76,6 +58,9 @@ android {
              arg("room.schemaLocation", DB_SCHEMAS_DIR)
              arg("room.incremental", "true")
          }
@@ -12,7 +41,7 @@ index c720c5f..9c84f86 100644
      }
  
      sourceSets {
-@@ -99,8 +102,6 @@ android {
+@@ -99,8 +84,6 @@ android {
          }
  
          release {
@@ -21,7 +50,7 @@ index c720c5f..9c84f86 100644
              debuggable false
  
              minifyEnabled true
-@@ -157,9 +158,9 @@ android {
+@@ -157,9 +140,9 @@ android {
              enable project.hasProperty("enableAbiSplit")
  
              reset()
@@ -33,7 +62,7 @@ index c720c5f..9c84f86 100644
          }
      }
  
-@@ -176,6 +177,17 @@ android {
+@@ -176,6 +159,17 @@ android {
          //Temporarily set missing quantities to only give a warning until all the translations have been updated
          warning 'MissingQuantity'
      }

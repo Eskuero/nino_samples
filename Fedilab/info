@@ -1,7 +1,3 @@
 Remote: https://codeberg.org/tom79/Fedilab
 Branch: main
-HEAD: a013c160b7b179a75302b67f5af61f5c63987f3a
-
-##############################################################################
-WARNING: This configuration matches the release published on the repository but new package builds are disabled
-##############################################################################
+HEAD: 238f31e3fc08829acf7fd8c64278aafe58dfbf83
