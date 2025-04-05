@@ -1,8 +1,16 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 2813024..3ab17ab 100644
+index 2813024..973b8c2 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -10,7 +10,7 @@ android {
+@@ -1,3 +1,7 @@
++import com.android.build.api.variant.FilterConfiguration.FilterType.*
++import java.time.LocalDateTime
++import java.time.Duration;
++
+ plugins {
+     id("com.android.application")
+     id("org.jetbrains.kotlin.android")
+@@ -10,7 +14,7 @@ android {
      defaultConfig {
          applicationId = "com.google.android.apps.photos"
          minSdk = 30
@@ -11,3 +19,21 @@ index 2813024..3ab17ab 100644
          versionCode = 1000000004
          versionName = "0.4"
      }
+@@ -36,6 +40,17 @@ android {
+         buildConfig = true
+         viewBinding = true
+     }
++    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
++    val d2 = LocalDateTime.now()
++    val minutes = Duration.between(d1, d2).getSeconds() / 60
++    val DateVersionCode = (2112312359 + minutes).toInt()
++    androidComponents {
++        onVariants { variant ->
++            variant.outputs.forEach { output ->
++                output.versionCode.set(DateVersionCode)
++            }
++        }
++    }
+ }
+ 
+ dependencies {

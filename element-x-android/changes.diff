@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 89181cf9cf..4302a8946d 100644
+index 0da59234da..f6a09dbd4c 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -24,6 +24,8 @@ import extension.locales
+@@ -25,6 +25,8 @@ import extension.locales
  import extension.setupAnvil
  import extension.setupKover
  import java.util.Locale
@@ -11,7 +11,7 @@ index 89181cf9cf..4302a8946d 100644
  
  plugins {
      id("io.element.android-compose-application")
-@@ -49,11 +51,6 @@ android {
+@@ -50,11 +52,6 @@ android {
          versionCode = Versions.VERSION_CODE
          versionName = Versions.VERSION_NAME
  
@@ -23,19 +23,19 @@ index 89181cf9cf..4302a8946d 100644
          // Ref: https://developer.android.com/studio/build/configure-apk-splits.html#configure-abi-split
          splits {
              // Configures multiple APKs based on ABI.
-@@ -65,9 +62,9 @@ android {
-                 // Resets the list of ABIs that Gradle should create APKs for to none.
-                 reset()
-                 // Specifies a list of ABIs that Gradle should create APKs for.
--                include("armeabi-v7a", "x86", "arm64-v8a", "x86_64")
-+                include("arm64-v8a")
-                 // Generate a universal APK that includes all ABIs, so user who installs from CI tool can use this one by default.
--                isUniversalApk = true
-+                isUniversalApk = false
+@@ -71,9 +68,9 @@ android {
+ 
+                 if (!buildingAppBundle) {
+                     // Specifies a list of ABIs that Gradle should create APKs for.
+-                    include("armeabi-v7a", "x86", "arm64-v8a", "x86_64")
++                    include("arm64-v8a")
+                     // Generate a universal APK that includes all ABIs, so user who installs from CI tool can use this one by default.
+-                    isUniversalApk = true
++                    isUniversalApk = false
+                 }
              }
          }
- 
-@@ -106,7 +103,6 @@ android {
+@@ -113,7 +110,6 @@ android {
  
          getByName("release") {
              resValue("string", "app_name", baseAppName)
@@ -43,7 +43,7 @@ index 89181cf9cf..4302a8946d 100644
  
              postprocessing {
                  isRemoveUnusedCode = true
-@@ -185,6 +181,10 @@ androidComponents {
+@@ -192,6 +188,10 @@ androidComponents {
          "x86_64" to 4,
      )
  
@@ -54,7 +54,7 @@ index 89181cf9cf..4302a8946d 100644
      onVariants { variant ->
          // Assigns a different version code for each output APK
          // other than the universal APK.
-@@ -195,7 +195,7 @@ androidComponents {
+@@ -202,7 +202,7 @@ androidComponents {
              val abiCode = abiVersionCodes[name] ?: 0
              // Assigns the new version code to output.versionCode, which changes the version code
              // for only the output APK, not for the variant itself.
@@ -63,7 +63,7 @@ index 89181cf9cf..4302a8946d 100644
          }
      }
  
-@@ -292,6 +292,7 @@ licensee {
+@@ -299,6 +299,7 @@ licensee {
      allow("Apache-2.0")
      allow("MIT")
      allow("BSD-2-Clause")
@@ -72,7 +72,7 @@ index 89181cf9cf..4302a8946d 100644
      allowUrl("https://developer.android.com/studio/terms.html")
      allowUrl("https://www.zetetic.net/sqlcipher/license/")
 diff --git a/gradle/libs.versions.toml b/gradle/libs.versions.toml
-index 9f78c5e739..baa30c4ea1 100644
+index a293b34b65..6d8a2f286e 100644
 --- a/gradle/libs.versions.toml
 +++ b/gradle/libs.versions.toml
 @@ -182,7 +182,7 @@ sqldelight-driver-jvm = { module = "app.cash.sqldelight:sqlite-driver", version.
@@ -85,10 +85,10 @@ index 9f78c5e739..baa30c4ea1 100644
  vanniktech_blurhash = "com.vanniktech:blurhash:0.3.0"
  telephoto_zoomableimage = { module = "me.saket.telephoto:zoomable-image-coil", version.ref = "telephoto" }
 diff --git a/libraries/pushproviders/unifiedpush/build.gradle.kts b/libraries/pushproviders/unifiedpush/build.gradle.kts
-index fd502263e9..8bf0bb777f 100644
+index 1dec445c00..2cbf68c6d4 100644
 --- a/libraries/pushproviders/unifiedpush/build.gradle.kts
 +++ b/libraries/pushproviders/unifiedpush/build.gradle.kts
-@@ -41,7 +41,13 @@ dependencies {
+@@ -42,7 +42,13 @@ dependencies {
      implementation(libs.serialization.json)
  
      // UnifiedPush library
