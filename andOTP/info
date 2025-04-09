@@ -1,3 +1,7 @@
 Remote: https://github.com/andOTP/andOTP
 Branch: 
 HEAD: 34eec80acf9733031f24ec196190fbd683130ea1
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

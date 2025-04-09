@@ -1,3 +1,7 @@
 Remote: https://github.com/Etar-Group/Etar-Calendar
 Branch: master
 HEAD: 77a9e422273d0e6f12cc9b74a3e4087a9ccbbd92
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

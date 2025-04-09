@@ -1,12 +1,22 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index f3159f741..49fbd30ff 100644
+index dab8aa72..70d8d4df 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -115,6 +115,18 @@ android {
-                          'META-INF/COPYRIGHT']
+@@ -41,6 +41,10 @@ android {
+             }
          }
-     }
+ 
++        ndk {
++             abiFilters "arm64-v8a"
++        }
 +
+         testInstrumentationRunner "com.beemdevelopment.aegis.AegisTestRunner"
+         testInstrumentationRunnerArguments clearPackageData: 'true'
+     }
+@@ -112,6 +116,17 @@ android {
+     buildFeatures {
+         buildConfig true
+     }
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
 +    Date d1 = origin.getTime()
@@ -20,4 +30,4 @@ index f3159f741..49fbd30ff 100644
 +    }
  }
  
- ext {
+ protobuf {

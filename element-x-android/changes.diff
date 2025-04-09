@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 0da59234da..f6a09dbd4c 100644
+index 107f9431f2..334c77698b 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -25,6 +25,8 @@ import extension.locales
+@@ -26,6 +26,8 @@ import extension.locales
  import extension.setupAnvil
  import extension.setupKover
  import java.util.Locale
@@ -11,7 +11,7 @@ index 0da59234da..f6a09dbd4c 100644
  
  plugins {
      id("io.element.android-compose-application")
-@@ -50,11 +52,6 @@ android {
+@@ -51,11 +53,6 @@ android {
          versionCode = Versions.VERSION_CODE
          versionName = Versions.VERSION_NAME
  
@@ -23,7 +23,7 @@ index 0da59234da..f6a09dbd4c 100644
          // Ref: https://developer.android.com/studio/build/configure-apk-splits.html#configure-abi-split
          splits {
              // Configures multiple APKs based on ABI.
-@@ -71,9 +68,9 @@ android {
+@@ -72,9 +69,9 @@ android {
  
                  if (!buildingAppBundle) {
                      // Specifies a list of ABIs that Gradle should create APKs for.
@@ -35,7 +35,7 @@ index 0da59234da..f6a09dbd4c 100644
                  }
              }
          }
-@@ -113,7 +110,6 @@ android {
+@@ -114,7 +111,6 @@ android {
  
          getByName("release") {
              resValue("string", "app_name", baseAppName)
@@ -43,7 +43,7 @@ index 0da59234da..f6a09dbd4c 100644
  
              postprocessing {
                  isRemoveUnusedCode = true
-@@ -192,6 +188,10 @@ androidComponents {
+@@ -193,6 +189,10 @@ androidComponents {
          "x86_64" to 4,
      )
  
@@ -54,7 +54,7 @@ index 0da59234da..f6a09dbd4c 100644
      onVariants { variant ->
          // Assigns a different version code for each output APK
          // other than the universal APK.
-@@ -202,7 +202,7 @@ androidComponents {
+@@ -203,7 +203,7 @@ androidComponents {
              val abiCode = abiVersionCodes[name] ?: 0
              // Assigns the new version code to output.versionCode, which changes the version code
              // for only the output APK, not for the variant itself.
@@ -63,7 +63,7 @@ index 0da59234da..f6a09dbd4c 100644
          }
      }
  
-@@ -299,6 +299,7 @@ licensee {
+@@ -300,6 +300,7 @@ licensee {
      allow("Apache-2.0")
      allow("MIT")
      allow("BSD-2-Clause")
@@ -72,7 +72,7 @@ index 0da59234da..f6a09dbd4c 100644
      allowUrl("https://developer.android.com/studio/terms.html")
      allowUrl("https://www.zetetic.net/sqlcipher/license/")
 diff --git a/gradle/libs.versions.toml b/gradle/libs.versions.toml
-index a293b34b65..6d8a2f286e 100644
+index c5bde3385a..e3c76acc41 100644
 --- a/gradle/libs.versions.toml
 +++ b/gradle/libs.versions.toml
 @@ -182,7 +182,7 @@ sqldelight-driver-jvm = { module = "app.cash.sqldelight:sqlite-driver", version.
