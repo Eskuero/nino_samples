@@ -4,7 +4,7 @@ rm -rf node_modules;
 source /usr/share/nvm/init-nvm.sh;
 nvm install 22;
 nvm use 22;
-yarn add expo@52.0.19;
+yarn add expo@52.0.42;
 cp google-services.json.example google-services.json;
 EXPO_NO_GIT_STATUS=1 npx --yes expo prebuild --platform android --clean;
 

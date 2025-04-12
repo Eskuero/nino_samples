@@ -1,26 +1,126 @@
 diff --git a/package.json b/package.json
-index 2ab966ceb..140cf8ecb 100644
+index 9b874c3a9..25d0ea3c2 100644
 --- a/package.json
 +++ b/package.json
-@@ -122,7 +122,7 @@
+@@ -123,7 +123,7 @@
      "emoji-mart": "^5.5.2",
      "emoji-regex": "^10.4.0",
      "eventemitter3": "^5.0.1",
--    "expo": "~52.0.19",
-+    "expo": "52.0.19",
-     "expo-application": "^6.0.1",
+-    "expo": "~52.0.42",
++    "expo": "52.0.42",
+     "expo-application": "~6.0.2",
      "expo-blur": "^14.0.3",
-     "expo-build-properties": "^0.13.1",
+     "expo-build-properties": "~0.13.2",
 diff --git a/yarn.lock b/yarn.lock
-index 1e86174cb..1be54559f 100644
+index 297a815ae..e1ff303dd 100644
 --- a/yarn.lock
 +++ b/yarn.lock
-@@ -10675,7 +10675,7 @@ expo-web-browser@~14.0.1:
-   resolved "https://registry.yarnpkg.com/expo-web-browser/-/expo-web-browser-14.0.1.tgz#97f3f141b0897364bc8364d90d6e29df0beec8aa"
-   integrity sha512-QM9F3ie+UyIOoBvqFmT6CZojb1vMc2H+7ZlMT5dEu1PL2jtYyOeK2hLfbt/EMt7CBm/w+P29H9W9Y9gdebOkuQ==
+@@ -3852,10 +3852,10 @@
+     mv "~2"
+     safe-json-stringify "~1"
  
--expo@~52.0.19:
-+expo@52.0.19:
-   version "52.0.19"
-   resolved "https://registry.yarnpkg.com/expo/-/expo-52.0.19.tgz#1b881c96ea595da0c5f3c13f578bc368c5261f4a"
-   integrity sha512-wOb/wbiQa0xqQRhgVBuOhLRus05TSw6fgThVMrPQgdLo24EPuT/ZAiRVcVRdjrEbwOqCDumgQCB7636B9J+jKg==
+-"@expo/cli@0.22.24":
+-  version "0.22.24"
+-  resolved "https://registry.yarnpkg.com/@expo/cli/-/cli-0.22.24.tgz#8fe2291e53a536869832e6700918175481936f88"
+-  integrity sha512-lhdenxBC8/x/vL39j79eXE09mOaqNNLmiSDdY/PblnI+UNzGgsQ48hBTYa/MQhd0ioXXVKurZL2941dLKwcxJw==
++"@expo/cli@0.22.23":
++  version "0.22.23"
++  resolved "https://registry.yarnpkg.com/@expo/cli/-/cli-0.22.23.tgz#78806c7f35b4b2d81fa55d0d5b2086221514ca40"
++  integrity sha512-LXFKu2jnk9ClVD+kw0sJCQ89zei01wz2t4EJwc9P7EwYb8gabC8FtPyM/X7NIE5jtrnTLTUtjW5ovxQSBL7pJQ==
+   dependencies:
+     "@0no-co/graphql.web" "^1.0.8"
+     "@babel/runtime" "^7.20.0"
+@@ -3870,12 +3870,12 @@
+     "@expo/osascript" "^2.1.6"
+     "@expo/package-manager" "^1.7.2"
+     "@expo/plist" "^0.2.2"
+-    "@expo/prebuild-config" "^8.0.31"
++    "@expo/prebuild-config" "^8.0.30"
+     "@expo/rudder-sdk-node" "^1.1.1"
+     "@expo/spawn-async" "^1.7.2"
+     "@expo/ws-tunnel" "^1.0.1"
+     "@expo/xcpretty" "^4.3.0"
+-    "@react-native/dev-middleware" "0.76.9"
++    "@react-native/dev-middleware" "0.76.8"
+     "@urql/core" "^5.0.6"
+     "@urql/exchange-retry" "^1.3.0"
+     accepts "^1.3.8"
+@@ -4233,7 +4233,7 @@
+     base64-js "^1.2.3"
+     xmlbuilder "^14.0.0"
+ 
+-"@expo/prebuild-config@^8.0.27", "@expo/prebuild-config@^8.0.31":
++"@expo/prebuild-config@^8.0.27", "@expo/prebuild-config@^8.0.30":
+   version "8.0.31"
+   resolved "https://registry.yarnpkg.com/@expo/prebuild-config/-/prebuild-config-8.0.31.tgz#3612a46d56d41ecb60583faf9f5aec68cba6b93d"
+   integrity sha512-YTuS5ic9KolD/WA3GqgLcZytHQU1dpitlZ/cbDq8ZqkY+1ae5YWX+GkYEZf2VyECPaWnHYuDGddaTQVw5miTRg==
+@@ -5802,11 +5802,34 @@
+     readline "^1.3.0"
+     semver "^7.1.3"
+ 
++"@react-native/debugger-frontend@0.76.8":
++  version "0.76.8"
++  resolved "https://registry.yarnpkg.com/@react-native/debugger-frontend/-/debugger-frontend-0.76.8.tgz#cc1a04a58dd5113ce3527aaa001f9934404d1b55"
++  integrity sha512-kSukBw2C++5ENLUCAp/1uEeiFgiHi/MBa71Wgym3UD5qwu2vOSPOTSKRX7q2Jb676MUzTcrIaJBZ/r2qk25u7Q==
++
+ "@react-native/debugger-frontend@0.76.9":
+   version "0.76.9"
+   resolved "https://registry.yarnpkg.com/@react-native/debugger-frontend/-/debugger-frontend-0.76.9.tgz#b329b8e5dccda282a11a107a79fa65268b2e029c"
+   integrity sha512-0Ru72Bm066xmxFuOXhhvrryxvb57uI79yDSFf+hxRpktkC98NMuRenlJhslMrbJ6WjCu1vOe/9UjWNYyxXTRTA==
+ 
++"@react-native/dev-middleware@0.76.8":
++  version "0.76.8"
++  resolved "https://registry.yarnpkg.com/@react-native/dev-middleware/-/dev-middleware-0.76.8.tgz#06aaae5992c6ee2cbcf8f9e307b401448b39488a"
++  integrity sha512-KYx7hFME2uYQRCDCqb19ghw51TAdh48PZ5EMpoU2kPA1SKKO9c1bUbpsKRhVZ0bv1QqEX6fjox3c4/WYRozHQA==
++  dependencies:
++    "@isaacs/ttlcache" "^1.4.1"
++    "@react-native/debugger-frontend" "0.76.8"
++    chrome-launcher "^0.15.2"
++    chromium-edge-launcher "^0.2.0"
++    connect "^3.6.5"
++    debug "^2.2.0"
++    invariant "^2.2.4"
++    nullthrows "^1.1.1"
++    open "^7.0.3"
++    selfsigned "^2.4.1"
++    serve-static "^1.13.1"
++    ws "^6.2.3"
++
+ "@react-native/dev-middleware@0.76.9":
+   version "0.76.9"
+   resolved "https://registry.yarnpkg.com/@react-native/dev-middleware/-/dev-middleware-0.76.9.tgz#2fdb716707d90b4d085cabb61cc466fabdd2500f"
+@@ -8336,7 +8359,7 @@ babel-preset-expo@^12.0.2:
+     babel-plugin-react-native-web "~0.19.13"
+     react-refresh "^0.14.2"
+ 
+-babel-preset-expo@~12.0.11:
++babel-preset-expo@~12.0.10:
+   version "12.0.11"
+   resolved "https://registry.yarnpkg.com/babel-preset-expo/-/babel-preset-expo-12.0.11.tgz#3bbac54f269ae0cc94d198260e26d5020d146127"
+   integrity sha512-4m6D92nKEieg+7DXa8uSvpr0GjfuRfM/G0t0I/Q5hF8HleEv5ms3z4dJ+p52qXSJsm760tMqLdO93Ywuoi7cCQ==
+@@ -11175,19 +11198,19 @@ expo-web-browser@~14.0.2:
+   resolved "https://registry.yarnpkg.com/expo-web-browser/-/expo-web-browser-14.0.2.tgz#52d53947c42fdfb225e8c230418ffe508bcf98a7"
+   integrity sha512-Hncv2yojhTpHbP6SGWARBFdl7P6wBHc1O8IKaNsH0a/IEakq887o1eRhLxZ5IwztPQyRDhpqHdgJ+BjWolOnwA==
+ 
+-expo@~52.0.42:
+-  version "52.0.44"
+-  resolved "https://registry.yarnpkg.com/expo/-/expo-52.0.44.tgz#3e7aa0e3d373c70a328b349852b4a35867ecc930"
+-  integrity sha512-qj3+MWxmqLyBaYQ8jDOvVLEgSqNplH3cf+nDhxCo4C1cpTPD1u/HGh1foibtaeuCYLHsE5km1lrcOpRbFJ4luQ==
++expo@52.0.42:
++  version "52.0.42"
++  resolved "https://registry.yarnpkg.com/expo/-/expo-52.0.42.tgz#febbb8e87e89b20c7d5809f673ab213a8d5debba"
++  integrity sha512-t+PRYIzzPFAlF99OVJOjZwM1glLhN85XGD6vmeg6uwpADDILl9yw4dfy0DXL4hot5GJkAGaZ+uOHUljV4kC2Bg==
+   dependencies:
+     "@babel/runtime" "^7.20.0"
+-    "@expo/cli" "0.22.24"
++    "@expo/cli" "0.22.23"
+     "@expo/config" "~10.0.11"
+     "@expo/config-plugins" "~9.0.17"
+     "@expo/fingerprint" "0.11.11"
+     "@expo/metro-config" "0.19.12"
+     "@expo/vector-icons" "^14.0.0"
+-    babel-preset-expo "~12.0.11"
++    babel-preset-expo "~12.0.10"
+     expo-asset "~11.0.5"
+     expo-constants "~17.0.8"
+     expo-file-system "~18.0.12"

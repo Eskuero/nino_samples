@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 107f9431f2..334c77698b 100644
+index 107f9431f2..f0fcf4b6d0 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
 @@ -26,6 +26,8 @@ import extension.locales
@@ -7,7 +7,7 @@ index 107f9431f2..334c77698b 100644
  import extension.setupKover
  import java.util.Locale
 +import java.time.LocalDateTime
-+import java.time.Duration;
++import java.time.Duration
  
  plugins {
      id("io.element.android-compose-application")
@@ -71,8 +71,21 @@ index 107f9431f2..334c77698b 100644
      allowUrl("https://opensource.org/licenses/MIT")
      allowUrl("https://developer.android.com/studio/terms.html")
      allowUrl("https://www.zetetic.net/sqlcipher/license/")
+diff --git a/gradle.properties b/gradle.properties
+index 4a941c0143..89b2b750ec 100644
+--- a/gradle.properties
++++ b/gradle.properties
+@@ -12,7 +12,7 @@
+ # http://www.gradle.org/docs/current/userguide/build_environment.html
+ # Specifies the JVM arguments used for the daemon process.
+ # The setting is particularly useful for tweaking memory settings.
+-org.gradle.jvmargs=-Xmx4g -Dfile.encoding=UTF-8 -XX:+UseG1GC
++org.gradle.jvmargs=-Xmx8g -Dfile.encoding=UTF-8 -XX:+UseG1GC
+ 
+ # AndroidX package structure to make it clearer which packages are bundled with the
+ # Android operating system, and which are packaged with your app"s APK
 diff --git a/gradle/libs.versions.toml b/gradle/libs.versions.toml
-index c5bde3385a..e3c76acc41 100644
+index e7af576f45..3bc114c43a 100644
 --- a/gradle/libs.versions.toml
 +++ b/gradle/libs.versions.toml
 @@ -182,7 +182,7 @@ sqldelight-driver-jvm = { module = "app.cash.sqldelight:sqlite-driver", version.
@@ -129,7 +142,7 @@ index e41aa6a51f..24b9676c11 100644
      }
  }
 diff --git a/libraries/pushproviders/unifiedpush/src/main/kotlin/io/element/android/libraries/pushproviders/unifiedpush/VectorUnifiedPushMessagingReceiver.kt b/libraries/pushproviders/unifiedpush/src/main/kotlin/io/element/android/libraries/pushproviders/unifiedpush/VectorUnifiedPushMessagingReceiver.kt
-index 2e48574de1..213e7a1c13 100644
+index 328f5be8c7..026cd195e8 100644
 --- a/libraries/pushproviders/unifiedpush/src/main/kotlin/io/element/android/libraries/pushproviders/unifiedpush/VectorUnifiedPushMessagingReceiver.kt
 +++ b/libraries/pushproviders/unifiedpush/src/main/kotlin/io/element/android/libraries/pushproviders/unifiedpush/VectorUnifiedPushMessagingReceiver.kt
 @@ -16,7 +16,10 @@ import io.element.android.libraries.pushproviders.unifiedpush.registration.Endpo
@@ -156,8 +169,8 @@ index 2e48574de1..213e7a1c13 100644
 +            val pushData = pushParser.parse(message.content, instance)
              if (pushData == null) {
                  Timber.tag(loggerTag.value).w("Invalid data received from UnifiedPush")
-             } else {
-@@ -61,20 +64,20 @@ class VectorUnifiedPushMessagingReceiver : MessagingReceiver() {
+                 pushHandler.handleInvalid(
+@@ -67,20 +70,20 @@ class VectorUnifiedPushMessagingReceiver : MessagingReceiver() {
       * Called when a new endpoint is to be used for sending push messages.
       * You should send the endpoint to your application server and sync for missing notifications.
       */
@@ -182,7 +195,7 @@ index 2e48574de1..213e7a1c13 100644
                  }
              endpointRegistrationHandler.registrationDone(
                  RegistrationResult(
-@@ -89,8 +92,8 @@ class VectorUnifiedPushMessagingReceiver : MessagingReceiver() {
+@@ -95,8 +98,8 @@ class VectorUnifiedPushMessagingReceiver : MessagingReceiver() {
      /**
       * Called when the registration is not possible, eg. no network.
       */
@@ -193,7 +206,7 @@ index 2e48574de1..213e7a1c13 100644
          /*
          Toast.makeText(context, "Push service registration failed", Toast.LENGTH_SHORT).show()
          val mode = BackgroundSyncMode.FDROID_BACKGROUND_SYNC_MODE_FOR_REALTIME
-@@ -103,7 +106,7 @@ class VectorUnifiedPushMessagingReceiver : MessagingReceiver() {
+@@ -109,7 +112,7 @@ class VectorUnifiedPushMessagingReceiver : MessagingReceiver() {
       * Called when this application is unregistered from receiving push messages.
       */
      override fun onUnregistered(context: Context, instance: String) {
@@ -203,7 +216,7 @@ index 2e48574de1..213e7a1c13 100644
          val mode = BackgroundSyncMode.FDROID_BACKGROUND_SYNC_MODE_FOR_REALTIME
          pushDataStore.setFdroidSyncBackgroundMode(mode)
 diff --git a/libraries/pushproviders/unifiedpush/src/test/kotlin/io/element/android/libraries/pushproviders/unifiedpush/VectorUnifiedPushMessagingReceiverTest.kt b/libraries/pushproviders/unifiedpush/src/test/kotlin/io/element/android/libraries/pushproviders/unifiedpush/VectorUnifiedPushMessagingReceiverTest.kt
-index 69502f020e..8cad5d0720 100644
+index b445e73fec..a0cd0faabe 100644
 --- a/libraries/pushproviders/unifiedpush/src/test/kotlin/io/element/android/libraries/pushproviders/unifiedpush/VectorUnifiedPushMessagingReceiverTest.kt
 +++ b/libraries/pushproviders/unifiedpush/src/test/kotlin/io/element/android/libraries/pushproviders/unifiedpush/VectorUnifiedPushMessagingReceiverTest.kt
 @@ -32,6 +32,10 @@ import org.junit.Assert.assertThrows
@@ -235,16 +248,16 @@ index 69502f020e..8cad5d0720 100644
          advanceUntilIdle()
          pushHandlerResult.assertions()
              .isCalledOnce()
-@@ -93,7 +97,7 @@ class VectorUnifiedPushMessagingReceiverTest {
-                 handleResult = pushHandlerResult
+@@ -96,7 +100,7 @@ class VectorUnifiedPushMessagingReceiverTest {
+                 handleInvalidResult = handleInvalidResult,
              ),
          )
 -        vectorUnifiedPushMessagingReceiver.onMessage(context, "".toByteArray(), A_SECRET)
 +        vectorUnifiedPushMessagingReceiver.onMessage(context, aPushMessage(""), A_SECRET)
          advanceUntilIdle()
-         pushHandlerResult.assertions()
-             .isNeverCalled()
-@@ -125,7 +129,7 @@ class VectorUnifiedPushMessagingReceiverTest {
+         handleInvalidResult.assertions().isCalledOnce()
+     }
+@@ -127,7 +131,7 @@ class VectorUnifiedPushMessagingReceiverTest {
              unifiedPushNewGatewayHandler = unifiedPushNewGatewayHandler,
          )
          endpointRegistrationHandler.state.test {
@@ -253,7 +266,7 @@ index 69502f020e..8cad5d0720 100644
              advanceUntilIdle()
              assertThat(awaitItem()).isEqualTo(
                  RegistrationResult(
-@@ -168,7 +172,7 @@ class VectorUnifiedPushMessagingReceiverTest {
+@@ -170,7 +174,7 @@ class VectorUnifiedPushMessagingReceiverTest {
              unifiedPushNewGatewayHandler = unifiedPushNewGatewayHandler,
          )
          endpointRegistrationHandler.state.test {
@@ -262,7 +275,7 @@ index 69502f020e..8cad5d0720 100644
              advanceUntilIdle()
              assertThat(awaitItem()).isEqualTo(
                  RegistrationResult(
-@@ -205,3 +209,19 @@ class VectorUnifiedPushMessagingReceiverTest {
+@@ -207,3 +211,19 @@ class VectorUnifiedPushMessagingReceiverTest {
          }
      }
  }
