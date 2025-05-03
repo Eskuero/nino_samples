@@ -17,6 +17,7 @@
 		[projects.mihon-extensions.tasks.komga]
 			exec = "src:all:komga:assembleRelease"
 	[projects.thunderbird-android]
+		tagregex = "^THUNDERBIRD_(\\d+)(_[^v])?$"
 		[projects.thunderbird-android.tasks.release]
 			exec = "app-k9mail:assembleFossRelease"
 	[projects.KeePassDX]
@@ -124,5 +125,7 @@
 	[projects.Fedilab]
 		[projects.Fedilab.tasks.fdroidrelease]
 			exec = "assembleFdroidRelease"
+	[projects.firefox]
+		tagregex = "^FIREFOX-ANDROID_(\\d+)(_[^v])*(_RELEASE)?$"
 
 

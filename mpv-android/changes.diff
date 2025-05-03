@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 29c03e8..7d3a34c 100644
+index 29c03e8..bfac3c2 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -1,7 +1,7 @@
@@ -33,15 +33,15 @@ index 29c03e8..7d3a34c 100644
  // Map versionCode so each ABI gets a different one
  // e.g. x86 with version 21 gets a versionCode of 3021
  import com.android.build.VariantOutput
-@@ -65,9 +71,9 @@ android.applicationVariants.all { variant ->
+@@ -64,10 +70,7 @@ android.applicationVariants.all { variant ->
+     variant.outputs.each { output ->
          def base = project.ext.abiCodes.get(output.getFilter(VariantOutput.ABI))
          // universal APK just gets a constant added to it
-         if (base != null)
+-        if (base != null)
 -            output.versionCodeOverride = base * 1000 + variant.versionCode
-+            output.versionCodeOverride = base * 1000 + variant.versionCode + DateVersionCode
-         else
+-        else
 -            output.versionCodeOverride = universalBase + variant.versionCode
-+            output.versionCodeOverride = universalBase + variant.versionCode + DateVersionCode
++        output.versionCodeOverride = universalBase + variant.versionCode + DateVersionCode
      }
  }
  

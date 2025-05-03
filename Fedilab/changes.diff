@@ -1,10 +1,10 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 8ad802ab..25f243c4 100644
+index 8b6ae325..2e996f2b 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -16,6 +16,9 @@ android {
-         versionCode 531
-         versionName "3.32.2"
+         versionCode 532
+         versionName "3.32.3"
          testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 +        ndk {
 +             abiFilters "arm64-v8a"

@@ -12,6 +12,7 @@ sed -i -e 's/^\/\/f //' android/app/build.gradle;
 
 flutter config --no-analytics;
 flutter pub get;
+make translation;
 
 cd $PUB_CACHE/hosted/pub.dev/geolocator_android-*/android
 sed -i -e '/gms/d' build.gradle

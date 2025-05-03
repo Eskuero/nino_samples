@@ -2,6 +2,15 @@
 
 cd mobile;
 
+export PUB_CACHE=$(pwd)/.pub-cache
+
+rm -rf $PUB_CACHE;
+
 # Setup
+sed -i -e "s/^\#f//" pubspec.yaml;
+sed -i -e 's/^\/\/f //' android/app/build.gradle;
+
 flutter config --no-analytics;
 flutter pub get;
+
+rm -rf $PUB_CACHE;
