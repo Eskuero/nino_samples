@@ -1,5 +1,5 @@
 diff --git a/android/app/build.gradle b/android/app/build.gradle
-index 991dac95..e5fd03be 100644
+index 991dac95..c1ffc9e6 100644
 --- a/android/app/build.gradle
 +++ b/android/app/build.gradle
 @@ -90,6 +90,9 @@ android {
@@ -12,14 +12,7 @@ index 991dac95..e5fd03be 100644
      }
      signingConfigs {
          debug {
-@@ -101,14 +104,12 @@ android {
-     }
-     buildTypes {
-         debug {
--            signingConfig signingConfigs.debug
-             applicationIdSuffix 'debug'
-             versionNameSuffix '-debug'
-         }
+@@ -108,7 +111,6 @@ android {
          release {
              // Caution! In production, you need to generate your own keystore file.
              // see https://reactnative.dev/docs/signed-apk-android.
@@ -27,7 +20,7 @@ index 991dac95..e5fd03be 100644
              minifyEnabled enableProguardInReleaseBuilds
              proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
          }
-@@ -116,6 +117,17 @@ android {
+@@ -116,6 +118,17 @@ android {
      kotlinOptions {
          jvmTarget = '17'
      }
@@ -45,134 +38,10 @@ index 991dac95..e5fd03be 100644
  }
  
  dependencies {
-@@ -128,4 +140,4 @@ dependencies {
+@@ -128,4 +141,4 @@ dependencies {
      } else {
          implementation jscFlavor
      }
 -}
 \ No newline at end of file
 +}
-diff --git a/package-lock.json b/package-lock.json
-index 3d682871..0a89ba3c 100644
---- a/package-lock.json
-+++ b/package-lock.json
-@@ -41,8 +41,8 @@
-         "i18n-js": "^3.8.0",
-         "lodash-es": "^4.17.21",
-         "protobufjs": "^7.2.6",
--        "react": "^19.0.0",
--        "react-native": "^0.78.2",
-+        "react": "19.0.0",
-+        "react-native": "0.78.2",
-         "react-native-background-actions": "^4.0.1",
-         "react-native-device-info": "^14.0.4",
-         "react-native-drawer-layout": "^4.0.3",
-@@ -65,22 +65,22 @@
-         "urlencode": "^2.0.0"
-       },
-       "devDependencies": {
--        "@babel/core": "^7.25.2",
--        "@babel/preset-env": "^7.25.3",
--        "@babel/runtime": "^7.25.0",
--        "@react-native-community/cli": "^15.0.1",
--        "@react-native-community/cli-platform-android": "^15.0.1",
--        "@react-native/babel-preset": "^0.78.2",
--        "@react-native/eslint-config": "^0.78.2",
--        "@react-native/metro-config": "^0.78.2",
--        "@react-native/typescript-config": "^0.78.2",
-+        "@babel/core": "7.25.2",
-+        "@babel/preset-env": "7.25.3",
-+        "@babel/runtime": "7.25.0",
-+        "@react-native-community/cli": "15.0.1",
-+        "@react-native-community/cli-platform-android": "15.0.1",
-+        "@react-native/babel-preset": "0.78.2",
-+        "@react-native/eslint-config": "0.78.2",
-+        "@react-native/metro-config": "0.78.2",
-+        "@react-native/typescript-config": "0.78.2",
-         "@types/color": "^3.0.3",
-         "@types/i18n-js": "^3.8.2",
-         "@types/lodash-es": "^4.17.6",
--        "@types/react": "~19.0.10",
-+        "@types/react": "19.0.10",
-         "@types/sanitize-html": "^2.11.0",
-         "babel-plugin-module-resolver": "^5.0.2",
--        "babel-plugin-react-compiler": "^19.0.0-beta-af1b7da-20250417",
-+        "babel-plugin-react-compiler": "19.0.0-beta-af1b7da-20250417",
-         "eslint": "^8.19.0",
-         "husky": "^7.0.4",
-         "lint-staged": "^12.3.7",
-@@ -143,21 +143,20 @@
-       }
-     },
-     "node_modules/@babel/core": {
--      "version": "7.27.1",
--      "resolved": "https://registry.npmjs.org/@babel/core/-/core-7.27.1.tgz",
--      "integrity": "sha512-IaaGWsQqfsQWVLqMn9OB92MNN7zukfVA4s7KKAI0KfrrDsZ0yhi5uV4baBuLuN7n3vsZpwP8asPPcVwApxvjBQ==",
--      "license": "MIT",
-+      "version": "7.25.2",
-+      "resolved": "https://registry.npmjs.org/@babel/core/-/core-7.25.2.tgz",
-+      "integrity": "sha512-BBt3opiCOxUr9euZ5/ro/Xv8/V7yJ5bjYMqG/C1YAo8MIKAnumZalCN+msbci3Pigy4lIQfPUpfMM27HMGaYEA==",
-       "dependencies": {
-         "@ampproject/remapping": "^2.2.0",
--        "@babel/code-frame": "^7.27.1",
--        "@babel/generator": "^7.27.1",
--        "@babel/helper-compilation-targets": "^7.27.1",
--        "@babel/helper-module-transforms": "^7.27.1",
--        "@babel/helpers": "^7.27.1",
--        "@babel/parser": "^7.27.1",
--        "@babel/template": "^7.27.1",
--        "@babel/traverse": "^7.27.1",
--        "@babel/types": "^7.27.1",
-+        "@babel/code-frame": "^7.24.7",
-+        "@babel/generator": "^7.25.0",
-+        "@babel/helper-compilation-targets": "^7.25.2",
-+        "@babel/helper-module-transforms": "^7.25.2",
-+        "@babel/helpers": "^7.25.0",
-+        "@babel/parser": "^7.25.0",
-+        "@babel/template": "^7.25.0",
-+        "@babel/traverse": "^7.25.2",
-+        "@babel/types": "^7.25.2",
-         "convert-source-map": "^2.0.0",
-         "debug": "^4.1.0",
-         "gensync": "^1.0.0-beta.2",
-@@ -2120,14 +2119,21 @@
-       }
-     },
-     "node_modules/@babel/runtime": {
--      "version": "7.27.1",
--      "resolved": "https://registry.npmjs.org/@babel/runtime/-/runtime-7.27.1.tgz",
--      "integrity": "sha512-1x3D2xEk2fRo3PAhwQwu5UubzgiVWSXTBfWpVd2Mx2AzRqJuDJCsgaDVZ7HB5iGzDW1Hl1sWN2mFyKjmR9uAog==",
--      "license": "MIT",
-+      "version": "7.25.0",
-+      "resolved": "https://registry.npmjs.org/@babel/runtime/-/runtime-7.25.0.tgz",
-+      "integrity": "sha512-7dRy4DwXwtzBrPbZflqxnvfxLF8kdZXPkhymtDeFoFqE6ldzjQFgYTtYIFARcLEYDrqfBfYcZt1WqFxRoyC9Rw==",
-+      "dependencies": {
-+        "regenerator-runtime": "^0.14.0"
-+      },
-       "engines": {
-         "node": ">=6.9.0"
-       }
-     },
-+    "node_modules/@babel/runtime/node_modules/regenerator-runtime": {
-+      "version": "0.14.1",
-+      "resolved": "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.14.1.tgz",
-+      "integrity": "sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw=="
-+    },
-     "node_modules/@babel/template": {
-       "version": "7.27.1",
-       "resolved": "https://registry.npmjs.org/@babel/template/-/template-7.27.1.tgz",
-@@ -5128,11 +5134,10 @@
-       }
-     },
-     "node_modules/@types/react": {
--      "version": "19.0.14",
--      "resolved": "https://registry.npmjs.org/@types/react/-/react-19.0.14.tgz",
--      "integrity": "sha512-ixLZ7zG7j1fM0DijL9hDArwhwcCb4vqmePgwtV0GfnkHRSCUEv4LvzarcTdhoqgyMznUx/EhoTUv31CKZzkQlw==",
-+      "version": "19.0.10",
-+      "resolved": "https://registry.npmjs.org/@types/react/-/react-19.0.10.tgz",
-+      "integrity": "sha512-JuRQ9KXLEjaUNjTWpzuR231Z2WpIwczOkBEIvbHNCzQefFIT0L8IqE6NV6ULLyC1SI/i234JnDoMkfg+RjQj2g==",
-       "devOptional": true,
--      "license": "MIT",
-       "dependencies": {
-         "csstype": "^3.0.2"
-       }

@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 8e6d68bada..f0fcf4b6d0 100644
+index cd484c95b0..b1b91d2b10 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
 @@ -26,6 +26,8 @@ import extension.locales
@@ -35,15 +35,15 @@ index 8e6d68bada..f0fcf4b6d0 100644
                  }
              }
          }
-@@ -114,7 +111,6 @@ android {
- 
-         getByName("release") {
-             resValue("string", "app_name", baseAppName)
+@@ -125,7 +122,6 @@ android {
+                 "login_redirect_scheme",
+                 oidcRedirectSchemeBase,
+             )
 -            signingConfig = signingConfigs.getByName("debug")
  
              postprocessing {
                  isRemoveUnusedCode = true
-@@ -193,6 +189,10 @@ androidComponents {
+@@ -209,6 +205,10 @@ androidComponents {
          "x86_64" to 4,
      )
  
@@ -54,7 +54,7 @@ index 8e6d68bada..f0fcf4b6d0 100644
      onVariants { variant ->
          // Assigns a different version code for each output APK
          // other than the universal APK.
-@@ -203,7 +203,7 @@ androidComponents {
+@@ -219,7 +219,7 @@ androidComponents {
              val abiCode = abiVersionCodes[name] ?: 0
              // Assigns the new version code to output.versionCode, which changes the version code
              // for only the output APK, not for the variant itself.
@@ -63,8 +63,21 @@ index 8e6d68bada..f0fcf4b6d0 100644
          }
      }
  
+diff --git a/gradle.properties b/gradle.properties
+index 4a941c0143..89b2b750ec 100644
+--- a/gradle.properties
++++ b/gradle.properties
+@@ -12,7 +12,7 @@
+ # http://www.gradle.org/docs/current/userguide/build_environment.html
+ # Specifies the JVM arguments used for the daemon process.
+ # The setting is particularly useful for tweaking memory settings.
+-org.gradle.jvmargs=-Xmx4g -Dfile.encoding=UTF-8 -XX:+UseG1GC
++org.gradle.jvmargs=-Xmx8g -Dfile.encoding=UTF-8 -XX:+UseG1GC
+ 
+ # AndroidX package structure to make it clearer which packages are bundled with the
+ # Android operating system, and which are packaged with your app"s APK
 diff --git a/gradle/libs.versions.toml b/gradle/libs.versions.toml
-index d95511c4be..a6004a9078 100644
+index 1a94aa4ec1..0362784b1b 100644
 --- a/gradle/libs.versions.toml
 +++ b/gradle/libs.versions.toml
 @@ -177,7 +177,7 @@ sqldelight-driver-jvm = { module = "app.cash.sqldelight:sqlite-driver", version.

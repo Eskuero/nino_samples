@@ -1,7 +1,3 @@
-Remote: https://gitlab.com/axet/android-audio-recorder/
+Remote: https://github.com/Dimowner/AudioRecorder
 Branch: master
-HEAD: c393dad0f40379e2eaa9abb7e4839209842bc8c5
-
-##############################################################################
-WARNING: This configuration matches the release published on the repository but new package builds are disabled
-##############################################################################
+HEAD: 86c86964f36e169a8ced98b0a184d42392130b70
