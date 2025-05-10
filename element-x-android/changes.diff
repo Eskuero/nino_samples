@@ -64,7 +64,7 @@ index cd484c95b0..b1b91d2b10 100644
      }
  
 diff --git a/gradle.properties b/gradle.properties
-index 4a941c0143..89b2b750ec 100644
+index c9789f9dff..f84aad27a8 100644
 --- a/gradle.properties
 +++ b/gradle.properties
 @@ -12,7 +12,7 @@
@@ -77,7 +77,7 @@ index 4a941c0143..89b2b750ec 100644
  # AndroidX package structure to make it clearer which packages are bundled with the
  # Android operating system, and which are packaged with your app"s APK
 diff --git a/gradle/libs.versions.toml b/gradle/libs.versions.toml
-index 1a94aa4ec1..0362784b1b 100644
+index 0604dc699a..02c2d04595 100644
 --- a/gradle/libs.versions.toml
 +++ b/gradle/libs.versions.toml
 @@ -177,7 +177,7 @@ sqldelight-driver-jvm = { module = "app.cash.sqldelight:sqlite-driver", version.
