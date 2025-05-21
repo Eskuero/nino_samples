@@ -64,7 +64,7 @@ index cd484c95b0..b1b91d2b10 100644
      }
  
 diff --git a/gradle.properties b/gradle.properties
-index c9789f9dff..f84aad27a8 100644
+index c9789f9dff..cf2c173b42 100644
 --- a/gradle.properties
 +++ b/gradle.properties
 @@ -12,7 +12,7 @@
@@ -72,18 +72,18 @@ index c9789f9dff..f84aad27a8 100644
  # Specifies the JVM arguments used for the daemon process.
  # The setting is particularly useful for tweaking memory settings.
 -org.gradle.jvmargs=-Xmx4g -Dfile.encoding=UTF-8 -XX:+UseG1GC
-+org.gradle.jvmargs=-Xmx8g -Dfile.encoding=UTF-8 -XX:+UseG1GC
++org.gradle.jvmargs=-Xmx16g -Dfile.encoding=UTF-8 -XX:+UseG1GC
  
  # AndroidX package structure to make it clearer which packages are bundled with the
  # Android operating system, and which are packaged with your app"s APK
 diff --git a/gradle/libs.versions.toml b/gradle/libs.versions.toml
-index 0604dc699a..02c2d04595 100644
+index e55a7baf07..35bc893e5e 100644
 --- a/gradle/libs.versions.toml
 +++ b/gradle/libs.versions.toml
 @@ -177,7 +177,7 @@ sqldelight-driver-jvm = { module = "app.cash.sqldelight:sqlite-driver", version.
  sqldelight-coroutines = { module = "app.cash.sqldelight:coroutines-extensions", version.ref = "sqldelight" }
  sqlcipher = "net.zetetic:android-database-sqlcipher:4.5.4"
- sqlite = "androidx.sqlite:sqlite-ktx:2.5.0"
+ sqlite = "androidx.sqlite:sqlite-ktx:2.5.1"
 -unifiedpush = "com.github.UnifiedPush:android-connector:2.4.0"
 +unifiedpush = "org.unifiedpush.android:connector:3.0.9"
  otaliastudios_transcoder = "com.otaliastudios:transcoder:0.11.2"

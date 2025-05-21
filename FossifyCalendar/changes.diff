@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index b7d0765bf..bd57204a5 100644
+index b7c07d589..2b7a16df2 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
 @@ -2,6 +2,9 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.util.archivesName
@@ -12,7 +12,7 @@ index b7d0765bf..bd57204a5 100644
  
  plugins {
      alias(libs.plugins.android)
-@@ -31,6 +34,11 @@ android {
+@@ -38,6 +41,11 @@ android {
          ksp {
              arg("room.schemaLocation", "$projectDir/schemas")
          }
@@ -24,7 +24,7 @@ index b7d0765bf..bd57204a5 100644
      }
  
      signingConfigs {
-@@ -106,6 +114,17 @@ android {
+@@ -121,6 +129,17 @@ android {
              enableSplit = false
          }
      }

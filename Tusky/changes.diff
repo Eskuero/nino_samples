@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index fe716fa40..9c03ddb3d 100644
+index d447882c7..e981ffec5 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -39,6 +39,10 @@ android {
+@@ -42,6 +42,10 @@ android {
          buildConfigField("String", "CUSTOM_LOGO_URL", "\"$CUSTOM_LOGO_URL\"")
          buildConfigField("String", "CUSTOM_INSTANCE", "\"$CUSTOM_INSTANCE\"")
          buildConfigField("String", "SUPPORT_ACCOUNT_URL", "\"$SUPPORT_ACCOUNT_URL\"")
@@ -13,7 +13,7 @@ index fe716fa40..9c03ddb3d 100644
      }
      buildTypes {
          debug {
-@@ -114,12 +118,17 @@ android {
+@@ -120,12 +124,17 @@ android {
          includeInApk false
          includeInBundle false
      }
