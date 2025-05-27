@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 90dc1ed..b254927 100644
+index 90dc1ed..8840d36 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -6,13 +6,17 @@ apply plugin: 'kotlin-android'
@@ -22,7 +22,7 @@ index 90dc1ed..b254927 100644
  
          versionCode 33
          versionName "1.17.0"
-@@ -54,16 +58,27 @@ android {
+@@ -54,16 +58,28 @@ android {
      }
  
      compileOptions {
@@ -39,6 +39,7 @@ index 90dc1ed..b254927 100644
              '-Xjvm-default=all-compatibility' // https://stackoverflow.com/a/71234042/1440785
          ]
      }
++
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
 +    Date d1 = origin.getTime()
@@ -341,23 +342,27 @@ index ab9c816..b69ae6d 100644
 +const val EXTRA_FAILED_REASON = "reason"
  const val EXTRA_BYTES_MESSAGE = "bytesMessage"
 diff --git a/app/src/main/java/io/heckel/ntfy/up/Distributor.kt b/app/src/main/java/io/heckel/ntfy/up/Distributor.kt
-index b6f9cce..7ea7068 100644
+index b6f9cce..7b31a66 100644
 --- a/app/src/main/java/io/heckel/ntfy/up/Distributor.kt
 +++ b/app/src/main/java/io/heckel/ntfy/up/Distributor.kt
-@@ -11,11 +11,11 @@ import io.heckel.ntfy.util.Log
+@@ -11,13 +11,9 @@ import io.heckel.ntfy.util.Log
  class Distributor(val context: Context) {
      fun sendMessage(app: String, connectorToken: String, message: ByteArray) {
          Log.d(TAG, "Sending MESSAGE to $app (token=$connectorToken): ${message.size} bytes")
-+        RaiseAppToForegroundFactory.getInstance(context, app).raise()
-         val broadcastIntent = Intent()
-         broadcastIntent.`package` = app
-         broadcastIntent.action = ACTION_MESSAGE
-         broadcastIntent.putExtra(EXTRA_TOKEN, connectorToken)
+-        val broadcastIntent = Intent()
+-        broadcastIntent.`package` = app
+-        broadcastIntent.action = ACTION_MESSAGE
+-        broadcastIntent.putExtra(EXTRA_TOKEN, connectorToken)
 -        broadcastIntent.putExtra(EXTRA_MESSAGE, String(message)) // UTF-8
-         broadcastIntent.putExtra(EXTRA_BYTES_MESSAGE, message)
-         context.sendBroadcast(broadcastIntent)
+-        broadcastIntent.putExtra(EXTRA_BYTES_MESSAGE, message)
+-        context.sendBroadcast(broadcastIntent)
++        RaiseAppToForegroundFactory
++            .getInstance(context, app)
++            .raiseAndSend(connectorToken, message)
      }
-@@ -39,15 +39,13 @@ class Distributor(val context: Context) {
+ 
+     fun sendEndpoint(app: String, connectorToken: String, endpoint: String) {
+@@ -39,15 +35,13 @@ class Distributor(val context: Context) {
          context.sendBroadcast(broadcastIntent)
      }
  
