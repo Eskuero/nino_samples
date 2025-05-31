@@ -1,18 +1,8 @@
 diff --git a/android/app/build.gradle b/android/app/build.gradle
-index 991dac95..c1ffc9e6 100644
+index 30b2fd01..c7c70822 100644
 --- a/android/app/build.gradle
 +++ b/android/app/build.gradle
-@@ -90,6 +90,9 @@ android {
-         // Generated version code. Supports versions up to 1024.1024.2048
-         versionCode ((((versionMajor << 10) | versionMinor) << 11) | versionPatch)
-         versionName "$versionMajor.$versionMinor.$versionPatch"
-+        ndk {
-+             abiFilters "arm64-v8a"
-+        }
-     }
-     signingConfigs {
-         debug {
-@@ -108,7 +111,6 @@ android {
+@@ -108,7 +108,6 @@ android {
          release {
              // Caution! In production, you need to generate your own keystore file.
              // see https://reactnative.dev/docs/signed-apk-android.
@@ -20,9 +10,9 @@ index 991dac95..c1ffc9e6 100644
              minifyEnabled enableProguardInReleaseBuilds
              proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
          }
-@@ -116,6 +118,17 @@ android {
-     kotlinOptions {
-         jvmTarget = '17'
+@@ -121,6 +120,17 @@ android {
+             path "src/main/jni/CMakeLists.txt"
+         }
      }
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
@@ -38,7 +28,7 @@ index 991dac95..c1ffc9e6 100644
  }
  
  dependencies {
-@@ -128,4 +141,4 @@ dependencies {
+@@ -133,4 +143,4 @@ dependencies {
      } else {
          implementation jscFlavor
      }

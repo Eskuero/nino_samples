@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 6d12951..d4a22fa 100644
+index c473cc8..808b53b 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -13,28 +13,10 @@ plugins {
@@ -31,15 +31,7 @@ index 6d12951..d4a22fa 100644
      defaultConfig {
          applicationId "xyz.malkki.neostumbler"
          minSdk 29
-@@ -79,6 +61,7 @@ android {
-             arg("room.schemaLocation", DB_SCHEMAS_DIR)
-             arg("room.incremental", "true")
-         }
-+
-     }
- 
-     sourceSets {
-@@ -102,8 +85,6 @@ android {
+@@ -103,8 +85,6 @@ android {
          }
  
          release {
@@ -48,7 +40,7 @@ index 6d12951..d4a22fa 100644
              debuggable false
  
              minifyEnabled true
-@@ -112,7 +93,7 @@ android {
+@@ -113,7 +93,7 @@ android {
              proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro', 'altbeacon.pro'
  
              ndk {
@@ -57,7 +49,7 @@ index 6d12951..d4a22fa 100644
              }
          }
      }
-@@ -131,7 +112,7 @@ android {
+@@ -132,7 +112,7 @@ android {
              dimension "version"
  
              ndk {
@@ -66,7 +58,7 @@ index 6d12951..d4a22fa 100644
              }
          }
      }
-@@ -168,9 +149,9 @@ android {
+@@ -169,9 +149,9 @@ android {
              enable project.hasProperty("enableAbiSplit")
  
              reset()
@@ -78,9 +70,9 @@ index 6d12951..d4a22fa 100644
          }
      }
  
-@@ -187,6 +168,18 @@ android {
-         //Temporarily set missing quantities to only give a warning until all the translations have been updated
-         warning 'MissingQuantity'
+@@ -184,6 +164,18 @@ android {
+     lint {
+         lintConfig file("app/lint.xml")
      }
 +
 +    Calendar origin = Calendar.getInstance()
