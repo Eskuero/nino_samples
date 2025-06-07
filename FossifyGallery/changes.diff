@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index b3fb99e2b..ca7daa3e3 100644
+index e842cd594..c3e43443e 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
 @@ -1,6 +1,9 @@
@@ -12,9 +12,9 @@ index b3fb99e2b..ca7daa3e3 100644
  
  plugins {
      alias(libs.plugins.android)
-@@ -25,6 +28,11 @@ android {
-         versionName = project.libs.versions.app.version.versionName.get()
-         versionCode = project.libs.versions.app.version.versionCode.get().toInt()
+@@ -32,6 +35,11 @@ android {
+         versionName = project.property("VERSION_NAME").toString()
+         versionCode = project.property("VERSION_CODE").toString().toInt()
          setProperty("archivesBaseName", "gallery-$versionCode")
 +        ndk {
 +            abiFilters.apply {
@@ -24,10 +24,11 @@ index b3fb99e2b..ca7daa3e3 100644
      }
  
      signingConfigs {
-@@ -105,6 +113,17 @@ android {
+@@ -121,6 +129,18 @@ android {
              enableSplit = false
          }
      }
++
 +    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
 +    val d2 = LocalDateTime.now()
 +    val minutes = Duration.between(d1, d2).getSeconds() / 60
