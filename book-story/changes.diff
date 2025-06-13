@@ -1,15 +1,27 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 91bc3a3..e311f98 100644
+index 87bd92df..2b0f358c 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
 @@ -1,4 +1,6 @@
  import com.android.build.gradle.internal.cxx.configure.gradleLocalProperties
 +import java.time.LocalDateTime
-+import java.time.Duration;
++import java.time.Duration
  
  plugins {
      id("com.android.application")
-@@ -73,6 +75,17 @@ android {
+@@ -26,6 +28,11 @@ android {
+         vectorDrawables {
+             useSupportLibrary = true
+         }
++        ndk {
++            abiFilters.apply {
++                add("arm64-v8a")
++            }
++        }
+     }
+ 
+     room {
+@@ -70,6 +77,17 @@ android {
              excludes += "/META-INF/gradle/incremental.annotation.processors"
          }
      }
@@ -27,7 +39,7 @@ index 91bc3a3..e311f98 100644
  }
  
  aboutLibraries {
-@@ -172,4 +185,4 @@ dependencies {
+@@ -161,4 +179,4 @@ dependencies {
  
      // Markdown
      implementation("org.commonmark:commonmark:0.24.0")

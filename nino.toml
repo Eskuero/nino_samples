@@ -97,6 +97,8 @@
 		javahome = "/usr/lib/jvm/java-21-openjdk"
 	[projects.AuroraStore]
 		javahome = "/usr/lib/jvm/java-21-openjdk"
+		[projects.AuroraStore.tasks.vanillarelease]
+			exec = "assembleVanillaRelease"
 	[projects.Boorusama]
 		subdir = "android"
 		followtags = false
