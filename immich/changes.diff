@@ -1,37 +1,40 @@
 diff --git a/mobile/android/app/build.gradle b/mobile/android/app/build.gradle
-index 0ec511d9f..933b1b2d8 100644
+index 0d0722825..1f64033e6 100644
 --- a/mobile/android/app/build.gradle
 +++ b/mobile/android/app/build.gradle
-@@ -50,6 +50,9 @@ android {
-         targetSdkVersion 35
-         versionCode flutterVersionCode.toInteger()
-         versionName flutterVersionName
-+        ndk {
-+             abiFilters "arm64-v8a"
-+        }
-     }
- 
-    signingConfigs {
-@@ -72,7 +75,17 @@ android {
-         }
- 
-         release {
--            signingConfig signingConfigs.release
-+        }
+@@ -51,6 +51,9 @@ android {
+     targetSdkVersion 35
+     versionCode flutterVersionCode.toInteger()
+     versionName flutterVersionName
++    ndk {
++         abiFilters "arm64-v8a"
 +    }
-+    Calendar origin = Calendar.getInstance()
-+    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
-+    Date d1 = origin.getTime()
-+    Date d2 = new Date()
-+    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
-+    def DateVersionCode = 2112312359 + minutes
-+    android.applicationVariants.all { variant ->
-+        variant.outputs.all { output ->
-+            output.versionCodeOverride = DateVersionCode
-         }
+   }
+ 
+   signingConfigs {
+@@ -71,10 +74,17 @@ android {
+       applicationIdSuffix '.debug'
+       versionNameSuffix '-DEBUG'
      }
-     namespace 'app.alextran.immich'
-@@ -101,6 +114,6 @@ dependencies {
+-
+-    release {
+-      signingConfig signingConfigs.release
+-    }
++  }
++  Calendar origin = Calendar.getInstance()
++  origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++  Date d1 = origin.getTime()
++  Date d2 = new Date()
++  long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++  def DateVersionCode = 2112312359 + minutes
++  android.applicationVariants.all { variant ->
++      variant.outputs.all { output ->
++          output.versionCodeOverride = DateVersionCode
++      }
+   }
+   namespace 'app.alextran.immich'
+ }
+@@ -105,6 +115,6 @@ dependencies {
  }
  
  // This is uncommented in F-Droid build script

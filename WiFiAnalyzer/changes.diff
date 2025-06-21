@@ -1,12 +1,11 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index f6a9cd1a..30f652f0 100644
+index e41e53a1..78fc920b 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -123,6 +123,18 @@ android {
+@@ -123,6 +123,17 @@ android {
      lint {
-         disable 'GoogleAppIndexingWarning'
+         lintConfig = file("lint.xml")
      }
-+
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
 +    Date d1 = origin.getTime()
@@ -22,19 +21,19 @@ index f6a9cd1a..30f652f0 100644
  
  allOpen {
 diff --git a/app/build.properties b/app/build.properties
-index c5ee27e7..c0506e43 100644
+index 27c2b0aa..e7647044 100644
 --- a/app/build.properties
 +++ b/app/build.properties
 @@ -1,7 +1,7 @@
  #Build Properties
--#Sun Jan 05 11:35:50 EST 2025
--version_build=12
+-#Wed Jun 11 16:34:06 EDT 2025
+-version_build=19
 -version_major=3
-+#Fri Mar 07 23:12:31 WET 2025
- version_minor=1
--version_patch=3
--version_store=68
++#Sat Jun 14 17:02:29 WEST 2025
+ version_minor=2
+-version_patch=0
+-version_store=69
 +version_store=70
-+version_patch=5
++version_patch=1
 +version_build=0
 +version_major=3

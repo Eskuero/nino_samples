@@ -92,9 +92,9 @@
 		javahome = "/usr/lib/jvm/java-11-openjdk"
 	[projects.davx5-ose]
 		javahome = "/usr/lib/jvm/java-21-openjdk"
-	[projects.GCamPhotosPreview]
-		followtags = false
-		javahome = "/usr/lib/jvm/java-21-openjdk"
+	[projects.Gcam-Services-Provider]
+		[projects.Gcam-Services-Provider.tasks.photosonlyrelease]
+			exec = "assemblePhotosonlyRelease"
 	[projects.AuroraStore]
 		javahome = "/usr/lib/jvm/java-21-openjdk"
 		[projects.AuroraStore.tasks.vanillarelease]
