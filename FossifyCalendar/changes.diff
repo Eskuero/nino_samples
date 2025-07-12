@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index b7c07d589..2b7a16df2 100644
+index 6a1f85b9c..2f58bf149 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -2,6 +2,9 @@ import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.util.archivesName
+@@ -2,6 +2,9 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
  import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
  import org.jetbrains.kotlin.konan.properties.Properties
  import java.io.FileInputStream
@@ -24,7 +24,7 @@ index b7c07d589..2b7a16df2 100644
      }
  
      signingConfigs {
-@@ -121,6 +129,17 @@ android {
+@@ -129,6 +137,17 @@ android {
              enableSplit = false
          }
      }

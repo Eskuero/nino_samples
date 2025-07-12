@@ -1,10 +1,19 @@
-diff --git a/app/build.gradle b/app/build.gradle
-index 65fcfee..3565f3e 100644
---- a/app/build.gradle
-+++ b/app/build.gradle
-@@ -13,28 +13,10 @@ plugins {
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+index ae6f234..a999950 100644
+--- a/app/build.gradle.kts
++++ b/app/build.gradle.kts
+@@ -1,6 +1,8 @@
+ import kotlin.math.roundToInt
+ import org.gradle.api.tasks.testing.logging.TestExceptionFormat
+ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
++import java.time.LocalDateTime
++import java.time.Duration
  
- def DB_SCHEMAS_DIR = "$projectDir/schemas"
+ plugins {
+     id("com.android.application")
+@@ -15,15 +17,6 @@ plugins {
+ 
+ private val DB_SCHEMAS_DIR = "$projectDir/schemas"
  
 -bundletool {
 -    signingConfig {
@@ -15,77 +24,80 @@ index 65fcfee..3565f3e 100644
 -    }
 -}
 -
- android {
-     namespace 'xyz.malkki.neostumbler'
-     compileSdk 36
+ ksp {
+     arg("room.schemaLocation", DB_SCHEMAS_DIR)
+     arg("room.incremental", "true")
+@@ -33,15 +26,6 @@ android {
+     namespace = "xyz.malkki.neostumbler"
+     compileSdk = 36
  
 -    signingConfigs {
--        release {
--            storeFile file("../keystore.jks")
--            storePassword System.getenv("SIGNING_STORE_PASSWORD")
--            keyAlias System.getenv("SIGNING_KEY_ALIAS")
--            keyPassword System.getenv("SIGNING_KEY_PASSWORD")
+-        create("release") {
+-            storeFile = file("../keystore.jks")
+-            storePassword = System.getenv("SIGNING_STORE_PASSWORD")
+-            keyAlias = System.getenv("SIGNING_KEY_ALIAS")
+-            keyPassword = System.getenv("SIGNING_KEY_PASSWORD")
 -        }
 -    }
 -
      defaultConfig {
-         applicationId "xyz.malkki.neostumbler"
-         minSdk 29
-@@ -103,8 +85,6 @@ android {
-         }
+         applicationId = "xyz.malkki.neostumbler"
+         minSdk = 29
+@@ -104,8 +88,6 @@ android {
+         getByName("debug") { applicationIdSuffix = ".dev" }
  
-         release {
--            signingConfig signingConfigs.release
+         getByName("release") {
+-            signingConfig = signingConfigs.getByName("release")
 -
-             debuggable false
+             isDebuggable = false
  
-             minifyEnabled true
-@@ -113,7 +93,7 @@ android {
-             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro', 'altbeacon.pro'
+             isMinifyEnabled = true
+@@ -117,7 +99,7 @@ android {
+                 "altbeacon.pro",
+             )
  
-             ndk {
--                abiFilters('armeabi-v7a', 'arm64-v8a')
-+                abiFilters('arm64-v8a')
-             }
+-            ndk { abiFilters += listOf("armeabi-v7a", "arm64-v8a") }
++            ndk { abiFilters += listOf("arm64-v8a") }
          }
      }
-@@ -132,7 +112,7 @@ android {
-             dimension "version"
  
-             ndk {
--                abiFilters('armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64')
-+                abiFilters('arm64-v8a')
-             }
+@@ -132,7 +114,7 @@ android {
+         create("full") {
+             dimension = "version"
+ 
+-            ndk { abiFilters += listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64") }
++            ndk { abiFilters += listOf("arm64-v8a") }
          }
      }
-@@ -169,9 +149,9 @@ android {
-             enable project.hasProperty("enableAbiSplit")
+ 
+@@ -171,9 +153,9 @@ android {
+             isEnable = project.hasProperty("enableAbiSplit")
  
              reset()
--            include 'armeabi-v7a', 'arm64-v8a'
-+            include 'arm64-v8a'
+-            include("armeabi-v7a", "arm64-v8a")
++            include("arm64-v8a")
  
--            universalApk true
-+            universalApk false
+-            isUniversalApk = true
++            isUniversalApk = false
          }
      }
  
-@@ -184,6 +164,18 @@ android {
-     lint {
-         lintConfig file("app/lint.xml")
+@@ -184,6 +166,18 @@ android {
      }
+ 
+     lint { lintConfig = file("app/lint.xml") }
 +
-+    Calendar origin = Calendar.getInstance()
-+    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
-+    Date d1 = origin.getTime()
-+    Date d2 = new Date()
-+    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
-+    def DateVersionCode = 2112312359 + minutes
-+    android.applicationVariants.all { variant ->
-+        variant.outputs.all { output ->
-+            output.versionCodeOverride = DateVersionCode
++    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
++    val d2 = LocalDateTime.now()
++    val minutes = Duration.between(d1, d2).getSeconds() / 60
++    val DateVersionCode = (2112312359 + minutes).toInt()
++    androidComponents {
++        onVariants { variant ->
++            variant.outputs.forEach { output ->
++                output.versionCode.set(DateVersionCode)
++            }
 +        }
 +    }
  }
  
- tasks.register('printVersionName') {
+ tasks.register("printVersionName") {

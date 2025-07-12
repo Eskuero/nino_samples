@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index d447882c7..e981ffec5 100644
+index a688bd852..381127647 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -42,6 +42,10 @@ android {
+@@ -43,6 +43,10 @@ android {
          buildConfigField("String", "CUSTOM_LOGO_URL", "\"$CUSTOM_LOGO_URL\"")
          buildConfigField("String", "CUSTOM_INSTANCE", "\"$CUSTOM_INSTANCE\"")
          buildConfigField("String", "SUPPORT_ACCOUNT_URL", "\"$SUPPORT_ACCOUNT_URL\"")
@@ -11,9 +11,17 @@ index d447882c7..e981ffec5 100644
 +             abiFilters "arm64-v8a"
 +        }
      }
-     buildTypes {
-         debug {
-@@ -120,12 +124,17 @@ android {
+     signingConfigs {
+         test {
+@@ -80,7 +84,6 @@ android {
+     flavorDimensions += "color"
+     productFlavors {
+         blue {
+-            signingConfig = signingConfigs.release
+         }
+         green {
+             resValue "string", "app_name", APP_NAME + " Test"
+@@ -138,10 +141,16 @@ android {
          includeInApk false
          includeInBundle false
      }
@@ -21,6 +29,7 @@ index d447882c7..e981ffec5 100644
 -        variant.outputs.configureEach {
 -            outputFileName = "Tusky_${variant.versionName}_${variant.versionCode}_${gitSha}_" +
 -                "${variant.flavorName}_${buildType.name}.apk"
++
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
 +    Date d1 = origin.getTime()
@@ -31,8 +40,5 @@ index d447882c7..e981ffec5 100644
 +        variant.outputs.all { output ->
 +            output.versionCodeOverride = DateVersionCode
          }
--    }
-+     }
- }
+     }
  
- ksp {

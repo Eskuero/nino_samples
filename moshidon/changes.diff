@@ -1,0 +1,93 @@
+diff --git a/mastodon/build.gradle b/mastodon/build.gradle
+index b17b2855a..a46533e8c 100644
+--- a/mastodon/build.gradle
++++ b/mastodon/build.gradle
+@@ -29,52 +29,6 @@ android {
+ 		includeInBundle = false
+ 	}
+ 
+-	signingConfigs {
+-		nightly{
+-			storeFile = file("keystore/nightly_keystore.jks")
+-			storePassword System.getenv("SIGNING_STORE_PASSWORD")
+-			if (storePassword == null) {
+-				Properties properties = new Properties()
+-				properties.load(project.rootProject.file('local.properties').newDataInputStream())
+-				storePassword = properties.getProperty('SIGNING_STORE_PASSWORD')
+-			}
+-			keyAlias System.getenv("SIGNING_KEY_ALIAS")
+-			if (keyAlias == null) {
+-				Properties properties = new Properties()
+-				properties.load(project.rootProject.file('local.properties').newDataInputStream())
+-				keyAlias = properties.getProperty('SIGNING_KEY_ALIAS')
+-			}
+-			keyPassword System.getenv("SIGNING_KEY_PASSWORD")
+-			if (keyPassword == null) {
+-				Properties properties = new Properties()
+-				properties.load(project.rootProject.file('local.properties').newDataInputStream())
+-				keyPassword = properties.getProperty('SIGNING_KEY_PASSWORD')
+-			}
+-		}
+-
+-//		release{
+-//			storeFile = file("keystore/release_keystore.jks")
+-//			storePassword System.getenv("RELEASE_SIGNING_STORE_PASSWORD")
+-//			if (storePassword == null) {
+-//				Properties properties = new Properties()
+-//				properties.load(project.rootProject.file('local.properties').newDataInputStream())
+-//				storePassword = properties.getProperty('RELEASE_SIGNING_STORE_PASSWORD')
+-//			}
+-//			keyAlias System.getenv("RELEASE_SIGNING_KEY_ALIAS")
+-//			if (keyAlias == null) {
+-//				Properties properties = new Properties()
+-//				properties.load(project.rootProject.file('local.properties').newDataInputStream())
+-//				keyAlias = properties.getProperty('RELEASE_SIGNING_KEY_ALIAS')
+-//			}
+-//			keyPassword System.getenv("RELEASE_SIGNING_KEY_PASSWORD")
+-//			if (keyPassword == null) {
+-//				Properties properties = new Properties()
+-//				properties.load(project.rootProject.file('local.properties').newDataInputStream())
+-//				keyPassword = properties.getProperty('RELEASE_SIGNING_KEY_PASSWORD')
+-//			}
+-//		}
+-	}
+-
+ 	buildTypes {
+ 		release {
+ 			minifyEnabled true
+@@ -91,16 +45,7 @@ android {
+ 			initWith release
+ 		}
+ 		nightly{
+-			if(System.getenv("CURRENT_DATE") != null){
+-				versionNameSuffix '-nightly+@' + System.getenv("CURRENT_DATE")
+-			} else {
+-				Properties properties = new Properties()
+-				properties.load(project.rootProject.file('local.properties').newDataInputStream())
+-				versionNameSuffix '-nightly+@' + properties.getProperty('CURRENT_DATE')
+-			}
+ 			applicationIdSuffix '.nightly'
+-
+-			signingConfig signingConfigs.nightly
+ 			manifestPlaceholders = [oAuthScheme:"moshidon-android-nightly-auth"]
+ 		}
+ 		playRelease{
+@@ -143,6 +88,18 @@ android {
+ 	buildFeatures {
+ 		buildConfig true
+ 	}
++
++	Calendar origin = Calendar.getInstance()
++	origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++	Date d1 = origin.getTime()
++	Date d2 = new Date()
++	long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++	def DateVersionCode = 2112312359 + minutes
++	android.applicationVariants.all { variant ->
++		variant.outputs.all { output ->
++			output.versionCodeOverride = DateVersionCode
++		}
++	}
+ }
+ 
+ dependencies {

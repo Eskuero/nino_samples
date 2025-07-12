@@ -30,6 +30,7 @@
 		[projects.fdroidclient.tasks.fullrelease]
 			exec = "assembleFullRelease"
 	[projects.Tusky]
+		followtags = false
 		[projects.Tusky.tasks.bluerelease]
 			exec = "assembleBlueRelease"
 	[projects.Shelter]
@@ -67,6 +68,9 @@
 	[projects.element-x-android]
 		[projects.element-x-android.tasks.release]
 			exec = "app:assembleFdroidRelease"
+	[projects.moshidon]
+		[projects.moshidon.tasks.fdroidrelease]
+			exec = "mastodon:assembleFdroidRelease"
 	[projects.immich]
 		subdir = "mobile/android"
 		javahome = "/usr/lib/jvm/zulu-17"
