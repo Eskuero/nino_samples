@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index e842cd594..c3e43443e 100644
+index 68f18413f..7ab788b96 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -1,6 +1,9 @@
+@@ -2,6 +2,9 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
  import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
  import org.jetbrains.kotlin.konan.properties.Properties
  import java.io.FileInputStream
@@ -12,7 +12,7 @@ index e842cd594..c3e43443e 100644
  
  plugins {
      alias(libs.plugins.android)
-@@ -32,6 +35,11 @@ android {
+@@ -33,6 +36,11 @@ android {
          versionName = project.property("VERSION_NAME").toString()
          versionCode = project.property("VERSION_CODE").toString().toInt()
          setProperty("archivesBaseName", "gallery-$versionCode")
@@ -24,11 +24,10 @@ index e842cd594..c3e43443e 100644
      }
  
      signingConfigs {
-@@ -121,6 +129,18 @@ android {
+@@ -130,6 +138,17 @@ android {
              enableSplit = false
          }
      }
-+
 +    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
 +    val d2 = LocalDateTime.now()
 +    val minutes = Duration.between(d1, d2).getSeconds() / 60

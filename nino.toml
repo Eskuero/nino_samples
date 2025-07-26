@@ -73,7 +73,8 @@
 			exec = "mastodon:assembleFdroidRelease"
 	[projects.immich]
 		subdir = "mobile/android"
-		javahome = "/usr/lib/jvm/zulu-17"
+		[projects.immich.tasks.productionrelease]
+			exec = "tasks"
 	[projects.streamyfin]
 		subdir = "android"
 	[projects.lnreader]

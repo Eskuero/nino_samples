@@ -14,8 +14,13 @@ flutter config --no-analytics;
 flutter pub get;
 make translation;
 
-cd $PUB_CACHE/hosted/pub.dev/geolocator_android-*/android
-sed -i -e '/gms/d' build.gradle
-cd src/main/java/com/baseflow/geolocator/location
-rm FusedLocationClient.java
-sed -i -e '/if (forceAndroidLocationManager) {/,/^  }/c return new LocationManagerClient(context,locationOptions);}' -e '/isGooglePlayServicesAvailable/,/^  }/d' -e '/gms/d' GeolocationManager.java
+cd $PUB_CACHE/hosted/pub.dev/geolocator_android-*/android;
+sed -i -e '/gms/d' build.gradle;
+cd src/main/java/com/baseflow/geolocator/location;
+rm FusedLocationClient.java;
+sed -i -e '/if (forceAndroidLocationManager) {/,/^  }/c return new LocationManagerClient(context,locationOptions);}' -e '/isGooglePlayServicesAvailable/,/^  }/d' -e '/gms/d' GeolocationManager.java;
+
+cd ../../../../../../../../../../../../;
+flutter build apk --release --flavor production;
+
+rm build/app/outputs/apk/production/release/app-production-release-unsigned.apk;
