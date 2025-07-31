@@ -21,6 +21,6 @@ rm FusedLocationClient.java;
 sed -i -e '/if (forceAndroidLocationManager) {/,/^  }/c return new LocationManagerClient(context,locationOptions);}' -e '/isGooglePlayServicesAvailable/,/^  }/d' -e '/gms/d' GeolocationManager.java;
 
 cd ../../../../../../../../../../../../;
-flutter build apk --release --flavor production;
+flutter build apk --release;
 
-rm build/app/outputs/apk/production/release/app-production-release-unsigned.apk;
+rm build/app/outputs/apk/release/app-release-unsigned.apk;

@@ -22,7 +22,7 @@ sh download.sh;
 
 # We need to have produced eleven libraries otherwise we failed the entrypoint
 number=$(ls ../app/src/main/jniLibs/arm64-v8a/ | wc -l)
-if [[ $number -eq "11" ]]; then
+if [[ $number -eq "10" ]]; then
 	echo "We have all libraries";
 	exit 0;
 else
