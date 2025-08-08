@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index f233620cdb..43db02c7e2 100644
+index ea45e51bf8..227bb82e1f 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
 @@ -26,6 +26,8 @@ import extension.locales
@@ -64,7 +64,7 @@ index f233620cdb..43db02c7e2 100644
      }
  
 diff --git a/gradle.properties b/gradle.properties
-index 513fcac955..9f990ab966 100644
+index 7f6fe32a88..9aa4c45260 100644
 --- a/gradle.properties
 +++ b/gradle.properties
 @@ -12,7 +12,7 @@

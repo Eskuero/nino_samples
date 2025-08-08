@@ -30,7 +30,6 @@
 		[projects.fdroidclient.tasks.fullrelease]
 			exec = "assembleFullRelease"
 	[projects.Tusky]
-		followtags = false
 		[projects.Tusky.tasks.bluerelease]
 			exec = "assembleBlueRelease"
 	[projects.Shelter]
