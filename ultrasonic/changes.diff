@@ -1,0 +1,23 @@
+diff --git a/ultrasonic/build.gradle b/ultrasonic/build.gradle
+index 2dfe2c4c..6a48c2b6 100644
+--- a/ultrasonic/build.gradle
++++ b/ultrasonic/build.gradle
+@@ -87,7 +87,17 @@ android {
+         checkDependencies = true
+     }
+     namespace = 'org.moire.ultrasonic'
+-
++    Calendar origin = Calendar.getInstance()
++    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++    Date d1 = origin.getTime()
++    Date d2 = new Date()
++    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++    def DateVersionCode = 2112312359 + minutes
++    android.applicationVariants.all { variant ->
++        variant.outputs.all { output ->
++            output.versionCodeOverride = DateVersionCode
++        }
++    }
+ }
+ 
+ tasks.withType(Test).configureEach {

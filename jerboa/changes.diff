@@ -1,10 +1,10 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index cbda4b82..e248dd02 100644
+index 7e142b08..f8de925f 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -2,7 +2,9 @@
+@@ -1,7 +1,9 @@
+ @file:Suppress("UnstableApiUsage")
  
- import org.jetbrains.kotlin.compose.compiler.gradle.ComposeFeatureFlag
  import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 -
 +import com.android.build.api.variant.FilterConfiguration.FilterType.*
@@ -13,7 +13,7 @@ index cbda4b82..e248dd02 100644
  
  plugins {
      id("com.android.application")
-@@ -39,6 +41,11 @@ android {
+@@ -38,6 +40,11 @@ android {
          vectorDrawables {
              useSupportLibrary = true
          }
@@ -25,7 +25,7 @@ index cbda4b82..e248dd02 100644
      }
  
      lint {
-@@ -78,10 +85,6 @@ android {
+@@ -77,10 +84,6 @@ android {
  
      buildTypes {
          release {
@@ -36,7 +36,7 @@ index cbda4b82..e248dd02 100644
              postprocessing {
                  isRemoveUnusedCode = true
                  isObfuscate = false
-@@ -102,6 +105,17 @@ android {
+@@ -101,6 +104,17 @@ android {
      buildFeatures {
          compose = true
      }

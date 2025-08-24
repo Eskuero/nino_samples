@@ -1,6 +1,6 @@
-Remote: https://codeberg.org/tom79/Fedilab
-Branch: 
-HEAD: 0e6409d7d881a3d78bf397bbc5e8193760fd2ff2
+Remote: https://github.com/siper/YouAMP
+Branch: master
+HEAD: a39264c8cf4c18f5990975765bfff357db4ee8c0
 
 ##############################################################################
 WARNING: This configuration matches the release published on the repository but new package builds are disabled
