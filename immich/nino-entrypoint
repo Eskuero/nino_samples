@@ -3,8 +3,9 @@
 cd mobile;
 
 export PUB_CACHE=$(pwd)/.pub-cache
-
 rm -rf $PUB_CACHE;
+flutter clean;
+git checkout pubspec.lock;
 
 # Setup
 sed -i -e "s/^\#f//" pubspec.yaml;

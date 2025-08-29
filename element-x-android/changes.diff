@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index ea45e51bf8..227bb82e1f 100644
+index 6131abf385..20ed11cd34 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
 @@ -26,6 +26,8 @@ import extension.locales
@@ -64,7 +64,7 @@ index ea45e51bf8..227bb82e1f 100644
      }
  
 diff --git a/gradle.properties b/gradle.properties
-index 74dc7941d2..a408560b3c 100644
+index 38cf7488a4..1549d79330 100644
 --- a/gradle.properties
 +++ b/gradle.properties
 @@ -12,7 +12,7 @@
@@ -76,3 +76,15 @@ index 74dc7941d2..a408560b3c 100644
  
  # AndroidX package structure to make it clearer which packages are bundled with the
  # Android operating system, and which are packaged with your app"s APK
+diff --git a/gradle/libs.versions.toml b/gradle/libs.versions.toml
+index aee68fc4e7..f421b3c7ff 100644
+--- a/gradle/libs.versions.toml
++++ b/gradle/libs.versions.toml
+@@ -244,6 +244,6 @@ paparazzi = "app.cash.paparazzi:2.0.0-alpha02"
+ sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
+ firebaseAppDistribution = { id = "com.google.firebase.appdistribution", version.ref = "firebaseAppDistribution" }
+ knit = { id = "org.jetbrains.kotlinx.knit", version = "0.5.0" }
+-sonarqube = "org.sonarqube:6.3.0.5676"
++sonarqube = "org.sonarqube:6.2.0.5505"
+ licensee = "app.cash.licensee:1.13.0"
+ compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
