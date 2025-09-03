@@ -1,5 +1,5 @@
 diff --git a/common.gradle b/common.gradle
-index b8e4fb05a..59810560e 100644
+index ddb630103..0ca5e6c18 100644
 --- a/common.gradle
 +++ b/common.gradle
 @@ -62,7 +62,6 @@ android {

@@ -1,5 +1,5 @@
 diff --git a/app-k9mail/build.gradle.kts b/app-k9mail/build.gradle.kts
-index 9b88aa3c3f..06d577556f 100644
+index 34915cd98f..12b0388f3d 100644
 --- a/app-k9mail/build.gradle.kts
 +++ b/app-k9mail/build.gradle.kts
 @@ -1,3 +1,7 @@
@@ -10,20 +10,21 @@ index 9b88aa3c3f..06d577556f 100644
  plugins {
      id(ThunderbirdPlugins.App.androidCompose)
      alias(libs.plugins.dependency.guard)
-@@ -76,6 +80,12 @@ android {
-             ),
-         )
+@@ -21,6 +25,13 @@ android {
+         versionName = "12.0"
  
+         buildConfigField("String", "CLIENT_INFO_APP_NAME", "\"K-9 Mail\"")
++
++
 +        ndk {
 +            abiFilters.apply {
 +                add("arm64-v8a")
 +            }
 +        }
-+
-         buildConfigField("String", "CLIENT_INFO_APP_NAME", "\"K-9 Mail\"")
      }
  
-@@ -130,6 +140,18 @@ android {
+     androidResources {
+@@ -130,6 +141,18 @@ android {
              )
          }
      }
@@ -42,3 +43,16 @@ index 9b88aa3c3f..06d577556f 100644
  }
  
  dependencies {
+diff --git a/app-k9mail/src/release/kotlin/app/k9mail/featureflag/K9FeatureFlagFactory.kt b/app-k9mail/src/release/kotlin/app/k9mail/featureflag/K9FeatureFlagFactory.kt
+index 645b976414..dd51255ed6 100644
+--- a/app-k9mail/src/release/kotlin/app/k9mail/featureflag/K9FeatureFlagFactory.kt
++++ b/app-k9mail/src/release/kotlin/app/k9mail/featureflag/K9FeatureFlagFactory.kt
+@@ -11,7 +11,7 @@ class K9FeatureFlagFactory : FeatureFlagFactory {
+             FeatureFlag("new_account_settings".toFeatureFlagKey(), enabled = false),
+             FeatureFlag("disable_font_size_config".toFeatureFlagKey(), enabled = false),
+             FeatureFlag("email_notification_default".toFeatureFlagKey(), enabled = false),
+-            FeatureFlag("enable_dropdown_drawer".toFeatureFlagKey(), enabled = false),
++            FeatureFlag("enable_dropdown_drawer".toFeatureFlagKey(), enabled = true),
+             FeatureFlag("enable_dropdown_drawer_ui".toFeatureFlagKey(), enabled = false),
+         )
+     }
