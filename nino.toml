@@ -74,6 +74,11 @@
 		subdir = "mobile/android"
 		[projects.immich.tasks.productionrelease]
 			exec = "tasks"
+	[projects.Boorusama]
+		followtags = false
+		subdir = "android"
+		[projects.Boorusama.tasks.productionrelease]
+			exec = "tasks"
 	[projects.streamyfin]
 		subdir = "android"
 	[projects.lnreader]
@@ -103,9 +108,6 @@
 		javahome = "/usr/lib/jvm/java-21-openjdk"
 		[projects.AuroraStore.tasks.vanillarelease]
 			exec = "assembleVanillaRelease"
-	[projects.Boorusama]
-		subdir = "android"
-		followtags = false
 	[projects.PhotonCamera]
 		followtags = false
 	[projects.GrapheneOS_GmsCompat]

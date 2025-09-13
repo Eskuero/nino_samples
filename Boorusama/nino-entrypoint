@@ -1,0 +1,15 @@
+#!/bin/bash
+
+export PUB_CACHE=$(pwd)/.pub-cache
+rm -rf $PUB_CACHE;
+flutter clean;
+git checkout pubspec.lock;
+cp .env.example .env;
+
+flutter config --no-analytics;
+flutter pub get;
+./gen.sh;
+
+./build.sh apk --flavor prod --foss;
+
+rm ./build/app/outputs/apk/prod/release/app-prod-release-unsigned.apk;

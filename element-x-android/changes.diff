@@ -1,9 +1,9 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 6131abf385..20ed11cd34 100644
+index 14203ec711..75244913cf 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -26,6 +26,8 @@ import extension.locales
- import extension.setupAnvil
+@@ -25,6 +25,8 @@ import extension.locales
+ import extension.setupDependencyInjection
  import extension.setupKover
  import java.util.Locale
 +import java.time.LocalDateTime
@@ -11,7 +11,7 @@ index 6131abf385..20ed11cd34 100644
  
  plugins {
      id("io.element.android-compose-application")
-@@ -51,11 +53,6 @@ android {
+@@ -50,11 +52,6 @@ android {
          versionCode = Versions.VERSION_CODE
          versionName = Versions.VERSION_NAME
  
@@ -23,7 +23,7 @@ index 6131abf385..20ed11cd34 100644
          // Ref: https://developer.android.com/studio/build/configure-apk-splits.html#configure-abi-split
          splits {
              // Configures multiple APKs based on ABI.
-@@ -72,9 +69,9 @@ android {
+@@ -71,9 +68,9 @@ android {
  
                  if (!buildingAppBundle) {
                      // Specifies a list of ABIs that Gradle should create APKs for.
@@ -64,7 +64,7 @@ index 6131abf385..20ed11cd34 100644
      }
  
 diff --git a/gradle.properties b/gradle.properties
-index 38cf7488a4..1549d79330 100644
+index 18399ccf06..3f5eea8b0a 100644
 --- a/gradle.properties
 +++ b/gradle.properties
 @@ -12,7 +12,7 @@
@@ -72,19 +72,7 @@ index 38cf7488a4..1549d79330 100644
  # Specifies the JVM arguments used for the daemon process.
  # The setting is particularly useful for tweaking memory settings.
 -org.gradle.jvmargs=-Xmx4g -Dfile.encoding=UTF-8 -XX:+UseG1GC
-+org.gradle.jvmargs=-Xmx8g -Dfile.encoding=UTF-8 -XX:+UseG1GC
++org.gradle.jvmargs=-Xmx12g -Dfile.encoding=UTF-8 -XX:+UseG1GC
  
  # AndroidX package structure to make it clearer which packages are bundled with the
  # Android operating system, and which are packaged with your app"s APK
-diff --git a/gradle/libs.versions.toml b/gradle/libs.versions.toml
-index aee68fc4e7..f421b3c7ff 100644
---- a/gradle/libs.versions.toml
-+++ b/gradle/libs.versions.toml
-@@ -244,6 +244,6 @@ paparazzi = "app.cash.paparazzi:2.0.0-alpha02"
- sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
- firebaseAppDistribution = { id = "com.google.firebase.appdistribution", version.ref = "firebaseAppDistribution" }
- knit = { id = "org.jetbrains.kotlinx.knit", version = "0.5.0" }
--sonarqube = "org.sonarqube:6.3.0.5676"
-+sonarqube = "org.sonarqube:6.2.0.5505"
- licensee = "app.cash.licensee:1.13.0"
- compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
