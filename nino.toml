@@ -141,5 +141,9 @@
 			exec = "assembleCdrRelease"
 	[projects.firefox]
 		tagregex = "^FIREFOX-ANDROID_(\\d+)(_[^v])*(_RELEASE)?$"
+	[projects.mollyim-android]
+		followtags = false
+		[projects.mollyim-android.tasks.fossrelease]
+			exec = "assembleprodFossStoreRelease"
 
 

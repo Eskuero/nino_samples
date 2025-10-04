@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 563e25b41..f1035a974 100644
+index bbaeef0d3..8ff1d439e 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -43,6 +43,10 @@ android {
+@@ -44,6 +44,10 @@ android {
          buildConfigField("String", "CUSTOM_LOGO_URL", "\"$CUSTOM_LOGO_URL\"")
          buildConfigField("String", "CUSTOM_INSTANCE", "\"$CUSTOM_INSTANCE\"")
          buildConfigField("String", "SUPPORT_ACCOUNT_URL", "\"$SUPPORT_ACCOUNT_URL\"")
@@ -13,7 +13,7 @@ index 563e25b41..f1035a974 100644
      }
      signingConfigs {
          test {
-@@ -80,7 +84,6 @@ android {
+@@ -81,7 +85,6 @@ android {
      flavorDimensions += "color"
      productFlavors {
          blue {
@@ -21,7 +21,7 @@ index 563e25b41..f1035a974 100644
          }
          green {
              resValue "string", "app_name", APP_NAME + " Test"
-@@ -144,10 +147,16 @@ android {
+@@ -146,10 +149,16 @@ android {
          includeInApk false
          includeInBundle false
      }

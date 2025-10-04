@@ -1,3 +1,7 @@
 Remote: https://github.com/khoadng/Boorusama
 Branch: master
-HEAD: 3a0ea77ffe530973dfd9ee3850017651ead1cd6d
+HEAD: a9ce321a3a0a42e1cf0b9d5d8410d30c5f428b2d
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

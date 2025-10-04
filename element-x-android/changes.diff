@@ -1,17 +1,17 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 14203ec711..75244913cf 100644
+index 9be152e9e7..a73ff35245 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -25,6 +25,8 @@ import extension.locales
- import extension.setupDependencyInjection
+@@ -26,6 +26,8 @@ import extension.setupDependencyInjection
  import extension.setupKover
+ import extension.testCommonDependencies
  import java.util.Locale
 +import java.time.LocalDateTime
 +import java.time.Duration
  
  plugins {
      id("io.element.android-compose-application")
-@@ -50,11 +52,6 @@ android {
+@@ -51,11 +53,6 @@ android {
          versionCode = Versions.VERSION_CODE
          versionName = Versions.VERSION_NAME
  
@@ -23,7 +23,7 @@ index 14203ec711..75244913cf 100644
          // Ref: https://developer.android.com/studio/build/configure-apk-splits.html#configure-abi-split
          splits {
              // Configures multiple APKs based on ABI.
-@@ -71,9 +68,9 @@ android {
+@@ -72,9 +69,9 @@ android {
  
                  if (!buildingAppBundle) {
                      // Specifies a list of ABIs that Gradle should create APKs for.
@@ -35,7 +35,7 @@ index 14203ec711..75244913cf 100644
                  }
              }
          }
-@@ -125,7 +122,6 @@ android {
+@@ -126,7 +123,6 @@ android {
                  "login_redirect_scheme",
                  oidcRedirectSchemeBase,
              )
@@ -43,7 +43,7 @@ index 14203ec711..75244913cf 100644
  
              postprocessing {
                  isRemoveUnusedCode = true
-@@ -209,6 +205,10 @@ androidComponents {
+@@ -210,6 +206,10 @@ androidComponents {
          "x86_64" to 4,
      )
  
@@ -54,7 +54,7 @@ index 14203ec711..75244913cf 100644
      onVariants { variant ->
          // Assigns a different version code for each output APK
          // other than the universal APK.
-@@ -219,7 +219,7 @@ androidComponents {
+@@ -220,7 +220,7 @@ androidComponents {
              val abiCode = abiVersionCodes[name] ?: 0
              // Assigns the new version code to output.versionCode, which changes the version code
              // for only the output APK, not for the variant itself.
@@ -64,7 +64,7 @@ index 14203ec711..75244913cf 100644
      }
  
 diff --git a/gradle.properties b/gradle.properties
-index 18399ccf06..3f5eea8b0a 100644
+index 18399ccf06..2d36791fcb 100644
 --- a/gradle.properties
 +++ b/gradle.properties
 @@ -12,7 +12,7 @@
@@ -72,7 +72,7 @@ index 18399ccf06..3f5eea8b0a 100644
  # Specifies the JVM arguments used for the daemon process.
  # The setting is particularly useful for tweaking memory settings.
 -org.gradle.jvmargs=-Xmx4g -Dfile.encoding=UTF-8 -XX:+UseG1GC
-+org.gradle.jvmargs=-Xmx12g -Dfile.encoding=UTF-8 -XX:+UseG1GC
++org.gradle.jvmargs=-Xmx8g -Dfile.encoding=UTF-8 -XX:+UseG1GC
  
  # AndroidX package structure to make it clearer which packages are bundled with the
  # Android operating system, and which are packaged with your app"s APK

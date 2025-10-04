@@ -1,5 +1,5 @@
 diff --git a/android/app/build.gradle.kts b/android/app/build.gradle.kts
-index 3086a339f..7867966b8 100644
+index 127104d69..e59a90551 100644
 --- a/android/app/build.gradle.kts
 +++ b/android/app/build.gradle.kts
 @@ -1,4 +1,6 @@
@@ -50,32 +50,32 @@ index 3086a339f..7867966b8 100644
  
  flutter {
 diff --git a/pubspec.lock b/pubspec.lock
-index a28966a5d..6fe243e20 100644
+index 8e61f0081..eaa363296 100644
 --- a/pubspec.lock
 +++ b/pubspec.lock
-@@ -1425,10 +1425,10 @@ packages:
+@@ -1494,10 +1494,10 @@ packages:
      dependency: "direct main"
      description:
        name: purchases_flutter
--      sha256: "6dbdaf2cdaee31da5f780b9226a1fbc37996231e8e8544c237ff9062d3e9a6b0"
-+      sha256: "56fe1613f3471f77c6363a8ff8e95d1b55e355e75ed21a9e3de2a73cd0003ddb"
+-      sha256: "4b845cd93b411f954969b03360d1eaa24a07dfd0379dead514d35211e16b084b"
++      sha256: "8d142ced6086fac9608eaf467e48fdeee289c45a988b819decf1c3b88e3b54b3"
        url: "https://pub.dev"
      source: hosted
--    version: "9.2.0"
-+    version: "9.6.0"
+-    version: "9.6.2"
++    version: "9.7.0"
    quiver:
      dependency: transitive
      description:
-@@ -1612,10 +1612,10 @@ packages:
+@@ -1705,10 +1705,10 @@ packages:
      dependency: transitive
      description:
        name: shared_preferences_android
--      sha256: "5bcf0772a761b04f8c6bf814721713de6f3e5d9d89caf8d3fe031b02a342379e"
-+      sha256: a2608114b1ffdcbc9c120eb71a0e207c71da56202852d4aab8a5e30a82269e74
+-      sha256: a2608114b1ffdcbc9c120eb71a0e207c71da56202852d4aab8a5e30a82269e74
++      sha256: bd14436108211b0d4ee5038689a56d4ae3620fd72fd6036e113bf1345bc74d9e
        url: "https://pub.dev"
      source: hosted
--    version: "2.4.11"
-+    version: "2.4.12"
+-    version: "2.4.12"
++    version: "2.4.13"
    shared_preferences_foundation:
      dependency: transitive
      description:
