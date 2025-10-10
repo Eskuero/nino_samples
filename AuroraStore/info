@@ -1,3 +1,7 @@
 Remote: https://gitlab.com/AuroraOSS/AuroraStore.git
 Branch: 
 HEAD: 9ccbd62df037d8358dc42740f02368719085f38b
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

@@ -64,7 +64,7 @@ index 9be152e9e7..a73ff35245 100644
      }
  
 diff --git a/gradle.properties b/gradle.properties
-index 18399ccf06..2d36791fcb 100644
+index a2c7228ed2..e3dd53f7a4 100644
 --- a/gradle.properties
 +++ b/gradle.properties
 @@ -12,7 +12,7 @@
