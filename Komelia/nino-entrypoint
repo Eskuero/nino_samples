@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Uncomment this line to rebuild the compilation image
-# docker build -t komelia-build-android-arm64 . -f ./cmake/android-arm64.Dockerfile
-docker run -v .:/build komelia-build-android-arm64;
+# docker build -t komelia-build-android-arm64 . -f ./cmake/android.Dockerfile
+docker run -v .:/build komelia-build-android-arm64 aarch64;
 ./gradlew android-arm64_copyJniLibs;
 ./gradlew buildWebui;

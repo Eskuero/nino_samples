@@ -125,7 +125,7 @@
 			exec = "assembleProductionFdroidRelease"
 	[projects.NeoStumbler]
 		[projects.NeoStumbler.tasks.fdroidrelease]
-			exec = "assembleFdroidRelease"
+			exec = "assembleFdroidDefaultRelease"
 	[projects.ntfy-android]
 		followtags = false
 		[projects.ntfy-android.tasks.fdroidrelease]
