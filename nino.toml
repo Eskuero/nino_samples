@@ -82,7 +82,6 @@
 	[projects.streamyfin]
 		subdir = "android"
 	[projects.lnreader]
-		followtags = false
 		subdir = "android"
 	[projects.bsky-app]
 		preserve = false

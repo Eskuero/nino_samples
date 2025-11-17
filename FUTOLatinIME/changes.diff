@@ -46,7 +46,7 @@ index a9dcbe495..b4fb46314 100644
 \ No newline at end of file
 +project.logger.lifecycle("versionName = ${android.defaultConfig.versionName}")
 diff --git a/java/src/org/futo/inputmethod/keyboard/internal/KeyboardTextsTable.java b/java/src/org/futo/inputmethod/keyboard/internal/KeyboardTextsTable.java
-index 8bb96d74b..7359831eb 100644
+index bdf97c42b..75de52f90 100644
 --- a/java/src/org/futo/inputmethod/keyboard/internal/KeyboardTextsTable.java
 +++ b/java/src/org/futo/inputmethod/keyboard/internal/KeyboardTextsTable.java
 @@ -93,8 +93,8 @@ public final class KeyboardTextsTable {
@@ -3790,7 +3790,7 @@ index 8bb96d74b..7359831eb 100644
          "\u00df,\u015b,\u0161",
          null,
          null,
-@@ -4276,48 +3790,25 @@ public final class KeyboardTextsTable {
+@@ -4276,42 +3790,25 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
@@ -3801,75 +3801,69 @@ index 8bb96d74b..7359831eb 100644
          "\u021b"
      };
  
--    private static final String[] TEXTS_ru = {
--        "ru",
+-    private static final String[] TEXTS_si = {
+-        "si",
+-        "\u0d85,\u0d86",
 +    private static final String[] TEXTS_mk = {
 +        "mk",
-         "\u0410\u0411\u0412",
++        "\u0410\u0411\u0412",
          null,
          null,
          null,
          null,
          null,
--        null,
-         "!text/double_9qm_lqm",
+-        "\u0dbb\u0dd4"
+-    };
+-
+-    private static final String[] TEXTS_sk = {
+-        "sk",
++        "!text/double_9qm_lqm",
          null,
--        "!text/single_9qm_lqm",
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
+-        "\u00e1,\u00e4",
+-        "\u00f4,\u00f3",
+-        "\u00e9",
+-        "\u00fa",
+-        "\u00ed",
          null,
-+        "!text/single_9qm_lqm",
+-        "!text/double_9qm_lqm",
+-        "\u010d",
+         "!text/single_9qm_lqm",
+-        "\u0161",
+-        "\u0101,\u00e0,\u00e2,\u00e3,\u00e5,\u00e6,\u0105",
+-        "\u00f6,\u00f2,\u00f5,\u0153,\u0151,\u00f8",
+-        "\u016f,\u00fc,\u016b,\u0173,\u00f9,\u00fb,\u0171",
+-        "\u017e",
+-        "\u011b,\u0113,\u0117,\u00e8,\u00ea,\u00eb,\u0119",
+-        "\u0148",
+-        "\u012b,\u012f,\u00ec,\u00ee,\u00ef,\u0131",
+-        "\u00df,\u015b,\u015f",
+-        "\u00e7,\u0107",
          null,
          null,
          null,
-@@ -4329,7 +3820,6 @@ public final class KeyboardTextsTable {
+@@ -4332,21 +3829,13 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
--        "\u0451",
+-        "!text/single_raqm_laqm",
+-        "!text/double_raqm_laqm",
+-        "\u010f",
+-        "\u00fd",
+         null,
+         null,
+-        "\u017c,\u017a",
          null,
          null,
          null,
-@@ -4341,14 +3831,9 @@ public final class KeyboardTextsTable {
+         null,
+         null,
+-        "\u013e,\u013a",
+-        "\u0165",
+-        "\u0146,\u00f1,\u0144",
          null,
          null,
          null,
--        "\u0449",
--        "\u044b",
--        "\u044d",
--        "\u0438",
-         null,
-         null,
-         null,
--        "\u044a",
-         null,
-         null,
-         null,
-@@ -4364,6 +3849,7 @@ public final class KeyboardTextsTable {
+@@ -4360,6 +3849,7 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
@@ -3877,97 +3871,108 @@ index 8bb96d74b..7359831eb 100644
          null,
          null,
          null,
-@@ -4428,43 +3914,40 @@ public final class KeyboardTextsTable {
+@@ -4378,8 +3868,6 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
--        "\",\u00bb,\u00ab",
--        "',\u203a,\u2039"
+-        "\u0155",
+-        "\u00ff",
+         null,
+         null,
+         null,
+@@ -4410,8 +3898,6 @@ public final class KeyboardTextsTable {
+         null,
+         null,
+         null,
+-        "\u013c,\u0142",
+-        "\u0159,\u0157",
+         null,
+         null,
+         null,
+@@ -4425,11 +3911,6 @@ public final class KeyboardTextsTable {
+         null,
+         null,
+         null,
+-        "\u0163"
 -    };
 -
--    private static final String[] TEXTS_si = {
--        "si",
--        "\u0d85,\u0d86",
+-    private static final String[] TEXTS_sl = {
+-        "sl",
          null,
          null,
          null,
+@@ -4437,19 +3918,36 @@ public final class KeyboardTextsTable {
          null,
          null,
--        "\u0dbb\u0dd4"
+         null,
++        null,
 +        "\u045d",
 +        "\u0455",
 +        "\u045c",
 +        "\u0437",
 +        "\u0453"
-     };
- 
--    private static final String[] TEXTS_sk = {
--        "sk",
++    };
++
 +    private static final String[] TEXTS_cs = {
 +        "cs",
-         null,
--        "\u00e1,\u00e4",
--        "\u00f4,\u00f3",
--        "\u00e9",
--        "\u00fa",
++        null,
 +        "\u00e1",
 +        "\u00f3",
 +        "\u00e9,\u011b",
 +        "\u00fa,\u016f",
-         "\u00ed",
--        null,
++        "\u00ed",
          "!text/double_9qm_lqm",
 +        null,
          "\u010d",
          "!text/single_9qm_lqm",
          "\u0161",
--        "\u0101,\u00e0,\u00e2,\u00e3,\u00e5,\u00e6,\u0105",
--        "\u00f6,\u00f2,\u00f5,\u0153,\u0151,\u00f8",
--        "\u016f,\u00fc,\u016b,\u0173,\u00f9,\u00fb,\u0171",
+-        null,
+-        null,
+-        null,
 +        "\u00e0,\u00e2,\u00e4,\u00e6,\u00e3,\u00e5,\u0101",
 +        "\u00f6,\u00f4,\u00f2,\u00f5,\u0153,\u00f8,\u014d",
 +        "\u00fb,\u00fc,\u00f9,\u016b",
          "\u017e",
--        "\u011b,\u0113,\u0117,\u00e8,\u00ea,\u00eb,\u0119",
+-        null,
+-        null,
+-        null,
+-        null,
+-        "\u0107",
 +        "\u00e8,\u00ea,\u00eb,\u0119,\u0117,\u0113",
-         "\u0148",
--        "\u012b,\u012f,\u00ec,\u00ee,\u00ef,\u0131",
--        "\u00df,\u015b,\u015f",
++        "\u0148",
 +        "\u00ee,\u00ef,\u00ec,\u012f,\u012b",
-         "\u00e7,\u0107",
++        "\u00e7,\u0107",
 +        "\u00df,\u015b",
          null,
          null,
          null,
-@@ -4490,26 +3973,7 @@ public final class KeyboardTextsTable {
-         "\u010f",
-         "\u00fd",
+@@ -4471,21 +3969,16 @@ public final class KeyboardTextsTable {
          null,
+         null,
+         "!text/single_raqm_laqm",
+-        "!text/double_raqm_laqm"
+-    };
+-
+-    private static final String[] TEXTS_sr = {
+-        "sr",
+-        "\u0410\u0411\u0412",
 -        null,
--        "\u017c,\u017a",
--        null,
--        null,
--        null,
--        null,
--        null,
--        "\u013e,\u013a",
--        "\u0165",
--        "\u0146,\u00f1,\u0144",
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
--        null,
++        "!text/double_raqm_laqm",
++        "\u010f",
++        "\u00fd",
+         null,
 +        "\u017a,\u017c",
          null,
          null,
          null,
-@@ -4522,17 +3986,17 @@ public final class KeyboardTextsTable {
+         null,
+-        "!text/double_9qm_lqm",
+         null,
+-        "!text/single_9qm_lqm",
+         null,
+         null,
+         null,
+@@ -4493,12 +3986,14 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
@@ -3982,39 +3987,30 @@ index 8bb96d74b..7359831eb 100644
          null,
          null,
          null,
--        "\u0155",
--        "\u00ff",
+@@ -4516,15 +4011,13 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
-@@ -4551,6 +4015,7 @@ public final class KeyboardTextsTable {
+-        "!text/single_raqm_laqm",
+-        "!text/double_raqm_laqm",
+         null,
          null,
          null,
          null,
 +        "\u00ff",
          null,
          null,
-         null,
-@@ -4563,8 +4028,6 @@ public final class KeyboardTextsTable {
-         null,
-         null,
-         null,
--        "\u013c,\u0142",
--        "\u0159,\u0157",
+-        "\u0450",
          null,
          null,
          null,
-@@ -4578,31 +4041,29 @@ public final class KeyboardTextsTable {
+@@ -4548,16 +4041,26 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
--        "\u0163"
 +        "\u0159"
-     };
- 
--    private static final String[] TEXTS_sl = {
--        "sl",
--        null,
++    };
++
 +    private static final String[] TEXTS_sr___Latn = {
 +        "sr__#Latn",
          null,
@@ -4025,67 +4021,61 @@ index 8bb96d74b..7359831eb 100644
 +        "\u00ec",
          null,
          null,
--        "!text/double_9qm_lqm",
--        "\u010d",
--        "!text/single_9qm_lqm",
--        "\u0161",
 +        "\u010d,\u0107,%",
          null,
 +        "\u0161,%",
          null,
          null,
--        "\u017e",
          null,
 +        "\u017e,%",
          null,
          null,
          null,
--        "\u0107",
-         null,
-         null,
-         null,
-@@ -4623,22 +4084,14 @@ public final class KeyboardTextsTable {
-         null,
-         null,
-         null,
--        "!text/single_raqm_laqm",
--        "!text/double_raqm_laqm"
--    };
--
--    private static final String[] TEXTS_sr = {
--        "sr",
--        "\u0410\u0411\u0412",
-         null,
+@@ -4585,6 +4088,7 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
 +        "\u0111,%",
          null,
          null,
--        "!text/double_9qm_lqm",
          null,
--        "!text/single_9qm_lqm",
-         null,
-         null,
-         null,
-@@ -4669,15 +4122,12 @@ public final class KeyboardTextsTable {
+@@ -4601,31 +4105,17 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
--        "!text/single_raqm_laqm",
--        "!text/double_raqm_laqm",
+-        "\u045d",
+         null,
+-        "\u0437",
+-        "\u045b",
+-        "\u0455",
+-        "\u0452"
+-    };
+-
+-    private static final String[] TEXTS_sr___Latn = {
+-        "sr__#Latn",
          null,
          null,
          null,
+-        "\u00e8",
+         null,
+-        "\u00ec",
+         null,
+         null,
+-        "\u010d,\u0107,%",
+         null,
+-        "\u0161,%",
          null,
          null,
          null,
--        "\u0450",
+-        "\u017e,%",
          null,
          null,
          null,
-@@ -4695,12 +4145,33 @@ public final class KeyboardTextsTable {
+@@ -4653,15 +4143,35 @@ public final class KeyboardTextsTable {
          null,
+         null,
+         null,
+-        "\u0111,%",
          null,
          null,
 +        "Idi",
@@ -4118,7 +4108,7 @@ index 8bb96d74b..7359831eb 100644
          null,
          null,
          null,
-@@ -4751,34 +4222,24 @@ public final class KeyboardTextsTable {
+@@ -4712,36 +4222,23 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
@@ -4129,16 +4119,18 @@ index 8bb96d74b..7359831eb 100644
          null,
          null,
          null,
--        "\u045d",
-         null,
--        "\u0437",
--        "\u045b",
--        "\u0455",
--        "\u0452"
+-        "Idi",
+-        "\u0160alji",
+-        "Sled",
+-        "Gotov",
+-        "Tra\u017ei",
+-        "Preth",
+-        "Pauza",
+-        "\u010cekaj"
 -    };
 -
--    private static final String[] TEXTS_sr___Latn = {
--        "sr__#Latn",
+-    private static final String[] TEXTS_sr_ZZ = {
+-        "sr_ZZ",
          null,
          null,
          null,
@@ -4157,7 +4149,7 @@ index 8bb96d74b..7359831eb 100644
          null,
          null,
          null,
-@@ -4806,7 +4267,6 @@ public final class KeyboardTextsTable {
+@@ -4769,7 +4266,6 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
@@ -4165,7 +4157,7 @@ index 8bb96d74b..7359831eb 100644
          null,
          null,
          null,
-@@ -4819,6 +4279,8 @@ public final class KeyboardTextsTable {
+@@ -4783,6 +4279,8 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
@@ -4174,7 +4166,7 @@ index 8bb96d74b..7359831eb 100644
          null,
          null,
          null,
-@@ -4842,12 +4304,24 @@ public final class KeyboardTextsTable {
+@@ -4806,12 +4304,24 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
@@ -4199,11 +4191,10 @@ index 8bb96d74b..7359831eb 100644
          null,
          null,
          null,
-@@ -4867,34 +4341,42 @@ public final class KeyboardTextsTable {
+@@ -4831,34 +4341,42 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
--        null,
 -        "Idi",
 -        "\u0160alji",
 -        "Sled",
@@ -4214,8 +4205,8 @@ index 8bb96d74b..7359831eb 100644
 -        "\u010cekaj"
 -    };
 -
--    private static final String[] TEXTS_sr_ZZ = {
--        "sr_ZZ",
+-    private static final String[] TEXTS_sv = {
+-        "sv",
 +        "\u0660",
 +        "\u0661",
 +        "\u0662",
@@ -4237,35 +4228,36 @@ index 8bb96d74b..7359831eb 100644
 +        "9",
 +        "0,\u066b,\u066c",
          null,
+-        "\u00e4,\u00e5",
+-        "\u00f6",
+-        "\u00e9",
          null,
          null,
--        "\u00e8",
          null,
--        "\u00ec",
 +        "\u0663\u0662\u0661\u061f",
          null,
          null,
--        "\u010d,\u0107,%",
 +        "\u061f",
 +        "\u060c",
 +        ".",
          null,
--        "\u0161,%",
 +        "\u061f",
 +        "\u2605,\u066d",
          null,
+-        "\u00e6,\u00e1,\u00e0,\u00e2,\u0105,\u00e3",
+-        "\u00f8,\u0153,\u00f3,\u00f2,\u00f4,\u00f5,\u014d",
          null,
          null,
--        "\u017e,%",
+-        "\u00e8,\u00ea,\u00eb,\u0119",
          null,
          null,
          null,
-@@ -4903,26 +4385,69 @@ public final class KeyboardTextsTable {
+@@ -4867,24 +4385,67 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
 +        "\u060c",
-         null,
++        null,
 +        "(|)",
 +        ")|(",
 +        "[|]",
@@ -4325,94 +4317,12 @@ index 8bb96d74b..7359831eb 100644
          null,
          null,
          null,
-         null,
-         null,
--        "\u0111,%",
-         null,
-         null,
-         null,
-@@ -4964,6 +4489,7 @@ public final class KeyboardTextsTable {
+-        "!text/single_raqm_laqm",
+-        "!text/double_raqm_laqm",
          null,
          null,
          null,
-+        "\u0144",
-         null,
-         null,
-         null,
-@@ -4978,45 +4504,56 @@ public final class KeyboardTextsTable {
-         null,
-         null,
-         null,
-+        "!autoColumnOrder!9,\\\\,?,!,#,),(,/,;,\u00a1,',@,:,-,\\\",+,\\%,&,\u00bf"
-+    };
-+
-+    private static final String[] TEXTS_ml = {
-+        "ml",
-+        "\u0d05",
-         null,
-         null,
-         null,
-         null,
-         null,
-         null,
--        "Idi",
--        "\u0160alji",
--        "Sled",
--        "Gotov",
--        "Tra\u017ei",
--        "Preth",
--        "Pauza",
--        "\u010cekaj"
-+        "\u20b9"
-     };
- 
--    private static final String[] TEXTS_sv = {
--        "sv",
-+    private static final String[] TEXTS_lo = {
-+        "lo",
-+        "\u0e81\u0e82\u0e84",
-         null,
--        "\u00e4,\u00e5",
--        "\u00f6",
--        "\u00e9",
-         null,
-         null,
-         null,
-         null,
-         null,
-+        "\u20ad"
-+    };
-+
-+    private static final String[] TEXTS_de = {
-+        "de",
-         null,
-+        "\u00e4",
-+        "\u00f6",
-         null,
--        "\u00e6,\u00e1,\u00e0,\u00e2,\u0105,\u00e3",
--        "\u00f8,\u0153,\u00f3,\u00f2,\u00f4,\u00f5,\u014d",
-+        "\u00fc",
-         null,
-+        "!text/double_9qm_lqm",
-         null,
--        "\u00e8,\u00ea,\u00eb,\u0119",
-+        null,
-+        "!text/single_9qm_lqm",
-+        "\u00df",
-+        "%,\u00e2,\u00e0,\u00e1,\u00e6,\u00e3,\u00e5,\u0101",
-+        "%,\u00f4,\u00f2,\u00f3,\u00f5,\u0153,\u00f8,\u014d",
-+        "%,\u00fb,\u00f9,\u00fa,\u016b",
-         null,
-         null,
-         null,
-         null,
-         null,
-+        "\u015b,\u0161",
-+        null,
-         null,
-         null,
-         null,
-@@ -5051,39 +4588,22 @@ public final class KeyboardTextsTable {
+@@ -4898,39 +4459,22 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
@@ -4452,27 +4362,183 @@ index 8bb96d74b..7359831eb 100644
          null,
          null,
          null,
-@@ -5112,69 +4632,630 @@ public final class KeyboardTextsTable {
+@@ -4945,6 +4489,7 @@ public final class KeyboardTextsTable {
+         null,
+         null,
+         null,
++        "\u0144",
+         null,
+         null,
+         null,
+@@ -4959,69 +4504,58 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
 -        "g\\'"
--    };
--
++        "!autoColumnOrder!9,\\\\,?,!,#,),(,/,;,\u00a1,',@,:,-,\\\",+,\\%,&,\u00bf"
+     };
+ 
 -    private static final String[] TEXTS_ta_IN = {
 -        "ta_IN",
 -        "\u0ba4\u0bae\u0bbf\u0bb4\u0bcd",
++    private static final String[] TEXTS_ml = {
++        "ml",
++        "\u0d05",
          null,
          null,
          null,
          null,
          null,
 -        "\u0bf9"
--    };
--
++        null,
++        "\u20b9"
+     };
+ 
 -    private static final String[] TEXTS_ta_LK = {
 -        "ta_LK",
 -        "\u0ba4\u0bae\u0bbf\u0bb4\u0bcd",
++    private static final String[] TEXTS_lo = {
++        "lo",
++        "\u0e81\u0e82\u0e84",
+         null,
+         null,
+         null,
+         null,
+         null,
+-        "\u0dbb\u0dd4"
+-    };
+-
+-    private static final String[] TEXTS_ta_SG = {
+-        "ta_SG",
+-        "\u0ba4\u0bae\u0bbf\u0bb4\u0bcd"
++        null,
++        "\u20ad"
+     };
+ 
+-    private static final String[] TEXTS_te = {
+-        "te",
+-        "\u0c05\u0c06\u0c07",
++    private static final String[] TEXTS_de = {
++        "de",
+         null,
++        "\u00e4",
++        "\u00f6",
+         null,
++        "\u00fc",
+         null,
++        "!text/double_9qm_lqm",
+         null,
+         null,
+-        "\u20b9"
+-    };
+-
+-    private static final String[] TEXTS_th = {
+-        "th",
+-        "\u0e01\u0e02\u0e04",
++        "!text/single_9qm_lqm",
++        "\u00df",
++        "%,\u00e2,\u00e0,\u00e1,\u00e6,\u00e3,\u00e5,\u0101",
++        "%,\u00f4,\u00f2,\u00f3,\u00f5,\u0153,\u00f8,\u014d",
++        "%,\u00fb,\u00f9,\u00fa,\u016b",
+         null,
+         null,
+         null,
+         null,
+         null,
+-        "\u0e3f"
+-    };
+-
+-    private static final String[] TEXTS_tl = {
+-        "tl",
++        "\u015b,\u0161",
+         null,
+-        "\u00e1,\u00e0,\u00e4,\u00e2,\u00e3,\u00e5,\u0105,\u00e6,\u0101,\u00aa",
+-        "\u00f3,\u00f2,\u00f6,\u00f4,\u00f5,\u00f8,\u0153,\u014d,\u00ba",
+-        "\u00e9,\u00e8,\u00eb,\u00ea,\u0119,\u0117,\u0113",
+-        "\u00fa,\u00fc,\u00f9,\u00fb,\u016b",
+-        "\u00ed,\u00ef,\u00ec,\u00ee,\u012f,\u012b",
+         null,
+         null,
+-        "\u00e7,\u0107,\u010d",
+         null,
+         null,
+         null,
+@@ -5029,31 +4563,18 @@ public final class KeyboardTextsTable {
+         null,
+         null,
+         null,
+-        "\u00f1,\u0144"
+-    };
+-
+-    private static final String[] TEXTS_tr = {
+-        "tr",
+         null,
+         null,
+-        "\u00f6",
+         null,
+-        "\u00fc",
+-        "\u0131",
+         null,
+         null,
+-        "\u00e7",
+         null,
+-        "\u015f",
+         null,
+-        "\u00f4,\u0153,\u00f2,\u00f3,\u00f5,\u00f8,\u014d",
+-        "\u00fb,\u00f9,\u00fa,\u016b",
+         null,
+         null,
+         null,
+-        "\u00ee,\u00ef,\u00ec,\u00ed,\u012f,\u012b",
+-        "\u00df,\u015b,\u0161",
+-        "\u0107,\u010d",
++        "!text/single_raqm_laqm",
++        "!text/double_raqm_laqm",
+         null,
+         null,
+         null,
+@@ -5079,21 +4600,77 @@ public final class KeyboardTextsTable {
+         null,
+         null,
+         null,
+-        "\u011f"
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
++        null,
 +        null,
 +        null,
 +        null,
@@ -4482,16 +4548,20 @@ index 8bb96d74b..7359831eb 100644
 +        "\u00fc",
 +        "\u00f6",
 +        "\u00e4"
-+    };
-+
+     };
+ 
+-    private static final String[] TEXTS_uk = {
+-        "uk",
 +    private static final String[] TEXTS_bg = {
 +        "bg",
-+        "\u0410\u0411\u0412",
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
+         "\u0410\u0411\u0412",
+         null,
+         null,
+         null,
+         null,
+         null,
+-        "\u20b4",
+-        "!text/double_9qm_lqm",
 +        "!text/double_9qm_lqm"
 +    };
 +
@@ -4506,17 +4576,15 @@ index 8bb96d74b..7359831eb 100644
 +        null,
 +        null,
 +        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
+         null,
+-        "!text/single_9qm_lqm",
+         null,
+         null,
+         null,
+@@ -5104,6 +4681,503 @@ public final class KeyboardTextsTable {
+         null,
+         null,
+         null,
 +        "\u0660",
 +        "\u0661",
 +        "\u0662",
@@ -5014,177 +5082,113 @@ index 8bb96d74b..7359831eb 100644
 +        "\u00e7,\u0107",
 +        "\u00df,\u015b,\u015f",
 +        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
+         null,
+         null,
+         null,
+@@ -5123,7 +5197,12 @@ public final class KeyboardTextsTable {
+         null,
+         null,
+         null,
 +        "!text/single_raqm_laqm",
 +        "!text/double_raqm_laqm",
 +        "\u010f",
 +        "\u00fd",
-+        null,
+         null,
 +        "\u017c,\u017a",
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
+         null,
+         null,
+         null,
+@@ -5131,23 +5210,22 @@ public final class KeyboardTextsTable {
+         null,
+         null,
+         null,
 +        "\u013e,\u013a",
-+        null,
-+        null,
-+        null,
-+        null,
+         null,
+         null,
+         null,
+         null,
 +        "\u0165",
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
+         null,
+         null,
+         null,
+         null,
+         null,
+         null,
 +        "\u0146,\u00f1,\u0144",
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
-+        null,
          null,
          null,
          null,
+-        "\u0449",
+-        "\u0456",
+-        "\u0454",
+-        "\u0438",
          null,
          null,
--        "\u0dbb\u0dd4"
--    };
--
--    private static final String[] TEXTS_ta_SG = {
--        "ta_SG",
--        "\u0ba4\u0bae\u0bbf\u0bb4\u0bcd"
--    };
--
--    private static final String[] TEXTS_te = {
--        "te",
--        "\u0c05\u0c06\u0c07",
+         null,
+@@ -5166,6 +5244,7 @@ public final class KeyboardTextsTable {
+         null,
          null,
          null,
 +        "\u00ff",
          null,
          null,
          null,
--        "\u20b9"
--    };
--
--    private static final String[] TEXTS_th = {
--        "th",
--        "\u0e01\u0e02\u0e04",
+@@ -5191,6 +5270,7 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
-         null,
-         null,
--        "\u0e3f"
--    };
--
--    private static final String[] TEXTS_tl = {
--        "tl",
-         null,
--        "\u00e1,\u00e0,\u00e4,\u00e2,\u00e3,\u00e5,\u0105,\u00e6,\u0101,\u00aa",
--        "\u00f3,\u00f2,\u00f6,\u00f4,\u00f5,\u00f8,\u0153,\u014d,\u00ba",
--        "\u00e9,\u00e8,\u00eb,\u00ea,\u0119,\u0117,\u0113",
--        "\u00fa,\u00fc,\u00f9,\u00fb,\u016b",
--        "\u00ed,\u00ef,\u00ec,\u00ee,\u012f,\u012b",
-         null,
-         null,
--        "\u00e7,\u0107,\u010d",
-         null,
-         null,
-         null,
-@@ -5182,31 +5263,17 @@ public final class KeyboardTextsTable {
-         null,
-         null,
-         null,
--        "\u00f1,\u0144"
--    };
--
--    private static final String[] TEXTS_tr = {
--        "tr",
-         null,
-         null,
--        "\u00f6",
-         null,
--        "\u00fc",
--        "\u0131",
-         null,
-         null,
--        "\u00e7",
-         null,
--        "\u015f",
-         null,
--        "\u00f4,\u0153,\u00f2,\u00f3,\u00f5,\u00f8,\u014d",
--        "\u00fb,\u00f9,\u00fa,\u016b",
 +        "\u0155",
          null,
          null,
          null,
--        "\u00ee,\u00ef,\u00ec,\u00ed,\u012f,\u012b",
--        "\u00df,\u015b,\u0161",
--        "\u0107,\u010d",
+@@ -5204,10 +5284,10 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
-@@ -5217,6 +5284,8 @@ public final class KeyboardTextsTable {
-         null,
-         null,
-         null,
+-        "\u0457",
 +        "\u013c,\u0142",
 +        "\u0159,\u0157",
          null,
          null,
-         null,
-@@ -5232,31 +5301,26 @@ public final class KeyboardTextsTable {
-         null,
+-        "\u0491",
          null,
          null,
--        "\u011f"
+         null,
+@@ -5221,46 +5301,26 @@ public final class KeyboardTextsTable {
+         null,
+         null,
+         null,
+-        "\u044a,\u044b"
 +        "\u0163"
      };
  
--    private static final String[] TEXTS_uk = {
--        "uk",
--        "\u0410\u0411\u0412",
+-    private static final String[] TEXTS_uz = {
+-        "uz",
+-        null,
+-        "\u00e2,\u00e4,\u00e1",
+-        "\u00f6,\u00f4,\u0153,\u00f2,\u00f3,\u00f5,\u00f8,\u014d",
+-        "\u0259,\u00e9",
+-        "\u00fc,\u00fb,\u00f9,\u00fa,\u016b",
+-        "\u0131,\u00ee,\u00ef,\u00ec,\u00ed,\u012f,\u012b",
+-        null,
+-        null,
+-        "\u00e7,\u0107,\u010d",
+-        null,
+-        "\u015f,\u00df,\u015b,\u0161",
+-        null,
+-        null,
+-        null,
+-        "\u017e",
+-        null,
+-        "\u0148,\u00f1",
 -        null,
 -        null,
 -        null,
 -        null,
 -        null,
--        "\u20b4",
--        "!text/double_9qm_lqm",
 -        null,
--        "!text/single_9qm_lqm",
+-        null,
+-        null,
 +    private static final String[] TEXTS_sr_ZZ = {
 +        "sr_ZZ",
          null,
@@ -5205,7 +5209,28 @@ index 8bb96d74b..7359831eb 100644
          null,
          null,
          null,
-@@ -5284,6 +5348,7 @@ public final class KeyboardTextsTable {
+@@ -5269,20 +5329,8 @@ public final class KeyboardTextsTable {
+         null,
+         null,
+         null,
+-        "\u00fd",
+         null,
+-        "\u011f"
+-    };
+-
+-    private static final String[] TEXTS_vi = {
+-        "vi",
+         null,
+-        "\u00e0,\u00e1,\u1ea3,\u00e3,\u1ea1,\u0103,\u1eb1,\u1eaf,\u1eb3,\u1eb5,\u1eb7,\u00e2,\u1ea7,\u1ea5,\u1ea9,\u1eab,\u1ead",
+-        "\u00f2,\u00f3,\u1ecf,\u00f5,\u1ecd,\u00f4,\u1ed3,\u1ed1,\u1ed5,\u1ed7,\u1ed9,\u01a1,\u1edd,\u1edb,\u1edf,\u1ee1,\u1ee3",
+-        "\u00e8,\u00e9,\u1ebb,\u1ebd,\u1eb9,\u00ea,\u1ec1,\u1ebf,\u1ec3,\u1ec5,\u1ec7",
+-        "\u00f9,\u00fa,\u1ee7,\u0169,\u1ee5,\u01b0,\u1eeb,\u1ee9,\u1eed,\u1eef,\u1ef1",
+-        "\u00ec,\u00ed,\u1ec9,\u0129,\u1ecb",
+-        "\u20ab",
+         null,
+         null,
+         null,
+@@ -5300,6 +5348,7 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
@@ -5213,18 +5238,58 @@ index 8bb96d74b..7359831eb 100644
          null,
          null,
          null,
-@@ -5297,10 +5362,6 @@ public final class KeyboardTextsTable {
+@@ -5318,50 +5367,23 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
--        "\u0449",
--        "\u0456",
--        "\u0454",
--        "\u0438",
+-        "\u0111",
+-        "\u1ef3,\u00fd,\u1ef7,\u1ef9,\u1ef5"
+-    };
+-
+-    private static final String[] TEXTS_zu = {
+-        "zu",
+         null,
+-        "\u00e0,\u00e1,\u00e2,\u00e4,\u00e6,\u00e3,\u00e5,\u0101",
+-        "\u00f3,\u00f4,\u00f6,\u00f2,\u0153,\u00f8,\u014d,\u00f5",
+-        "\u00e9,\u00e8,\u00ea,\u00eb,\u0113",
+-        "\u00fa,\u00fb,\u00fc,\u00f9,\u016b",
+-        "\u00ed,\u00ee,\u00ef,\u012b,\u00ec",
+         null,
+         null,
+-        "\u00e7",
+         null,
+-        "\u00df",
          null,
          null,
          null,
-@@ -5344,23 +5405,41 @@ public final class KeyboardTextsTable {
+         null,
+         null,
+-        "\u00f1"
+-    };
+-
+-    private static final String[] TEXTS_zz = {
+-        "zz",
+         null,
+-        "\u00e0,\u00e1,\u00e2,\u00e3,\u00e4,\u00e5,\u00e6,\u0101,\u0103,\u0105,\u00aa",
+-        "\u00f2,\u00f3,\u00f4,\u00f5,\u00f6,\u00f8,\u014d,\u014f,\u0151,\u0153,\u00ba",
+-        "\u00e8,\u00e9,\u00ea,\u00eb,\u0113,\u0115,\u0117,\u0119,\u011b",
+-        "\u00f9,\u00fa,\u00fb,\u00fc,\u0169,\u016b,\u016d,\u016f,\u0171,\u0173",
+-        "\u00ec,\u00ed,\u00ee,\u00ef,\u0129,\u012b,\u012d,\u012f,\u0131,\u0133",
+         null,
+         null,
+-        "\u00e7,\u0107,\u0109,\u010b,\u010d",
+         null,
+-        "\u00df,\u015b,\u015d,\u015f,\u0161,\u017f",
+         null,
+         null,
+         null,
+-        "\u017a,\u017c,\u017e",
+         null,
+-        "\u00f1,\u0144,\u0146,\u0148,\u0149,\u014b",
+         null,
+         null,
+         null,
+@@ -5383,22 +5405,29 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
@@ -5236,6 +5301,53 @@ index 8bb96d74b..7359831eb 100644
 +        "Preth",
 +        "Pauza",
 +        "\u010cekaj"
++    };
++
++    private static final String[] TEXTS_bod = {
++        "bod",
+         null,
+         null,
+         null,
+         null,
+-        "\u010f,\u0111,\u00f0",
+-        "\u00fd,\u0177,\u00ff,\u0133",
+         null,
+-        "\u011d,\u011f,\u0121,\u0123",
+         null,
+         null,
+         null,
+         null,
+         null,
+         null,
+-        "\u013a,\u013c,\u013e,\u0140,\u0142",
+-        "\u00fe,\u0163,\u0165,\u0167",
+         null,
+         null,
+         null,
+@@ -5408,18 +5437,50 @@ public final class KeyboardTextsTable {
+         null,
+         null,
+         null,
++        "\u0f20",
++        "\u0f21",
++        "\u0f22",
++        "\u0f23",
++        "\u0f24",
++        "\u0f25",
++        "\u0f26",
++        "\u0f27",
++        "\u0f28",
++        "\u0f29",
++        "1",
++        "2",
++        "3",
++        "4",
++        "5",
++        "6",
++        "7",
++        "8",
++        "9",
++        "0"
 +    };
 +
 +    private static final String[] TEXTS_ta_IN = {
@@ -5261,16 +5373,13 @@ index 8bb96d74b..7359831eb 100644
          null,
 +        "\u20b9",
          null,
--        "\u0457",
          null,
          null,
--        "\u0491",
+@@ -5431,20 +5492,53 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
-@@ -5370,15 +5449,35 @@ public final class KeyboardTextsTable {
-         null,
-         null,
+-        "\u0155,\u0157,\u0159",
          null,
 +        "\u0966",
 +        "\u0967",
@@ -5296,44 +5405,72 @@ index 8bb96d74b..7359831eb 100644
          null,
          null,
          null,
--        "\u044a,\u044b"
 +        "?\u0967\u0968\u0969"
-     };
- 
--    private static final String[] TEXTS_uz = {
--        "uz",
++    };
++
 +    private static final String[] TEXTS_az = {
 +        "az",
          null,
-         "\u00e2,\u00e4,\u00e1",
-         "\u00f6,\u00f4,\u0153,\u00f2,\u00f3,\u00f5,\u00f8,\u014d",
-@@ -5424,97 +5523,36 @@ public final class KeyboardTextsTable {
++        "\u00e2,\u00e4,\u00e1",
++        "\u00f6,\u00f4,\u0153,\u00f2,\u00f3,\u00f5,\u00f8,\u014d",
++        "\u0259,\u00e9",
++        "\u00fc,\u00fb,\u00f9,\u00fa,\u016b",
++        "\u0131,\u00ee,\u00ef,\u00ec,\u00ed,\u012f,\u012b",
          null,
-         "\u00fd",
          null,
-+        null,
-         "\u011f"
++        "\u00e7,\u0107,\u010d",
+         null,
++        "\u015f,\u00df,\u015b,\u0161",
+         null,
+         null,
+         null,
++        "\u017e",
+         null,
++        "\u0148,\u00f1",
+         null,
+         null,
+         null,
+@@ -5459,9 +5553,6 @@ public final class KeyboardTextsTable {
+         null,
+         null,
+         null,
+-        "\u0125",
+-        "\u0135",
+-        "\u0137,\u0138",
+         null,
+         null,
+         null,
+@@ -5474,68 +5565,33 @@ public final class KeyboardTextsTable {
+         null,
+         null,
+         null,
++        "\u00fd",
+         null,
+         null,
+-        "\u0175"
++        "\u011f"
      };
  
--    private static final String[] TEXTS_vi = {
--        "vi",
+-    private static final String[] TEXTS_it = {
+-        "it",
 -        null,
--        "\u00e0,\u00e1,\u1ea3,\u00e3,\u1ea1,\u0103,\u1eb1,\u1eaf,\u1eb3,\u1eb5,\u1eb7,\u00e2,\u1ea7,\u1ea5,\u1ea9,\u1eab,\u1ead",
--        "\u00f2,\u00f3,\u1ecf,\u00f5,\u1ecd,\u00f4,\u1ed3,\u1ed1,\u1ed5,\u1ed7,\u1ed9,\u01a1,\u1edd,\u1edb,\u1edf,\u1ee1,\u1ee3",
--        "\u00e8,\u00e9,\u1ebb,\u1ebd,\u1eb9,\u00ea,\u1ec1,\u1ebf,\u1ec3,\u1ec5,\u1ec7",
--        "\u00f9,\u00fa,\u1ee7,\u0169,\u1ee5,\u01b0,\u1eeb,\u1ee9,\u1eed,\u1eef,\u1ef1",
--        "\u00ec,\u00ed,\u1ec9,\u0129,\u1ecb",
--        "\u20ab",
--        null,
+-        "\u00e0",
+-        "\u00f2",
+-        "\u00e8,\u00e9",
+-        "\u00f9",
+-        "\u00ec",
 -        null,
 -        null,
 -        null,
 -        null,
 -        null,
+-        "\u00e1,\u00e2,\u00e4,\u00e6,\u00e3,\u00e5,\u0101,\u00aa",
+-        "\u00f3,\u00f4,\u00f6,\u00f5,\u0153,\u00f8,\u014d,\u00ba",
+-        "\u00fa,\u00fb,\u00fc,\u016b",
 -        null,
+-        "\u00ea,\u00eb,\u0119,\u0117,\u0113,\u0259",
 -        null,
--        null,
--        null,
+-        "\u00ed,\u00ee,\u00ef,\u012f,\u012b",
 -        null,
 -        null,
 -        null,
@@ -5361,23 +5498,10 @@ index 8bb96d74b..7359831eb 100644
 +    private static final String[] TEXTS_sl = {
 +        "sl",
          null,
--        "\u0111",
--        "\u1ef3,\u00fd,\u1ef7,\u1ef9,\u1ef5"
--    };
--
--    private static final String[] TEXTS_zu = {
--        "zu",
-         null,
--        "\u00e0,\u00e1,\u00e2,\u00e4,\u00e6,\u00e3,\u00e5,\u0101",
--        "\u00f3,\u00f4,\u00f6,\u00f2,\u0153,\u00f8,\u014d,\u00f5",
--        "\u00e9,\u00e8,\u00ea,\u00eb,\u0113",
--        "\u00fa,\u00fb,\u00fc,\u00f9,\u016b",
--        "\u00ed,\u00ee,\u00ef,\u012b,\u00ec",
          null,
          null,
--        "\u00e7",
          null,
--        "\u00df",
+         null,
          null,
 +        "!text/double_9qm_lqm",
          null,
@@ -5387,34 +5511,15 @@ index 8bb96d74b..7359831eb 100644
          null,
          null,
          null,
--        "\u00f1"
--    };
--
--    private static final String[] TEXTS_zz = {
--        "zz",
 +        "\u017e",
          null,
--        "\u00e0,\u00e1,\u00e2,\u00e3,\u00e4,\u00e5,\u00e6,\u0101,\u0103,\u0105,\u00aa",
--        "\u00f2,\u00f3,\u00f4,\u00f5,\u00f6,\u00f8,\u014d,\u014f,\u0151,\u0153,\u00ba",
--        "\u00e8,\u00e9,\u00ea,\u00eb,\u0113,\u0115,\u0117,\u0119,\u011b",
--        "\u00f9,\u00fa,\u00fb,\u00fc,\u0169,\u016b,\u016d,\u016f,\u0171,\u0173",
--        "\u00ec,\u00ed,\u00ee,\u00ef,\u0129,\u012b,\u012d,\u012f,\u0131,\u0133",
          null,
          null,
--        "\u00e7,\u0107,\u0109,\u010b,\u010d",
 +        "\u0107",
          null,
--        "\u00df,\u015b,\u015d,\u015f,\u0161,\u017f",
          null,
          null,
-         null,
--        "\u017a,\u017c,\u017e",
-         null,
--        "\u00f1,\u0144,\u0146,\u0148,\u0149,\u014b",
-         null,
-         null,
-         null,
-@@ -5531,36 +5569,72 @@ public final class KeyboardTextsTable {
+@@ -5557,59 +5613,84 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
@@ -5435,20 +5540,21 @@ index 8bb96d74b..7359831eb 100644
          null,
          null,
          null,
--        "\u010f,\u0111,\u00f0",
--        "\u00fd,\u0177,\u00ff,\u0133",
-         null,
--        "\u011d,\u011f,\u0121,\u0123",
          null,
          null,
          null,
+-        "\u00e8",
+-        "\u00e9",
+-        "\u00e0",
          null,
          null,
          null,
--        "\u013a,\u013c,\u013e,\u0140,\u0142",
--        "\u00fe,\u0163,\u0165,\u0167",
          null,
          null,
+         null,
+-        "\u00fc",
+-        "\u00f6",
+-        "\u00e4"
 +        "\u09e6",
 +        "\u09e7",
 +        "\u09e8",
@@ -5469,8 +5575,11 @@ index 8bb96d74b..7359831eb 100644
 +        "8",
 +        "9",
 +        "0"
-+    };
-+
+     };
+ 
+-    private static final String[] TEXTS_ja = {
+-        "ja",
+-        "\u2190",
 +    private static final String[] TEXTS_mn = {
 +        "mn",
 +        "\u0410\u0411\u0412",
@@ -5479,10 +5588,16 @@ index 8bb96d74b..7359831eb 100644
          null,
          null,
          null,
-         null,
+-        "\u00a5"
++        null,
 +        "\u20ae"
-+    };
-+
+     };
+ 
+-    private static final String[] TEXTS_ko = {
+-        "ko",
+-        "\uac00\ub098\ub2e4",
+-        null,
+-        null,
 +    private static final String[] TEXTS_sv = {
 +        "sv",
          null,
@@ -5491,8 +5606,9 @@ index 8bb96d74b..7359831eb 100644
 +        "\u00e9",
          null,
          null,
+-        "\u20a9",
          null,
-@@ -5568,8 +5642,11 @@ public final class KeyboardTextsTable {
+         null,
          null,
          null,
          null,
@@ -5504,15 +5620,7 @@ index 8bb96d74b..7359831eb 100644
          null,
          null,
          null,
-@@ -5584,7 +5661,6 @@ public final class KeyboardTextsTable {
-         null,
-         null,
-         null,
--        "\u0155,\u0157,\u0159",
-         null,
-         null,
-         null,
-@@ -5595,6 +5671,8 @@ public final class KeyboardTextsTable {
+@@ -5634,6 +5715,8 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
@@ -5521,7 +5629,7 @@ index 8bb96d74b..7359831eb 100644
          null,
          null,
          null,
-@@ -5607,14 +5685,15 @@ public final class KeyboardTextsTable {
+@@ -5646,27 +5729,23 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
@@ -5534,52 +5642,43 @@ index 8bb96d74b..7359831eb 100644
          null,
          null,
          null,
--        "\u0125",
--        "\u0135",
--        "\u0137,\u0138",
          null,
-         null,
-         null,
-@@ -5629,45 +5708,58 @@ public final class KeyboardTextsTable {
-         null,
-         null,
-         null,
--        "\u0175"
+-        "\u203b"
 -    };
 -
--    private static final String[] TEXTS_it = {
--        "it",
-         null,
--        "\u00e0",
--        "\u00f2",
--        "\u00e8,\u00e9",
--        "\u00f9",
--        "\u00ec",
+-    private static final String[] TEXTS_ru = {
+-        "ru",
+-        "\u0410\u0411\u0412",
          null,
          null,
          null,
          null,
          null,
--        "\u00e1,\u00e2,\u00e4,\u00e6,\u00e3,\u00e5,\u0101,\u00aa",
--        "\u00f3,\u00f4,\u00f6,\u00f5,\u0153,\u00f8,\u014d,\u00ba",
--        "\u00fa,\u00fb,\u00fc,\u016b",
          null,
--        "\u00ea,\u00eb,\u0119,\u0117,\u0113,\u0259",
+-        "!text/double_9qm_lqm",
+         null,
+-        "!text/single_9qm_lqm",
+         null,
+         null,
+         null,
+@@ -5680,32 +5759,57 @@ public final class KeyboardTextsTable {
+         null,
+         null,
+         null,
 +        "\u00e6"
 +    };
 +
 +    private static final String[] TEXTS_nl = {
 +        "nl",
          null,
--        "\u00ed,\u00ee,\u00ef,\u012f,\u012b",
 +        "\u00e1,\u00e4,\u00e2,\u00e0",
 +        "\u00f3,\u00f6",
 +        "\u00e9,\u00eb,\u00ea,\u00e8",
 +        "\u00fa,\u00fc",
 +        "\u00ed,\u00ef,\u00ec,\u00ee,\u012f,\u012b,\u0133",
 +        "!text/double_9qm_rqm",
-+        null,
-+        null,
+         null,
+         null,
 +        "!text/single_9qm_rqm",
          null,
 +        "\u00e6,\u00e3,\u00e5,\u0101",
@@ -5614,7 +5713,28 @@ index 8bb96d74b..7359831eb 100644
          null,
          null,
          null,
-@@ -5694,6 +5786,7 @@ public final class KeyboardTextsTable {
+         null,
+         null,
+         null,
+-        "\u0451",
+         null,
+         null,
+         null,
+@@ -5717,20 +5821,16 @@ public final class KeyboardTextsTable {
+         null,
+         null,
+         null,
+-        "\u0449",
+-        "\u044b",
+-        "\u044d",
+-        "\u0438",
+         null,
+         null,
+         null,
+-        "\u044a",
+         null,
+         null,
+         null,
          null,
          null,
          null,
@@ -5622,49 +5742,26 @@ index 8bb96d74b..7359831eb 100644
          null,
          null,
          null,
-@@ -5722,40 +5815,23 @@ public final class KeyboardTextsTable {
+@@ -5770,6 +5870,7 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
--        "\u00e8",
--        "\u00e9",
--        "\u00e0",
-         null,
-         null,
-         null,
-         null,
-         null,
-         null,
--        "\u00fc",
--        "\u00f6",
--        "\u00e4"
--    };
--
--    private static final String[] TEXTS_ja = {
--        "ja",
--        "\u2190",
-         null,
-         null,
-         null,
-         null,
-         null,
--        "\u00a5"
--    };
--
--    private static final String[] TEXTS_ko = {
--        "ko",
--        "\uac00\ub098\ub2e4",
 +        "\u0135",
          null,
          null,
          null,
-         null,
-         null,
--        "\u20a9",
+@@ -5804,19 +5905,16 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
-@@ -5790,8 +5866,11 @@ public final class KeyboardTextsTable {
+-        "\",\u00bb,\u00ab",
+-        "',\u203a,\u2039"
+-    };
+-
+-    private static final String[] TEXTS_bod = {
+-        "bod",
+         null,
+         null,
          null,
          null,
          null,
@@ -5676,13 +5773,32 @@ index 8bb96d74b..7359831eb 100644
          null,
          null,
          null,
-@@ -5804,88 +5883,92 @@ public final class KeyboardTextsTable {
+@@ -5829,108 +5927,93 @@ public final class KeyboardTextsTable {
          null,
          null,
          null,
 +        "\u0127",
          null,
--        "\u203b"
+-        "\u0f21",
+-        "\u0f22",
+-        "\u0f23",
+-        "\u0f24",
+-        "\u0f25",
+-        "\u0f26",
+-        "\u0f27",
+-        "\u0f28",
+-        "\u0f29",
+-        "\u0f20",
+-        "1",
+-        "2",
+-        "3",
+-        "4",
+-        "5",
+-        "6",
+-        "7",
+-        "8",
+-        "9",
+-        "0"
 +        "\u015d",
 +        "\u011d",
 +        "\u016d",
@@ -5796,7 +5912,6 @@ index 8bb96d74b..7359831eb 100644
 -        "pt", TEXTS_pt,
          "rm", TEXTS_rm,
 -        "ro", TEXTS_ro,
--        "ru", TEXTS_ru,
 -        "si", TEXTS_si,
 +        "DEFAULT", TEXTS_DEFAULT,
          "sk", TEXTS_sk,
@@ -5806,6 +5921,7 @@ index 8bb96d74b..7359831eb 100644
          "sr_ZZ", TEXTS_sr_ZZ,
 -        "sv", TEXTS_sv,
 -        "sw", TEXTS_sw,
++        "bod", TEXTS_bod,
          "ta_IN", TEXTS_ta_IN,
 -        "ta_LK", TEXTS_ta_LK,
 -        "ta_SG", TEXTS_ta_SG,
@@ -5820,7 +5936,9 @@ index 8bb96d74b..7359831eb 100644
 -        "zz", TEXTS_zz,
 -        "it", TEXTS_it,
 -        "ja", TEXTS_ja,
--        "ko", TEXTS_ko
+-        "ko", TEXTS_ko,
+-        "ru", TEXTS_ru,
+-        "bod", TEXTS_bod
 +        "mr", TEXTS_mr,
 +        "az", TEXTS_az,
 +        "sl", TEXTS_sl,
@@ -5832,4 +5950,3 @@ index 8bb96d74b..7359831eb 100644
      };
  
      static {
-Submodule translations 072af2cce...0414b7300 (commits not present)

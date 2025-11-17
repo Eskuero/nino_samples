@@ -1,14 +1,14 @@
 Entering 'java/assets/layouts'
 https://github.com/futo-org/futo-keyboard-layouts.git
-9c0317b15d18073b73fd583f2679103749074ec5
+d7542c12c71181ccecd89d749179ec456ae58135
 
 Entering 'libs'
 https://gitlab.futo.org/keyboard/android-libs.git
-be11ea38f12c09de66296646eec234df7bef69d8
+4cf9b754deaf7beda7650e8c1e92633bde7d2b6b
 
 Entering 'translations'
-https://gitlab.futo.org/keyboard/keyboard-translations.git
-0414b7300ec4282876a2de3f62c4887578b0c2a8
+https://gitlab.futo.org/keyboard/keyboard-translations-public.git
+d6ed063546faca67a519425962ceef6c99edfe63
 
 Entering 'voiceinput-shared/src/main/ml'
 https://gitlab.futo.org/keyboard/voice-input-models.git
