@@ -1,9 +1,9 @@
 diff --git a/networksurvey/build.gradle b/networksurvey/build.gradle
-index 0187bfdf..50bef3b1 100644
+index 9192a547..51fec77e 100644
 --- a/networksurvey/build.gradle
 +++ b/networksurvey/build.gradle
-@@ -41,6 +41,9 @@ android {
-         setProperty("archivesBaseName", "$applicationName-$versionName")
+@@ -45,6 +45,9 @@ android {
+         versionName appVersion
          testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
          testInstrumentationRunnerArguments clearPackageData: 'true'
 +        ndk {
@@ -12,7 +12,7 @@ index 0187bfdf..50bef3b1 100644
      }
      buildTypes {
          debug {
-@@ -102,6 +105,17 @@ android {
+@@ -106,6 +109,17 @@ android {
              versionNameSuffix ""
          }
      }

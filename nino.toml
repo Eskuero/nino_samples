@@ -18,6 +18,7 @@
 			exec = "src:all:komga:assembleRelease"
 	[projects.thunderbird-android]
 		tagregex = "^THUNDERBIRD_(\\d+)(_[^v])?$"
+		javahome = "/usr/lib/jvm/java-21-openjdk"
 		[projects.thunderbird-android.tasks.release]
 			exec = "app-k9mail:assembleFossRelease"
 	[projects.KeePassDX]
