@@ -139,6 +139,9 @@
 	[projects.NetworkSurvey]
 		[projects.NetworkSurvey.tasks.cdrrelease]
 			exec = "assembleCdrRelease"
+	[projects.tempus]
+		[projects.tempus.tasks.degoogledrelease]
+			exec = "assembleDegoogledRelease"
 	[projects.firefox]
 		tagregex = "^FIREFOX-ANDROID_(\\d+)(_[^v])*(_RELEASE)?$"
 	[projects.mollyim-android]
