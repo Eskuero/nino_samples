@@ -1,4 +1,0 @@
-#!/bin/bash
-
-git clean -xdf --exclude "*-entrypoint" --exclude "*-clean" --exclude "log.txt";
-rm -rf "buildscripts/deps/";

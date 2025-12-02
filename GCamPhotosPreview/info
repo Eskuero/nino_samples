@@ -1,7 +1,0 @@
-Remote: https://gitlab.com/CalyxOS/platform_external_calyx_GCamPhotosPreview
-Branch: main
-HEAD: 8f3cadd5b10491baba39f2fa793ff0949dfb3736
-
-##############################################################################
-WARNING: This configuration matches the release published on the repository but new package builds are disabled
-##############################################################################
