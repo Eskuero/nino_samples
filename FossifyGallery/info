@@ -1,3 +1,7 @@
 Remote: https://github.com/FossifyOrg/Gallery
 Branch: 
-HEAD: 588e0bf6096bb99b795f142e07cf0af30f690d3b
+HEAD: 3e19870d9f65ce0ad643ee4a0f968ae111e9a6ce
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

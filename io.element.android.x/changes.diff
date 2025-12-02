@@ -1,0 +1,86 @@
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+index 4026888ee2..5f13ccc960 100644
+--- a/app/build.gradle.kts
++++ b/app/build.gradle.kts
+@@ -27,6 +27,8 @@ import extension.setupDependencyInjection
+ import extension.setupKover
+ import extension.testCommonDependencies
+ import java.util.Locale
++import java.time.LocalDateTime
++import java.time.Duration
+ 
+ plugins {
+     id("io.element.android-compose-application")
+@@ -52,11 +54,6 @@ android {
+         versionCode = Versions.VERSION_CODE
+         versionName = Versions.VERSION_NAME
+ 
+-        // Keep abiFilter for the universalApk
+-        ndk {
+-            abiFilters += listOf("armeabi-v7a", "x86", "arm64-v8a", "x86_64")
+-        }
+-
+         // Ref: https://developer.android.com/studio/build/configure-apk-splits.html#configure-abi-split
+         splits {
+             // Configures multiple APKs based on ABI.
+@@ -73,9 +70,9 @@ android {
+ 
+                 if (!buildingAppBundle) {
+                     // Specifies a list of ABIs that Gradle should create APKs for.
+-                    include("armeabi-v7a", "x86", "arm64-v8a", "x86_64")
++                    include("arm64-v8a")
+                     // Generate a universal APK that includes all ABIs, so user who installs from CI tool can use this one by default.
+-                    isUniversalApk = true
++                    isUniversalApk = false
+                 }
+             }
+         }
+@@ -127,7 +124,6 @@ android {
+                 "login_redirect_scheme",
+                 oidcRedirectSchemeBase,
+             )
+-            signingConfig = signingConfigs.getByName("debug")
+ 
+             postprocessing {
+                 isRemoveUnusedCode = true
+@@ -206,6 +202,7 @@ android {
+     }
+ }
+ 
++
+ androidComponents {
+     // map for the version codes last digit
+     // x86 must have greater values than arm
+@@ -217,6 +214,10 @@ androidComponents {
+         "x86_64" to 4,
+     )
+ 
++    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
++    val d2 = LocalDateTime.now()
++    val minutes = Duration.between(d1, d2).getSeconds() / 60
++    val DateVersionCode = (2112312359 + minutes).toInt()
+     onVariants { variant ->
+         // Assigns a different version code for each output APK
+         // other than the universal APK.
+@@ -227,7 +228,7 @@ androidComponents {
+             val abiCode = abiVersionCodes[name] ?: 0
+             // Assigns the new version code to output.versionCode, which changes the version code
+             // for only the output APK, not for the variant itself.
+-            output.versionCode.set((output.versionCode.orNull ?: 0) * 10 + abiCode)
++            output.versionCode.set(DateVersionCode + abiCode)
+         }
+     }
+ 
+diff --git a/gradle.properties b/gradle.properties
+index 5a73e519ad..7ef9506f68 100644
+--- a/gradle.properties
++++ b/gradle.properties
+@@ -13,7 +13,7 @@
+ # http://www.gradle.org/docs/current/userguide/build_environment.html
+ # Specifies the JVM arguments used for the daemon process.
+ # The setting is particularly useful for tweaking memory settings.
+-org.gradle.jvmargs=-Xmx4g -Dfile.encoding=UTF-8 -XX:+UseG1GC
++org.gradle.jvmargs=-Xmx8g -Dfile.encoding=UTF-8 -XX:+UseG1GC
+ 
+ # AndroidX package structure to make it clearer which packages are bundled with the
+ # Android operating system, and which are packaged with your app"s APK

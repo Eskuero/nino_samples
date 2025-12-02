@@ -1,3 +1,7 @@
 Remote: https://github.com/thunderbird/thunderbird-android
 Branch: 
 HEAD: 6a29a08483f0e6df9c33ec908b6d9fc51c0dc010
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

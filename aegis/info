@@ -1,3 +1,7 @@
 Remote: https://github.com/beemdevelopment/aegis
 Branch: 
 HEAD: 491a81584dd184d9f21b283ccd2ced5c6e3ef0c0
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

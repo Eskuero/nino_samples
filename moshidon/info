@@ -1,3 +1,7 @@
 Remote: https://github.com/LucasGGamerM/moshidon
 Branch: master
 HEAD: b6a4211af93e3ae0b5b4baca6acce30cec601f5c
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

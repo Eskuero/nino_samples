@@ -1,3 +1,7 @@
 Remote: https://codeberg.org/tusky/Tusky
 Branch: 
 HEAD: cd09826b07c595dde06b46d1b39492dc5fa22c90
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

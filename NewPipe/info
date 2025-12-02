@@ -1,3 +1,7 @@
 Remote: https://github.com/TeamNewPipe/NewPipe
 Branch: dev
-HEAD: 2ba87f79795daf7b1408dbbc3741bf6d76543abc
+HEAD: ffb82dc88c9e530757c98f4645a6b8a16d288d39
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

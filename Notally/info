@@ -1,3 +1,7 @@
 Remote: https://github.com/OmGodse/Notally
 Branch: 
 HEAD: 90f0704d51ebcb5104df22eed339d5a868e1a2af
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

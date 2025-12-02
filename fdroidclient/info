@@ -1,3 +1,7 @@
 Remote: https://github.com/f-droid/fdroidclient
 Branch: 
 HEAD: 3f2b51f0b0fa8a974756aab78c98f2e4f4f21b7f
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

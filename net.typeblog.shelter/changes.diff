@@ -1,0 +1,22 @@
+diff --git a/app/build.gradle b/app/build.gradle
+index f7ae368..55fd2aa 100644
+--- a/app/build.gradle
++++ b/app/build.gradle
+@@ -71,6 +71,17 @@ android {
+         aidl true
+     }
+     namespace 'net.typeblog.shelter'
++    Calendar origin = Calendar.getInstance()
++    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++    Date d1 = origin.getTime()
++    Date d2 = new Date()
++    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++    def DateVersionCode = 2112312359 + minutes
++    android.applicationVariants.all { variant ->
++        variant.outputs.all { output ->
++            output.versionCodeOverride = DateVersionCode
++        }
++    }
+ }
+ 
+ dependencies {

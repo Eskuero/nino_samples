@@ -1,3 +1,7 @@
 Remote: https://github.com/open-keychain/open-keychain
 Branch: 
 HEAD: f0f35c6a669da885061f8e2834426823d4d171af
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

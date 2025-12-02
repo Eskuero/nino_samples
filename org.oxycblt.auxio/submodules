@@ -1,0 +1,20 @@
+Entering 'media'
+https://github.com/OxygenCobalt/media.git
+fa25fffca29c5ce6f203fd730d312301f2f95a97
+
+Entering 'media/libraries/decoder_ffmpeg/src/main/jni/ffmpeg'
+https://git.ffmpeg.org/ffmpeg.git
+b98349b2055a93b2a22381bc1a4c09c229f2b3cb
+
+Entering 'musikr/src/main/cpp/taglib'
+https://github.com/taglib/taglib.git
+e831f0929f25bc581d2106d1f2810f5d8100376e
+
+Entering 'musikr/src/main/cpp/taglib/3rdparty/utfcpp'
+https://github.com/nemtrif/utfcpp.git
+df857efc5bbc2aa84012d865f7d7e9cccdc08562
+
+Entering 'musikr/src/main/cpp/taglib/3rdparty/utfcpp/extern/ftest'
+https://github.com/nemtrif/ftest
+c4ad4af0946b73ce1a40cbc72205d15d196c7e06
+

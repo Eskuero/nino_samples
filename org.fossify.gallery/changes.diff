@@ -1,0 +1,44 @@
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+index 989ebed72..054bd80d9 100644
+--- a/app/build.gradle.kts
++++ b/app/build.gradle.kts
+@@ -2,6 +2,9 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+ import org.jetbrains.kotlin.konan.properties.Properties
+ import java.io.FileInputStream
++import com.android.build.api.variant.FilterConfiguration.FilterType.*
++import java.time.LocalDateTime
++import java.time.Duration;
+ 
+ plugins {
+     alias(libs.plugins.android)
+@@ -33,6 +36,11 @@ android {
+         versionName = project.property("VERSION_NAME").toString()
+         versionCode = project.property("VERSION_CODE").toString().toInt()
+         setProperty("archivesBaseName", "gallery-$versionCode")
++        ndk {
++            abiFilters.apply {
++                add("arm64-v8a")
++            }
++        }
+     }
+ 
+     signingConfigs {
+@@ -130,6 +138,17 @@ android {
+             enableSplit = false
+         }
+     }
++    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
++    val d2 = LocalDateTime.now()
++    val minutes = Duration.between(d1, d2).getSeconds() / 60
++    val DateVersionCode = (2112312359 + minutes).toInt()
++    androidComponents {
++        onVariants { variant ->
++            variant.outputs.forEach { output ->
++                output.versionCode.set(DateVersionCode)
++            }
++        }
++    }
+ }
+ 
+ detekt {

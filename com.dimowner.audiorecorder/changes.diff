@@ -1,0 +1,41 @@
+diff --git a/app/build.gradle b/app/build.gradle
+index 4ffde15..963a9ee 100755
+--- a/app/build.gradle
++++ b/app/build.gradle
+@@ -14,6 +14,9 @@ android {
+ 		targetSdkVersion 34
+ 		versionCode 935
+ 		versionName "0.9.99"
++		ndk {
++			abiFilters "arm64-v8a"
++		}
+ 	}
+ 
+ 	buildFeatures {
+@@ -64,7 +67,6 @@ android {
+ 		}
+ 		releaseConfig {
+ 			dimension "default"
+-			signingConfig = signingConfigs.dev
+ 			applicationId "com.dimowner.audiorecorder"
+ 		}
+ 	}
+@@ -77,6 +79,18 @@ android {
+ 	lintOptions {
+ 		abortOnError false
+ 	}
++
++	Calendar origin = Calendar.getInstance()
++	origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++	Date d1 = origin.getTime()
++	Date d2 = new Date()
++	long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++	def DateVersionCode = 2112312359 + minutes
++	android.applicationVariants.all { variant ->
++		variant.outputs.all { output ->
++			output.versionCodeOverride = DateVersionCode
++		}
++	}
+ }
+ 
+ // Remove not needed buildVariants.

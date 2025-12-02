@@ -1,3 +1,7 @@
 Remote: https://github.com/christianrowlands/android-network-survey
 Branch: 
-HEAD: e8e5181d12209caccf96adc575b4c760be603f74
+HEAD: 97a68605e180c8ca6a194208e30ad2ae79dab03a
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

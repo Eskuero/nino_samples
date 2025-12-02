@@ -1,0 +1,45 @@
+diff --git a/build.gradle.kts b/build.gradle.kts
+index 1140ba78..b8e049cf 100644
+--- a/build.gradle.kts
++++ b/build.gradle.kts
+@@ -1,5 +1,9 @@
+ @file:Suppress("UnstableApiUsage")
+ 
++import com.android.build.api.variant.FilterConfiguration.FilterType.*
++import java.time.LocalDateTime
++import java.time.Duration;
++
+ plugins {
+ 	alias(libs.plugins.android.application)
+ 	alias(libs.plugins.kotlin.android)
+@@ -86,6 +90,11 @@ android {
+ 
+ 		vectorDrawables.generatedDensities("mdpi", "hdpi", "xhdpi", "xxhdpi", "xxxhdpi")
+ 		testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
++		ndk {
++			abiFilters.apply {
++				add("arm64-v8a")
++			}
++		}
+ 	}
+ 
+ 	// Flag to tell aapt to keep the attribute ids around
+@@ -157,6 +166,18 @@ android {
+ 		buildConfig = true
+ 		compose = true
+ 	}
++
++	val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
++	val d2 = LocalDateTime.now()
++	val minutes = Duration.between(d1, d2).getSeconds() / 60
++	val DateVersionCode = (2112312359 + minutes).toInt()
++	androidComponents {
++		onVariants { variant ->
++			variant.outputs.forEach { output ->
++				output.versionCode.set(DateVersionCode)
++			}
++		}
++	}
+ }
+ 
+ pmd {

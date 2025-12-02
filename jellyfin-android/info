@@ -1,3 +1,7 @@
 Remote: https://github.com/jellyfin/jellyfin-android
 Branch: 
 HEAD: d92e6e9dc368d13769753b3f2fe2c799c2317f94
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

@@ -1,3 +1,7 @@
 Remote: https://github.com/mpv-android/mpv-android
 Branch: 
 HEAD: 38029a6c6428ce70508d043c8d6c9585cedf211f
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

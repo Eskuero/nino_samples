@@ -1,0 +1,31 @@
+#!/bin/bash
+# Clean current cache
+git clean -xdf --exclude "*-entrypoint" --exclude "log.txt";
+rm -rf "buildscripts/deps/";
+
+# Preparae dependencies build
+cd buildscripts;
+# Symlink local SDK installation
+mkdir sdk;
+ln -s $ANDROID_HOME sdk/android-sdk-linux;
+
+# Decide which ndk is needed and install it
+. ./include/depinfo.sh;
+sdkmanager "ndk;${v_ndk_n}";
+ln -sf "$ANDROID_HOME/ndk/${v_ndk_n}" "sdk/android-ndk-${v_ndk}";
+
+# Download remaining dependencies
+sh download.sh;
+
+# Compile dependencies
+./buildall.sh;
+
+# We need to have produced eleven libraries otherwise we failed the entrypoint
+number=$(ls ../app/src/main/jniLibs/arm64-v8a/ | wc -l)
+if [[ $number -eq "10" ]]; then
+	echo "We have all libraries";
+	exit 0;
+else
+	echo "We are missing libraries";
+	exit 1;
+fi

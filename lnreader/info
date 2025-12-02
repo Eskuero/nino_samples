@@ -1,3 +1,7 @@
 Remote: https://github.com/LNReader/lnreader
 Branch: 
 HEAD: 41ea7eb7b753729bf1da54e5f503b424c5d17226
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

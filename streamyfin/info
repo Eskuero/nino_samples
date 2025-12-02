@@ -1,3 +1,7 @@
 Remote: https://github.com/fredrikburmester/streamyfin
 Branch: 
 HEAD: f7da29b9c905777fab05c649f18cee1d1da75e67
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

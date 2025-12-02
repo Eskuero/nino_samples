@@ -12,141 +12,121 @@
 		keystore = "store2"
 		keyalias = "key2"
 		javahome = "/usr/lib/jvm/java-17-openjdk"
-	[projects.mihon-extensions]
-		followtags = false
-		[projects.mihon-extensions.tasks.komga]
-			exec = "src:all:komga:assembleRelease"
-	[projects.thunderbird-android]
+	[projects."com.fsck.k9"]
 		tagregex = "^THUNDERBIRD_(\\d+)(_[^v])?$"
 		javahome = "/usr/lib/jvm/java-21-openjdk"
-		[projects.thunderbird-android.tasks.release]
+		[projects."com.fsck.k9".tasks.release]
 			exec = "app-k9mail:assembleFossRelease"
-	[projects.KeePassDX]
-		[projects.KeePassDX.tasks.librerelease]
+	[projects."com.kunzisoft.keepass.libre"]
+		[projects."com.kunzisoft.keepass.libre".tasks.librerelease]
 			exec = "assembleLibreRelease"
-	[projects.scrambled-exif]
-		[projects.scrambled-exif.tasks.standardreleases]
+	[projects."com.jarsilio.android.scrambledeggsif"]
+		[projects."com.jarsilio.android.scrambledeggsif".tasks.standardreleases]
 			exec = "assembleStandardRelease"
-	[projects.fdroidclient]
-		[projects.fdroidclient.tasks.fullrelease]
+	[projects."org.fdroid.fdroid"]
+		[projects."org.fdroid.fdroid".tasks.fullrelease]
 			exec = "assembleFullRelease"
-	[projects.Tusky]
-		[projects.Tusky.tasks.bluerelease]
+	[projects."com.keylesspalace.tusky"]
+		[projects."com.keylesspalace.tusky".tasks.bluerelease]
 			exec = "assembleBlueRelease"
-	[projects.Shelter]
+	[projects."net.typeblog.shelter"]
 		followtags = false
-	[projects.NewPipe]
+	[projects."org.schabi.newpipe"]
 		followtags = false
-	[projects.InterProfileSharing]
-		followtags = false
-	[projects.AmazeFileManager]
-		followtags = false
-		[projects.AmazeFileManager.tasks.fdroidrelease]
-			exec = "assembleFdroidRelease"
-	[projects.andOTP]
-		javahome = "/usr/lib/jvm/java-11-openjdk"
-		[projects.andOTP.tasks.fdroid]
-			exec = "assembleFdroidRelease"
-	[projects.FossifyGallery]
-		[projects.FossifyGallery.tasks.fossrelease]
+	[projects."org.fossify.gallery"]
+		[projects."org.fossify.gallery".tasks.fossrelease]
 			exec = "assembleFossRelease"
-	[projects.FossifyCalendar]
-		[projects.FossifyCalendar.tasks.fossrelease]
+	[projects."org.fossify.calendar"]
+		[projects."org.fossify.calendar".tasks.fossrelease]
 			exec = "assembleFossRelease"
-	[projects.LibreTorrent]
-		[projects.LibreTorrent.tasks.baserelease]
-			exec = "assembleBaseRelease"
-	[projects.mpv-android]
-		[projects.mpv-android.tasks.defaultrelease]
+	[projects."is.xyz.mpv"]
+		[projects."is.xyz.mpv".tasks.defaultrelease]
 			exec = "assembleDefaultRelease"
-	[projects.jellyfin-android]
-		[projects.jellyfin-android.tasks.librerelease]
+	[projects."org.jellyfin.mobile"]
+		[projects."org.jellyfin.mobile".tasks.librerelease]
 			exec = "assembleLibreRelease"
-	[projects.Komelia]
-		[projects.Komelia.tasks.release]
+	[projects."io.github.snd_r.komelia"]
+		[projects."io.github.snd_r.komelia".tasks.release]
 			exec = "komelia-app:assembleRelease"
-	[projects.element-x-android]
-		[projects.element-x-android.tasks.release]
+	[projects."io.element.android.x"]
+		[projects."io.element.android.x".tasks.release]
 			exec = "app:assembleFdroidRelease"
-	[projects.moshidon]
-		[projects.moshidon.tasks.fdroidrelease]
+	[projects."org.joinmastodon.android.moshinda"]
+		[projects."org.joinmastodon.android.moshinda".tasks.fdroidrelease]
 			exec = "mastodon:assembleFdroidRelease"
-	[projects.immich]
+	[projects."app.alextran.immich"]
 		subdir = "mobile/android"
-		[projects.immich.tasks.productionrelease]
+		[projects."app.alextran.immich".tasks.productionrelease]
 			exec = "tasks"
+	[projects."com.fredrikburmester.streamyfin"]
+		subdir = "android"
+	[projects."com.rajarsheechatterjee.LNReader"]
+		subdir = "android"
+	[projects."xyz.blueskyweb.app"]
+		preserve = false
+		subdir = "android"
+		javahome = "/usr/lib/jvm/zulu-17"
+	[projects."org.futo.inputmethod.latin"]
+		[projects."org.futo.inputmethod.latin".tasks.stablerelease]
+			exec = "assembleStableRelease"
+	[projects."com.termux"]
+		javahome = "/usr/lib/jvm/java-11-openjdk"
+	[projects."at.bitfire.davdroid"]
+		javahome = "/usr/lib/jvm/java-21-openjdk"
+	[projects."com.google.android.apps.photos"]
+		[projects."com.google.android.apps.photos".tasks.photosonlyrelease]
+			exec = "assemblePhotosonlyRelease"
+	[projects."com.nononsenseapps.feeder"]
+		[projects."com.nononsenseapps.feeder".tasks.fdroidrelease]
+			exec = "assembleFdroidRelease"
+	[projects."info.zamojski.soft.towercollector"]
+		[projects."info.zamojski.soft.towercollector".tasks.fdroidrelease]
+			exec = "assembleProductionFdroidRelease"
+	[projects."xyz.malkki.neostumbler.fdroid"]
+		[projects."xyz.malkki.neostumbler.fdroid".tasks.fdroidrelease]
+			exec = "assembleFdroidDefaultRelease"
+	[projects."io.heckel.ntfy"]
+		followtags = false
+		[projects."io.heckel.ntfy".tasks.fdroidrelease]
+			exec = "assembleFdroidRelease"
+	[projects."com.craxiom.networksurvey"]
+		[projects."com.craxiom.networksurvey".tasks.cdrrelease]
+			exec = "assembleCdrRelease"
+	[projects."com.eddyizm.degoogled.tempus"]
+		[projects."com.eddyizm.degoogled.tempus".tasks.degoogledrelease]
+			exec = "assembleDegoogledRelease"
+	[projects."im.molly.app"]
+		followtags = false
+		[projects."im.molly.app".tasks.fossrelease]
+			exec = "assembleprodFossStoreRelease"
 	[projects.Boorusama]
 		followtags = false
 		subdir = "android"
 		[projects.Boorusama.tasks.productionrelease]
 			exec = "tasks"
-	[projects.streamyfin]
-		subdir = "android"
-	[projects.lnreader]
-		subdir = "android"
-	[projects.bsky-app]
-		preserve = false
-		subdir = "android"
-		javahome = "/usr/lib/jvm/zulu-17"
-	[projects.FUTOLatinIME]
-		[projects.FUTOLatinIME.tasks.stablerelease]
-			exec = "assembleStableRelease"
-	[projects.lawnchair]
-		followtags = false
-		[projects.lawnchair.tasks.lawnwithquicksteprelease]
-			exec = "assembleLawnWithQuickstepGithubRelease"
-	[projects.tailscale-android]
-		subdir = "android"
-	[projects.termux-app]
-		javahome = "/usr/lib/jvm/java-11-openjdk"
-	[projects.davx5-ose]
-		javahome = "/usr/lib/jvm/java-21-openjdk"
-	[projects.Gcam-Services-Provider]
-		[projects.Gcam-Services-Provider.tasks.photosonlyrelease]
-			exec = "assemblePhotosonlyRelease"
+	[projects.firefox]
+		tagregex = "^FIREFOX-ANDROID_(\\d+)(_[^v])*(_RELEASE)?$"
+	[projects.Fedilab]
+		[projects.Fedilab.tasks.fdroidrelease]
+			exec = "assembleFdroidRelease"
 	[projects.AuroraStore]
 		javahome = "/usr/lib/jvm/java-21-openjdk"
 		[projects.AuroraStore.tasks.vanillarelease]
 			exec = "assembleVanillaRelease"
-	[projects.PhotonCamera]
-		followtags = false
-	[projects.GrapheneOS_GmsCompat]
-		subdir = "config-holder"
-		followtags = false
 	[projects.Openlib]
 		subdir = "android"
-	[projects.futopayclientlibraries]
+	[projects.lawnchair]
+		followtags = false
+		[projects.lawnchair.tasks.lawnwithquicksteprelease]
+			exec = "assembleLawnWithQuickstepGithubRelease"
+	[projects."com.tailscale.ipn"]
 		subdir = "android"
-	[projects.Feeder]
-		[projects.Feeder.tasks.fdroidrelease]
-			exec = "assembleFdroidRelease"
-	[projects.TowerCollector]
-		[projects.TowerCollector.tasks.fdroidrelease]
-			exec = "assembleProductionFdroidRelease"
-	[projects.NeoStumbler]
-		[projects.NeoStumbler.tasks.fdroidrelease]
-			exec = "assembleFdroidDefaultRelease"
-	[projects.ntfy-android]
+	[projects.LibreTorrent]
+		[projects.LibreTorrent.tasks.baserelease]
+			exec = "assembleBaseRelease"
+	[projects.mihon-extensions]
 		followtags = false
-		[projects.ntfy-android.tasks.fdroidrelease]
-			exec = "assembleFdroidRelease"
-	[projects.ultrasonic]
-		followtags = false
-		javahome = "/usr/lib/jvm/java-21-openjdk"
-	[projects.Fedilab]
-		[projects.Fedilab.tasks.fdroidrelease]
-			exec = "assembleFdroidRelease"
-	[projects.NetworkSurvey]
-		[projects.NetworkSurvey.tasks.cdrrelease]
-			exec = "assembleCdrRelease"
-	[projects.tempus]
-		[projects.tempus.tasks.degoogledrelease]
-			exec = "assembleDegoogledRelease"
-	[projects.firefox]
-		tagregex = "^FIREFOX-ANDROID_(\\d+)(_[^v])*(_RELEASE)?$"
-	[projects.mollyim-android]
-		followtags = false
-		[projects.mollyim-android.tasks.fossrelease]
-			exec = "assembleprodFossStoreRelease"
+		[projects.mihon-extensions.tasks.komga]
+			exec = "src:all:komga:assembleRelease"
 
 

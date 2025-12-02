@@ -1,0 +1,7 @@
+#!/bin/bash
+
+cd mobile;
+
+export PUB_CACHE=$(pwd)/.pub-cache
+
+rm -rf $PUB_CACHE;

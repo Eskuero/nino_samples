@@ -1,0 +1,45 @@
+diff --git a/build.gradle.kts b/build.gradle.kts
+index 80bd75fe..a5139650 100644
+--- a/build.gradle.kts
++++ b/build.gradle.kts
+@@ -11,6 +11,9 @@ import org.objectweb.asm.ClassVisitor
+ import org.objectweb.asm.MethodVisitor
+ import org.objectweb.asm.Opcodes.CHECKCAST
+ import org.objectweb.asm.Opcodes.INVOKESTATIC
++import com.android.build.api.variant.FilterConfiguration.FilterType.*
++import java.time.LocalDateTime
++import java.time.Duration;
+ 
+ buildscript {
+     dependencies {
+@@ -50,6 +53,11 @@ android {
+         versionCode = 13404
+         versionName = "1.34.4"
+         proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
++        ndk {
++            abiFilters.apply {
++            add("arm64-v8a")
++            }
++        }
+     }
+     buildFeatures {
+         viewBinding = true
+@@ -135,6 +143,18 @@ android {
+             }
+         }
+     }
++
++    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
++    val d2 = LocalDateTime.now()
++    val minutes = Duration.between(d1, d2).getSeconds() / 60
++    val DateVersionCode = (2112312359 + minutes).toInt()
++    androidComponents {
++        onVariants { variant ->
++            variant.outputs.forEach { output ->
++                output.versionCode.set(DateVersionCode)
++            }
++        }
++    }
+ }
+ 
+ /**
