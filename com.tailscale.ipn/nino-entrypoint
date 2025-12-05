@@ -2,3 +2,4 @@
 
 make env
 make libtailscale
+make gradle-dependencies

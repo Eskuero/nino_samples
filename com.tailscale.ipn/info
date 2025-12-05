@@ -1,3 +1,7 @@
 Remote: https://github.com/tailscale/tailscale-android
 Branch: 
-HEAD: e1f1b48dd53e1bb004bf8ad25c24b43cc10a0c8b
+HEAD: 2dcab7d2183b39ff5b9c0d2b823c5e665ab08bb9
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################

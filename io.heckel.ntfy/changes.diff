@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 9e47681..688f723 100644
+index 6bbb098..915d7fd 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -9,6 +9,10 @@ apply plugin: 'com.android.application'
@@ -24,7 +24,7 @@ index 9e47681..688f723 100644
      }
  
      buildTypes {
-@@ -75,6 +83,17 @@ android {
+@@ -73,6 +81,17 @@ android {
              '-Xjvm-default=all-compatibility' // https://stackoverflow.com/a/71234042/1440785
          ]
      }
@@ -43,7 +43,7 @@ index 9e47681..688f723 100644
  
  // Disables GoogleServices tasks for F-Droid variant
 diff --git a/app/src/main/AndroidManifest.xml b/app/src/main/AndroidManifest.xml
-index 1a11b21..4ee3ecb 100644
+index 46b5eab..2bf5372 100644
 --- a/app/src/main/AndroidManifest.xml
 +++ b/app/src/main/AndroidManifest.xml
 @@ -9,10 +9,16 @@
@@ -64,23 +64,6 @@ index 1a11b21..4ee3ecb 100644
      <application
              android:name=".app.Application"
              android:allowBackup="true"
-@@ -86,7 +92,15 @@
-                 android:name=".msg.NotificationService$ViewActionWithClearActivity"
-                 android:exported="false">
-         </activity>
--
-+        <activity android:name=".up.LinkActivity"
-+            android:exported="true">
-+            <intent-filter>
-+                <action android:name="android.intent.action.VIEW" />
-+                <category android:name="android.intent.category.DEFAULT" />
-+                <data android:scheme="unifiedpush"
-+                    android:host="link" />
-+            </intent-filter>
-+        </activity>
-         <!-- Subscriber foreground service for hosts other than ntfy.sh -->
-         <service
-             android:name=".service.SubscriberService"
 diff --git a/app/src/main/java/io/heckel/ntfy/up/BroadcastReceiver.kt b/app/src/main/java/io/heckel/ntfy/up/BroadcastReceiver.kt
 index 46a0bcb..5df3067 100644
 --- a/app/src/main/java/io/heckel/ntfy/up/BroadcastReceiver.kt
@@ -225,14 +208,11 @@ index 46a0bcb..5df3067 100644
          val connectorToken = intent.getStringExtra(EXTRA_TOKEN) ?: return
          val app = context.applicationContext as Application
 diff --git a/app/src/main/java/io/heckel/ntfy/up/Constants.kt b/app/src/main/java/io/heckel/ntfy/up/Constants.kt
-index ab9c816..b69ae6d 100644
+index 7db2680..60da3a2 100644
 --- a/app/src/main/java/io/heckel/ntfy/up/Constants.kt
 +++ b/app/src/main/java/io/heckel/ntfy/up/Constants.kt
-@@ -16,7 +16,8 @@ const val ACTION_UNREGISTER = "org.unifiedpush.android.distributor.UNREGISTER"
- const val FEATURE_BYTES_MESSAGE = "org.unifiedpush.android.distributor.feature.BYTES_MESSAGE"
- 
- const val EXTRA_APPLICATION = "application"
-+const val EXTRA_PI = "pi"
+@@ -17,5 +17,5 @@ const val EXTRA_APPLICATION = "application"
+ const val EXTRA_PI = "pi"
  const val EXTRA_TOKEN = "token"
  const val EXTRA_ENDPOINT = "endpoint"
 -const val EXTRA_MESSAGE = "message"

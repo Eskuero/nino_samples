@@ -120,6 +120,7 @@
 		[projects.lawnchair.tasks.lawnwithquicksteprelease]
 			exec = "assembleLawnWithQuickstepGithubRelease"
 	[projects."com.tailscale.ipn"]
+		sync = false
 		subdir = "android"
 	[projects.LibreTorrent]
 		[projects.LibreTorrent.tasks.baserelease]
@@ -128,5 +129,9 @@
 		followtags = false
 		[projects.mihon-extensions.tasks.komga]
 			exec = "src:all:komga:assembleRelease"
+	[projects."com.zaneschepke.wireguardautotunnel"]
+		tagregex = "^(?!.*latest|nightly)\\d.*$"
+		[projects."com.zaneschepke.wireguardautotunnel".tasks.fdroidrelease]
+			exec = "assembleFdroidRelease"
 
 
