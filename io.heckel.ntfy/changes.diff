@@ -1,19 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 0526456..b1c3fdd 100644
+index 8fdd9f1..d6b4e25 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -9,6 +9,10 @@ apply plugin: 'com.android.application'
- apply plugin: 'kotlin-android'
- apply plugin: 'com.google.gms.google-services'
- 
-+kotlin {
-+    jvmToolchain(17)
-+}
-+
- android {
-     namespace "io.heckel.ntfy"
-     compileSdkVersion 35
-@@ -31,6 +35,10 @@ android {
+@@ -30,6 +30,10 @@ android {
          buildFeatures {
              buildConfig true
          }
@@ -24,9 +13,9 @@ index 0526456..b1c3fdd 100644
      }
  
      buildTypes {
-@@ -73,6 +81,17 @@ android {
-             '-Xjvm-default=all-compatibility' // https://stackoverflow.com/a/71234042/1440785
-         ]
+@@ -74,6 +78,17 @@ android {
+             ]
+         }
      }
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
