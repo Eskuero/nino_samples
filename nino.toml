@@ -98,7 +98,7 @@
 	[projects."im.molly.app"]
 		followtags = false
 		[projects."im.molly.app".tasks.fossrelease]
-			exec = "assembleprodFossStoreRelease"
+			exec = "assembleprodStoreRelease"
 	[projects.Boorusama]
 		followtags = false
 		subdir = "android"
