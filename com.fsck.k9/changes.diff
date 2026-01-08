@@ -1,5 +1,5 @@
 diff --git a/app-k9mail/build.gradle.kts b/app-k9mail/build.gradle.kts
-index 44c14c7b23..6c8e45d3c4 100644
+index f1321a88cd..5bdf4fce9f 100644
 --- a/app-k9mail/build.gradle.kts
 +++ b/app-k9mail/build.gradle.kts
 @@ -1,3 +1,7 @@
@@ -11,7 +11,7 @@ index 44c14c7b23..6c8e45d3c4 100644
      id(ThunderbirdPlugins.App.androidCompose)
      alias(libs.plugins.dependency.guard)
 @@ -21,6 +25,12 @@ android {
-         versionName = "14.0"
+         versionName = "15.0"
  
          buildConfigField("String", "CLIENT_INFO_APP_NAME", "\"K-9 Mail\"")
 +
