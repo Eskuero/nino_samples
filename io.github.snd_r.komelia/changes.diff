@@ -1,5 +1,5 @@
 diff --git a/epub-reader-webui/komga-webui/package-lock.json b/epub-reader-webui/komga-webui/package-lock.json
-index e51d4b4..5bcfe57 100644
+index e51d4b4f..5bcfe572 100644
 --- a/epub-reader-webui/komga-webui/package-lock.json
 +++ b/epub-reader-webui/komga-webui/package-lock.json
 @@ -938,18 +938,6 @@
@@ -118,7 +118,7 @@ index e51d4b4..5bcfe57 100644
        "version": "2.0.0",
        "resolved": "https://registry.npmjs.org/to-fast-properties/-/to-fast-properties-2.0.0.tgz",
 diff --git a/epub-reader-webui/ttu-ebook-reader/package-lock.json b/epub-reader-webui/ttu-ebook-reader/package-lock.json
-index cbe5b0f..716fae4 100644
+index cbe5b0fe..716fae43 100644
 --- a/epub-reader-webui/ttu-ebook-reader/package-lock.json
 +++ b/epub-reader-webui/ttu-ebook-reader/package-lock.json
 @@ -2944,21 +2944,6 @@
@@ -144,7 +144,7 @@ index cbe5b0f..716fae4 100644
        "version": "4.0.3",
        "resolved": "https://registry.npmjs.org/svelte-fa/-/svelte-fa-4.0.3.tgz",
 diff --git a/komelia-app/build.gradle.kts b/komelia-app/build.gradle.kts
-index ebdf7ee..77f56e2 100644
+index ebdf7eed..77f56e26 100644
 --- a/komelia-app/build.gradle.kts
 +++ b/komelia-app/build.gradle.kts
 @@ -2,6 +2,8 @@ import org.jetbrains.compose.desktop.application.dsl.TargetFormat
