@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index e41e53a1..78fc920b 100644
+index ea64888f..1ac2b016 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -123,6 +123,17 @@ android {
+@@ -127,6 +127,17 @@ android {
      lint {
          lintConfig = file("lint.xml")
      }
@@ -21,18 +21,18 @@ index e41e53a1..78fc920b 100644
  
  allOpen {
 diff --git a/app/build.properties b/app/build.properties
-index 27c2b0aa..679d7f56 100644
+index 606d01ff..dd7d5f31 100644
 --- a/app/build.properties
 +++ b/app/build.properties
 @@ -1,7 +1,7 @@
  #Build Properties
--#Wed Jun 11 16:34:06 EDT 2025
--version_build=19
+-#Sat Jan 10 11:59:55 EST 2026
+-version_build=43
 -version_major=3
-+#Tue Dec 02 12:45:08 WET 2025
++#Sat Jan 10 23:05:36 WET 2026
  version_minor=2
--version_patch=0
--version_store=69
+-version_patch=1
+-version_store=70
 +version_store=71
 +version_patch=2
 +version_build=0
