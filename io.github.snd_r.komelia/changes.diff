@@ -1,5 +1,5 @@
 diff --git a/komelia-app/build.gradle.kts b/komelia-app/build.gradle.kts
-index 556a1589..efbcb61f 100644
+index a47245f1..a7454ad1 100644
 --- a/komelia-app/build.gradle.kts
 +++ b/komelia-app/build.gradle.kts
 @@ -3,6 +3,8 @@ import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
@@ -11,20 +11,19 @@ index 556a1589..efbcb61f 100644
  
  plugins {
      alias(libs.plugins.kotlinMultiplatform)
-@@ -115,6 +117,12 @@ android {
-         versionCode = 14
-         versionName = libs.versions.app.version.get()
- 
+@@ -121,6 +123,11 @@ android {
+             AndroidVariant.PLAY -> "false"
+         }
+         buildConfigField("boolean", "ENABLE_SELF_UPDATES", enableSelfUpdates)
 +        ndk {
 +            abiFilters.apply {
 +                add("arm64-v8a")
 +            }
 +        }
-+
-         val enableSelfUpdates = when (androidVariant) {
-             AndroidVariant.STANDALONE -> "true"
-             AndroidVariant.FDROID -> "false"
-@@ -148,6 +156,17 @@ android {
+     }
+     packaging {
+         resources {
+@@ -148,6 +155,17 @@ android {
          sourceCompatibility = JavaVersion.VERSION_17
          targetCompatibility = JavaVersion.VERSION_17
      }

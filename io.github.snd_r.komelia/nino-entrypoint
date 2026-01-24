@@ -2,6 +2,17 @@
 
 # Uncomment this line to rebuild the compilation image
 docker build -t komelia-build-android-arm64 . -f ./cmake/android.Dockerfile
+rm -rf cmake/build*;
 docker run -v .:/build komelia-build-android-arm64 aarch64;
+if [[ "$?" != "0" ]]; then
+	echo "Ha fallado compilar las librerias";
+	exit 1;
+fi
 ./gradlew android-arm64_copyJniLibs;
+numero=$(ls -l ./komelia-infra/jni/src/androidMain/jniLibs/arm64-v8a | wc -l)
+echo "";
+echo "#################################";
+echo "Se han movido $numero librerias"
+echo "#################################";
+echo "";
 ./gradlew buildWebui;
