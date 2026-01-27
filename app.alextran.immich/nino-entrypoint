@@ -13,6 +13,7 @@ sed -i -e 's/^\/\/f //' android/app/build.gradle;
 
 flutter config --no-analytics;
 flutter pub get;
+npm install;
 make translation;
 
 cd $PUB_CACHE/hosted/pub.dev/geolocator_android-*/android;
