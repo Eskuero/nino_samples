@@ -45,7 +45,7 @@ index 3360617a3..75f084124 100644
 +    exclude group: 'com.google.android.gms'
 +}
 diff --git a/package.json b/package.json
-index ad325ac49..dadba6f3e 100644
+index dadfba8bf..4ca89a845 100644
 --- a/package.json
 +++ b/package.json
 @@ -6,5 +6,8 @@
