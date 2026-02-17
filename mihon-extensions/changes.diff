@@ -1,14 +1,14 @@
 diff --git a/common.gradle b/common.gradle
-index ddb630103..0ca5e6c18 100644
+index 2730b49d3..78065ec6e 100644
 --- a/common.gradle
 +++ b/common.gradle
-@@ -62,7 +62,6 @@ android {
+@@ -69,7 +69,6 @@ android {
  
      buildTypes {
          release {
--            signingConfig signingConfigs.release
-             minifyEnabled false
-             vcsInfo.include false
+-            signingConfig = signingConfigs.release
+             minifyEnabled = false
+             vcsInfo.include = false
          }
 diff --git a/core/src/main/AndroidManifest.xml b/core/src/main/AndroidManifest.xml
 index b56b3b9a5..ba4d43675 100644

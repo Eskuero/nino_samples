@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 27ccddf21..eb8fb49ef 100644
+index 65b493500..8dc71c025 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
 @@ -1,3 +1,7 @@
@@ -10,7 +10,7 @@ index 27ccddf21..eb8fb49ef 100644
  /*
   * Copyright © All Contributors. See LICENSE and AUTHORS in the root directory for details.
   */
-@@ -31,6 +35,12 @@ android {
+@@ -30,6 +34,12 @@ android {
          buildConfigField("boolean", "allowCustomCerts", "true")
  
          testInstrumentationRunner = "at.bitfire.davdroid.HiltTestRunner"
@@ -23,7 +23,7 @@ index 27ccddf21..eb8fb49ef 100644
      }
  
      java {
-@@ -83,8 +93,6 @@ android {
+@@ -82,8 +92,6 @@ android {
              proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules-release.pro")
  
              isShrinkResources = true
@@ -32,7 +32,7 @@ index 27ccddf21..eb8fb49ef 100644
          }
      }
  
-@@ -117,6 +125,18 @@ android {
+@@ -116,6 +124,18 @@ android {
              }
          }
      }

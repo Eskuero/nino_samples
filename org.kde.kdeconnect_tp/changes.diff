@@ -1,5 +1,5 @@
 diff --git a/build.gradle.kts b/build.gradle.kts
-index 80bd75fe..a5139650 100644
+index 05128699..dc35676b 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
 @@ -11,6 +11,9 @@ import org.objectweb.asm.ClassVisitor
@@ -12,10 +12,10 @@ index 80bd75fe..a5139650 100644
  
  buildscript {
      dependencies {
-@@ -50,6 +53,11 @@ android {
-         versionCode = 13404
-         versionName = "1.34.4"
-         proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+@@ -44,6 +47,11 @@ android {
+         versionCode = 13503
+         versionName = "1.35.3"
+         proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
 +        ndk {
 +            abiFilters.apply {
 +            add("arm64-v8a")
@@ -24,11 +24,10 @@ index 80bd75fe..a5139650 100644
      }
      buildFeatures {
          viewBinding = true
-@@ -135,6 +143,18 @@ android {
-             }
-         }
+@@ -97,6 +105,17 @@ android {
+         abortOnError = false
+         checkReleaseBuilds = false
      }
-+
 +    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
 +    val d2 = LocalDateTime.now()
 +    val minutes = Duration.between(d1, d2).getSeconds() / 60

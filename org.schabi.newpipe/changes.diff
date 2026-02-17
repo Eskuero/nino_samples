@@ -1,32 +1,32 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 62afd8522..85ebca691 100644
+index af0a5171b..f2599e634 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -3,6 +3,9 @@
-  * SPDX-License-Identifier: GPL-3.0-or-later
+@@ -4,6 +4,8 @@
   */
  
+ import com.android.build.api.dsl.ApplicationExtension
 +import java.time.LocalDateTime
 +import java.time.Duration;
-+
+ 
  plugins {
      alias(libs.plugins.android.application)
-     alias(libs.plugins.jetbrains.kotlin.android)
-@@ -124,6 +127,17 @@ android {
+@@ -130,6 +132,18 @@ configure<ApplicationExtension> {
              )
          }
      }
++
 +    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
-+    val d2 = LocalDateTime.now()
-+    val minutes = Duration.between(d1, d2).getSeconds() / 60
-+    val DateVersionCode = (2112312359 + minutes).toInt()
-+    androidComponents {
-+            onVariants { variant ->
-+                    variant.outputs.forEach { output ->
-+                            output.versionCode.set(DateVersionCode)
-+                   }
-+           }
-+    }
++	val d2 = LocalDateTime.now()
++	val minutes = Duration.between(d1, d2).getSeconds() / 60
++	val DateVersionCode = (2112312359 + minutes).toInt()
++	androidComponents {
++		onVariants { variant ->
++			variant.outputs.forEach { output ->
++				output.versionCode.set(DateVersionCode)
++			}
++		}
++	}
  }
  
  ksp {

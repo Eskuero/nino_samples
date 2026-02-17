@@ -1,17 +1,17 @@
 diff --git a/app-k9mail/build.gradle.kts b/app-k9mail/build.gradle.kts
-index f1321a88cd..5bdf4fce9f 100644
+index 3d510703b0..3866d128f7 100644
 --- a/app-k9mail/build.gradle.kts
 +++ b/app-k9mail/build.gradle.kts
 @@ -1,3 +1,7 @@
-+import com.android.build.api.variant.FilterConfiguration.FilterType.*
-+import java.time.LocalDateTime
++import com.android.build.api.variant.FilterConfiguration.FilterType.*;
++import java.time.LocalDateTime;
 +import java.time.Duration;
 +
  plugins {
      id(ThunderbirdPlugins.App.androidCompose)
      alias(libs.plugins.dependency.guard)
 @@ -21,6 +25,12 @@ android {
-         versionName = "15.0"
+         versionName = "16.1"
  
          buildConfigField("String", "CLIENT_INFO_APP_NAME", "\"K-9 Mail\"")
 +
