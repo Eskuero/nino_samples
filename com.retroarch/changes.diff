@@ -1,0 +1,72 @@
+diff --git a/pkg/android/phoenix/build.gradle b/pkg/android/phoenix/build.gradle
+index 6b0660c6cd..a8330f22be 100644
+--- a/pkg/android/phoenix/build.gradle
++++ b/pkg/android/phoenix/build.gradle
+@@ -5,7 +5,7 @@ buildscript {
+   }
+ 
+   dependencies {
+-    classpath 'com.android.tools.build:gradle:4.2.0'
++    classpath 'com.android.tools.build:gradle:7.2.2'
+   }
+ }
+ 
+@@ -39,8 +39,9 @@ android {
+       }
+     }
+     targetSdkVersion 28
+-    versionCode System.currentTimeSeconds().toInteger()
+-    versionName "${getManifestAttribute("versionName")}_GIT"
++    ndk {
++        abiFilters "arm64-v8a"
++    }
+   }
+ 
+   productFlavors {
+@@ -128,17 +129,6 @@ android {
+     }
+   }
+ 
+-  signingConfigs {
+-    if (project.hasProperty("RELEASE_STORE_FILE")) {
+-      release {
+-        storeFile file(RELEASE_STORE_FILE)
+-        storePassword RELEASE_STORE_PASSWORD
+-        keyAlias RELEASE_KEY_ALIAS
+-        keyPassword RELEASE_KEY_PASSWORD
+-      }
+-    }
+-  }
+-
+   buildTypes {
+     if (project.hasProperty("RELEASE_STORE_FILE")) {
+       release {
+@@ -151,6 +141,17 @@ android {
+       }
+     }
+   }
++  Calendar origin = Calendar.getInstance()
++  origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
++  Date d1 = origin.getTime()
++  Date d2 = new Date()
++  long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
++  def DateVersionCode = 2112312359 + minutes
++  android.applicationVariants.all { variant ->
++    variant.outputs.all { output ->
++      output.versionCodeOverride = DateVersionCode
++    }
++  }
+ }
+ 
+ def playCore = 'com.google.android.play:core:1.10.3'
+diff --git a/pkg/android/phoenix/gradle/wrapper/gradle-wrapper.properties b/pkg/android/phoenix/gradle/wrapper/gradle-wrapper.properties
+index 4d9ca16491..2e6e5897b5 100644
+--- a/pkg/android/phoenix/gradle/wrapper/gradle-wrapper.properties
++++ b/pkg/android/phoenix/gradle/wrapper/gradle-wrapper.properties
+@@ -1,5 +1,5 @@
+ distributionBase=GRADLE_USER_HOME
+ distributionPath=wrapper/dists
+-distributionUrl=https\://services.gradle.org/distributions/gradle-6.7.1-bin.zip
++distributionUrl=https\://services.gradle.org/distributions/gradle-7.3.3-bin.zip
+ zipStoreBase=GRADLE_USER_HOME
+ zipStorePath=wrapper/dists

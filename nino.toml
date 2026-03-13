@@ -99,6 +99,10 @@
 		followtags = false
 		[projects."im.molly.app".tasks.fossrelease]
 			exec = "assembleprodStoreRelease"
+	[projects."com.retroarch"]
+		subdir = "pkg/android/phoenix"
+		[projects."com.retroarch".tasks.normalrelease]
+			exec = "assembleNormalRelease"
 	[projects.Boorusama]
 		followtags = false
 		subdir = "android"

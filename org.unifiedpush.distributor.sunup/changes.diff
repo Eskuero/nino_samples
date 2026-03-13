@@ -1,33 +1,21 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 94bfb9cd..9b545072 100644
+index 5aa2f20..5e89d56 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -1,4 +1,7 @@
- import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-+import com.android.build.api.variant.FilterConfiguration.FilterType.*
-+import java.time.LocalDateTime
+@@ -1,6 +1,9 @@
+ import RunBundletoolTask.Companion.aapt2
+ import com.android.SdkConstants
+ import org.gradle.kotlin.dsl.register
++import com.android.build.api.variant.FilterConfiguration.FilterType.*;
++import java.time.LocalDateTime;
 +import java.time.Duration;
  
  plugins {
      alias(libs.plugins.android.application)
-@@ -56,6 +59,12 @@ android {
- 
-         // For espresso tests
-         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-+
-+        ndk {
-+            abiFilters.apply {
-+                add("arm64-v8a")
-+            }
-+        }
+@@ -58,6 +61,18 @@ android {
+         }
      }
  
-     dependenciesInfo {
-@@ -206,6 +215,18 @@ android {
-         textOutput = file("stdout")
-         textReport = true
-     }
-+
 +    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
 +    val d2 = LocalDateTime.now()
 +    val minutes = Duration.between(d1, d2).getSeconds() / 60
@@ -39,6 +27,7 @@ index 94bfb9cd..9b545072 100644
 +            }
 +        }
 +    }
++
+     namespace = "org.unifiedpush.distributor.sunup"
  }
  
- androidComponents {

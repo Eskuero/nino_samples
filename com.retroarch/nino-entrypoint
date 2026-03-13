@@ -1,0 +1,8 @@
+#!/bin/bash
+curl -Lo assets.zip https://buildbot.libretro.com/assets/frontend/glui_minimal_assets.zip
+unzip -o assets.zip -d 'assets'
+rm assets.zip
+sed -i -e 's/6.7.1/7.3.3/' pkg/android/phoenix/gradle/wrapper/gradle-wrapper.properties
+sed -i -e '/versionCode System/d' -e '/versionName "${/d' -e 's/4.2.0/7.2.2/' pkg/android/phoenix/build.gradle
+
+./fetch-submodules.sh

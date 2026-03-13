@@ -1,3 +1,7 @@
 Remote: https://github.com/keiyoushi/extensions-source/
 Branch: main
-HEAD: 595e8c2b387eec6470aedfe5c1663076760b8b2f
+HEAD: 730ec2261f1272e9e1b7826d816ba03bf35f4a33
+
+##############################################################################
+WARNING: This configuration matches the release published on the repository but new package builds are disabled
+##############################################################################
