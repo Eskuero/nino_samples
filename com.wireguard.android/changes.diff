@@ -1,19 +1,28 @@
 diff --git a/ui/build.gradle.kts b/ui/build.gradle.kts
-index 39bc753e..a18320bc 100644
+index 52ad0b78..3c015fb5 100644
 --- a/ui/build.gradle.kts
 +++ b/ui/build.gradle.kts
-@@ -2,6 +2,9 @@
+@@ -1,5 +1,8 @@
+ @file:Suppress("UnstableApiUsage")
  
- import org.jetbrains.kotlin.gradle.dsl.JvmTarget
- import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-+import com.android.build.api.variant.FilterConfiguration.FilterType.*
 +import java.time.LocalDateTime
 +import java.time.Duration;
- 
++
  val pkg: String = providers.gradleProperty("wireguardPackageName").get()
  
-@@ -26,6 +29,11 @@ android {
-         versionCode = providers.gradleProperty("wireguardVersionCode").get().toInt()
+ plugins {
+@@ -16,11 +19,20 @@ android {
+     }
+     namespace = pkg
+     defaultConfig {
++        val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
++        val d2 = LocalDateTime.now()
++        val minutes = Duration.between(d1, d2).getSeconds() / 60
++        val DateVersionCode = (2112312359 + minutes).toInt()
+         applicationId = pkg
+         minSdk = 24
+-        versionCode = providers.gradleProperty("wireguardVersionCode").get().toInt()
++        versionCode = DateVersionCode
          versionName = providers.gradleProperty("wireguardVersionName").get()
          buildConfigField("int", "MIN_SDK_VERSION", minSdk.toString())
 +        ndk {
@@ -24,21 +33,3 @@ index 39bc753e..a18320bc 100644
      }
      compileOptions {
          sourceCompatibility = JavaVersion.VERSION_17
-@@ -62,6 +70,17 @@ android {
-         warning += "MissingTranslation"
-         warning += "ImpliedQuantity"
-     }
-+    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
-+    val d2 = LocalDateTime.now()
-+    val minutes = Duration.between(d1, d2).getSeconds() / 60
-+    val DateVersionCode = (2112312359 + minutes).toInt()
-+    androidComponents {
-+        onVariants { variant ->
-+            variant.outputs.forEach { output ->
-+                output.versionCode.set(DateVersionCode)
-+            }
-+        }
-+    }
- }
- 
- dependencies {
