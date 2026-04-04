@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 42395d4..f407855 100644
+index d6e7bf8..3682e74 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -1,7 +1,7 @@
@@ -46,24 +46,27 @@ index 42395d4..f407855 100644
  }
  
 diff --git a/buildscripts/buildall.sh b/buildscripts/buildall.sh
-index 5620801..459c2c2 100755
+index dca590f..000310b 100755
 --- a/buildscripts/buildall.sh
 +++ b/buildscripts/buildall.sh
 @@ -7,7 +7,7 @@ cleanbuild=0
  nodeps=0
- clang=1
+ onlydeps=0
  target=mpv-android
 -arch=armv7l
 +arch=arm64
  
  getdeps () {
  	varname="dep_${1//-/_}[*]"
-@@ -175,6 +175,5 @@ setup_prefix
- build $target
+@@ -190,9 +190,4 @@ else
+ 	build $target
+ fi
  
- [ "$target" == "mpv-android" ] && \
--	ls -lh ../app/build/outputs/apk/{default,api29}/*/*.apk
- 
+-# be helpful and list the output APKs (if they exist)
+-if wasbuilt "mpv-android"; then
+-	ls -lh ../app/build/outputs/apk/{default,api29}/*/*.apk || :
+-fi
+-
  exit 0
 diff --git a/buildscripts/scripts/mpv-android.sh b/buildscripts/scripts/mpv-android.sh
 index af15281..d68c2c1 100755

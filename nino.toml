@@ -49,6 +49,7 @@
 		[projects."io.github.snd_r.komelia".tasks.release]
 			exec = "komelia-app:assembleRelease"
 	[projects."io.element.android.x"]
+		javahome = "/usr/lib/jvm/java-21-openjdk"
 		[projects."io.element.android.x".tasks.release]
 			exec = "app:assembleFdroidRelease"
 	[projects."org.joinmastodon.android.moshinda"]

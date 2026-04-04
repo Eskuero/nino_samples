@@ -1,5 +1,5 @@
 diff --git a/package.json b/package.json
-index 79d315bd4..d67257f16 100644
+index a094b6ae2..60c9c4623 100644
 --- a/package.json
 +++ b/package.json
 @@ -144,7 +144,7 @@
@@ -12,7 +12,7 @@ index 79d315bd4..d67257f16 100644
      "expo-blur": "~15.0.8",
      "expo-build-properties": "~1.0.10",
 diff --git a/yarn.lock b/yarn.lock
-index 592995e19..c3ef3f93c 100644
+index 68c91c7c2..bca44ca4d 100644
 --- a/yarn.lock
 +++ b/yarn.lock
 @@ -2692,25 +2692,25 @@

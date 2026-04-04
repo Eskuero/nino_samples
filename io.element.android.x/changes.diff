@@ -1,9 +1,9 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 5a3900d296..fe043175c3 100644
+index a4ee1c8459..fd355f1a32 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -27,6 +27,8 @@ import extension.setupDependencyInjection
- import extension.setupKover
+@@ -25,6 +25,8 @@ import extension.locales
+ import extension.setupDependencyInjection
  import extension.testCommonDependencies
  import java.util.Locale
 +import java.time.LocalDateTime
@@ -11,7 +11,7 @@ index 5a3900d296..fe043175c3 100644
  
  plugins {
      id("io.element.android-compose-application")
-@@ -51,11 +53,6 @@ android {
+@@ -47,11 +49,6 @@ android {
          versionCode = Versions.VERSION_CODE
          versionName = Versions.VERSION_NAME
  
@@ -23,7 +23,7 @@ index 5a3900d296..fe043175c3 100644
          // Ref: https://developer.android.com/studio/build/configure-apk-splits.html#configure-abi-split
          splits {
              // Configures multiple APKs based on ABI.
-@@ -72,9 +69,9 @@ android {
+@@ -68,9 +65,9 @@ android {
  
                  if (!buildingAppBundle) {
                      // Specifies a list of ABIs that Gradle should create APKs for.
@@ -35,7 +35,7 @@ index 5a3900d296..fe043175c3 100644
                  }
              }
          }
-@@ -126,7 +123,6 @@ android {
+@@ -122,7 +119,6 @@ android {
                  "login_redirect_scheme",
                  oidcRedirectSchemeBase,
              )
@@ -43,7 +43,7 @@ index 5a3900d296..fe043175c3 100644
  
              optimization {
                  enable = true
-@@ -231,6 +227,10 @@ androidComponents {
+@@ -227,6 +223,10 @@ androidComponents {
          "x86_64" to 4,
      )
  
@@ -54,7 +54,7 @@ index 5a3900d296..fe043175c3 100644
      onVariants { variant ->
          // Assigns a different version code for each output APK
          // other than the universal APK.
-@@ -241,7 +241,7 @@ androidComponents {
+@@ -237,7 +237,7 @@ androidComponents {
              val abiCode = abiVersionCodes[name] ?: 0
              // Assigns the new version code to output.versionCode, which changes the version code
              // for only the output APK, not for the variant itself.
