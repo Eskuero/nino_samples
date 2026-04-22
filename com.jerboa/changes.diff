@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index f31010df..6e79a08b 100644
+index 506f84d1..1aad42ab 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
 @@ -2,6 +2,9 @@
@@ -12,7 +12,7 @@ index f31010df..6e79a08b 100644
  
  plugins {
      id("com.android.application")
-@@ -39,6 +42,11 @@ android {
+@@ -37,6 +40,11 @@ android {
          vectorDrawables {
              useSupportLibrary = true
          }
@@ -23,8 +23,8 @@ index f31010df..6e79a08b 100644
 +        }
      }
  
-     lint {
-@@ -78,10 +86,6 @@ android {
+     flavorDimensions += "version"
+@@ -87,10 +95,6 @@ android {
  
      buildTypes {
          release {
@@ -35,7 +35,7 @@ index f31010df..6e79a08b 100644
              // Keep using until AGP 9.0 then research proguard rules to retain debug info for stack traces
              postprocessing {
                  isRemoveUnusedCode = true
-@@ -105,6 +109,17 @@ android {
+@@ -115,6 +119,17 @@ android {
      }
      // Match build tools with CI image
      buildToolsVersion = "36.0.0"

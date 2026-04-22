@@ -1,0 +1,29 @@
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+index 0ea1194..099de28 100644
+--- a/app/build.gradle.kts
++++ b/app/build.gradle.kts
+@@ -1,6 +1,8 @@
+ @file:Suppress("UnstableApiUsage")
+ 
+ import java.util.Properties
++import java.time.LocalDateTime
++import java.time.Duration
+ 
+ plugins {
+     alias(libs.plugins.android.application)
+@@ -30,7 +32,11 @@ android {
+         applicationId = "com.aryan.reader"
+         minSdk = 26
+         targetSdk = 35
+-        versionCode = 45
++        val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
++        val d2 = LocalDateTime.now()
++        val minutes = Duration.between(d1, d2).getSeconds() / 60
++        val DateVersionCode = (2112312359 + minutes).toInt()
++        versionCode = DateVersionCode
+         versionName = "1.0.45"
+ 
+         resourceConfigurations += setOf("en", "ar", "de", "tr")
+diff --git a/gradlew b/gradlew
+old mode 100644
+new mode 100755

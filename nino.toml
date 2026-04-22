@@ -130,6 +130,9 @@
 	[projects.LibreTorrent]
 		[projects.LibreTorrent.tasks.baserelease]
 			exec = "assembleBaseRelease"
+	[projects."com.aryan.reader.oss"]
+		[projects."com.aryan.reader.oss".tasks.ossrelease]
+			exec = "assembleOssRelease"
 	[projects.mihon-extensions]
 		followtags = false
 		[projects.mihon-extensions.tasks.komga]
@@ -137,6 +140,9 @@
 	[projects."com.zaneschepke.wireguardautotunnel"]
 		tagregex = "^(?!.*latest|nightly)\\d.*$"
 		[projects."com.zaneschepke.wireguardautotunnel".tasks.fdroidrelease]
+			exec = "assembleFdroidRelease"
+	[projects."com.jerboa"]
+		[projects."com.jerboa".tasks.fdroidrelease]
 			exec = "assembleFdroidRelease"
 
 
