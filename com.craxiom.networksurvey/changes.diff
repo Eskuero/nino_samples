@@ -1,19 +1,25 @@
 diff --git a/networksurvey/build.gradle b/networksurvey/build.gradle
-index 3c5da262..808fc62b 100644
+index b8515f71..5faf4e76 100644
 --- a/networksurvey/build.gradle
 +++ b/networksurvey/build.gradle
-@@ -42,8 +42,8 @@ android {
+@@ -43,14 +43,12 @@ android {
          abi {
              enable = true
              reset()
 -            include "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
--            universalApk = true
 +            include "arm64-v8a"
+             // Universal APK is only useful for F-Droid distribution. Skip it for
+             // debug builds so Android Studio always deploys the matching per-ABI
+             // APK (which carries the splitabi versionCode), avoiding install
+             // downgrade conflicts when the device already has a per-ABI debug APK.
+-            universalApk = !gradle.startParameter.taskNames.any {
+-                it.toLowerCase().contains("debug")
+-            }
 +            universalApk = false
          }
      }
  
-@@ -126,11 +126,18 @@ android {
+@@ -133,11 +131,18 @@ android {
  
  }
  
@@ -28,7 +34,7 @@ index 3c5da262..808fc62b 100644
      variant.outputs.each { output ->
          def baseAbiVersionCode = project.ext.abiCodes.get(output.getFilter(com.android.build.OutputFile.ABI))
          if (baseAbiVersionCode != null) {
--            output.versionCodeOverride = baseAbiVersionCode * 10000 + variant.versionCode
+-            output.versionCodeOverride = variant.versionCode * 1000 + baseAbiVersionCode
 +            output.versionCodeOverride = DateVersionCode + variant.versionCode
          }
      }

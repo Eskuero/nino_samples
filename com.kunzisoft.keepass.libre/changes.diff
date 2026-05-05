@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index ef2569b67..371d8a05b 100644
+index 1e09aad6c..ece558716 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
 @@ -27,6 +27,9 @@ android {
@@ -29,4 +29,4 @@ index ef2569b67..371d8a05b 100644
 +    }
  }
  
- def room_version = "2.5.1"
+ def room_version = "2.6.1"
