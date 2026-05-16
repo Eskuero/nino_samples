@@ -74,6 +74,8 @@
 		javahome = "/usr/lib/jvm/java-11-openjdk"
 	[projects."at.bitfire.davdroid"]
 		javahome = "/usr/lib/jvm/java-21-openjdk"
+	[projects."com.omgodse.notally"]
+		javahome = "/usr/lib/jvm/java-21-openjdk"
 	[projects."com.google.android.apps.photos"]
 		[projects."com.google.android.apps.photos".tasks.photosonlyrelease]
 			exec = "assemblePhotosonlyRelease"

@@ -1,32 +1,41 @@
 diff --git a/app-ose/build.gradle.kts b/app-ose/build.gradle.kts
-index def3e75cf..04d98ee88 100644
+index c08ce7c42..3d13520f7 100644
 --- a/app-ose/build.gradle.kts
 +++ b/app-ose/build.gradle.kts
-@@ -2,6 +2,9 @@
+@@ -2,6 +2,10 @@
   * Copyright © All Contributors. See LICENSE and AUTHORS in the root directory for details.
   */
  
 +import java.time.LocalDateTime
 +import java.time.Duration;
 +
++
  plugins {
      alias(libs.plugins.android.application)
      alias(libs.plugins.compose.compiler)
-@@ -18,8 +21,12 @@ android {
+@@ -29,6 +33,12 @@ android {
+     defaultConfig {
+         minSdk = 24        // Android 7.0
          targetSdk = 36     // Android 16
- 
-         applicationId = "at.bitfire.davdroid"
++        applicationId = "at.bitfire.davdroid"
++
 +        val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
 +        val d2 = LocalDateTime.now()
 +        val minutes = Duration.between(d1, d2).getSeconds() / 60
 +        val DateVersionCode = (2112312359 + minutes).toInt()
  
--        versionCode = 405100003
+         applicationId = "at.bitfire.davdroid"
+ 
+@@ -47,7 +57,7 @@ android {
+          *   every release with the same major/minor/patch version (alpha-1, alpha-2, beta-1, ..., final).
+          *   So usually the first pre-release has `0000` and the final version has the greatest number.
+          */
+-        versionCode = 405120004
 +        versionCode = DateVersionCode
-         versionName = "4.5.10"
+         versionName = "4.5.12"
  
          base.archivesName = "davx5-$versionCode-$versionName"
-@@ -86,9 +93,6 @@ android {
+@@ -122,9 +132,6 @@ android {
              proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules-release.pro")
  
              isShrinkResources = true
@@ -36,21 +45,10 @@ index def3e75cf..04d98ee88 100644
          }
      }
  }
-@@ -127,4 +131,4 @@ dependencies {
+@@ -163,4 +170,4 @@ dependencies {
      implementation(libs.guava)
      implementation(libs.okhttp.base)
      implementation(libs.openid.appauth)
 -}
 \ No newline at end of file
 +}
-diff --git a/gradle.properties b/gradle.properties
-index 68d2b86cf..ea0c747e2 100644
---- a/gradle.properties
-+++ b/gradle.properties
-@@ -22,4 +22,4 @@ android.newDsl=false
- # org.gradle.caching=true
- 
- # temporary fix for https://github.com/google/ksp/issues/2072
--# ksp.incremental=false
-\ No newline at end of file
-+# ksp.incremental=false

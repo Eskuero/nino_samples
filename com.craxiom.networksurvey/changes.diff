@@ -1,8 +1,8 @@
 diff --git a/networksurvey/build.gradle b/networksurvey/build.gradle
-index b8515f71..5faf4e76 100644
+index c6e78ab1..4dc2dc1b 100644
 --- a/networksurvey/build.gradle
 +++ b/networksurvey/build.gradle
-@@ -43,14 +43,12 @@ android {
+@@ -37,14 +37,12 @@ android {
          abi {
              enable = true
              reset()
@@ -19,7 +19,7 @@ index b8515f71..5faf4e76 100644
          }
      }
  
-@@ -133,11 +131,18 @@ android {
+@@ -127,11 +125,18 @@ android {
  
  }
  

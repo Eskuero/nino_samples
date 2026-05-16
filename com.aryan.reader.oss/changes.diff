@@ -1,29 +1,29 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 9e2d5a2..56fb896 100644
+index 4b4ef44..6f8665f 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -1,6 +1,8 @@
- @file:Suppress("UnstableApiUsage")
- 
- import java.util.Properties
+@@ -4,6 +4,8 @@ import java.util.Properties
+ import java.io.StringReader
+ import javax.xml.parsers.DocumentBuilderFactory
+ import org.xml.sax.InputSource
 +import java.time.LocalDateTime
 +import java.time.Duration
  
  plugins {
      alias(libs.plugins.android.application)
-@@ -29,7 +31,11 @@ android {
+@@ -57,7 +59,11 @@ android {
          applicationId = "com.aryan.reader"
          minSdk = 26
          targetSdk = 35
--        versionCode = 51
+-        versionCode = 52
 +        val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
 +        val d2 = LocalDateTime.now()
 +        val minutes = Duration.between(d1, d2).getSeconds() / 60
 +        val DateVersionCode = (2112312359 + minutes).toInt()
 +        versionCode = DateVersionCode
-         versionName = "1.0.47"
+         versionName = "1.0.48"
  
-         resourceConfigurations += setOf("en", "ar", "de", "tr", "fr", "ru")
+         resourceConfigurations += configuredAppLocaleTags()
 diff --git a/gradlew b/gradlew
 old mode 100644
 new mode 100755
