@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 4b4ef44..6f8665f 100644
+index 8d29580..f88b4da 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
 @@ -4,6 +4,8 @@ import java.util.Properties
@@ -15,13 +15,13 @@ index 4b4ef44..6f8665f 100644
          applicationId = "com.aryan.reader"
          minSdk = 26
          targetSdk = 35
--        versionCode = 52
+-        versionCode = 53
 +        val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
 +        val d2 = LocalDateTime.now()
 +        val minutes = Duration.between(d1, d2).getSeconds() / 60
 +        val DateVersionCode = (2112312359 + minutes).toInt()
 +        versionCode = DateVersionCode
-         versionName = "1.0.48"
+         versionName = "1.0.49"
  
          resourceConfigurations += configuredAppLocaleTags()
 diff --git a/gradlew b/gradlew
