@@ -32,7 +32,7 @@
 	[projects."net.typeblog.shelter"]
 		followtags = false
 	[projects."org.schabi.newpipe"]
-		followtags = false
+		followtags = true
 	[projects."org.fossify.gallery"]
 		[projects."org.fossify.gallery".tasks.fossrelease]
 			exec = "assembleFossRelease"
