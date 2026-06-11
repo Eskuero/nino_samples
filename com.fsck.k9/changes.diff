@@ -1,5 +1,5 @@
 diff --git a/app-k9mail/build.gradle.kts b/app-k9mail/build.gradle.kts
-index 04fe6bceca..ae79bf7b62 100644
+index ac953e77f1..8af3e301a5 100644
 --- a/app-k9mail/build.gradle.kts
 +++ b/app-k9mail/build.gradle.kts
 @@ -1,3 +1,6 @@
@@ -9,7 +9,7 @@ index 04fe6bceca..ae79bf7b62 100644
  plugins {
      id(ThunderbirdPlugins.App.androidCompose)
      alias(libs.plugins.dependency.guard)
-@@ -13,11 +16,21 @@ android {
+@@ -13,11 +16,20 @@ android {
      defaultConfig {
          applicationId = "com.fsck.k9"
          testApplicationId = "com.fsck.k9.tests"
@@ -18,12 +18,11 @@ index 04fe6bceca..ae79bf7b62 100644
 +        val minutes = Duration.between(d1, d2).getSeconds() / 60
 +        val DateVersionCode = (2112312359 + minutes).toInt()
  
--        versionCode = 39035
+-        versionCode = 39037
 +        versionCode = DateVersionCode
-         versionName = "19.0"
+         versionName = "19.2"
  
          buildConfigField("String", "CLIENT_INFO_APP_NAME", "\"K-9 Mail\"")
-+
 +        ndk {
 +            abiFilters.apply {
 +                add("arm64-v8a")

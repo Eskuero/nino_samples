@@ -1,5 +1,5 @@
 diff --git a/networksurvey/build.gradle b/networksurvey/build.gradle
-index c6e78ab1..4dc2dc1b 100644
+index abc76377..f026c2d9 100644
 --- a/networksurvey/build.gradle
 +++ b/networksurvey/build.gradle
 @@ -37,14 +37,12 @@ android {

@@ -1,5 +1,5 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 8d29580..f88b4da 100644
+index de561f2..3bc63b6 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
 @@ -4,6 +4,8 @@ import java.util.Properties
@@ -24,6 +24,18 @@ index 8d29580..f88b4da 100644
          versionName = "1.0.49"
  
          resourceConfigurations += configuredAppLocaleTags()
+@@ -71,6 +77,11 @@ android {
+         }
+         buildConfigField("boolean", "IS_PRO", "false")
+         buildConfigField("boolean", "IS_OFFLINE", "false")
++		ndk {
++			abiFilters.apply {
++				add("arm64-v8a")
++			}
++		}
+     }
+ 
+     flavorDimensions += "version"
 diff --git a/gradlew b/gradlew
 old mode 100644
 new mode 100755

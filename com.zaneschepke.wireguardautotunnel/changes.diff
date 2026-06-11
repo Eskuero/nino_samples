@@ -1,16 +1,17 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 8658ec42..5cfadb81 100644
+index 98b18e4b..10995432 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -1,5 +1,7 @@
- import com.android.build.gradle.internal.api.BaseVariantOutputImpl
+@@ -1,6 +1,8 @@
+ import com.android.build.api.dsl.ApplicationExtension
+ import com.android.build.api.variant.FilterConfiguration
  import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 +import java.time.LocalDateTime
 +import java.time.Duration;
  
  plugins {
      alias(libs.plugins.android.application)
-@@ -31,8 +33,8 @@ android {
+@@ -48,8 +50,8 @@ configure<ApplicationExtension> {
          abi {
              isEnable = !project.hasProperty("noSplits")
              reset()
@@ -21,7 +22,7 @@ index 8658ec42..5cfadb81 100644
          }
      }
  
-@@ -78,7 +80,6 @@ android {
+@@ -97,7 +99,6 @@ configure<ApplicationExtension> {
                  getDefaultProguardFile("proguard-android-optimize.txt"),
                  "proguard-rules.pro",
              )
@@ -29,11 +30,11 @@ index 8658ec42..5cfadb81 100644
              resValue("string", "provider", "\"${Constants.APP_NAME}.provider\"")
          }
  
-@@ -167,6 +168,17 @@ android {
-             output.outputFileName = outputFileName
+@@ -177,6 +178,17 @@ androidComponents {
+             output.outputFileName.set(outputFileName)
          }
      }
-+    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
++	val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
 +	val d2 = LocalDateTime.now()
 +	val minutes = Duration.between(d1, d2).getSeconds() / 60
 +	val DateVersionCode = (2112312359 + minutes).toInt()

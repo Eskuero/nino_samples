@@ -1,41 +1,51 @@
 diff --git a/app-ose/build.gradle.kts b/app-ose/build.gradle.kts
-index c08ce7c42..3d13520f7 100644
+index c7adfce4a..5f6b13de1 100644
 --- a/app-ose/build.gradle.kts
 +++ b/app-ose/build.gradle.kts
-@@ -2,6 +2,10 @@
+@@ -2,6 +2,9 @@
   * Copyright © All Contributors. See LICENSE and AUTHORS in the root directory for details.
   */
  
 +import java.time.LocalDateTime
 +import java.time.Duration;
 +
-+
  plugins {
      alias(libs.plugins.android.application)
      alias(libs.plugins.compose.compiler)
-@@ -29,6 +33,12 @@ android {
-     defaultConfig {
+@@ -30,6 +33,11 @@ android {
          minSdk = 24        // Android 7.0
          targetSdk = 36     // Android 16
-+        applicationId = "at.bitfire.davdroid"
-+
+ 
 +        val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
 +        val d2 = LocalDateTime.now()
 +        val minutes = Duration.between(d1, d2).getSeconds() / 60
 +        val DateVersionCode = (2112312359 + minutes).toInt()
- 
++
          applicationId = "at.bitfire.davdroid"
  
-@@ -47,7 +57,7 @@ android {
+         /*
+@@ -47,7 +55,7 @@ android {
           *   every release with the same major/minor/patch version (alpha-1, alpha-2, beta-1, ..., final).
           *   So usually the first pre-release has `0000` and the final version has the greatest number.
           */
--        versionCode = 405120004
+-        versionCode = 405140001
 +        versionCode = DateVersionCode
-         versionName = "4.5.12"
+         versionName = "4.5.14"
  
          base.archivesName = "davx5-$versionCode-$versionName"
-@@ -122,9 +132,6 @@ android {
+@@ -66,6 +74,11 @@ android {
+         resValue("string", "authority_debug_provider", debugInfoAuthority)
+ 
+         // Currently no instrumentation tests for app-ose, so no testInstrumentationRunner
++		ndk {
++			abiFilters.apply {
++				add("arm64-v8a")
++			}
++		}
+     }
+ 
+     compileOptions {
+@@ -122,9 +135,6 @@ android {
              proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules-release.pro")
  
              isShrinkResources = true
@@ -45,7 +55,7 @@ index c08ce7c42..3d13520f7 100644
          }
      }
  }
-@@ -163,4 +170,4 @@ dependencies {
+@@ -163,4 +173,4 @@ dependencies {
      implementation(libs.guava)
      implementation(libs.okhttp.base)
      implementation(libs.openid.appauth)

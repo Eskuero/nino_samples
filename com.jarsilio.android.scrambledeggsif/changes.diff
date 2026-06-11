@@ -1,23 +1,26 @@
-diff --git a/app/build.gradle b/app/build.gradle
-index 2191ad7..ac17daf 100644
---- a/app/build.gradle
-+++ b/app/build.gradle
-@@ -59,6 +59,18 @@ android {
-         disable 'MissingTranslation'
-     }
-     namespace 'com.jarsilio.android.scrambledeggsif'
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+index 6e115fb..5d21cf5 100644
+--- a/app/build.gradle.kts
++++ b/app/build.gradle.kts
+@@ -1,3 +1,6 @@
++import java.time.LocalDateTime
++import java.time.Duration
 +
-+    Calendar origin = Calendar.getInstance()
-+    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
-+    Date d1 = origin.getTime()
-+    Date d2 = new Date()
-+    long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
-+    def DateVersionCode = 2112312359 + minutes
-+    android.applicationVariants.all { variant ->
-+        variant.outputs.all { output ->
-+            output.versionCodeOverride = DateVersionCode
-+        }
-+    }
- }
+ plugins {
+     id("com.android.application")
+     alias(libs.plugins.aboutlibraries)
+@@ -10,9 +13,13 @@ android {
  
- dependencies {
+     defaultConfig {
+         applicationId = "com.jarsilio.android.scrambledeggsif"
++		val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
++		val d2 = LocalDateTime.now()
++		val minutes = Duration.between(d1, d2).getSeconds() / 60
++		val DateVersionCode = (2112312359 + minutes).toInt()
+         minSdk = 23
+         targetSdk = 37
+-        versionCode = 79
++        versionCode = DateVersionCode
+         versionName = "1.7.16"
+         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+         vectorDrawables.useSupportLibrary = true

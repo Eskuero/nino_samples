@@ -1,8 +1,8 @@
 diff --git a/build.gradle b/build.gradle
-index 2ca8ec60e..79be72b39 100644
+index 4014727e8..31e0c5ed1 100644
 --- a/build.gradle
 +++ b/build.gradle
-@@ -179,6 +179,9 @@ android {
+@@ -172,6 +172,9 @@ android {
          testApplicationId 'org.futo.inputmethod.latin.tests'
          testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
          vectorDrawables.useSupportLibrary = false
@@ -12,10 +12,11 @@ index 2ca8ec60e..79be72b39 100644
      }
  
      bundle {
-@@ -366,6 +369,17 @@ android {
-         mlModelBinding true
-         buildConfig true
+@@ -365,6 +368,18 @@ android {
+             useLegacyPackaging = true
+         }
      }
++
 +    Calendar origin = Calendar.getInstance()
 +    origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
 +    Date d1 = origin.getTime()
@@ -30,7 +31,7 @@ index 2ca8ec60e..79be72b39 100644
  }
  
  dependencies {
-@@ -434,4 +448,4 @@ dependencies {
+@@ -435,4 +450,4 @@ dependencies {
  }
  
  project.logger.lifecycle("versionCode = ${android.defaultConfig.versionCode}")

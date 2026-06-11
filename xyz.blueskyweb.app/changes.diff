@@ -1,13 +1,47 @@
 diff --git a/package.json b/package.json
-index 2acd4ea52..dec317d18 100644
+index a879182d9..7038c93d8 100644
 --- a/package.json
 +++ b/package.json
-@@ -127,7 +127,7 @@
-     "@react-navigation/bottom-tabs": "^7.15.5",
-     "@react-navigation/native": "^7.1.33",
-     "@react-navigation/native-stack": "^7.14.4",
--    "@sentry/react-native": "~6.20.0",
-+    "@sentry/react-native": "~6.22.0",
-     "@tanstack/query-async-storage-persister": "^5.96.2",
-     "@tanstack/react-query": "^5.96.2",
-     "@tanstack/react-query-persist-client": "^5.96.2",
+@@ -207,6 +207,7 @@
+     "multiformats": "^13.4.2",
+     "nanoid": "^5.0.5",
+     "normalize-url": "^8.0.0",
++    "pnpm": "^11.5.2",
+     "psl": "1.9.0",
+     "radix-ui": "^1.4.3",
+     "react": "19.1.0",
+diff --git a/pnpm-lock.yaml b/pnpm-lock.yaml
+index 0ac8974cf..c580d5101 100644
+--- a/pnpm-lock.yaml
++++ b/pnpm-lock.yaml
+@@ -583,6 +583,9 @@ importers:
+       normalize-url:
+         specifier: ^8.0.0
+         version: 8.1.1
++      pnpm:
++        specifier: ^11.5.2
++        version: 11.5.2
+       psl:
+         specifier: 1.9.0
+         version: 1.9.0
+@@ -7554,6 +7557,11 @@ packages:
+     resolution: {integrity: sha512-40QW5YalBNfQo5yRYmiw7Yz6TKKVr3h6970B2YE+3fQpsWcrbj1PzJgxeJ19DRQjhMbKPIuMY8rFaXc8moolVw==}
+     engines: {node: '>=10.13.0'}
+ 
++  pnpm@11.5.2:
++    resolution: {integrity: sha512-ccYx44IGbvwlYl1c8CkHXeB7YbN/bic1D72Esb2lhkyMGWetwoB3a0XDCnFcA1mjvgj+9C1bsJ4rmQKZeWkpFg==}
++    engines: {node: '>=22.13'}
++    hasBin: true
++
+   pofile@1.1.4:
+     resolution: {integrity: sha512-r6Q21sKsY1AjTVVjOuU02VYKVNQGJNQHjTIvs4dEbeuuYfxgYk/DGD2mqqq4RDaVkwdSq0VEtmQUOPe/wH8X3g==}
+ 
+@@ -17332,6 +17340,8 @@ snapshots:
+ 
+   pngjs@5.0.0: {}
+ 
++  pnpm@11.5.2: {}
++
+   pofile@1.1.4: {}
+ 
+   possible-typed-array-names@1.1.0: {}

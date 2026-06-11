@@ -1,6 +1,10 @@
+Entering 'java/assets/futo-swipe'
+https://huggingface.co/futo-org/futo-swipe
+93931877c0083d0de7f51fad82325dcbe10421bf
+
 Entering 'java/assets/layouts'
 https://github.com/futo-org/futo-keyboard-layouts.git
-ab7782fe867b3c433b4da48336b121efa276c3ed
+2e586def0c24764adbac0312ce65b16f8caf147a
 
 Entering 'java/assets/themes'
 https://gitlab.futo.org/keyboard/seasonal-themes.git
@@ -12,7 +16,7 @@ d87d9dbdf3966bbe18413be375dab2f6c7bbdfdd
 
 Entering 'libs'
 https://gitlab.futo.org/keyboard/android-libs.git
-12e6a93490b80d3c0489d4963cf116fd0718d12a
+4b6ddbf9d4ae1abe379c6df609bafbb8be9a9e7c
 
 Entering 'translations'
 https://gitlab.futo.org/keyboard/keyboard-translations-public.git
