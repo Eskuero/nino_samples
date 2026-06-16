@@ -6,6 +6,7 @@ nvm install 24;
 nvm use 24;
 yarn add expo@54.0.34;
 cp google-services.json.example google-services.json;
+pnpm intl:build;
 EXPO_NO_GIT_STATUS=1 npx --yes expo prebuild --platform android --clean;
 
 # Set the date and time in seconds since epoch (January 1, 1970)

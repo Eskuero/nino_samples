@@ -1,41 +1,34 @@
-diff --git a/app/build.gradle b/app/build.gradle
-index 4ffde15..963a9ee 100755
---- a/app/build.gradle
-+++ b/app/build.gradle
-@@ -14,6 +14,9 @@ android {
- 		targetSdkVersion 34
- 		versionCode 935
- 		versionName "0.9.99"
-+		ndk {
-+			abiFilters "arm64-v8a"
-+		}
- 	}
- 
- 	buildFeatures {
-@@ -64,7 +67,6 @@ android {
- 		}
- 		releaseConfig {
- 			dimension "default"
--			signingConfig = signingConfigs.dev
- 			applicationId "com.dimowner.audiorecorder"
- 		}
- 	}
-@@ -77,6 +79,18 @@ android {
- 	lintOptions {
- 		abortOnError false
- 	}
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+index f874b18..08156b0 100644
+--- a/app/build.gradle.kts
++++ b/app/build.gradle.kts
+@@ -1,3 +1,6 @@
++import java.time.LocalDateTime
++import java.time.Duration
 +
-+	Calendar origin = Calendar.getInstance()
-+	origin.set(2021, Calendar.DECEMBER, 31, 23, 59)
-+	Date d1 = origin.getTime()
-+	Date d2 = new Date()
-+	long minutes = (d2.getTime() - d1.getTime()) / 1000 / 60
-+	def DateVersionCode = 2112312359 + minutes
-+	android.applicationVariants.all { variant ->
-+		variant.outputs.all { output ->
-+			output.versionCodeOverride = DateVersionCode
-+		}
-+	}
- }
+ plugins {
+     alias(libs.plugins.android.application)
+     alias(libs.plugins.kotlin.android)
+@@ -18,9 +21,13 @@ android {
  
- // Remove not needed buildVariants.
+     defaultConfig {
+         applicationId = "com.dimowner.audiorecorder"
++		val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
++		val d2 = LocalDateTime.now()
++		val minutes = Duration.between(d1, d2).getSeconds() / 60
++		val DateVersionCode = (2112312359 + minutes).toInt()
+         minSdk = 26
+         targetSdk = 37
+-        versionCode = 942
++        versionCode = DateVersionCode
+         versionName = "2.0.2"
+ 
+         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+@@ -68,7 +75,6 @@ android {
+         }
+         create("releaseConfig") {
+             dimension = "default"
+-            signingConfig = signingConfigs.getByName("dev")
+             applicationId = "com.dimowner.audiorecorder"
+         }
+     }

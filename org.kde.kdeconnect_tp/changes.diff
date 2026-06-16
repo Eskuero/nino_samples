@@ -1,5 +1,5 @@
 diff --git a/build.gradle.kts b/build.gradle.kts
-index 91103c7d..a70f7497 100644
+index 94efde01..f6b22413 100644
 --- a/build.gradle.kts
 +++ b/build.gradle.kts
 @@ -11,6 +11,9 @@ import org.objectweb.asm.ClassVisitor
@@ -13,8 +13,8 @@ index 91103c7d..a70f7497 100644
  buildscript {
      dependencies {
 @@ -44,6 +47,11 @@ android {
-         versionCode = 13508
-         versionName = "1.35.8"
+         versionCode = 13509
+         versionName = "1.35.9"
          proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
 +        ndk {
 +            abiFilters.apply {
@@ -28,17 +28,17 @@ index 91103c7d..a70f7497 100644
          abortOnError = false
          checkReleaseBuilds = false
      }
-+    val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
-+    val d2 = LocalDateTime.now()
-+    val minutes = Duration.between(d1, d2).getSeconds() / 60
-+    val DateVersionCode = (2112312359 + minutes).toInt()
-+    androidComponents {
-+        onVariants { variant ->
-+            variant.outputs.forEach { output ->
-+                output.versionCode.set(DateVersionCode)
-+            }
-+        }
-+    }
++	val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
++	val d2 = LocalDateTime.now()
++	val minutes = Duration.between(d1, d2).getSeconds() / 60
++	val DateVersionCode = (2112312359 + minutes).toInt()
++	androidComponents {
++		onVariants { variant ->
++			variant.outputs.forEach { output ->
++				output.versionCode.set(DateVersionCode)
++			}
++		}
++	}
  }
  
  /**

@@ -1,8 +1,8 @@
 diff --git a/app/build.gradle b/app/build.gradle
-index 2df13d1a..d587b951 100644
+index dfeed241..71d253e1 100644
 --- a/app/build.gradle
 +++ b/app/build.gradle
-@@ -30,7 +30,7 @@ android {
+@@ -34,7 +34,7 @@ android {
              enable true
              reset()
              //noinspection ChromeOsAbiSupport
@@ -11,7 +11,7 @@ index 2df13d1a..d587b951 100644
              universalApk false
          }
      }
-@@ -85,6 +85,17 @@ android {
+@@ -89,6 +89,17 @@ android {
          buildConfig true
      }
  

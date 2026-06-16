@@ -106,6 +106,9 @@
 		subdir = "pkg/android/phoenix"
 		[projects."com.retroarch".tasks.normalrelease]
 			exec = "assembleNormalRelease"
+	[projects."com.dimowner.audiorecorder"]
+		[projects."com.dimowner.audiorecorder".tasks.releaseconfig]
+			exec = "assembleReleaseConfigRelease"
 	[projects.Boorusama]
 		followtags = false
 		subdir = "android"
