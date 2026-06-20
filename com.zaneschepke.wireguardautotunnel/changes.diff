@@ -1,28 +1,27 @@
 diff --git a/app/build.gradle.kts b/app/build.gradle.kts
-index 98b18e4b..10995432 100644
+index 74d2f60f..1bf4f857 100644
 --- a/app/build.gradle.kts
 +++ b/app/build.gradle.kts
-@@ -1,6 +1,8 @@
+@@ -1,5 +1,7 @@
  import com.android.build.api.dsl.ApplicationExtension
  import com.android.build.api.variant.FilterConfiguration
- import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 +import java.time.LocalDateTime
 +import java.time.Duration;
  
  plugins {
      alias(libs.plugins.android.application)
-@@ -48,8 +50,8 @@ configure<ApplicationExtension> {
-         abi {
-             isEnable = !project.hasProperty("noSplits")
+@@ -41,8 +43,8 @@ configure<ApplicationExtension> {
+             val noSplits = providers.gradleProperty("noSplits").isPresent
+             isEnable = !noSplits
              reset()
 -            include("armeabi-v7a", "arm64-v8a")
--            isUniversalApk = !project.hasProperty("noSplits")
+-            isUniversalApk = !noSplits
 +            include("arm64-v8a")
 +            isUniversalApk = false
          }
      }
  
-@@ -97,7 +99,6 @@ configure<ApplicationExtension> {
+@@ -93,7 +95,6 @@ configure<ApplicationExtension> {
                  getDefaultProguardFile("proguard-android-optimize.txt"),
                  "proguard-rules.pro",
              )
@@ -30,10 +29,10 @@ index 98b18e4b..10995432 100644
              resValue("string", "provider", "\"${Constants.APP_NAME}.provider\"")
          }
  
-@@ -177,6 +178,17 @@ androidComponents {
-             output.outputFileName.set(outputFileName)
-         }
+@@ -138,6 +139,17 @@ configure<ApplicationExtension> {
+         resValues = true
      }
+     packaging { resources { excludes += "/META-INF/{AL2.0,LGPL2.1}" } }
 +	val d1 = LocalDateTime.of(2021, 12, 31, 23, 59);
 +	val d2 = LocalDateTime.now()
 +	val minutes = Duration.between(d1, d2).getSeconds() / 60
@@ -47,4 +46,4 @@ index 98b18e4b..10995432 100644
 +	}
  }
  
- dependencies {
+ androidComponents {
